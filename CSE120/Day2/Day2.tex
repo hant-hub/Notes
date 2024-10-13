@@ -1,0 +1,106 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{CSE 120}\\Day 2 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Levels of Transformation\\
+        Ultimately all computations have to
+        eventually become voltages and moving
+        electrons.
+        \begin{mdframed}
+            How do we conceptualize
+            and solve problems?
+            
+            \vspace{10}
+
+            Create Levels of abstraction
+            Compilers, asm, ISA, components
+            micro-ops, etc.
+
+            We create space between us and the computer
+            by grouping together large groups of operations
+            into abstractions, which have higher level, more
+            informationally dense interfaces.
+        \end{mdframed}
+
+    \item What is architecture?
+        \begin{mdframed}
+            Architecture is ISA + microarchitecture.
+
+            \vspace{10}
+
+            The ISA is the set of assembly instructions.
+            Informs how to format and pass instructions to
+            a CPU.
+
+            Goal is to open black box of hardware interaction
+            with ISA.
+
+            ISA should be viewed as a protocol, or language,
+            or format for communicating with a CPU.
+
+            ISA's tend to stick around since it would require
+            a major amount of retooling in order to change
+            the underlying ISA. This is because the ISA is
+            the CPU, program interface, so it is relied upon
+            by both the CPU and all programs written for that
+            platform.
+        \end{mdframed}
+    \item What is microarchitecture?
+        \begin{mdframed}
+            How do we break up individual instructions?
+            How do we divy up work between arithmetic,
+            logic, and memory management units.
+
+            Can we run different parts of instructions in
+            parallel? Can we reorder operations to reduce
+            latency?
+
+            The microarchitecture has enough information to
+            build a logical diagram, which can then be used
+            to create circuit diagrams, which can then be
+            cut into a chip using lithography.
+
+            Microarchitecture is made of ALUs, cores,
+            buses, etc.
+
+            Logic is made up of gates, registers, etc.
+
+            Circuits are made up of transistors, capacitors,
+            etc.
+
+            Process Node refers to average size of transistors.
+            This usually is calculated through a transistor
+            density per $mm^2$.
+        \end{mdframed}
+    \item What is performance?
+        \begin{mdframed}
+            Performance is about how fast a machine can
+            execute code. How fast it can read, process and
+            output. Number of operations per unit of time.
+
+
+            Efficiency is a sister concept which is about
+            the usage of resources for a given output.
+            In terms of hardware that would be cooling
+            requirements and power consumption. Cost is
+            also a part of efficiency.
+        \end{mdframed}
+
+\end{description}
+
+
+
+
+\end{document}

@@ -1,0 +1,246 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+\title{\Huge{CSE 120}\\Day 5 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large RISC-V User State}
+        \begin{mdframed}
+            \begin{itemize}
+                \item 32 general purpose registers
+                \item x0 is always set to zero
+                \item In addition to the general purpose registers there is a
+                    PC register which stores the address of the current instruction
+                \item Every register is 64 bit in the RV64I variant
+            \end{itemize}
+
+            \begin{lstlisting}[language = {[x86asm]Assembler}]
+            add x3, x2, x1
+        \end{lstlisting}
+
+        add is the opcode, x3 is the destination register,
+        x2 is the source register, and x1 is the second source
+        register.
+
+        \begin{itemize}
+            \item Instructions are fetched from memory
+            \item instructions are then fed directly into the
+                cpu, with a specific binary format.
+        \end{itemize}
+
+        The Instruction cycle
+        \begin{enumerate}
+            \item First the PC increments and fetches the instruction
+            \item Processor then decodes the instruction
+            \item Logically execute the instruction
+            \item Access memory to write results if required
+            \item Write back to register if required
+        \end{enumerate}
+
+        The cycle is usually abbreiviated $F \rightarrow D \rightarrow X \rightarrow M \rightarrow W$
+        The important thing to note is that memory writes always happen before register writes.
+        \end{mdframed}
+    \item {\large RV64I Names}
+        \begin{mdframed}
+            During execution you are free to use general registers however you want.
+
+            However registers generally have conventions for how they are usually used.
+            
+            The ABI defines how data structures or routines are accessed in machine code.
+
+            \begin{mdframed}
+                Some examples are
+                \begin{enumerate}
+                    \item x1 is the ra register for a return address
+                    \item x2 is the sp register for the stack pointer
+                    \item x3 is gp, or the global pointer for global data
+                    \item etc.
+                \end{enumerate}
+            \end{mdframed}
+
+            Registers are a finite resource that needs to be managed
+
+            The Goal is to keep as much data in the registers for as long
+            as possible. Eventually data will be spilled from registers to
+            memory. Arrays are generally too large to be kept in memory.
+
+            Assembly programmers need to balance between fully utilizing
+            registers and taking advantage of the space memory provides.
+        \end{mdframed}
+    \item {\large Compiling}
+        \begin{mdframed}
+            \begin{lstlisting}[language=C]
+                a = b + c;
+            \end{lstlisting}
+
+            Could be compiled to
+
+            \begin{lstlisting}[language={[x86asm]Assembler}]
+            add x1, x2, x3  # a = b + c
+            \end{lstlisting}
+
+            Most basic operations like, and, or, nor, xor, etc.
+            can be compiled to a single instruction.
+
+
+            \begin{lstlisting}[language=C]
+                a = b + c + d - e;
+            \end{lstlisting}
+
+            More complicated code is broken apart into multiple instructions.
+
+            \begin{lstlisting}[language={[x86asm]Assembler}]
+                add x1, x2, x3 # a = b + c
+                add x1, x1, x4 # a = a + d
+                sub x1, x1, x5 # a = a - e
+            \end{lstlisting}
+
+            A smart programmer or compiler can pick fast instructions or optimize for size
+            and pack multiple operations into single instructions depending on the goal
+            and the architecture.
+        \end{mdframed}
+    \item {\large Numbers Representation}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Unsigned: 0 and absolute values only, no negatives.
+
+                \item Signed: 0, positive and negative values
+
+                \item In RISC-V all numbers are signed unless specified otherwise
+
+                \item Signing convention is in 2's complement
+
+                \item The word size is defined to be 32 bits.
+
+                \item You can load a byte, half word, word, and double word directly.
+
+                \item RISC-V is byte addressable, the smallest unit of data that can be loaded is
+                    a single byte.
+            \end{itemize}
+        \end{mdframed}
+    \item {\large RISC-V constants}
+        \begin{itemize}
+            \item constant == immediate == literal == offset
+            \item there are immediate versions of many instructions
+            \item RISC-V only uses a 12 bit representation for immediates
+                    
+                This means that the total range is limited
+        \end{itemize}
+    \item {\large Memory Transfer}
+        \begin{itemize}
+            \item Load always pulls from memory
+            \item store always pushes data to memory
+            \item all memory interactions in RISC-V happen through
+                load and store instructions.
+
+            \item floating-point loads and stores work with specialized
+                floating point registers.
+        \end{itemize}
+
+        \begin{lstlisting}[language={[x86asm]Assembler}]
+            ld dst, offset(base)
+        \end{lstlisting}
+
+        When loading from memory, effective addresses are
+        computed. An effective address is an aligned byte
+        address.
+
+        The offset and base address are used for array operations,
+        allowing for indexing into regions of memory.
+
+        For a given load operation, it must be aligned to that
+        memory load size. lb must be byte aligned, lh must be
+        half-word aligned, lw must be word aligned, ld must
+        be double word aligned.
+
+        Misaligned data usually causes an exception on most RISC-V
+        processors.
+
+        For caching, most systems will force alignement for speed
+        and efficiency. This divides memory into cache-lines. If
+        memory is misaligned it could be split among multiple
+        cache lines.
+
+    \item {\large C Data load example}
+        \begin{lstlisting}[langauge = C]
+            a = b + *c;
+        \end{lstlisting}
+
+        C is a memory access so it always requires a load.
+
+        \begin{lstlisting}[language = {[x86asm]Assembler}]
+            ld x5, 0(x3)     # x5 = *c
+            add x1, x2, x5   # a = b + x5
+        \end{lstlisting}
+
+
+    \item {\large Memory Storing}
+        \begin{lstlisting}[language = {[x86asm]Assembler}]
+            sd src, offset(base)
+        \end{lstlisting}
+
+        Offset value is 12-bit signed constant.\\
+        Works identically to loading data but in reverse
+    \item {\large C Data store example}
+        \begin{lstlisting}[langauge = C]
+            *a = b + c;
+        \end{lstlisting}
+        
+
+        \begin{lstlisting}[language = {[x86asm]Assembler}]
+            add x1, x2, x5   # x1 = b + c
+            sd x1, 0(x3)     # *a = x1
+        \end{lstlisting}
+    \item {\large RISC-V Binary Format}
+        \begin{mdframed}
+            \begin{description}
+                \item R type, non immediate
+                    \begin{itemize}
+                        \item first 7 bits encode additional opcode info
+                        \item next 10 bits encode the two source operands
+                        \item 3 bits are used for additional op code field
+                        \item next 5 bits encode the destination operand
+                        \item next 5 bits are for the destination operand
+                        \item last 7 bits are for the opcode
+                    \end{itemize}
+                \item Immediate I type
+                    \begin{itemize}
+                        \item first 12 bits are instead used for the immediate
+                    \end{itemize}
+                \item Immediate S/B type
+                    \begin{itemize}
+                        \item The first 7 bits, as well as the return operand are
+                            used for the immediate.
+
+                        \item For only S/B types the immediate is a single value but
+                            split between two bit fields.
+                    \end{itemize}
+                \item Immediate U/J type
+                    \begin{itemize}
+                        \item The first 20 bits are used for the immediate
+                    \end{itemize}
+            \end{description}
+
+            When decoding the first step is to parse the opcode.
+            The opcode will specify how to split the rest of the
+            bits.
+
+            The opcode can only specify 128 instructions directly,
+            there are and additional 10 bits which can be used for
+            the R type instructions.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

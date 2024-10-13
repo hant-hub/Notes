@@ -1,0 +1,169 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{minibox}
+
+\title{\Huge{Stats 130}\\Day 5 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Example from last time}
+        \begin{mdframed}
+            A fair coin is tossed until heads comes up.
+            All tosses are independent. What is the probability
+            that n tosses are required?
+
+            \begin{gather}
+                Pr(n) = Pr(\neg (n-1) \land 1)\\
+                Pr((\bigcap_{i=1}^{n-1} T_i) \cap H_n)\\
+                \frac{1}{2}^{n-1} \frac{1}{2} = \frac{1}{2}^n
+            \end{gather}
+
+            If $p$ is the probability of success, and $q$ is
+            failure. The probability of needing $n$ tries is
+
+            \begin{gather}
+                q^{n-1}p
+            \end{gather}
+
+            What is the probability that we eventually get a head?
+
+            \begin{gather}
+                Pr(H) = Pr(\bigcup_{i=1}^\infty H_i)\\
+                Pr(H) = \sum_{i=1}^\infty Pr(H_i)\\
+                Pr(H) = \sum_{i=1}^\infty (q^{i-1}p)\\
+                Pr(H) = \sum_{i=1}^\infty \frac{1}{2}^{i}\\
+                Pr(H) = -1 + \sum_{i=0}^\infty \frac{1}{2}^{i}\\
+                Pr(H) = 1
+            \end{gather}
+
+        \end{mdframed}
+
+    \item {\large Partitions}
+        \begin{mdframed}
+            The notion of a partition is useful. The idea is to split
+            sample space into mutually exclusive events.
+
+            Consider events $B_1,...,B_n, B_i \subseteq S$, and suppose
+            $B_i \cap B_j = \emptyset, \forall i, j$. Also, suppose that
+            $\bigcup_{j=1}^{n} B_j = S$. Then the collection forms a
+            partition.
+
+            \begin{center}
+                \minibox[frame]{
+                    All partitions are also equivalent to the equivalence classes
+                    of some equivalence relation.
+                }
+            \end{center}
+
+
+            
+            \begin{center}
+            {\large The Law of Total Probabilities}
+            \end{center}
+            \begin{gather}
+                Pr(A) = \sum_{i=1}^{n} Pr(A \cap B_i)\\
+                Pr(A) = \sum_{i=1}^{n} Pr(B_i)Pr(A|B_i)
+            \end{gather}
+
+            The second formula only works given $A \cap B_i$ is
+            non-zero. The first formula always works.
+
+            Can also be viewed via a weighted average of probability.
+            Also, since the probabilties of the $B_i$ sets add to
+            1, then the law is also a convex combination.
+
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            Two boxes contain long bolts and short bolts. One
+            contains 60 short and 40 long. The other contains
+            20 short and 10 long. We select a box at random, and
+            then a bolt at random. What is the probability of
+            selecting a long bolt?
+
+            \vspace{10}
+
+            \begin{gather}
+                L = (L \cap B_1) \cup (L \cap B_2)\\
+                Pr(L) = Pr(B_1)Pr(L | B_1) + Pr(B_2)Pr(L | B_2)\\
+                Pr(L) = \frac{1}{2} \times \frac{40}{100} + \frac{1}{2} \times \frac{10}{30}\\
+                Pr(L) = \frac{1}{5} + \frac{1}{6} = \frac{11}{30}
+            \end{gather}
+        \end{mdframed}
+    \item {\large Bayes' Theorem}
+        \begin{mdframed}
+            Bayes' theorem is a probability rule that allows for
+            updating probabilities of the elements of a partition
+            once information about a given event is avalible.
+
+            Theorem: Given a partition $B_1,...,B_n$ of $S$,
+            such that $Pr(B_j) > 0, \forall j$, and a given
+            event $A$, $Pr(A) > 0$, then
+
+            \begin{gather}
+                Pr(B_i | A) = \frac{Pr(B_i)Pr(A|B_i}{\sum_{j=1}^n Pr(A|B_j)Pr(B_j)}
+            \end{gather}
+
+            Proof:
+            \begin{gather}
+                Pr(B_i | A) = \frac{Pr(A \cap B_i)}{Pr(A)} = \frac{Pr(A | B_i)Pr(B_i)}{Pr(A)}
+            \end{gather}
+
+            For the full formula, $Pr(A)$ is expressed using the Total Law of Probability.
+
+            Bayesian statistics uses Bayes' theorem to create models or deduce relations
+            in data.
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            Epidemiological data indicate a disease has a frequency of 
+            1 in 10,000. A test is provided to determine the presense
+            of the disease. The test has a 0.9 probability of returning
+            a true positive, and a 0.05 false positive probability. If someone
+            takes the test and gets a positive result, what is the probability
+            that the person is sick?
+
+            \begin{gather}
+                Pr(S | P) = \frac{Pr(P | S) Pr(S)}{Pr(P)}\\
+                Pr(S | P) = \frac{Pr(P | S) Pr(S)}{Pr(P|S)Pr(S) + Pr(P| \neg S)Pr(\neg S)}\\
+                Pr(S | P) = \frac{0.00009}{0.00009 + 0.049995}\\
+                Pr(S | P) = 0.0018 \approx 0.18\%
+            \end{gather}
+
+            Something to note is that the test doesn't give anything
+            close to a garuntee, however it does mean you are
+            18x more likely to be sick. 
+
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            Three machines are used to make items. 20\% is produced by
+            Machine 1, 30\% by machine 2, and the rest by Machine 3.
+            Machines produce a defective items in 1\%, 2\%, and 3\%
+            of cases respectively. If an item is sampled at random
+            what is the probability that it will be defective? If the
+            item is defective what is the probability it was produced
+            by Machine 2?
+
+            \begin{gather}
+                Pr(D | M_1) = 0.01\\
+                Pr(D | M_2) = 0.02\\
+                Pr(D | M_3) = 0.03\\
+                Pr(D) = Pr(D|M_1)Pr(M_1) + Pr(D|M_2)Pr(M_2) + Pr(D|M_3)Pr(M_3)\\
+                Pr(D) = 0.01 \times 0.2 + 0.02 \times 0.3 + 0.03 \times 0.5 = 0.023\\
+                Pr(M_s | D) = \frac{Pr(D|M_2)Pr(M_2)}{Pr(D)} = \frac{0.3 \times 0.02}{0.023} = 0.26
+            \end{gather}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

@@ -1,0 +1,214 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+\title{\Huge{CSE 120}\\Day 4 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Review: Iron Law
+        \begin{gather}
+            E = \frac{Instructions}{Program} \times \frac{Cycles}{Instruction} \times \frac{Seconds}{Cycle}\\
+            E = \frac{CPI * IC}{CR}
+        \end{gather}
+
+        \begin{mdframed}
+            The CPI will vary per instruction type. This implies the average or global CPI
+            will vary between programs with different compositions of instruction types.
+        \end{mdframed}
+
+    \item Relative Performance
+
+        $Performance = \frac{1}{\textrm{Execution Time}}$
+
+        Relative Speedup $= Performance_{old} / Performance_{new}$
+
+    \item Instruction Set Architecture
+
+        ISA's define:
+        \begin{itemize}
+            \item Defines a protocol between hardware/software
+            \item Defines the state of the system (registers, memory, etc)
+            \item Functionality of each instruction
+            \item encoding of each instruction
+        \end{itemize}
+
+        ISA's don't define:
+        \begin{itemize}
+            \item How instructions are implemented in hardware.
+            \item How fast or slow instructions are
+            \item how much power each instruction will cost.
+        \end{itemize}
+
+        A good ISA creates a stable platform that allows software and hardware
+        to evolve seperately.
+
+    \item Classifying ISAs
+        \begin{itemize}
+            \item Basic differentiation: are the ALU operands coming from
+                registers or RAM?
+
+            \item Stack ISA
+            \item Accumulator ISA
+            \item Register-Memory ISA
+            \item Register-Register/load-store ISA
+        \end{itemize}
+
+
+        \begin{mdframed}
+            {\Large Why registers and RAM and not just Registers?}
+
+            Registers are made out of individual flip flops,
+            each one is significantly faster than memory or
+            RAM.
+
+            Registers are not memory dense and are expensive.
+            In addition each additional register requires more
+            complicated hardware and ISAs to encode and manage.
+
+            Physical distance is also a limiter on register speed.
+        \end{mdframed}
+
+        \begin{mdframed}
+            {\Large Register-memory ISA}
+
+            Can operate on both registers or memory, always outputs to a register.
+
+            Only accepts one operand from memory and one operand from a register.
+            Generally the convention for ISAs is the register output is first,
+            then the register source, then the Memory source.
+
+            An example add might look like
+        \end{mdframed}
+
+    \begin{lstlisting}[language={[x86asm]Assembler}]
+            add Rd, Rs, M;
+    \end{lstlisting}
+
+        \begin{mdframed}
+            {\Large Register-Register ISA}
+
+            Only operates with registers.
+
+            Requires explicit movement of values to and from memory.
+            The memory writes and reads are directly exposed to the
+            software.
+        \end{mdframed}
+        
+        The ISA type is based on \textbf{Only} the ALU's relationship
+        with memory. They do not affect other memory or external operations.
+
+        Generally Register-Memory structures would be used for CISC computers,
+        and Register-Register ISA's were used for RISC computers.
+
+        RISC computers tend to require greater numbers of instructions.
+        In the early days of computing this was a big deal and led to
+        CISC architectures becoming more dominant.
+
+
+    \item Instruction Length and Format
+        \begin{itemize}
+            \item Fixed Length ISAs
+
+                Address of next instruction is easy to compute, however
+                the code density suffers due to common and rare instructions
+                requiring the same number of bits.
+
+                It also has the benefit of easy prefetching.
+            \item Variable Length ISAs
+
+                Generally gives better code density, fewer memory fetches for
+                instructions, more common instructions can be shorter.
+
+                This makes the Fetching and decoding of instructions more difficult.
+                You have to decode each instruction before you can fetch the next
+                instruction.
+
+                Prefetching is difficult and complicated.
+        \end{itemize}
+
+    \item CISC vs RISC
+        \begin{itemize}
+            \item CISC (Complex Instruction Set Computer)
+
+                The goal is to get more done by adding sophisticated instructions.
+                Shift the complexity onto the hardware in order to save on software.
+
+                This includes ISAs like x86, IBM 360, Motorola 68K, etc.
+
+                \begin{lstlisting}[language={[x86asm]Assembler}]
+                        MUL mem2 <= mem0 * mem1
+                \end{lstlisting}
+
+            \item RISC (Reduced Instruction Set Computer)
+
+                Goal is to simplify ISA to allow for simple and fast hardware. It moves
+                the complexity onto the Software to allow for less complicated hardware.
+
+                Examples include MIPS, SUN, Sparc, RISC-V, etc.
+                \begin{lstlisting}[language={[x86asm]Assembler}]
+                        LOAD  reg0 <= mem0
+                        LOAD  reg1 <= mem1
+                        MUL   reg0 <= reg0 * reg1
+                        STORE mem2 <= reg0
+                \end{lstlisting}
+        \end{itemize}
+
+        Generally both CISC and RISC architectures have adapted for different
+        use cases. RISC instruction sets for high performance have had to add
+        additional instruction for hardware acceleration.
+
+        CISC computers use the concept of micro-ops to achieve more of the
+        speed and parallelism that RISC lends itself to.
+
+        Due to how complicated ISAs and hardware has become, the only reliable
+        way of benchmarking is repeated measurement.
+
+
+        \begin{tabular}{| c | c |}
+            \hline
+            CISC & RISC\\
+            \hline
+            HW difficult to implement & HW easy\\
+            \hline
+            Multi-cycle complex instructions & Simple, sincle clock instructions\\
+            \hline
+            Small Code Size & Large Code Size\\
+            \hline
+            High CPI & Low CPI\\
+            \hline
+            Variable Length instructions & Fixed instructions\\
+            \hline
+        \end{tabular}
+
+        Over time, the gap between register and memory speed has grown,
+        making keeping data in the registers more and more important.
+
+    \item Intel/AMD's take on CISC
+
+        \begin{itemize}
+            \item x86 is a CISC ISA
+            \item Internally each CISC instruction is converted to RISC micro-ops
+
+                A single instruction may become dozens of micro ops
+
+            \item Ideally you get the best of both worlds
+
+                Small code size with RISC like simplicity. 
+
+                Decoding is till massively complicated. 
+        \end{itemize}
+
+\end{description}
+
+
+\end{document}
