@@ -1,0 +1,231 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{Stats 130}\\Day 7 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Binomial}
+        \begin{mdframed}
+            Suppose we repeat $n$ Bernoulli experiments, indpendently
+            and with constant probability of success  $p$. Define X
+            as the random variable that counts the total number of
+            successes. Then X takes possible values in the set
+            $D = \{0, 1, ... n\}$. 
+
+            To Calculate the probability function we observe
+            that, in order to obtain exactly $x$ successes,
+            we need exactly $n - x$ failures. There are
+            $\binom{n}{x}$ equally likely ways for this to
+            happen. Thus,
+
+            \begin{displaymath}
+                f_x(x) = 
+                \begin{cases}
+                &\binom{n}{x}p^x(1-p)^{n-x} | x > 0\\ 
+                & 0\quad | \quad else
+                \end{cases}
+            \end{displaymath}
+            
+            Notice that
+
+            \begin{displaymath}
+                \sum_{x=0}^n f_x(x) = \sum_{x=0}^n \binom{n}{x} p^x q^{n-x} = (p+q)^n = 1
+            \end{displaymath}
+
+            Notated: $X \sim Bin(n, p)$
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            The Giants need to win at least four of the remaining
+            six games to make the playoffs. Given a record of 
+            27-27 what is the probability they succeed?
+
+            We assume $p = 0.5$ and that $X$ is the number of wins
+            in the next six games. Then $X ~ Bin(6,0.5)$. We want
+
+             \begin{gather}
+                Pr(X \ge 4) = Pr(X = 4) + Pr(X = 5) + Pr(X = 6)\\
+                = (\frac{1}{2})^6 (\binom{6}{4} + \binom{6}{5} + \binom{6}{6})\\
+                = \frac{11}{32}
+            \end{gather}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Hypergeometric}
+        \begin{mdframed}
+            A hypergeometric experiment is like multiple
+            Bernoulli trials except there is dependence
+            between the trials.
+
+            Suppose a box contains $A$ red balls and
+            $B$ blue balls. $n$ balls are drawn without
+            replacement from the box. A random variable
+            $X$ is equal to the number of red balls drawn.
+            $X \le min\{n, A\}$. Also the sample has $n-X$ 
+            blue balls, thus, $n - X \le B$, then
+
+             \begin{displaymath}
+                 max\{0, n-B\} \le X \le min\{n, A\}
+            \end{displaymath}
+            Then
+            \begin{displaymath}
+                Pr(X=x) = \frac{\binom{A}{x}\binom{B}{n-x}}{\binom{A+B}{n}}
+            \end{displaymath}
+            
+            Notated: $X \sim Hyper(n, A, B)$
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            The probability function is given as
+            \begin{displaymath}
+                f_x(x) = Pr(X=x), \quad
+                max\{0, n-B\} \le x \le min\{n, A\}
+            \end{displaymath}
+            
+            We have patients suffering from depression. 34
+            recieved a placebo. Of those, 10 had no relapse,
+            and 24 had a relapse.
+
+            Suppose we take a sample of patients with $n=11$.
+            Let $X = \#$ of successes. Then $A = 10$ and $B = 24$. 
+
+             \begin{displaymath}
+                 0 = max\{0, 11-24\} \le X \le min\{11, 10\} = 10
+             \end{displaymath}
+
+             and
+
+             \begin{displaymath}
+                 f_x(x) = \frac{\binom{10}{x}\binom{24}{11-x}}{\binom{34}{11}}, x = 0, ...,10
+             \end{displaymath}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Negative Binomial}
+        \begin{mdframed}
+            A sequence of Bernoulli trials with probability of
+            success $p$, that stops after a given number of successes
+            is reached. A normal Binomial stops after $n$ trials,
+            a negative Binomial has $n$ as a random variable.
+
+            \begin{gather}
+                Pr(X=x) = Pr(\textrm{x failures before r successes occur})\\ 
+                = Pr(\textrm{x failures and r-1 successes in x+r-1 trials})\times\\
+                Pr(\textrm{one success in the (x+r)-1 th trial})
+                = \binom{x+r-1}{x}q^x p^{x+r-1-x}\times p\\
+                = \binom{x+r-1}{x}q^x p^r, x = 0,1, ...
+            \end{gather}
+
+            Notated: $X \sim NegBin(p, r)$
+        \end{mdframed}
+    \item {\large Example}
+        \begin{mdframed}
+            To pass a quiz you need five correct answers. The
+            system provides a new question, until you reach the fifth
+            correct answer. Your grade is (5/attempts)*100. What is
+            the probabilty that you will score 50\% assuming you
+            are guessing the correct answers?
+
+            To score 50\% you need 5 correct answers in 10 attempts.
+            Assume you have a 50\% chance of guessing the correct answer.
+
+            \begin{gather}
+                x=5\\ 
+                r=5\\
+                \binom{9}{5} \frac{1}{2}^5 \frac{1}{2}^5\\
+                = 0.1230469
+            \end{gather}
+        \end{mdframed}
+    \item {\large Geometric}
+        \begin{mdframed}
+            A Geometric experiment is a negative binomial
+            with $r = 1$.
+
+            Therefore, the formula is
+             \begin{displaymath}
+                f_x(x) = pq^x, \quad x = 0,1, ...
+            \end{displaymath}
+
+            This works because
+            \begin{displaymath}
+                \sum_{x=0}^{\infty}f_x(x) =
+                \sum_{x=0}^{\infty}pq^x =
+                p \sum_{x=0}^{\infty} q^x =
+                p(\frac{1}{1-q}) =
+                \frac{p}{p} = 1
+            \end{displaymath}
+
+            It is notated $X \sim Gep(p)$
+        \end{mdframed}
+        \pagebreak
+    \item {\large Memory Loss Property}
+        \begin{mdframed}
+            Consider $X \sim Geo(p)$
+            \begin{gather}
+               Pr(X \ge x) = 1 - Pr(X < x) = 1 - Pr(X \le x - 1)\\
+               = 1 - \sum_{i=0}^{x-1}q^ip = 1 - p \frac{1-q^x}{1-q}
+               = q^x
+            \end{gather}
+
+            Suppose $X \ge t$, what is the probabiilty that
+            $X = t + h, h > 0$?
+
+            \begin{gather}
+                Pr(X=t+h | X \ge t) = \frac{Pr(X=t+h)}{Pr(X\ge t)}\\
+                = \frac{pq^{t+h}}{q^t} = pq^h = Pr(X=h)
+            \end{gather}
+
+            The geometric "forgets" that there have been $t$ attempts
+            or more. Past attempts do not influence the probability
+            of future attempts.
+
+            Another example is radioactive decay, each individual
+            particle has a geometric probability function.
+        \end{mdframed}
+    \item {\large Poisson}
+        \begin{mdframed}
+            A Poisson random variable counts the number of occurances
+            of an event. It can therefore take any possible positive
+            integer.
+
+            Some examples: \# of new Covid positives, \# of tweets,
+             \# of requests, etc.
+
+            The probability function of a Poisson can be obtained
+            as the limit of the probability function of a binomial
+            where the number of trials go to infinity. This results
+            in
+
+            \begin{displaymath}
+                f_x(x) = \frac{e^{-\lambda} \lambda^x}{x!}, x = 0,1,2, ...
+            \end{displaymath}
+
+            Here $\lambda$ is a parameter that determines the intensity
+            of the process of occurrences per unit time.
+
+            Is $f_x(x)$ a probability function?
+             $f_x(x) > 0, \forall x$. Then
+
+              \begin{displaymath}
+                  \sum_{x=0}^{\infty} f_x(x) 
+                  = \sum_{x=0}^{\infty} \frac{e^{-\lambda}\lambda^x}{x!}
+                  = e^{-\lambda} \sum_{x=0}^{\infty} \frac{\lambda^x}{x!}
+                  = e^{-\lambda}e^\lambda = 1
+             \end{displaymath}
+             
+        \end{mdframed}
+    \item {\large }
+    \item {\large}
+    \item {\large}
+\end{description}
+
+
+\end{document}
