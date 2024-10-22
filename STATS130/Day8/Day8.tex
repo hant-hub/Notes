@@ -1,0 +1,241 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{Stats 130}\\Day 8 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\Large Poisson}
+        \begin{mdframed}
+            A Poisson random variable counts
+            the number of occurances of an event.
+            It has no upper bound.
+
+            \begin{displaymath}
+                f_X(x) = \frac{e^{-\lambda} \lambda^{x}}{x!} , x = 0, 1, 2, ...
+            \end{displaymath}
+
+            Here $\lambda$ is the is the intensity of the process
+            and is proportional to the number of expected occurances
+            in a given time frame.
+
+            $f_X(x)$ is greater than 0 by defninition. $\forall x$
+
+             \begin{displaymath}
+                \sum_{x=0}^{\infty}f_X(x) =
+                \sum_{x=0}^{\infty} \frac{e^{-\lambda} \lambda^{x}}{x!} =
+                e^{-\lambda} \sum_{x=0}^{\infty} \frac{\lambda^{x}}{x!} =
+                e^{-\lambda}e^{\lambda} = 1
+            \end{displaymath}
+            
+            This shows the Poisson is a probabiilty function, and
+            is denoted $X \sim Pois(\lambda)$
+            
+        \end{mdframed}
+        \begin{mdframed}
+            Example: The number of customers that order a pizza
+            in a 30 min interval is a Poisson random variable
+            with $\lambda = 5$. What is the probability that
+            between 6 and 6:30 three or more customers will
+            order pizza?
+
+             \begin{gather}
+                 f_X(x) = \frac{e^{-\lambda} \lambda^x}{x!}\\
+                 f_X(x) = \frac{e^{-5} 5^x}{x!}, x = 0, 1, 2\\
+                 Pr(X \ge 3) = 1 - (Pr(X = 0) + Pr(X = 1) + Pr(X = 2))\\ 
+                 = 1 - e^{-5}(1 + 5, + \frac{25}{2}) = 0.875348
+            \end{gather}
+        \end{mdframed}
+        \pagebreak
+    \item {\Large Continuous Random Variables}
+        \begin{mdframed}
+            Reimagine the building power and water
+            example. If we no longer require the
+            demand to be a discrete integer value
+            we now have a continuous random variable.
+            There are an infinite number of elements
+            in the Sample Space, and they cannot be traversed
+            in a countable order.
+        \end{mdframed}
+    \item {\Large Cumulative Distribution Function}
+        \begin{mdframed}
+            With continuous random variables, the idea of
+            $X = x$ is unhelpful, since  $Pr(X = x) 
+            | X : S \to D \subseteq \mathbb{R}$ is always
+            equal to zero or some infinitesimal. For continuous
+            values it is more helpful and tractable to work with
+            ranges.
+
+            A CDF is defined as 
+             \begin{displaymath}
+                F_X(x) = Pr(X \le x)
+            \end{displaymath}
+
+            A CDF can be made for any random variable whether
+            continuous or discrete. The capital letters are
+            also part of the notation.
+
+            Some properties of CDFs are:
+            \begin{itemize}
+                \item $0 \le F_X(x) \le 1, \forall x$
+                \item  $F_X(x)$ is non decreasing.\\
+                    $x_1 < x_2 \implies {X \le x_1} \subset {X \le x_2}$
+                    therefore,
+                    $Pr(X\le x_1) \le Pr(X\le x_2)$ 
+                    which implies\\
+                    $F_X(x_1) \le F_X(x_2)$ 
+                \item $\lim\limits_{x \to -\infty} F_X(x) = 0$, 
+                    $\lim\limits_{x \to +\infty} F_X(x) = 1$ 
+
+                \item For $b > a$,  $Pr(X \in (a, b]) = Pr(a < X \le b)$\\
+                     $= Pr(X \le b) - Pr(X \le a) = F_X(b) - F_X(a)$ 
+            \end{itemize}
+
+            If $F_X(x)$ is continuous for all  $x$, then $X$ is
+            a continuous random variable.
+
+
+            Imagine a discrete random variable with probability
+            function and CDF as follows.
+            \begin{gather}
+               f_X(x) = 
+               \begin{cases}
+                   \frac{1}{k} & x = 1, 2, 3 ..., k\\ 
+                   0 & \textrm{otherwise}
+               \end{cases}\\
+               F_X(x) = Pr(X \le x) = \sum_{i \le x} Pr(X = i) =
+               \begin{cases}
+                   0 & x<1\\ 
+                   \frac{\lceil x \rceil}{k} & 1 \le x < k\\
+                   1 & x \le k
+               \end{cases}
+            \end{gather}
+
+            This CDF is not continuous which implies the random
+            variable must be discrete.
+        \end{mdframed}
+        \pagebreak
+    \item {\Large Probability Density Function}
+        \begin{mdframed}
+            When $X$ is a continuous random variable,
+             $F_X(x)$ is both continuous and differentiable.
+             Therefore we can calculate the derivative
+             of  $F_X(x)$.
+
+             The Probability Density Function or PDF, is
+             defined as,
+
+             \begin{displaymath}
+                f_X(x) = F_X'(x)
+             \end{displaymath}
+
+             A PDF is not defined for discrete random variables
+             since the CDF is not continuous or differentiable.
+             
+             In addition the lower case "f" is used since
+             the discrete meaning of a probability function
+             is undefined for continuous variables. This
+             means only one possible meaning is valid at 
+             a time which is unambiguous.
+
+             \vspace{10}
+
+             Properties:
+             \begin{itemize}
+                 \item 
+                     \begin{displaymath}
+                        F_X(x) = \int_{-\infty}^{x} f_X(t)dt \quad \forall x
+                     \end{displaymath}
+                \item
+                    \begin{gather}
+                       Pr(a < x \le b) = F_X(b) - F_X(a)\\ 
+                       = \int_{-\infty}^{b}f_X(t)dt -
+                       \int_{-\infty}^{a} f_X(t)dt\\
+                       = \int_a^b f_X(t)dt
+                    \end{gather}
+                \item 
+                    \begin{displaymath}
+                    f_X(x) \ge 0, \forall x
+                    \end{displaymath}
+                \item 
+                    \begin{displaymath}
+                    Pr(X \in A) = \int_A f_X(t)dt
+                    \end{displaymath}
+                \item
+                   \begin{displaymath}
+                       \int_{-\infty}^{\infty} f_X(t)dt
+                       = \lim\limits_{x \to +\infty} F_X(x)
+                       = 1
+                   \end{displaymath}
+             \end{itemize}
+        \end{mdframed}
+    \item {\Large Examples}
+        \begin{mdframed}
+            Utility problem. Let $X$ be the water
+            demand and suppose the probability of an
+            event is proportional to the area of the event.
+
+            \begin{displaymath}
+                F_X(x) = Pr(X \le x)
+                \frac{(150 -1) \times (x - 4)}{(150 -1) \times (200-4)}
+                = \frac{x-4}{196}
+            \end{displaymath}
+
+            The bottom is the area of the sample space,
+            the top is the area that represents the
+            interval we are interested in.
+            
+            The pdf of this function is
+            \begin{displaymath}
+                f_X(x) =  
+                \begin{cases}
+                    \frac{1}{196} & 4 \le x \le 200\\ 
+                    0 & \textrm{otherwise}
+                \end{cases}
+            \end{displaymath}
+
+            The pdf is constant, which is a distribution known
+            as a uniform distribution. A uniform distribution
+            is notated $X \sim Unif(a,b)$
+        \end{mdframed}
+        \begin{mdframed}
+            Consider a random variable $X$ with pdf
+             \begin{displaymath}
+                f_X(x) = 
+                \begin{cases}
+                    cx & 0 < x < 4\\ 
+                    0 & \textrm{otherwise}
+                \end{cases}
+                ,c > 0
+            \end{displaymath}
+
+            Determine the value of $c$. Calculate  $Pr(1 \le X \le 2)$.
+            The integral of  $f_X(x)$ must equal 1.
+
+             \begin{displaymath}
+                \int_{-\infty}^{+\infty}f_X(t)dt =
+                \int_{0}^{4}ct dt =
+                \frac{ct^2}{2}\bigg\rvert_{0}^{4} =
+                8c
+            \end{displaymath}
+
+            Therefore $c = \frac{1}{8}$
+            
+            \begin{displaymath}
+                Pr(1 \le X \le 2) = \frac{3}{16}
+            \end{displaymath}
+        \end{mdframed}
+    \item {\Large }
+\end{description}
+
+
+\end{document}

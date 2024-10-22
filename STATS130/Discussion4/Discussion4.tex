@@ -1,0 +1,109 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{Stats 130}\\Discussion 4 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+{\large Notes}
+\begin{itemize}
+    \item Quiz review
+        \begin{enumerate}
+            \item Red + Blue Balls
+                
+                \vspace{10}
+
+                \begin{gather}
+                    Pr(A) = \frac{7}{10}\\
+                    Pr(B) = \frac{2}{10}\\
+                    Pr(C) = \frac{1}{10}\\
+                    Pr(R | A) = \frac{20}{30}\\
+                    Pr(R | B) = \frac{10}{30}\\
+                    Pr(R | C) = \frac{15}{30}\\
+                    Pr(R) = Pr(R|A)Pr(A) + Pr(R|B)Pr(B) + Pr(R|C)Pr(C)\\
+                    = \frac{35}{60}
+                \end{gather}
+            \item Chance of ultimate victory
+
+                \begin{gather}
+                   Pr(W) = 0.6\\ 
+                   Pr(M) = 0.3\\
+                   Pr(P) = 0.4\\
+                   Pr(W \cap M) = 0.26\\
+                   Pr(M \cap P) = 0.19\\
+                   Pr(W \cap P) = 0.37\\
+                   Pr(W \cap M \cap P) = 0.01\\
+                   Pr(W \cup M \cup P)\\
+                   = Pr(W) + Pr(M) + Pr(P) - Pr(W \cap M)
+                   - Pr(W \cap P) - Pr(M \cap P) + Pr(M \cap W \cap P)\\
+                   = 0.49
+                \end{gather}
+
+            \item Unfair die and Unfair coin
+                \begin{gather}
+                    Pr(i) = \frac{i}{21}, i = 0, 1, 2 ... 6\\ 
+                    Pr(H) = 0.4\\
+                    A = {2, 4, 6}\\
+                    B = {H}\\
+                    Pr(A^{\complement}) = Pr(1) + Pr(3) + Pr(5) = \frac{3}{7}\\
+                    Pr(B^{\complement}) = 1 - Pr(H) = 0.6\\
+                    Pr(A^{\complement} \cap B^{\complement}) = 0.6 \times \frac{3}{7}\\
+                    = \frac{9}{35}
+                \end{gather}
+        \end{enumerate}
+        \pagebreak
+    \item Practice Problems
+        \begin{enumerate}
+            \item 
+                \begin{displaymath}
+                Pr(D) = 0.75
+                \end{displaymath}
+
+                For 5 experiemnts what is the probaility
+                that
+                \begin{enumerate}
+                    \item Exactly 2
+                        \begin{gather}
+                            Pr(2) = \binom{5}{2} 0.75^{2} \times 0.25^{3}\\
+                            Pr(2) = 0.08789
+                        \end{gather}
+                    \item at most 3
+                        \begin{gather}
+                            Pr(4 \cup 5) = Pr(4) + Pr(5)\\ 
+                            = 0.3955078125 + 0.2373046875
+                            = 0.6328125\\
+                            Pr(\le 3) = 1 - Pr(4 \cup 5) = 0.3671875
+                        \end{gather}
+                \end{enumerate}
+
+            \item percentage wins are 90\%.
+                \begin{enumerate}
+                    \item What is the probability that they win
+                        4-0 in best of 7?
+
+                        \begin{gather}
+                            Pr(4) = \binom{3}{0}0.9^{4} = 0.6561 
+                        \end{gather}
+
+                    \item What is the probability a full 7 games
+                        will be played?
+
+                        \begin{gather}
+                            Pr(7) = \binom{6}{3} 0.1^3 \times 0.9^4 = 0.013122\\
+                            Pr(0) = \binom{6}{3} 0.9^3 \times 0.1^4 = 0.001458\\
+                            Pr(\textrm{7 games}) = 0.01458
+                        \end{gather}
+                \end{enumerate}
+        \end{enumerate}
+\end{itemize}
+
+
+\end{document}
