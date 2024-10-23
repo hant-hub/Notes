@@ -1,0 +1,262 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{minibox}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 120}\\Day 8 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Implementing Logic for Control 
+        \begin{mdframed}
+            Consider the hypothetical
+            
+            Memwrite is 1 if instruction 0 and 2 and not 5.
+            
+            Build using combinatorial logic.
+
+            A control unit will consume an instruction and
+            output a signal for which logic needs to execute.
+        \end{mdframed}
+
+    \item Datapath Delay
+        \begin{mdframed}
+            Assume time for stages is 100ps for register
+            read or write
+
+            200ps for other stages
+
+            The Critical path is the longest delay path
+            the minimum clock period is determined by critical
+            path.
+
+            If the critical path is 800ps, the maximum
+            clock frequency is $\frac{1}{800ps}$
+        \end{mdframed}
+
+    \item Single Cycle processor
+        \begin{mdframed}
+            Pros
+            \begin{itemize}
+                \item Single cycle makes hardware simpl
+            \end{itemize}
+
+            Cons
+            \begin{itemize}
+                \item Cycle time is set by worst case
+                \item Hardware is underutilized
+
+                    ALU and memory only used for a fraction
+                    of a clock cycle
+
+                    Not well amortized
+
+                \item Best possible CPI is 1
+                \item Floating point instructions don't work
+            \end{itemize}
+        \end{mdframed}
+    \item Pipelining
+        \begin{mdframed}
+            Analogy is doing laundry.
+
+            Washer takes 30mins
+
+            Dryer takes 40mins
+
+            Folding takes 20mins
+
+            Need to follow order wash $\to$ dry $\to$ fold for
+            each laundry load
+
+            Each resource can only process one task at a time,
+            however you can have each resource operate on
+            a different task concurrently.
+
+            It is possible to complete four loads of laundry
+            in 210 mins.
+        \end{mdframed}
+        \begin{mdframed}
+            The potential speedup is proportaional to the
+            number of pipeline stages, and the pipeline rate
+            is limited by the slowest pipeline stage.
+
+            In future $n$ is the number of instructions and
+             $k$ is the number of stages.
+        \end{mdframed}
+
+        \begin{mdframed}
+            Pipelining only improves throughput, which means
+            the speed of dependent or single instructions
+            is unchanged.
+        \end{mdframed}
+
+        \begin{mdframed}
+            Pipelining a type of parallelism, it is temporal
+            parallelism, the same hardware resource is shared
+            between different tasks across time, it is
+            not directly subject to Little's law.
+
+            Pipelining is instruction level parallelism, ILP.
+        \end{mdframed}
+
+    \item 5 Stage RISC Pipeline
+        \begin{mdframed}
+           5 stages 
+           \begin{itemize}
+               \item Instruction fetch
+               \item instruction decode and register read
+               \item execute operation or calculate address
+               \item access memory operand
+               \item write result back to register
+           \end{itemize}
+
+           Overlap instruction in different stages
+           \begin{itemize}
+               \item all hardware is used all the time
+               \item Clock cycle is fast (common case is faster)
+           \end{itemize}
+        \end{mdframed}
+        \begin{mdframed}
+            For a pipeline the execution time is
+            \begin{gather}
+               f(n, k) = kc + (n-1)c 
+            \end{gather}
+            Where $c$ is the clock cycle period.
+            This also assumes maximum pipeline utilization
+            and no dependency chains which would disrupt
+            instruction flow. 
+
+            \begin{displaymath}
+                f(n,k) = k + (n-1)
+            \end{displaymath}
+            Is the number of cycles required.
+        \end{mdframed}
+        \begin{center}
+            \minibox[frame]{
+                cool projects would be architecture\\
+                simulators.
+            }
+        \end{center}
+    \item Speedup
+        \begin{mdframed}
+            \begin{displaymath}
+                \frac{unpipelined}{pipelined}
+            \end{displaymath}
+
+            This will vary both on the number of hazards,
+            $k$, $n$, and other issues.
+
+            Pipelining \textbf{only} improves throughput.
+            Viewed from Iron law it can reduce cycle
+            time but increase CPI.
+        \end{mdframed}
+    \item How do you implement stages?
+        \begin{mdframed}
+            \begin{enumerate}
+                \item Seperate into discrete stages
+                \item Additional registers are used to hold
+                    data between stages.
+                \item Each pipeline register adds a one cycle
+                    delay
+            \end{enumerate}
+
+            We need to delay register write backs until the
+            last stage, so we need to pass the destination
+            register through all the pipeline registers
+            until we are ready to write it.
+
+            For control you can pipeline them just like data.
+            Additional complexity but overall a difference of
+            quantity not quality difficulty wise.
+        \end{mdframed}
+        \pagebreak
+    \item Data Hazards
+        \begin{mdframed}
+            A hazard is anything that prevents the next
+            instruction from executing on the following clock
+            cycle due to interdependence between the execution
+            of consecutive instructions.
+            \begin{itemize}
+                \item Structural Hazards
+
+                    Two or more instructions in the pipeline
+                    require the same hardware resource at the
+                    same time.
+
+                    Comes up often with floating point units
+                    as well as architectures where instructions
+                    and data share a resource.
+
+                    Multiple pipeline paths are one of the reasons
+                    instructions might have different timings.
+                    In addition, it creates the opportunity for
+                    data hazards in the memory access and writeback
+                    stages.
+
+                    Processors which break the instruction order
+                    is known as Out of Order Processors.
+                    This only happens with multiple pipelines.
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
