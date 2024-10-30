@@ -1,0 +1,60 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{Stats 130}\\Study Session 1}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{enumerate}
+    \item The proportion of People who respond
+        to a certain mail order is a continuous
+        random variable X that has the density function:
+        \begin{displaymath}
+            f(x) = 
+            \begin{cases}
+                \frac{2(x+2)}{5} & 0 < x < 1\\ 
+                0 & \textrm{otherwise}
+            \end{cases}
+        \end{displaymath}
+
+        \begin{enumerate}
+            \item Show that $P(0 < X < 1) = 1$
+                 \begin{mdframed}
+                    \begin{gather}
+                       \int_0^1 \frac{2(x+2)}{5}dx\\
+                   = \int_0^1 \frac{2}{5} x + \frac{4}{5} dx\\
+                   = \int_0^1 \frac{2}{5} x dx + \frac{4}{5}\\
+                   = \frac{2}{5} \int_0^1 \frac{x^2}{2} dx + \frac{4}{5}\\
+                   = \frac{2}{5} \times \frac{1}{2} + \frac{4}{5}\\
+                   = 1
+                    \end{gather}
+                \end{mdframed}
+            \item Find the probability that more than $\frac{1}{4}$
+                but fewer than  $\frac{1}{2}$ of the people
+                contacted will respond?
+                 \begin{mdframed}
+                    \begin{gather}
+                        F(\frac{1}{2}) - F(\frac{1}{4})\\  
+                        = \int_{\frac{1}{4}}^{\frac{1}{2}} \frac{2(x+2)}{5} dx\\
+                        = \int_{\frac{1}{4}}^{\frac{1}{2}} \frac{2}{5} x dx + \frac{1}{5}\\
+                        = \frac{2}{5}\int_{\frac{1}{4}}^{\frac{1}{2}} x dx + \frac{1}{5}\\ 
+                        = \frac{3}{80} + \frac{1}{5}\\
+                        = \frac{19}{80} = 0.2375
+                    \end{gather}
+                \end{mdframed}
+        \end{enumerate}
+
+    \item 
+        
+
+\end{enumerate}
+
+\end{document}
