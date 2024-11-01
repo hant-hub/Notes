@@ -1,0 +1,97 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 120}}
+\author{\huge{Elijah Hantman}\\Day 11 Notes}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Brief Structural Hazard Recap}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Occurs when a read and write try to
+                    access the same resource at the same
+                    time.
+                \item Memory access: In a vanilla processor
+                    design, instructions and data have
+                    different physical memory, prevents
+                    structural hazards. Common physical
+                    memory ie: Von Neumann have this issue.
+                \item Register File: For reading and writing
+                    to the same register at the same time,
+                    this could be an issue. If you have a 
+                    fast register file this hazard is resolved.
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Beyond the 5 stage pipeline} 
+        \begin{mdframed}
+           \begin{itemize}
+               \item Most real pipelines are 10-15 stages
+               \item These deeper pipelines improve throughput
+                   and clock frequency, however latency per
+                   instruction can inscrease due to hazards.
+           \end{itemize} 
+        \end{mdframed}
+    \item {\large Midterm Coverage}
+\end{description}
+
+
+\end{document}
