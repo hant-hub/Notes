@@ -90,7 +90,32 @@ nonvolitile and only magnetic disk
 is mechanical 
 
 ideal memory has access time of registers or
-SRAM, with cost of Magnetic Disks
+SRAM, with cost and size of Magnetic Disks
+
+
+Massive physical and technical limits on
+memory. DRAM and memory access speeds have
+improved less than processor clock speeds.
+
+### Locality
+
+Spatial Locality -> if data is referenced,
+data with similar addresses are likely to
+be referenced
+
+Temporal Locality -> if data is referenced
+it is more likely to be referenced again.
+
+
+Main takeaway: we only use small portions
+of memory at any given time.
+
+
+
+
+
+
+
 
 
 
