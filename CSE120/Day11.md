@@ -63,3 +63,8 @@ of bits.
 it might take up to two mispredicts in order to
 change the next prediction.
 
+note: this behaves exactly like a 1-bit
+predictor given alternating branching
+behavior
+
+
