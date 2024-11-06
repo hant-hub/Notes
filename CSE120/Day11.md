@@ -106,7 +106,6 @@ be referenced
 Temporal Locality -> if data is referenced
 it is more likely to be referenced again.
 
-
 Main takeaway: we only use small portions
 of memory at any given time.
 
