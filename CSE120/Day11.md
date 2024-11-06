@@ -26,6 +26,18 @@ A: create a lookup table
 A Branch History table.
 BHT is usually seperate from main memory
 
+<hr>
+
+In practice a BHT cannot hold info for all
+branch instruction addresses in our program
+
+a large BHT will slow memory access and reduce
+CPU performance.
+
+A small BHT table with limited rows is used
+- I think a BHT could be implemented like a
+smaller L1 cache
+
 
 
 
