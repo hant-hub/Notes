@@ -67,4 +67,10 @@ note: this behaves exactly like a 1-bit
 predictor given alternating branching
 behavior
 
+the more bits used the more time is
+required for "warm up"
+
+more bit predictors are more accurate with
+inputs that rarely change.
+
 
