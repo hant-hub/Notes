@@ -1,4 +1,4 @@
-##Dynamic Branch Prediction
+## Dynamic Branch Prediction
 
 use past branch behavior to predict
 future branches
