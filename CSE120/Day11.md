@@ -73,7 +73,24 @@ required for "warm up"
 more bit predictors are more accurate with
 inputs that rarely change.
 
+## Caching
 
+- does not concern ISA
+- about physical limitations
+
+types of memory
+- Registers (10ps) -> not feasible for large data
+- Static Ram (0.2ns) -> $100 per GB
+- Dynamic Ram (50-70ns) -> $5 per GB
+- Flash (20u - 5ms) -> $0.5 per GB
+- Magnetic Disk (5-20ms) -> $0.05 per GB
+
+note: only Flash and Magnetic is
+nonvolitile and only magnetic disk
+is mechanical 
+
+ideal memory has access time of registers or
+SRAM, with cost of Magnetic Disks
 
 
 
