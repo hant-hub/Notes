@@ -20,3 +20,12 @@ For a 1-bit branch predictor only a single
 misprediction will shift the state of the
 predictor.
 
+Q: how to emulate in hardware?
+A: create a lookup table
+
+A Branch History table.
+BHT is usually seperate from main memory
+
+
+
+
