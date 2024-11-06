@@ -111,6 +111,40 @@ of memory at any given time.
 
 
 
+## Memory Hierarchy 
+
+Multiple memory technologies in a single
+system
+
+small amounts of fast memory, large amounts
+of slow memory. 
+
+the more local memory will be moved up the
+heirarchy, the less used memory is moved
+down the hierarchy. 
+
+lower levels tend to be physically further
+from the CPU
+
+only adjacent levels have direct physical
+connections. 
+
+each memory miss causes the pipeline to
+stall
+
+## Cache Motivation
+
+P: Memory is slow
+- DRAM is >100 times slower than clock speed
+- everything is slow
+A: Caches!
+- small/fast memory to take advantage of memory
+    usage patterns
+
+#### New Problems
+- what data goes into the cache?
+- How does the cache work?
+- Tradeoffs? Caveats? Design Considerations?
 
 
 
