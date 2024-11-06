@@ -38,6 +38,28 @@ A small BHT table with limited rows is used
 - I think a BHT could be implemented like a
 smaller L1 cache
 
+old branch instructions are periodically
+flushed
 
+how is the BHT reinitialized?
 
+usually pick a random start.
+
+<hr>
+
+## Two Bit Branch Predictor
+
+2-bit predictor uses past two branches.
+
+if past two branches were the same predict
+the same
+
+if different predict the last branch but
+weakly
+
+generally predictors only use a small number
+of bits.
+
+it might take up to two mispredicts in order to
+change the next prediction.
 
