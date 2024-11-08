@@ -1,0 +1,221 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\title{\Huge{CSE 120}\\Day 13 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{description}
+    \item {\large Caching Review} 
+        \begin{itemize}
+            \item  Cache holds recently referenced data
+            \item Exploits principal of locality
+            \item Computer systems often use many caches
+            \item Caching is not limited to hardware.
+            \item Memory hierarchy, lots of slow memory,
+                smaller and smaller amounts of faster
+                memory.
+            \item Only adjacent levels in the memory hierarchy
+                can transfer information.
+        \end{itemize}
+    \item {\large Motivation}
+        \begin{itemize}
+            \item Memory is too slow
+            \item Caches speed up access
+            \item What does into a cache?
+            \item How do caches work?
+            \item Why do caches work?
+            \item What are the tradeoffs when designing a cache?
+        \end{itemize}
+    \item How do we transfer data?
+        \begin{itemize}
+            \item Every pair of levels can be thought of as
+                an upper and lower level. Usually we transfer
+                an entire block when something is copied between
+                levels.
+            \item Block (or line)\\
+                the minimum unite of information that can
+                be moved in a cache
+            \item Hit Rate\\
+                The fraction of memory access found in a
+                level of the memory hierarchy
+            \item Miss Rate\\
+                The fraction of memory accesses not found in
+                a level of the memory hierarchy
+            \item Hit Time\\
+                The time required to access a level of the
+                memory hierarchy, including time required to
+                determine whether it is a hit or a miss.
+            \item Miss Penalty\\
+                The time required to fetch a block into a
+                level of the memory hierarchy from a lower
+                level, including time taken to access the block,
+                transmit the block, and insert the block into the
+                new level, and then passing the block to the
+                requestor.
+        \end{itemize}
+
+    \item {\large What is a cache?}
+        \begin{itemize}
+            \item Cache holds recently referenced data\\
+                functions as a buffer for larger, slower components
+            \item Exploits locality
+                \begin{itemize}
+                    \item Provide as much inexpensive storage space
+                        as possible
+                    \item Offer access speed equivalent to the fastest
+                        memory
+                        \begin{itemize}
+                            \item For data in the cache
+                            \item key is to have the right data cached
+                        \end{itemize}
+                \end{itemize}
+            \item Computer systems extensively use caching and caches
+            \item Cache ideas are not limited to hardware.
+        \end{itemize}
+        \pagebreak
+    \item {\large Direct Mapped Cache}
+        \begin{itemize}
+            \item Assume single cache level
+            \item All data is aligned, there are no gaps between
+                any data.
+            \item Assume 64 bit address for caching.
+            \item $2^{10}$ bytes = 1024 Bytes = 1KiB
+                \begin{mdframed}
+                    The little "i" in the unit indicates the 
+                    base is 2 rather than 10.
+                \end{mdframed}
+        \end{itemize}
+        \hline
+        \begin{itemize}
+            \item Location of Block in Cache determined by (main)
+                memory address
+            \item Direct Mapped means only one choice.
+            \item Two end of a spectrum, Direct Mapped caches,
+                Full Associative cache. Between these two
+                there are n-set associative caches.
+            \item Direct Mapped means that each block must
+                go into a single cache line, Full associative
+                means the block can go into any place in the
+                cache. N-Set Associative mappings can place
+                a given block into N different locations.
+            \item Direct mapped cache $\to$ 1 way associative\\
+                n-set associative where n is the number of blocks
+                in the cache.
+            \item Full Associative cache $\to$ n way associative where
+                n is the number of blocks in the cache.\\
+                1-set associative cache.
+        \end{itemize}
+        \hline
+        \begin{itemize}
+            \item Cache location is determined by either modulo
+                the address, or masking out the upper bits.
+            \item Modern L1 cache uses lower 12 bits for determining
+                set.
+            \item Rest of address is used as a tag for validation.
+            \item has the disadvantage of having a high miss
+                rate. This is because many memory addresses map
+                to a single block in cache.
+            \item Secondary disadvantage of direct mapped cache
+                is that for virtual memory many bits tend to
+                be unusable until converted via a TLB or 
+                memory mapper.
+            \item Valid bit which is only set when real data
+                is loaded into the cache. Initialized to 0,
+                only set when a read happens.
+        \end{itemize}
+        Hardware Design
+        \begin{itemize}
+            \item  64 bit address
+            \item Smallest addressable unit is 1 bytes
+            \item Cache size is $2^n$ blocks
+            \item Block size is $2^m$ words
+            \item No. of bits used to reference cache is
+                $n + m + 2$
+            \item Size of tag field is $64 - (n + m + 2)$
+        \end{itemize}
+    \item {\large Direct Mapped Cache, and Cache Writes}
+        \begin{itemize}
+            \item How does a CPU know which block index to access?
+                \begin{itemize}
+                    \item Formula is: Block Address \% Number of blocks
+                    \item This requries conversion from byte to block address.
+                    \item Address is $\lfloor \textrm{Byte address / Bytes per block}\rfloor$ 
+                \end{itemize}
+            \item Impact of Block Size
+                \begin{itemize}
+                    \item Large the block size, the greater the
+                        miss penalty
+                    \item Large blocks favor spatial locality
+                    \item However large blocks decrease number
+                        of blocks in a cache, and cause more
+                        collisions and greater miss rate.
+                        In addition, a larger block requires more
+                        time to search through for the correct
+                        address.
+                \end{itemize}
+                \pagebreak
+            \item  
+        \end{itemize}
+\end{description}
+
+
+
+\end{document}
