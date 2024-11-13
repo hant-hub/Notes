@@ -1,0 +1,231 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+\renewcommand{\familydefault}{\sfdefault}
+
+
+\title{\Huge{CSE 120}\\Day 14 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\huge DM Cache and Cache Writes} 
+    \item {\large Handling a Cache Miss}
+        \begin{itemize}
+            \item If the cache reports a hit
+                \\
+                Continue as usual
+            \item If the cache reports a miss
+                \\
+                Cache miss has to be done in collaboration
+                with processor control unit that initiates the
+                memory access and refills the cache.
+            \item Cache misses create stalls while waiting for
+                memory.
+            \item Cache misses increase CPI.
+        \end{itemize}
+    \item {\large Handling Cache Writes}
+        \begin{itemize}
+            \item Writing causes additional issues
+            \item Assume the address is already loaded in cache
+            \item If we write a new value to that address we
+                can store the new data in the cache and avoid
+                a memory access.
+        \end{itemize}
+    \item {\large Problems with Cache Writing?}
+        \begin{itemize}
+            \item Cache and memory are desynced.
+            \item How can we ensure subsequent loads return the
+                right value?
+        \end{itemize}
+    \item {\large Write-Through Caches}
+        \begin{itemize}
+            \item Solves by forcing all writes to update both
+                cache and main memory.
+            \item Forces all writes to access memory\\
+                No cache advantage.
+        \end{itemize}
+    \item {\large Write Buffers}
+        \begin{itemize}
+            \item Buffer allows devices to work at average
+                data rate rather than peak.
+            \item Write buffers stores data before being committed
+                to memory, amortizes writes.
+        \end{itemize}
+    \item {\large Write Back Caches}
+        \begin{itemize}
+            \item Memory is not updated until a block needs
+                to be replaced
+            \item The highest location of a block has the 
+                correct data.
+            \item Data only moves down the memory hierarchy when
+                a block is evicted.
+            \item Makes cache misses more expensive
+        \end{itemize}
+    \item {\large Discussion}
+        \begin{itemize}
+            \item Requries dirty bit to keep track of writes
+            \item Write back is more popular
+            \item penalty is only applied to next memory access
+            \item Automatically handles collating writes
+        \end{itemize}
+    \item {\large Write Miss}
+        \begin{itemize}
+            \item Second scenario is we try to write
+                to an address not contained in the cache
+            \item When we update main memory, should we copy
+                into cache?
+        \end{itemize}
+    \item {\large Write Around}
+        \begin{itemize}
+            \item Writes go directly into memory
+            \item goes around cache.
+            \item Good if data is used once.
+        \end{itemize}
+    \item {\large Allocate on Write}
+        \begin{itemize}
+            \item Loads new data into cache
+            \item If the data is needed again it will be
+                avalible.
+        \end{itemize}
+    \item {\large Unified vs Split Cache}
+        \begin{itemize}
+            \item Split Cache
+                \begin{itemize}
+                    \item One cache for instructions
+                    \item one cache for data
+                    \item Allows for accessing both instructions
+                        and data at the same time
+                \end{itemize}
+            \item Unified Cache
+                \begin{itemize}
+                    \item Single cache with both program and code
+                    \item More flexible
+                    \item Lower miss rate
+                    \item Allows for more entries and does not
+                        enforce as strict a structure.
+                \end{itemize}
+        \end{itemize}
+    \item {\large Measuring Cache Performance}
+        \begin{itemize}
+            \item If assume reasonable buffer depth and significantly
+                faster buffer to lower memory, stalls are negligible
+            \item Most write through implementations read and write
+                stalls into the same miss rate and penalty.
+            \item Memory stall cycles = Accesses * miss Rate * Miss Penalty
+        \end{itemize}
+    \item {\large Average Memory Access Times}
+        \begin{itemize}
+            \item Large caches have large hit times
+            \item Average memory access times accounts for hit
+                time.
+            \item AMAT = Hit Time + Miss rate * Miss Penalty
+        \end{itemize}
+    \item {\large Associative Caches}
+        \begin{itemize}
+            \item Fully Associative
+                \begin{itemize}
+                    \item Allow a given block to map to any
+                        entry
+                    \item Requires all entries to be searched
+                        at once
+                    \item Comparator per entry is expensive
+                \end{itemize}
+            \item N-way set associative
+                \begin{itemize}
+                    \item Each set contains n entries
+                    \item Block number determines set
+                    \item Search all entries in a set at once
+                    \item n comparators is less expensive (scales with n)
+                \end{itemize}
+            \item Side notes:
+                \begin{itemize}
+                    \item 1-way associative cache is the same
+                        as direct mapped cache.
+                    \item If n is equal to the number of entries
+                        an n-way associative cache is equivalent
+                        to a fully associative cache.
+                \end{itemize}
+        \end{itemize}
+    \item {\large How much Associativeity}
+        \begin{itemize}
+            \item Increased associativity increases hit rate
+                but has diminishing returns
+        \end{itemize}
+        \pagebreak
+    \item {\large Replacement Policy}
+       \begin{itemize}
+           \item Direct mapped has no options
+           \item Set associative
+               \begin{itemize}
+                   \item prefer non-valid entry
+                   \item if all entries are valid choose using
+                       some policy
+               \end{itemize}
+           \item Least Recently Used Policy (LRU)
+               \\
+               Chose the least used value\\
+               Probably some linear feedback shift register 
+       \end{itemize} 
+    \item {\large}
+\end{description}
+
+
+
+\end{document}
