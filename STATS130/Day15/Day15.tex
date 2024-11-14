@@ -1,0 +1,388 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+
+\title{\Huge{Stats 130}\\Day 15 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Markov identity}
+        \begin{mdframed}
+            \begin{gather}
+                \pi = \lim_{n \to \infty} v' P^n 
+            \end{gather}
+            Where P is the probability matrix,
+            and v' is the initial distribution, and
+            $\pi$ is the equilibrium distribution.
+        \end{mdframed}
+    \item {\large Obtaining the Equilibrium Distribution} 
+        \begin{itemize}
+            \item Markov chain
+            \item What will be the stable distribution
+                over time.\\
+                ie: what is the probability of the
+                system being in a given state as time
+                goes to infinity.
+        \end{itemize}
+        \begin{mdframed}
+            The equilibrium satisfies $\pi' = \pi' P$.
+            This implies that $\pi'(P-I) = 0$. 
+            Unfortunately there isn't a unique
+            solution since $\pi* = c\pi$ also satisfies
+             $(\pi*)(P-I) = 0$ for all c.
+
+             \begin{mdframed}
+                 idk why the slides use $\pi$ its a terrible
+                 choice for a variable name.
+             \end{mdframed}
+
+             To make the solution unique we constrain $\pi$
+             to be positive and sum to 1. This is saying that
+             $\sum_{j=1}^k \pi_j = 1$
+
+             \begin{displaymath}
+                (\pi_1, ... ,\pi_k)
+                \begin{bmatrix}
+                   1 \\ 
+                   \vdots \\
+                   1
+                \end{bmatrix}
+                = \pi'1. = 1
+             \end{displaymath}
+
+             Let $h_j$ be the j-th column of $P - I$. 
+             Define $G = [h_1, ..., h_{k-1}, 1]$.
+
+             \begin{displaymath}
+                \pi'G = (0, ... ,0,1) \implies 
+                \pi' = (0, ... 0,1)G^{-1}
+             \end{displaymath}
+        \end{mdframed}
+        How to get the Equilibrium
+        \begin{itemize}
+            \item Start with transition matrix
+            \item We subtract from the transition matrix
+                the identity matrix.
+            \item Take last column and replace it with all ones
+            \item Calculate the inverse of that matrix
+            \item Multiply by a vector with all zeros and only
+                a single 1 in the last entry.
+        \end{itemize}
+        Example
+        \begin{gather}
+           P = 
+           \begin{bmatrix}
+               \frac{1}{3} & \frac{2}{3}\\ 
+               \frac{2}{3} & \frac{1}{3}
+           \end{bmatrix}\\
+           P - I = 
+           \begin{bmatrix}
+               -\frac{2}{3} & \frac{2}{3}\\ 
+               \frac{2}{3} & -\frac{2}{3}\\ 
+           \end{bmatrix}\\
+            G = 
+            \begin{bmatrix}
+               -\frac{2}{3} & 1\\ 
+               \frac{2}{3} & 1\\ 
+            \end{bmatrix}\\
+            G^{-1} =
+            \begin{bmatrix}
+                -\frac{3}{4} & \frac{3}{4}\\ 
+                \frac{1}{2} & \frac{1}{2}
+            \end{bmatrix}\\
+            \pi' = (0, 1)
+            \begin{bmatrix}
+                -\frac{3}{4} & \frac{3}{4}\\ 
+                \frac{1}{2} & \frac{1}{2}
+            \end{bmatrix}
+            = 
+            \begin{bmatrix}
+                \frac{1}{2} & \frac{1}{2}
+            \end{bmatrix}
+        \end{gather}
+
+        \begin{mdframed}
+            This only works with homogeneous Markov Chains,
+            where the probabilities are constant.
+        \end{mdframed}
+
+    \pagebreak
+    \item {\large Expected Value / Expectation}
+        \begin{mdframed}
+            Let X be a random variable with probability
+            function $f_X(x)$.
+            \begin{displaymath}
+                E(X) = \sum_x xf_X(x)
+            \end{displaymath}
+
+            This is only useful if the sum is convergent.
+            We require the sum is absolute convergence.
+            \begin{displaymath}
+                \sum_x |x| f_X(x) < +\infty
+            \end{displaymath}
+
+            Many well defined random variables fail this
+            requirement. For those variables we say that
+            $E(X)$ does not exist.
+            
+            
+            The Expectation of a variable only depends on its
+            distribution, and two random variables with the
+            same distribution will always have the same
+            Expectation.
+        \end{mdframed}
+    \item {\large Continuous Random Variables}
+        \begin{mdframed}
+            For a continuous random variable $X$ with p.d.f. 
+            $f_X(x)$ the expectation is defined.
+             \begin{displaymath}
+                E(x) = \int_{-\infty}^{+\infty} x f_X(x) dx
+            \end{displaymath}
+
+            This exists if:
+            \begin{displaymath}
+                E(x) = \int_{-\infty}^{+\infty} |x| f_X(x) dx
+            \end{displaymath}
+            
+            Otherwise the expectation is undefined.
+        \end{mdframed}
+    \item {\large Functions of Random Varibles}
+        \begin{mdframed}
+            For any function $r(X)$ we have that
+            \begin{displaymath}
+                E(r(X)) = \int_{-\infty}^{+\infty} r(x) f_X(x) dx 
+            \end{displaymath}
+            Therefore we do not need the density of the random
+            variables that result from transforming $X$ in order
+            to obtain the expectation. 
+
+            \vspace{10}
+
+            Even more generally:
+            \\
+            For two random variables $X$ and $Y$, consider
+            a function $r(X,Y)$, then
+            \begin{displaymath}
+                E(r(X,Y)) = 
+                \int_{-\infty}^{+\infty} \int_{-\infty}^{+\infty} r(x,y)f(x,y) dx dy
+            \end{displaymath}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Example}
+        \begin{mdframed}
+            Consider a random variable with density
+            \begin{displaymath}
+                f_X(x) = 
+                \begin{cases}
+                    2x & 0 < x < 1\\ 
+                    0 & \textrm{otherwise}
+                \end{cases}
+            \end{displaymath}
+
+            Then
+            \begin{displaymath}
+                E(X) = 
+                \int_0^1 x(2x) dx
+                =
+                \int_0^1 2x^2dx = \frax{2}{3}
+            \end{displaymath}
+        \end{mdframed}
+        \begin{mdframed}
+            Consider the exponential density defined as:
+            \begin{displaymath}
+                f_X(x) = 
+                \begin{cases}
+                    \lambda e^{-\lambda x} & x > 0\\ 
+                    0 & x \le 0
+                \end{cases}
+            \end{displaymath}
+
+            \begin{displaymath}
+                E(X) = 
+                \int_{0}^{\infty} x \lambda e^{-\lambda x} dx
+                = -xe^{-\lambda x} \bigg |_0^{\infty} +
+                \int_0^{\infty} e^{-\lambda x}dx
+            \end{displaymath}
+            \begin{displaymath}
+                = -\frac{1}{\lambda} e^{-\lambda x} \bigg |_0^{\infty}
+                = \frac{1}{\lambda}
+            \end{displaymath}
+        \end{mdframed}
+        \begin{mdframed}
+            Cauchy Density is defined as:
+            \begin{displaymath}
+                f_X(x) =
+                \frac{1}{\pi(1+x^2)}, x \in \mathbb{R}
+            \end{displaymath}
+            
+            To check if the expectation exists
+            \begin{displaymath}
+                \int_{-\infty}^{+\infty}
+                \frac{|x|}{\pi(1 + x^2)}
+                dx
+                =
+                \frac{2}{\pi} \int_0^{\infty}
+                \frac{x}{1+x^2} dx
+                = 
+                \frac{1}{\pi} log(1+x^2) \bigg |_0^{\infty} = \infty
+            \end{displaymath}
+
+            Therefore the expectation of the Cauchy distribution
+            does not exist.
+        \end{mdframed}
+    \item {\large Expectation Properties}
+       \begin{mdframed}
+           \begin{enumerate}
+               \item $Y = aX + b \implies EY = aEX + b, \forall a, b \in \mathbb{R}$
+                   \begin{displaymath}
+                       EY = \int_{\mathbb{R}} (ax + b) f_X(x) dx
+                       = a \int_{\mathbb{R}} x f_X(x) dx +
+                       b \int_{\mathbb{R}} f_X(x) dx
+                   \end{displaymath}
+                   
+               \item $Pr(X \ge [\le] a) = 1 \implies EX \ge [\le] a$
+                    \begin{displaymath}
+                        EY = \int_{x \ge a} xf_X(x) dx \ge 
+                        a \int_{\mathbb{R}} f_X(x) dx = a, f_X(x) = 0, x > a
+                   \end{displaymath}
+               \item $E(X+Y) = EX + EY$ The expectation distributes
+                   linearly over sums.
+
+                   \begin{displaymath}
+                       E(X + Y) = \int \int_{\mathbb{R^2}} (x + y) f(x,y)dxdy
+                           = \int_{\mathbb{R}} xf_X(x) dx + \int_{\mathbb{R}} yf_Y(y) dy
+                   \end{displaymath}
+               \item In general for a collection of random variables
+                   $X_1, ... , X_k$, $EX_i$ exists $\forall i$,
+                   $E \sum_{i=1}^k X_i = \sum_{i=1}^k EX_i$
+
+               \item For a collection of independent random variables
+                   $X_1, ... , X_k$ then  
+                   $EX_i$ exists $\forall i$,
+                   $E \prod_{i=1}^k X_i = \prod_{i=1}^k EX_i$
+           \end{enumerate}
+       \end{mdframed} 
+       \pagebreak
+    \item {\large Bernoulli Trials}
+        \begin{mdframed}
+            Consider a random variable $X \sim Ber(p)$. Then,
+            $Pr(X = 1) = p$, and  $Pr(X = 0) = 1 - p = q$.
+            \begin{displaymath}
+                EX = 1 \times p + 0 \times q = p
+            \end{displaymath}
+             
+            Repeat the Bernoulli trials n times, and define
+            Y as the random variable that counts the number of
+            successes. Then
+            \begin{displaymath}
+                Y = X_1 + ... + X_n
+            \end{displaymath}
+            and
+            \begin{displaymath}
+                EY = EX_1 + ... + EX_n = np
+            \end{displaymath}
+
+            And $Y \sim Bin(n,p)$
+        \end{mdframed}
+    \item {\large Hypergeometric Distribution}
+        \begin{mdframed}
+            Select n balls from a box containing A red balls
+            and B blue balls. Define the binary variable
+            $X_i = 1$ if the i-th ball is red, and $X_i = 0$ 
+            if the i-th ball is blue.
+
+            \begin{displaymath}
+                Pr(X = 1) = \frac{A}{A + B}
+                \implies
+                EX_i = \frac{A}{A + B}
+            \end{displaymath}
+            That implies that
+            \begin{displaymath}
+                Y = \sum_{i =1}^n X_i
+                \implies
+                EY = \sum{i=1}^n EX_i = n\frac{A}{A+B}
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Poisson Distribution}
+        \begin{mdframed}
+            A random variable with a Poisson distribution
+            has function
+            \begin{displaymath}
+                f_X(x) = 
+                \begin{cases}
+                    \frac{e^{-\lambda} \lambda^{x}}{x!} & x = 0, 1, 2, ...\\ 
+                    0 & \textrm{otherwise}
+                \end{cases}
+            \end{displaymath}
+            \begin{displaymath}
+                EX = 
+                \sum_{i = 0}^{\infty} i \frac{e^{-\lambda} \lambda^{i}}{i!}
+                =
+                \sum_{i = 1}^{\infty} \frac{e^{-\lambda} \lambda^{i}}{(i - 1)!}
+                =
+                \lambda e^{-\lambda} \sum_{i=1}^{\infty} \frac{\lambda^{i -1}}{(i-1)!}
+            \end{displaymath}
+            \begin{displaymath}
+                = \lambda e^{-\lambda} \sum_{j = 0}^{\infty}
+                \frac{\lambda^{j}}{j!} 
+                = \lambda
+            \end{displaymath}
+            
+            The last step works because the sum is the taylor
+            expansion of $e^{\lambda}$ which cancels with
+            $e^{-\lambda}$.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Geometric Distribution}
+        \begin{mdframed}
+            A random variable with a geometric distrubution has
+            probability function.
+            \begin{displaymath}
+                f_X(x) =
+                \begin{cases}
+                    pq^x & x = 0, 1, 2, ...\\
+                    0 & \textrm{otherwise}
+                \end{cases}
+            \end{displaymath}
+
+            \begin{displaymath}
+                EX = \sum_{i = 0}^{\infty} ipq^i
+                = p \sum_{i = 1}^{\infty} iq^i
+                = pq \sum_{i = 1}^{\infty}iq^{i-1}
+            \end{displaymath}
+            \begin{displaymath}
+             = pq \sum_{i = 0} \frac{d}{dq} q^{i}
+             = pq \frac{d}{dq} \sum_{i=0}^{\infty} q^i
+             = pq \frac{d}{dq} \frac{1}{1-q}
+            \end{displaymath}
+            \begin{displaymath}
+                = pq \frac{1}{(1-q)^2}
+                = \frac{pq}{p^2}
+                = \frac{q}{p}
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Negative Binomial}
+        \begin{mdframed}
+            A random variable with a negative binomial
+            corrospond to the sum of $r$ independent random
+            variables  $X_i$ where  $X_i \sim Geo(p)$ 
+
+             \begin{displaymath}
+                 EY = \frac{rq}{p}
+            \end{displaymath}
+            
+        \end{mdframed}
+    \item {\large}
+\end{description}
+
+
+\end{document}
