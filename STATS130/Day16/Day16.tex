@@ -1,0 +1,290 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Stats 130}\\Day 16 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Variance} 
+        \\
+        The variance is a measure of the dispersion
+        of the distribution of a random variable.
+        It is a measure of how "wide" a distribution is.
+
+        \begin{mdframed}
+            Definition:
+            \begin{displaymath}
+                var(X) = E(X - \mu)^2, \qquad \mu = EX 
+            \end{displaymath}
+            \begin{displaymath}
+                var(x) =
+                E(X - \mu)^2 =
+                E(X^2 - 2X\mu + \mu^2) =
+                EX^2 - 2\mu EX + \mu^2
+            \end{displaymath}
+            \begin{displaymath}
+                = EX^2 - 2\mu^2 + \mu^2 =
+                EX^2 - \mu^2
+            \end{displaymath}
+            
+            Usually the last line is the easiest way to
+            calculate the variance.
+        \end{mdframed}
+    \item {\large Properties of the Variance} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item $var(X) \ge 0$\\
+                    Since the variance is the square
+                    of a real value, it is definitionally
+                    non-negative.
+
+                \item $var(X) = 0 \iff Pr(X=c) = 1$
+                \item For constants a and b, $var(aX + b) = a^2var(X)$ 
+                    \\
+                    The variance of a constant is zero, and
+                    the variance is proportional to the square
+                    of what is inside. So constant shifts don't
+                    affect the variance, and coefficients become
+                    squared when pulled outside.
+
+                \item $X_1, ... ,X_n$ independent, then
+                    $var(\sum_{i=1}^n X_i) = \sum_{i=1}^n var(X_i)$
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Bernoulli Trials} 
+        \begin{mdframed}
+            $X \sim Ber(p)$ then
+             \begin{displaymath}
+                var(X) = EX^2 - (EX)^2 = p - p^2 = pq
+            \end{displaymath}
+            
+            $Y \sim Bin(n, p)$
+            \begin{displaymath}
+                Y = \sum var(X) 
+            \end{displaymath}
+            
+        \end{mdframed}
+    \item {\large Poisson}  
+        \begin{mdframed}
+            $X \sim Pois(\lambda)$
+             \begin{gather}
+                var(X) = EX^2 - (EX)^2 = \lambda^2 + \lambda - \lambda^2\\ 
+                = \lambda
+            \end{gather}
+        \end{mdframed}
+    \item {\large Geometric} 
+        \begin{mdframed}
+            $X \sim Geo(p)$
+             \begin{gather}
+               var(X) = E(X(X-1)) + EX - (EX)^2 
+               = 2 \frac{q^2}{p^2} + \frac{q}{p} - \frac{q^2}{p^2}
+               = \frac{q}{p^2}
+            \end{gather}
+            $Y \sim NegBin(r, p)$
+             \begin{displaymath}
+                var(Y) = \sum_{i=1}^r var(X_i) = r \frac{q}{p^2}
+            \end{displaymath}
+            
+        \end{mdframed}
+        \pagebreak
+    \item {\large Covariance} 
+        \begin{mdframed}
+            The mean and the variance provide a characterization
+            of the average behavior of a single random variable. In
+            order to measure the association between two random
+            variables we use the covariance.
+            
+            \begin{gather}
+                \mu_X = EX\\
+                \mu_Y = EY\\ 
+                cov(X, Y) = E((X - \mu_X)(Y - \mu_Y))\\
+                = E(XY - \mu_XY - \mu_YX + \mu_X \mu_Y)\\
+                = E(XY) - \mu_XE(Y) - \mu_YE(X) + \mu_X \mu_Y\\
+                = E(XY) - 2 \mu_X \mu_Y + \mu_X \mu_Y\\
+                = E(XY) - \mu_X \mu_Y
+            \end{gather}
+            
+            Order doesn't matter due to the multiplication.
+            If X and Y are independent $cov(X, Y) = 0$.
+
+            \vspace{10}
+
+            Something to note is that $cov(X,Y) = 0$ does not
+            imply that X and Y must be independent. Also,
+             $cov(X, X) = var(X)$
+        \end{mdframed}
+    \item {\large Examples} 
+        \begin{mdframed}
+            Consider two random variables with joint density
+
+            \begin{displaymath}
+                f(x,y) = 
+                \begin{cases}
+                    x + y & 0 \le x \le 1, 0 \le y \le 1\\ 
+                    0 & \textrm{otherwise}
+                \end{cases}
+            \end{displaymath}
+
+            Calculate covariance.
+            \begin{gather}
+               \mu_X = \int_0^1 \int_0^1 x(x+y) dy dx =  
+               \frac{7}{12} = \mu_Y\\
+               EXY = \int_0^1 \int_0^1 xy(x + y)dydx = \frac{1}{3}
+            \end{gather}
+
+            then
+            \begin{displaymath}
+                cov(X,Y) = EXY - \mu_X \mu_Y
+                = \frac{1}{3} - \frac{49}{144} = -\frac{1}{144}
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Interpretation} 
+        \begin{mdframed}
+            The covariance measures how random variables tend to
+            move together. It answers the question, if X is big,
+            what is Y likely to be.
+            \\
+            The Covariance can range from negative to positive
+            infinity, and it is dependent on the scale used. This
+            makes the Covariance difficult to directly interpret
+            as it carries whatever units you are using.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Correlation} 
+        \begin{mdframed}
+            One way is to use a standardized covariant. We
+            use the Cauchy-Schwarz inequality.
+
+            \vspace{10}
+            \begin{mdframed}
+                Theorem: For any two random variables U and V 
+                with finite variance and mean, then:
+                \begin{displaymath}
+                    E(UV)^2 \le EU^2 EV^2
+                \end{displaymath}
+            \end{mdframed}
+
+            The correlation coefficient for X and Y is defined
+            as:
+
+            \begin{displaymath}
+                \rho(X,Y) = \frac{cov(X,Y)}{\sqrt{var(X) var(Y)}}
+            \end{displaymath}
+            
+            By taking $U = X - \mu_X$ and  $V = Y - \mu_Y$ we
+            have that 
+             \begin{displaymath}
+                (cov(X,Y))^2 \le var(X)var(Y)
+            \end{displaymath}
+            
+            This means that $|\rho(X,Y)| \le 1$
+        \end{mdframed}
+    \item {\large Properties} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item If X and Y are independent then $\rho(X,Y) = 0$
+                \item if $Y = aX$ for a real number a, then
+                     \begin{displaymath}
+                    \rho(X,Y) = 
+                    \begin{cases}
+                        1 & a > 0\\ 
+                        -1 & a < 0
+                    \end{cases}
+                    \end{displaymath}
+
+                    \begin{displaymath}
+                        \rho(X,Y) = \frac{cov(X, aX)}{\sqrt{var(X)a^2var(X)}}
+                        = \frac{acov(X,Y)}{|a|var(X)} = \pm 1
+                    \end{displaymath}
+                    
+                \item $var(X + Y) = varX + varY + 2cov(X,Y)$
+                    \\
+                    Consequence of $var(X+Y) = E(X+Y)^2 - (\mu_X + \mu_Y)^2$
+                \item 
+                    \begin{displaymath}
+                    var \sum_i X_i = \sum_i var X_i +
+                    2 \sum \sum_{i < j} cov(X_i, X_j)
+                    \end{displaymath}
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Conditional Expectation} 
+        \begin{mdframed}
+           For two random variables X and Y, then conditional
+           distribution of one given the other takes a specific
+           value is a distribution we can calculate an expectation
+           for.
+
+           \vspace{10}
+
+           The conditional expectation of X, given $Y=y$ is
+            \begin{displaymath}
+            E(X|Y=y) = 
+            \begin{cases}
+                \sum_x xg_X(x|y) & \textrm{discrete}\\ 
+                \int_{\mathbb{R}} xg_X(x|y) dx & \textrm{continuous}
+            \end{cases}
+           \end{displaymath}
+
+           Notice that $h(y) = E(X|Y=y)$ defines a function of
+           y.
+        \end{mdframed}
+        \begin{mdframed}
+            Consider the random variable $h(y)$.
+
+            \vspace{10}
+           
+            The conditional expectation of X, given Y is
+            $E(X|Y) = h(Y)$. This is a random variable.
+
+            \vspace{10}
+
+            Theorem: $E(E(X|Y)) = E(X)$
+            \begin{displaymath}
+                E(E(X|Y)) = E(h(Y)) = \int h(y)f_Y(y)dy
+            \end{displaymath}
+            \begin{displaymath}
+                = \int \int xg_X(x|y) f_Y(y)dydx
+            \end{displaymath}
+            \begin{displaymath}
+                = \int \int xf(x,y)dydx = EX
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Examples} 
+        \begin{mdframed}
+            Consider a clinical trial where patients have
+            two possible outcomes. Suppose the probability
+            of success is not known, and you denote it as
+            a random variable $\Theta$. Then, for patient
+            i,  $Pr(X_i = i | \Theta = \theta) = \theta$. The
+            total number of successes is
+            $Y= \sum_{i=1}^n X_i$ and  $E(Y|\Theta = \theta) = n \theta$
+
+            \vspace{10}
+            
+            Suppose that we assume $\Theta \sim Unif(0,1)$,
+            then $E(Y|\Theta) = n\Theta$. We have to assume
+            $E\Theta = 1/2$ then
+            \begin{displaymath}
+                EY = E(E(Y|\Theta)) = E(n\Theta) = \frac{n}{2}
+            \end{displaymath}
+            
+
+            
+        \end{mdframed}
+    \item {\large} 
+\end{description}
+
+
+\end{document}
