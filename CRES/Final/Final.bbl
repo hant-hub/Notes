@@ -1,0 +1,159 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{cms/global//global/global}
+    \entry{Coates}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1073cac6fc420b3999eaef4614cc2710}{%
+           family={Coates},
+           familyi={C\bibinitperiod},
+           given={Ta-Nehisi},
+           giveni={T\bibinithyphendelim N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Penguin House}%
+      }
+      \strng{namehash}{1073cac6fc420b3999eaef4614cc2710}
+      \strng{fullhash}{1073cac6fc420b3999eaef4614cc2710}
+      \strng{bibnamehash}{1073cac6fc420b3999eaef4614cc2710}
+      \strng{authorbibnamehash}{1073cac6fc420b3999eaef4614cc2710}
+      \strng{authornamehash}{1073cac6fc420b3999eaef4614cc2710}
+      \strng{authorfullhash}{1073cac6fc420b3999eaef4614cc2710}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Between the World and Me}
+      \field{year}{2015}
+      \field{dateera}{ce}
+    \endentry
+    \entry{lecture}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=db137b3ff914ecf1c85c50cc9a6cd531}{%
+           family={Mitchell},
+           familyi={M\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \strng{fullhash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \strng{bibnamehash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \strng{authorbibnamehash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \strng{authornamehash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \strng{authorfullhash}{db137b3ff914ecf1c85c50cc9a6cd531}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CRES 10 Critical Race and Ethnicity Studies: An Introduction}
+      \field{year}{2024}
+      \field{dateera}{ce}
+    \endentry
+    \entry{Badges}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=713c2003bd762217f4e764a90250eebe}{%
+           family={Schrader},
+           familyi={S\bibinitperiod},
+           given={Stuart},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {University of California Press}%
+      }
+      \strng{namehash}{713c2003bd762217f4e764a90250eebe}
+      \strng{fullhash}{713c2003bd762217f4e764a90250eebe}
+      \strng{bibnamehash}{713c2003bd762217f4e764a90250eebe}
+      \strng{authorbibnamehash}{713c2003bd762217f4e764a90250eebe}
+      \strng{authornamehash}{713c2003bd762217f4e764a90250eebe}
+      \strng{authorfullhash}{713c2003bd762217f4e764a90250eebe}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Badges Without Borders}
+      \field{year}{2019}
+      \field{dateera}{ce}
+    \endentry
+    \entry{smith}{online}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=81e70d33e220f59c556aee8927c76f6f}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={Neil},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{81e70d33e220f59c556aee8927c76f6f}
+      \strng{fullhash}{81e70d33e220f59c556aee8927c76f6f}
+      \strng{bibnamehash}{81e70d33e220f59c556aee8927c76f6f}
+      \strng{authorbibnamehash}{81e70d33e220f59c556aee8927c76f6f}
+      \strng{authornamehash}{81e70d33e220f59c556aee8927c76f6f}
+      \strng{authorfullhash}{81e70d33e220f59c556aee8927c76f6f}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{6}
+      \field{title}{There's No Such Thing as a Natural Disaster}
+      \field{urlday}{10}
+      \field{urlmonth}{12}
+      \field{urlyear}{2024}
+      \field{year}{2006}
+      \field{urldateera}{ce}
+      \verb{urlraw}
+      \verb https://items.ssrc.org/understanding-katrina/theres-no-such-thing-as-a-natural-disaster/
+      \endverb
+      \verb{url}
+      \verb https://items.ssrc.org/understanding-katrina/theres-no-such-thing-as-a-natural-disaster/
+      \endverb
+    \endentry
+    \entry{earth}{book}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=b03077d917fea80c6bdf747bb66ad937}{%
+           family={Wallace-Wells},
+           familyi={W\bibinithyphendelim W\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Crown}%
+      }
+      \strng{namehash}{b03077d917fea80c6bdf747bb66ad937}
+      \strng{fullhash}{b03077d917fea80c6bdf747bb66ad937}
+      \strng{bibnamehash}{b03077d917fea80c6bdf747bb66ad937}
+      \strng{authorbibnamehash}{b03077d917fea80c6bdf747bb66ad937}
+      \strng{authornamehash}{b03077d917fea80c6bdf747bb66ad937}
+      \strng{authorfullhash}{b03077d917fea80c6bdf747bb66ad937}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Uninhabitable Earth}
+      \field{year}{2020}
+      \field{dateera}{ce}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

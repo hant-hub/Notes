@@ -1,0 +1,216 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+{\huge Engineering Principles of Electronics}
+
+\begin{description}
+    \item Introduction 
+        \begin{mdframed}
+            Taught by Paul Vroomen\\
+            Office Hours in E2-280\\
+            Office Hours: Wed. 10am - 12pm\\
+            Email: pvroomen@ucsc.edu
+        \end{mdframed}
+        \begin{mdframed}
+            TA Office Hours:
+            \begin{itemize}
+                \item Baskin, Thursdays 12am-2pm
+                \item BE-230, Mondays 10am-12am
+                \item idk, Fridays 10:45am-12:45pm
+            \end{itemize}
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Class Website -> Canvas
+                \item Important Announcements
+                \item Everything basically
+            \end{itemize}
+        \end{mdframed}
+    \item Overview of Course
+        \begin{mdframed}
+            \begin{itemize}
+                \item Four Applications of Engineering
+                    Principles in mobile phone and computers.
+                    \begin{enumerate}
+                        \item Accelerometers
+                        \item Touchscreens
+                        \item LTE, 5G communications
+                        \item Data Processing Chips
+                    \end{enumerate}
+                \item For each we will review physics + how to
+                    apply principles.
+            \end{itemize}
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Textbook required
+                \item Older text for comp sci
+                \item e-Text is avalible on most book websites
+                \item Syllabus lists which sections are assigned
+                    per lecture
+            \end{itemize}
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Recommended textbook
+                \item Basic engineering principles
+                \item Handouts from sections of the book will
+                    be used
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+            {\huge Grading}\\
+            {\large Quizzes}
+            \begin{itemize}
+                \item 4 quizzes
+                \item Most material covered via quizzes
+                \item 10 multiple choise questions +
+                    bonus question
+                \item Open book 
+                \item Avalible from 2pm to midnight
+                \item 15 mins once started
+            \end{itemize}
+            {\large Exams}
+            \begin{itemize}
+                \item Midterm 1 hour
+                \item Solve problems from lectures 1-14
+            \end{itemize}
+            \begin{itemize}
+                \item Final 3 hours
+                \item Questions from full course
+            \end{itemize}
+            {\large Homework}
+            \begin{itemize}
+                \item 8 sets total
+                \item Solve questions using principles discussed
+                    in class
+                \item Must be submitted by midnight on following
+                    Sunday
+                \item May work in teams of up to 3
+                \item Must list names of other students in team
+            \end{itemize}
+            {\large Late Submissions}
+            \begin{itemize}
+                \item HW submissions are due by midnight
+                \item 50\% late penalty (2\% of final)
+                \item $>$24 hours late will not be graded
+                \item Some exceptions
+                    \begin{itemize}
+                        \item Serious illness or emergency
+                        \item Personal, family, or other crisis
+                        \item Problems should be reported
+                            immediately
+                    \end{itemize}
+            \end{itemize}
+            {\large Breakdown}
+            \begin{itemize}
+                \item Quizzes 20\%
+                \item Homework 30\%
+                \item Midterm Exam 20\%
+                \item Final 30\%
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item Concepts, Symbols, Quantities, and Units
+        \begin{mdframed}
+            {\large What does "Engineering Principles of 
+            Electronics" Means?}
+            \begin{itemize}
+                \item About leverage and Application
+                \item About Practices
+                    \begin{mdframed}
+                        ex: For integrated circuites through
+                        trial and error we have learned we need
+                        an ISO1 clean room to ensure acceptable
+                        quality.
+
+                        ISO1 designates a maximum number of
+                        particles per $m^3$.
+                        \begin{itemize}
+                            \item 10 $>$ 0.1 um
+                            \item 2 $>$ 0.2 um
+                            \item 0 $>$ 0.3 um
+                        \end{itemize}
+                    \end{mdframed}
+                \item Physics is why a device works, Engineering
+                    Principles are how we leverage physical
+                    laws to create a device
+            \end{itemize}
+
+            {\large Princples}
+            \begin{itemize}
+                \item Principles $\to$ Concepts $\to$ 
+                    Symbols $\to$ Quantities
+                    $\to$ Units
+                \item Measuring Acceleration $\to$
+                    Velocity $\to$ v $\to$ 28
+                    $\to$ $m/s$
+                \item Concepts are codified in equations
+                   \begin{displaymath}
+                        v = \frac{\Delta x}{\Delta t}
+                   \end{displaymath}
+
+                   Where v is they symbol for velocity,
+                   x for distance, and t for time. The captial
+                   Delta means "Change of". This can be represented
+                   via
+
+                   \begin{displaymath}
+                        \Delta x = x_f - x_0
+                   \end{displaymath}
+
+                   Where $x_f$ is the final distance and 
+                    $x_0$ is the initial distance.
+
+                \item The laws of physics are concepts which are
+                    made clear through equations, using symbols
+                    which we have tied to the real world via
+                    consensus and agreement.
+
+                    Each law represents repeated observations
+                    which have been summarized into a single
+                    relationship.
+            \end{itemize}
+        \end{mdframed}
+
+        \begin{mdframed}
+            {\large Units}
+            \begin{itemize}
+                \item Units are arbitrary and created by Humans
+                \item Units gain value through consensus
+                    \begin{mdframed}
+                        Units are tools for communication and
+                        organization!
+                    \end{mdframed}
+                \item Units provided detail about concepts and
+                    can often solve problems by simply matching
+                    units.
+                \item Converting Units is a key skill
+            \end{itemize}
+            \begin{mdframed}
+                Example
+                \begin{itemize}
+                    \item 2.4 miles 1min 45s per 100 yds
+                    \item 112 miles at 18.5 mph
+                    \item transition times 10mins, 5min
+                \end{itemize}
+                \begin{itemize}
+                    \item 112 miles at 18.5 mph $=$ 6.05
+                \end{itemize}
+            \end{mdframed}
+        \end{mdframed}
+\end{description}
+\end{document}
