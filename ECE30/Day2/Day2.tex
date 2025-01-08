@@ -1,0 +1,225 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\renewcommand{\familydefault}{\sfdefault}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Agenda 
+        \begin{itemize}
+            \item HW Set 1 Posted
+            \item Vectors and Scalars
+            \item Reference Frames, vector Components, and Vector Sum
+            \item Unit Vectors
+            \item Vector Dot and Cross Products
+        \end{itemize}
+\end{description}
+{\huge Vectors and Scalars}
+\begin{description}
+    \item What is a Vector? 
+        \begin{mdframed}
+            In real life many quantities cannot be directly
+            mapped to a real number. Even in one dimension, the
+            sign indicates the direction.
+        \end{mdframed}
+        {\large Velocity}
+        \begin{mdframed}
+            \begin{displaymath}
+                v = \frac{\Delta x}{\Delta t}
+                = \frac{x_f - x_0}{t_f - t_0}
+            \end{displaymath}
+
+            Velocity is a representation of how 
+            displacement or position changes with time.
+            It is a correlation with time.
+
+            In a context of calculus it is a kind of numerical
+            integration. Velocity is the first derivative of
+            position with respect to time.
+
+            \begin{displaymath}
+                v = \frac{d}{dt}x
+            \end{displaymath}
+
+            Both velocity and displacement are vector quantities.
+            Time is arguably vector but in classical physics is
+            only a scalar.
+            
+            \begin{center}
+                \minibox[frame]{
+                    Vectors are quantities with both direction
+                    and magnitude. They are denoted $\vec{v}$
+                }
+            \end{center}
+
+            \begin{center}
+                \minibox[frame]{
+                Scalars are magnitudes only. They are written
+                as $s$
+                }
+            \end{center}
+
+        \end{mdframed}
+    \item Reference Frames
+        \begin{mdframed}
+           For vectors to make sense we need a defined start point.
+           In application things like compasses, maps, gyroscopes, etc.
+           can be used to define shared reference frames for navigation
+           or calculations.
+
+           Reference frames are arbitrary, they are useful because they
+           are relevant or shared.
+
+           \begin{center}
+               \minibox[frame]{ 
+                   Reference frames are a social construct lol
+               }
+           \end{center}
+
+           Reference frames are required to define direction.
+           It is helpful to imagine our reference frames as composed
+           of orthogonal components, of course this is only relevant
+           when conceptualizing a single reference frame or in translating
+           between reference frames.
+
+           Approaches to Vectors.
+           \begin{itemize}
+               \item Polar. The magnitude and direction are stored
+                   as two seperate values. ie: Angle and size.
+                   This is useful in navigation or rotationally
+                   symmetric contexts.
+               \item Component. The vector is decomposed into
+                   multiples of some unit vector, which encodes
+                   the relative magnitudes along each unit vector.
+                   Unit vectors are the base of this system.
+                   Component vectors are useful for combining
+                   vectors or for using matricies.
+           \end{itemize}
+
+           Formulas:
+           \begin{enumerate}
+               \item Magnitude:
+                   \begin{displaymath}
+                    |\vec{v}| = \sqrt{\sum v_i^2}
+                   \end{displaymath}
+                   It is sometimes denoted:
+                   \begin{displaymath}
+                       v = \sqrt{\sum \vec{v}_i^2}
+                   \end{displaymath}
+                   
+               \item Direction:\\
+                   For 2D
+                   \begin{displaymath}
+                       tan(\theta) = \frac{v_2}{v_1}
+                   \end{displaymath}
+                   For 3D
+                   \begin{displaymath}
+                        (x, y, z) = 
+                        (cos(\theta)sin(\phi), cos(\theta)cos(\phi), sin(\theta))
+                   \end{displaymath}
+                    
+                   \begin{center}
+                       \minibox[frame]{
+                           For 2D direction is equivalent to
+                           mapping a circle to a line.\\
+                           For 3D direction is equivalent to
+                           mapping the surface of a sphere to
+                           a plane.
+                       }
+                   \end{center}
+               \item Summation:
+                   \begin{gather}
+                        \vec{a} = (a_1, a_2, ... a_i)\\
+                        \vec{b} = (b_1, b_2, ... b_i)\\
+                        \vec{a} + \vec{b}
+                        = (a_1 + b_1, a_2 + b_2, ... a_i + b_i)
+                   \end{gather}
+                   
+                   It can also be visualized by imagining laying
+                   each vector tip to tail, and the vector from the
+                   origin to the tip of the last vector is the sum.
+
+                   \begin{center}
+                       \minibox[frame]{
+                           This property of summing nicely along components
+                           is one of the properties required for linearity\\
+                           and therefore linear algebra.
+                       }
+                   \end{center}
+                                       
+               \item Polar Conversions in 2D
+                   \begin{gather}
+                       \vec{v} = (v_1, v_2) = (\theta, v)\\ 
+                       v_1 = |\vec{v}|cos(\theta)\\
+                       v_2 = |\vec{v}|sin(\theta)\\
+                       v = \sqrt{v_1^2 + v_2^2}\\
+                       \theta = atan2(v_2/v_1)
+                   \end{gather}
+
+                   Note: atan2 depends on the sign of the
+                   components.
+           \end{enumerate}
+        \end{mdframed}
+
+    \item Unit Vectors
+        \begin{mdframed}
+            We can conceptualize a vector as a sum of 
+            components. This can be represented algebraicly
+            using symbols. One of the most famous vector
+            quantities are complex numbers. $a + bi$
+
+            By convention three dimensional vectors in physics
+            are written as:
+            \begin{displaymath}
+                a\vec{i} + b\vec{j} + c\vec{k}
+            \end{displaymath}
+
+            This ties neatly into quaternions which are written
+            \begin{displaymath}
+                a\vec{i} + b\vec{j} + c\vec{k} + d
+            \end{displaymath}
+
+            A unit vector corresponds to a single step along
+            an orthogonal direction in our reference frame.
+            Unit vectors define a reference frame and are
+            arbitrary.
+            \begin{center}
+                \minibox[frame]{
+                    As an aside: we have already encountered
+                    two different unit vectors.\\
+
+                    Polar coordinates use a degree which steps\\
+                    around a circle as one unit, and a unit which
+                    moves away from the origin as a second vector.\\
+
+                    Component coordinates use $\hat{x}$ and $\hat{y}$\\
+                    It should be noted that Polar coordinates are nonlinear\\
+                    and do not share many properties with components.
+                }
+            \end{center}
+            
+            In the abstract, the way a linear operation works on the
+            unit vectors define the way it works on the entire
+            vector space.
+
+            \begin{center}
+                \minibox[frame]{
+                    It should be noted that unit vectors in physics
+                    are unitless.
+                }
+            \end{center}
+        \end{mdframed}
+\end{description}
+\end{document}
