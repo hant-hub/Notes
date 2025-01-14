@@ -1,0 +1,124 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+{\large Dot and Cross Product (cont)}
+\begin{itemize}
+    \item Dot Product (An inner product in the space $\mathbb{R}^n$)
+        \begin{mdframed}
+           Measures how "aligned" two vectors are. Has two
+           equivalent definitions.
+
+           \begin{displaymath}
+               \vec{a} \cdot \vec{b} = 
+               |\vec{a}||\vec{b}|cos(\theta)
+           \end{displaymath}
+           Where $\theta$ is the angle between the vectors. 
+           This definition makes clear that the dot products
+           is positive when the vectors have a small angle,
+           zero when orthogonal, and negtive when opposing.
+
+           Another equivalent definition is as follows:
+           \begin{displaymath}
+                \vec{a} \cdot \vec{b} =
+                \sum \vec{a}_i  \vec{b}_i
+           \end{displaymath}
+
+           For 2D:
+
+           \begin{displaymath}
+                \vec{a} \cdot \vec{b}
+                = a_1  b_1 + a_2  b_2
+           \end{displaymath}
+
+           Some Algebraic properties:
+           \begin{itemize}
+               \item $a \cdot b = b \cdot a$
+               \item $a \cdot b \in \mathbb{R}$ 
+           \end{itemize}
+           And for Unit vectors
+           \begin{itemize}
+               \item $i \cdot i = 1$
+               \item $i \cdot j = 0$
+               \item $i \cdot -i = -1$
+           \end{itemize}
+
+           This also implies the dot product is linear. This
+           is also obvious from the second definition.
+           
+           The dot product is not reversible since it maps pairs
+           of vectors to scalars.
+        \end{mdframed}
+    \item Cross Product (Analogous to an outer product)
+        \begin{mdframed}
+            Only works in 3 dimensions, in 2D usually can be
+            substituted with per-product.
+
+            The cross product is defined as:
+            \begin{displaymath}
+                a \times b = |a||b|sin(\theta)w
+            \end{displaymath}
+            Where $w$ is a direction orthogonal to both
+            $a$ and $b$. $w$ follows a right hand rule, which
+            is an arbitrary choice.
+
+            \begin{center}
+                \minibox[frame]{
+                    In Geometric algebra, the outer product,\\
+                    in this context, actually has the same\\
+                    magnitude as the cross product but is\\
+                    instead defined as the plane which\\
+                    contains $a$ and $b$. This is equivalent\\
+                    because orthogonal vectors can be used\\
+                    to define planes.
+                }
+            \end{center}
+            \pagebreak
+
+            Some Properties:
+            \begin{itemize}
+                \item $a \times b = -b \times a$
+            \end{itemize}
+            Table of unit vectors\\
+            \begin{tabular}{|c|c|c|c|}
+                \hline
+                &i & j & k\\
+                \hline
+                i& 0&&\\
+                \hline
+                j&&&\\
+                \hline
+                k&&&
+                \hline
+            \end{tabular}
+            
+
+        \end{mdframed}
+\end{itemize}
+
+{\large Agenda}
+\begin{itemize}
+    \item Displacement
+    \item Instantaneous Acceleration
+    \item Uniformly Accelerated Motion
+\end{itemize}
+
+{\large Displacement}
+\begin{mdframed}
+    
+\end{mdframed}
+
+\end{document}

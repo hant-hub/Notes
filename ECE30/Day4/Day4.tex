@@ -1,0 +1,134 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{description}
+    \item {\large Agenda}
+        \begin{itemize}
+            \item Uniformly Accelerated Motion
+            \item Mass and Newton's First Law
+            \item Force and Newton's Second Law
+            \item Weight
+            \item Equilibrium and Newton's Third Law
+        \end{itemize}
+    \item {\large Uniformly Accelerated Motion}
+        \begin{mdframed}
+            \begin{center}
+                \minibox[frame]{
+                    $
+                    |v| \triangleq s
+                    $
+                    speed is the magnitude of the
+                    velocity.
+                }
+            \end{center} 
+
+            Average Acceleration is defined as
+            \begin{displaymath}
+                \vec{a}_{avg} = \frac{\Delta \vec{v}}{\Delta t}
+            \end{displaymath}
+
+            Using the same limiting process we can define
+            instantaneous acceleration to be:
+            \begin{displaymath}
+                \vec{a} = \frac{d\vec{v}}{dt}
+            \end{displaymath}
+
+            Acceleration is the change in velocity over time,
+            there are thing that corrospond to increasing
+            derivatives of position but they are not usually
+            relevant.
+
+            \begin{center}
+                \minibox[frame]{
+                    If we plot the components of\\
+                    velocity rather than position we\\
+                    are in what is called a "Phase Space".\\
+                    Any depiction of the state of a system\\
+                    which does not corrospond to the literal\\
+                    space it occupies is a "Phase Space".
+                }
+            \end{center}
+
+            We also get an equation from this.
+            \begin{displaymath}
+                \vec{v}_f = \vec{a} \Delta t + \vec{v}_0
+            \end{displaymath}
+
+            For most situations Acceleration is taken to be
+            constant. This is true for gravitational acceleration,
+            in a grounded reference frame. It is not true for
+            things like orbits or the movements of celestial
+            bodies.
+
+            Constant acceleration produces parabolic motion.
+            This arises from integrating acceleration twice
+            to get position against time.
+
+            \begin{displaymath}
+                \vec{x} = \frac{1}{2}\vec{a}t^2
+                + \vec{v}_0 t + \vec{x}_0
+            \end{displaymath}
+
+            This also gives the equations:
+            
+            \begin{displaymath}
+                \vec{v} - \vec{v}_0 = \vec{a}t
+            \end{displaymath}
+            \begin{displaymath}
+                \vec{v}^2 = \vec{v}_0^2 + 2\vec{a}\Delta x
+            \end{displaymath}
+            \begin{displaymath}
+                \Delta x = \vec{v}_0 t + \frac{1}{2}\vec{a}t^2
+            \end{displaymath}
+            \begin{displaymath}
+                \Delta x = \frac{1}{2}(\vec{v}_0 + \vec{v})t
+            \end{displaymath}
+            \begin{displaymath}
+                \Delta x = \vec{v}t - \frac{1}{2}\vec{a}t^2
+            \end{displaymath}
+            \begin{center}
+                \minibox[frame]{
+                    Note:\\
+                    For these equations everything is\\
+                    component wise. These are technically\\
+                    vector quantities but they act as\\
+                    scalars in this case.
+                }
+            \end{center}
+        \end{mdframed}
+    \item {\large Mass and Newton's First Law}
+        \begin{mdframed}
+             Mass is a property of matter which is constant.
+             In SI units it is measured with kg.
+
+             Mass has a property called \textit{inertia} which
+             resists acceleration. We can thus deduce that
+             a body's velocity will not change unless acted
+             upon. This is Newton's First law.
+
+             Things like Gravity and Friction are considered
+             external actors which is why things on earth slow
+             down or stop.
+        \end{mdframed}
+    
+\end{description}
+
+
+
+
+
+
+\end{document}

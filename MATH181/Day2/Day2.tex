@@ -1,0 +1,318 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+
+\renewcommand{\familydefault}{\sfdefault}
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Popular Math is partially about Historical Significance
+        \begin{itemize}
+            \item 1993 Andrew Wiles solved Fermat's Last theorem.
+            \item Eureka reference to Archimedes.
+                \begin{mdframed}
+                    Archimedes lived on an island in the
+                    mediterranian. King comissioned a crown
+                    of gold, he thought that perhaps
+                    the crown was adultered with lead and
+                    bronze.
+
+                    Asked Archimedes to determine whether the
+                    crown was real or not. Was bathing and
+                    realized that water was displace according
+                    to his volume, got out of the bath and yelled
+                    Eureka while running naked through the streets.
+                \end{mdframed}
+        \end{itemize}
+
+    \item Timeline:
+        \begin{enumerate}
+            \item 1993: Andrew Wiles proves
+                Fermat's Last Theorem.
+                \begin{mdframed}
+                    For all $a, b, c \in \mathbb{Z}^+$
+                     \begin{displaymath}
+                        a^n + b^n \neq c^n
+                    \end{displaymath}
+                    Given $n > 2$
+                \end{mdframed}
+            \item 1994: Wiles finds error in his proof
+                \begin{mdframed}
+                    Fermat's theorem was an open problem
+                    for more than 350 years. Many of the
+                    best names in Mathematics announced false
+                    proofs.
+                \end{mdframed}
+            \item 1996: Wiles fixes his proof
+                \begin{mdframed}
+                    At the time it was believed only
+                    20 people could understand his arguement.
+                    Since then many have checked and become 
+                    experts in this particular field.
+                \end{mdframed}
+        \end{enumerate}
+    \item Whos is Fermat?
+        \begin{itemize}
+            \item Pierre De Fermat was born 1601
+                in the south of France and lived
+                there fore most of his life.
+                \begin{mdframed}
+                    Amateur mathematician, professional lawyer.
+                    Was in corrospondance with the leading
+                    mathematicians at the times.
+
+                    Most of his known work was from letters and
+                    corrospondance with other mathematicians.
+                \end{mdframed}
+                \begin{mdframed}
+                    Wiles meanwhile was a professor at princeton,
+                    and did mathematicians professionally.
+                \end{mdframed}
+            \item What did he do?
+                \begin{itemize}
+                    \item In 1657 he wrote a challenge to the
+                        English mathematicians
+                        \begin{enumerate}
+                            \item John Wallis
+                            \item William Brounecker
+                        \end{enumerate}
+                        \begin{mdframed}
+                            \begin{displaymath}
+                            x^3 + y^3 = z^3
+                            \end{displaymath}
+                            Has no positive integer
+                            solutions
+                        \end{mdframed}
+                        \begin{mdframed}
+                            In his letter he said
+                            "One cube cannot be divided into two
+                            cubes"
+                        \end{mdframed}
+                        \pagebreak
+                    \item Why did he care?
+                        \begin{mdframed}
+                            Inspired by Greek mathematics
+                            especially Arithmetica by
+                            Diophantis which dates to
+                            less than 300 AD.
+
+                            Several hundred years after Plato
+                            but still during a high point in
+                            Greek culture.
+                        \end{mdframed}
+                        \begin{mdframed}
+                            Diophantis was focused mostly on
+                            solving polynomial equations.
+                        \end{mdframed}
+                        \begin{mdframed}
+                            Fermat read a
+                            1651 edition by Claude Gasper Bachet.
+                            Diophantis' work had been rediscovered
+                            around 1400.
+                        \end{mdframed}
+                        \begin{mdframed}
+                            Most older Greek works were held in
+                            libraries managed by the Catholic Church,
+                            only in the 1400s were copies of older manuscripts
+                            made avalible to the wealthy public. 
+                        \end{mdframed}
+                \end{itemize}
+            \item How did we get Fermat's Last Theorem?
+                \begin{mdframed}
+                    Fermat's son collected and printed his father's
+                    work and notes into the margins of texts like
+                    Diophantis' and others.
+
+                    \vspace{10pt}
+
+                    Fermat's Last Theorem was posited in the margins
+                    of his copy of Diophantis' book. He said he discovered
+                    a proof that he didn't have space to write down.
+                \end{mdframed}
+                \begin{mdframed}
+                    The later consensus was that Fermat was
+                    incorrect about his proof, but it was
+                    important to the later history and discoveries
+                    of mathematics.
+                \end{mdframed}
+            \item Diophantis and Fermat built on math done
+                on Pythagorean triples. $x^2 + y^2 = z^2$
+                 \begin{mdframed}
+                    Some example solutions,
+                    \begin{itemize}
+                        \item 3, 4, 5
+                        \item 5, 12 ,13
+                    \end{itemize}
+                    There are infinitely many solutions
+                \end{mdframed}
+                \begin{mdframed}
+                    Supposedly analyzed by Pythagoras, a Greek
+                    Mathematician who predates Diophantis. (500BC)
+
+                    However solutions almost certainly were not
+                    originally found by Pythagoras.
+                \end{mdframed}
+                \begin{center}
+                    {\huge "There is No More Evidence That Pythagoras
+                    did all this math as Hercules defeated the Hydra"}
+                \end{center}
+                \begin{mdframed}
+                    Our evidence of Pythagoras dates many years after
+                    he would have died. This question was analyzed
+                    by Greeks themselves, for example in Euclid's
+                    Elements (250BC).
+                \end{mdframed}
+                \begin{mdframed}
+                    Euclid is often called Greek, however he
+                    is often refferred to as Euclid of Alexandria
+                    which was a place in Egypt. Greek math is
+                    not purely mediterranean but borrows from many
+                    places around the world.
+                \end{mdframed}
+        \end{itemize}
+        \pagebreak
+    \item Moving Past Fermat\\
+        {\large What Happened Between Fermat and Wiles?}
+        \begin{itemize}
+            \item Lots of Partial Results that work for some
+                values of n, but not all.
+                \begin{itemize}
+                    \item 1816: Sophie Germain
+                        \begin{mdframed}
+                            Proved specific values of n,
+                            and published in the Paris
+                            Academy of Sciences.
+                        \end{mdframed}
+                    \item Mid 1800s: German Professor Ernest
+                        Kummer
+                        \begin{mdframed}
+                            Proved Fermat's theorem with
+                            the assumption that unique
+                            factorization held for extensions
+                            of the integers. Unfortunately this
+                            property was limited to integers.
+
+                            \vspace{10pt}
+
+                            Also proved more cases of n.
+                        \end{mdframed}
+                \end{itemize}
+            \item Wiles Proved the Stronger Modularity Conjecture
+                of Yutaka Taniyama and Goro Shimura (from 1950s)
+                \begin{mdframed}
+                    Based on modular forms. Very technical and had
+                    more mathematical importance.
+                \end{mdframed}
+                \begin{mdframed}
+                    Known before Wiles to imply Fermat's last theorem.
+                \end{mdframed}
+                \begin{mdframed}
+                    Taniyama committed suicide after the conjecture,
+                    but Shimura was alive until Wiles time. Wiles
+                    tried to converse with him to figure out the
+                    name to go with, and he replied "The Shimura Theorem",
+                    so they went with the Modularity Conjecture instead.
+                \end{mdframed}
+                \begin{mdframed}
+                    Wiles Used techniques developed by 
+                    Victor Koyvagin and Matthias Flachin in the
+                    1980s.
+                \end{mdframed}
+                \begin{mdframed}
+                    Popular stories jump from Diophantis to Fermat
+                    to Wiles skipping over the rich history of
+                    collaboration and teamwork in the meantime.
+                \end{mdframed}
+        \end{itemize}
+    \item What are some Lenses we can apply to Fermat's
+        Last Theorem?\\
+        What Aspects of the Story could we study?
+        \begin{itemize}
+            \item View the historical development of
+                relevant Mathematical ideas.
+                \begin{mdframed}
+                    A cartoon analysis would be to graph
+                    exponents proved vs time.
+
+                    We can see when Kummer or Germain
+                    proved cases of n.
+                \end{mdframed}
+            \item We could look at it through a Biographical lens.
+                \begin{mdframed}
+                    The Nova documentary focused on Wiles'
+                    personal story. He dedicated years of his
+                    life working in a study room in his attic
+                    trying to prove both Fermat's last theorem
+                    and the Modularity Conjecture.
+
+                    \vspace{10pt}
+
+                    It put strain on his relationship and his
+                    career. After 7 years he announces his result,
+                    then announces its wrong, then 2 years later
+                    announces the correct proof. During those
+                    7 years he didn't share his work.
+                \end{mdframed}
+                \begin{mdframed}
+                    Pierre De Fermat has a less accessible life.
+                    We could still write a rough biography of his
+                    life but it would be more difficult.
+                \end{mdframed}
+            \item History of Texts
+                \begin{mdframed}
+                    Interesting story of how Diophantis' work was
+                    preserved until Fermat could read it. The
+                    work of creating a readable and accurate
+                    copy of his work was a scholarly achievement
+                    in itself.
+                \end{mdframed}
+            \item History of Institutions
+                \begin{mdframed}
+                    Often mathematicians will convince themselves
+                    that they've solved Fermat's last theorem
+                    and get shot down.
+                \end{mdframed}
+                \begin{mdframed}
+                    Wiles was different not only because he was
+                    correct, but also because he had institutional
+                    support from Princeton. He made the announcement
+                    in front of Cambridge.
+
+                    \vspace{10pt}
+
+                    Wiles also had different circumstances,
+                    he could work for 7 years without being
+                    fired in an american research university.
+                \end{mdframed}
+                \begin{mdframed}
+                    Kummer was working in a German university.\\
+                    Fermat was working as a lawyer and did math
+                    as a hobby.\\
+                    Nobody knows how Euclid or Diophantis made
+                    their living.
+                \end{mdframed}
+        \end{itemize}
+
+    \item Other lenses
+        \begin{description}
+            \item Linguistically\\
+                How math is written or notated.
+            \item History of Mathematic tools\\
+                Where each tool comes from?
+            \item History of Geography\\
+                How did geography affect culture?
+            \item Calculating Devices\\
+                The ease of calculations and tools has increased.
+        \end{description}
+\end{description}
+
+\end{document}
