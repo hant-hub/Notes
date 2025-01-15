@@ -1,0 +1,50 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{minibox}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Art 25}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Society of the Spectacle}  
+        \begin{mdframed}
+            \begin{itemize}
+                \item Games are considered to be separate from
+                    life, that is an illusion.\\
+                    Games are a part of life, and their ability
+                    to impact us is only possible because
+                    the relationship goes two ways.
+                \item Wartime propaganda
+                    \begin{itemize}
+                        \item He is talking about SS soldiers
+                            being depicted as a evil baboon,
+                            I think it is actually supposed to
+                            be a Japanese soldier.
+                        \item I think he mixed up the anti-Nazi
+                            and ant-Japanese propaganda.
+                    \end{itemize}
+                \item Post War Propaganda
+                    \begin{itemize}
+                        \item Family Unit
+                        \item Christianity
+                        \item Whiteness
+                        \item Informationals, the way society is,
+                            is how society was, and how society
+                            will be. Society is formulaic.
+                    \end{itemize}
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
