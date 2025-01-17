@@ -1,0 +1,181 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda}
+        \begin{itemize}
+            \item Newton's Laws
+            \item Hooke's Law and Oscillatory Motion
+            \item Young's Modulus
+            \item Three point beam springs
+        \end{itemize}
+    \item {\large Newton's Laws}
+        \begin{enumerate}
+            \item A Body in Motion Will Stay in Motion
+                \begin{mdframed}
+                    Frames of reference mean that
+                    constant velocity is interchangable
+                    with being at rest.
+                \end{mdframed}
+                \begin{mdframed}
+                    A definition of Mass:
+                    \begin{mdframed}
+                        That property of an object which
+                        specifies how much resistance an
+                        object has to its velocity being
+                        changed.
+                    \end{mdframed}
+                    In other words:
+                    \begin{mdframed}
+                        Mass is a measure of inertia, or
+                        resistance to acceleration.
+                    \end{mdframed}
+                \end{mdframed}
+                \begin{mdframed}
+                    Force is defined as:
+                    \begin{displaymath}
+                        F = ma
+                    \end{displaymath}
+                    Or in other words:
+                    \begin{mdframed}
+                        Force is what changes the motion of
+                        an object.
+                    \end{mdframed}
+                \end{mdframed}
+            \item Body subjected to multiple forces is accelerated
+                in the direction of the resultant force.
+                \begin{mdframed}
+                    This implies the relationship
+                    \begin{displaymath}
+                        F \propto m
+                    \end{displaymath}
+                    And it implies:
+                    \begin{displaymath}
+                        F \propto a
+                    \end{displaymath}
+
+                    Therefore, force can be written as:
+                    \begin{displaymath}
+                        \vec{F} = m\vec{a}
+                    \end{displaymath}
+
+                    \begin{center}
+                        \minibox[frame]{
+                            As a sidenote: Force is an arbitrary\\
+                            unit. Its one of those units we made\\
+                            up to explain things.
+                        }
+                    \end{center}
+
+                    \begin{displaymath}
+                        \vec{F} = \sum_{i = 1}^N \vec{F}_i 
+                    \end{displaymath}
+
+                    These are vector sums which also means that
+                    the final sum can be decomposed into component
+                    wise sums.
+                \end{mdframed}
+                \pagebreak
+                \begin{mdframed}
+                   What Units is Force in?
+
+                   \vspace{10pt}
+
+                   Mass is measured in kg, and acceleration in
+                   $m/s^2$, Force must be measured in $kg  \frac{m}{s^2}$.
+                   This unit is known as a Newton.
+                \end{mdframed}
+                \begin{mdframed}
+                    Weight vs Mass
+
+                    \vspace{10pt}
+
+                    Weight is defined as the force exerted on a body
+                    via gravity, which is equal to the force a body
+                    exerts on the planet. This means the units for
+                    weight is actually Newtons. Weight is only measured
+                    in kg because the gravitational acceleration is
+                    reasonably constant on Earth.
+
+                    \begin{displaymath}
+                        W = mg
+                    \end{displaymath}
+                \end{mdframed}
+                \begin{mdframed}
+                    Equilibrium:
+
+                    \vspace{10pt}
+
+                    This is the state where the net force is
+                    zero.
+
+                    \begin{displaymath}
+                        \sum_{i=1}^N \vec{F}_i = 0
+                    \end{displaymath}
+                    
+                    When the above equation is not true, that
+                    is known as Non-Equilibrium.
+                \end{mdframed}
+            \item Every Action has an Equal and Opposite Reaction
+                \begin{mdframed}
+                    If a body acts on anther, both bodies experience force
+                    in opposite directions from the point of contact.
+                \end{mdframed}
+        \end{enumerate}
+    \item Hooke's Law
+        \begin{mdframed}
+
+            The force a spring exerts is proportional to how
+            much it is stretched or compressed.
+            \begin{displaymath}
+                F \propto -x
+            \end{displaymath}
+            
+            Where $x$ is the displacement of the length of a spring
+            from its resting length.
+
+            Further investigation revealed that $F$ is equal to
+            the displacement multiplied by some constant.
+
+            \vspace{10pt}
+
+
+
+            The force of a spring is equal to a constant times the 
+            displacement of the spring from its resting length.
+            \begin{displaymath}
+                F = kx
+            \end{displaymath}
+            
+            The spring constant $k$ has units,  $N/m$ which is required
+            for the total equation to have correct units.
+        \end{mdframed}
+    \item Harmonic Oscillation
+        \begin{mdframed}
+            \begin{gather}
+                p(t) = x_0 cos(t \frac{2\pi}{T})
+            \end{gather}
+            Where $T$ is the time between peaks.
+
+
+        \end{mdframed}
+
+\end{description}
+
+
+
+\end{document}

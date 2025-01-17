@@ -1,0 +1,234 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{minibox}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=newest}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Problem 1}\\ 
+        Attached on Back.
+    \item {\large Problem 2}
+        \begin{mdframed}
+            George A. Miller was born Lynnville
+            Pensylvania, on the 31st of July, 1863.
+            He got his undergraduate in Muhlenberg College,
+            and his PhD at Cumberland University. 
+            In 1895 he got his passport, and according to
+            newspapers studied at the Universities of Leipzig
+            and Paris. He taught at multiple American universities throughout
+            the 1890s, before settling into the University of Illinois in
+            1906. In 1900 he won the International Mathematics Prize
+            and wrote more than 800 artiles.
+            There he became very wealthy via investments.
+            One of this mathematical contributions was a history of
+            abstract groups in 1927. Group theory would go on to
+            be a massively important field in abstract algebra
+            and have connections to other disciplines like physics.
+            He retired in 1931, and passed away in 1951 leaving
+            almost a million dollars to the University of Illinois.
+        \end{mdframed}
+        \begin{center}
+            \minibox[frame]{
+                As a side note: the census is impossible\\
+                to read, the resolution is both too low, and the cursive\\
+                strokes too light to make out properly. In addition,\\
+                initials are used making it difficult to tell who\\
+                each row refers to.
+            }
+        \end{center}
+    \item {\large Problem 3}
+        \begin{mdframed}
+            I would be interested to know several things about
+            Miller. One is what he won the International Mathematics
+            Prize for. I presume there are original documentation
+            of all the winners of the prize, as well as newspapers,
+            published announcements, and so on that can be found.
+
+            Another interesting thing I am curious about has to do
+            with the paper on Abstract groups. I am curious if he
+            had any other contributions to Group theory,
+            abstract algebra, and so on. His published work should
+            still be avalible via libraries and archives of mathematical
+            papers. There are also some citations of other work of
+            his in his own paper which could lead to answers.
+        \end{mdframed}
+    \item {\large Problem 4}
+        \begin{mdframed}
+            The problem presented is as such: 
+            \begin{mdframed}
+                Solve and Discuss:
+                \begin{displaymath}
+                    \begin{cases}
+                        x^2 + y^2 = a^2\\ 
+                        log(x) + log(y) = n
+                    \end{cases}
+                \end{displaymath}
+            \end{mdframed}
+
+            This is very vague, so I set out a couple of goals
+            to orient my work.
+            \begin{enumerate}
+                \item Combine both equations into one.
+                \item Write $a$ in terms of $n$ and vice versa.
+                \item Write $x$ and $y$ in terms of only
+                    $a$ and $n$.
+            \end{enumerate}
+
+            First Lets begin by rewriting the second
+            equation to remove the logarithms.
+            \begin{gather}
+                log(x) + log(y) = n\\ 
+                log(xy) = n\\
+                e^(log(xy)) = e^n\\
+                xy = e^n 
+            \end{gather}
+            We already get a very nice simplification which
+            is begging for further manipulation.
+        \end{mdframed}
+        \begin{mdframed}
+            Next lets solve for $y$ and plug it into the
+            first equation.
+
+            \begin{gather}
+                xy = e^n\\
+                y = \frac{e^n}{x}\\ 
+                y^2 = \frac{e^{2n}}{x^2}
+            \end{gather}
+
+            Now to substitute.
+
+            \begin{gather}
+                x^2 + y^2 = a^2\\ 
+                x^2 + \frac{e^{2n}}{x^2} = a^2\\
+                x^4 + e^{2n} = a^2 x^2\\
+                x^4 - a^2 x^2 = -e^{2n}
+            \end{gather}
+
+            We have already acomplished the first goal,
+            equation 11 combines both constraints into a single
+            statement.
+
+            \vspace{10pt}
+
+            To write $a$ in terms of $n$ we need to do a
+            substitution. We set $u = x^2$ and substitute.
+            \begin{gather}
+                u^2 - a^2 u = -e^{2n}    
+            \end{gather}
+            This is clearly a quadratic, so we first put
+            the quadratic into standard form, then solve using
+            the quadratic formula.
+
+            \begin{gather}
+                u^2 - a^2 u + e^{2n} = 0 
+            \end{gather}
+
+            The roots of this quadratic therefor are:
+            \begin{gather}
+                u = \frac{a^2 \pm \sqrt{a^4 - 4e^{2n}}}{2} 
+            \end{gather}
+
+            Undoing our substitution of $u$ we can obtain
+            the possible values of $x$.
+
+            \begin{gather}
+                x = \sqrt{\frac{a^2 \pm \sqrt{a^4 - 4e^{2n}}}{2}}     
+            \end{gather}
+
+            We can eliminate all negative values of $x$ by noticing
+            that the second equation is only valid when $x$ and
+            $y$ are positive, because logarithms are only defined
+            on $\mathbb{R}^+$. This means only positive solutions
+            are valid.
+
+            \vspace{10pt}
+
+            The number of solutions will depend on both $a$
+            and $n$. This can be seen clearly by graphing both
+            equations.
+
+            \begin{center}
+                \begin{tikzpicture}
+                    \begin{axis}[ 
+                        xlabel=$x$,
+                        ylabel={$y$},
+                        axis equal image
+                        ] 
+                        \addplot [domain=0.3:10, smooth, thick]{e/x}; 
+                        \draw (axis cs:0,0) circle [radius=(2*e)^0.5];
+                    \end{axis}
+                \end{tikzpicture}
+            \end{center}
+
+            Based on this graph we can see that there are either,
+            one, two, or no solutions. Lets see if we can find the
+            values of $a$ and $n$ that yield a unique solution. These
+            are the values for which our formula above only has a
+            single value, which means that:
+
+            \begin{displaymath}
+                a^4 - 4e^{2n} = 0
+            \end{displaymath}
+
+            This would remove the term under the radical thus
+            simplifying the formula to yield only a single
+            value. All that's left is solving for $a$.
+
+            \begin{gather}
+                a^4 - 4e^{2n} = 0\\ 
+                a^4 = 4e^{2n}\\
+                a^2 = 2e^n\\
+                a = \sqrt{2e^n}
+            \end{gather}
+
+            This also means we can write $n$ as:
+
+            \begin{gather}
+                n = ln(\frac{a^2}{2})
+            \end{gather}
+
+            If we are interested in any solutions at all,
+            we simply replace the equality with an inequality:
+
+            \begin{gather}
+                a^4 - 4e^{2n} \ge 0\\ 
+                a^4 \ge 4e^{2n}\\
+                a^2 \ge 2e^n\\
+                a \ge \sqrt{2e^n}
+            \end{gather}
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+            To solve the last goal all we need to do is plug
+            our solution back into one of the equations and solve
+            for $y$.
+            \begin{gather}
+                x^2 + y^2 = a^2\\
+                y = \sqrt{a^2-x^2}\\
+                y = \sqrt{a^2 - \frac{a^2 \pm \sqrt{a^4 - 4e^{2n}}} {2}}\\
+                y = \sqrt{a^2 - \frac{a^2}{2} \mp \frac{\sqrt{a^4-4e^{2n}}}{2}}\\
+                y = \sqrt{\frac{a^2 \mp \sqrt{a^4-4e^{2n}}}{2}}
+            \end{gather}
+            This gives something which is equivalent to the formula
+            we obtained for $x$. This makes sense since both equations
+            are symmetric about the $y = x$ axis.
+        \end{mdframed}
+    \item {\large Problem 5}
+        \begin{mdframed}
+            
+        \end{mdframed}
+\end{description}
+\end{document}

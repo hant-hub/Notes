@@ -1,0 +1,220 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Historical Biography
+        \begin{itemize}
+            \item Famous: Leonard Euler
+            \item Not-Famous: E. J. Edmunds
+        \end{itemize}
+        \begin{itemize}
+            \item 
+                \begin{mdframed}
+                    Life facts are important, and the source of those
+                    facts are important.
+                \end{mdframed}
+            \item 
+                \begin{mdframed}
+                    How facts are used is important, and why
+                    facts are preserved.
+                \end{mdframed}
+        \end{itemize}
+    \item {\large What did Euler Do?}
+        \begin{itemize}
+            \item Found/Discovered/Invented the constant $e$ 
+            \item Invented sigma summation, function notation,
+                radicals, $\pi$, etc.
+            \item Euler's Formula
+                \begin{displaymath}
+                    e^{i\phi} = cos(\phi)+isin(\phi)
+                \end{displaymath}
+            \item Euler's Characteristic
+            \item Other Euler's Constant
+                \begin{displaymath}
+                    \gamma
+                \end{displaymath}
+        \end{itemize}
+    \item {\large Who was Euler?}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Born in Basel, Switzerland 1707
+                \item Buried in Saint Petersburg, and lived
+                    much of his life in Berlin.
+                \item 1720 began studies at University of
+                    Basel. (13 years old)
+                \item 1726 wrote a dissertation
+                    \begin{mdframed}
+                        Wrote original research on the
+                        propagation of sound. He was 19
+                        years old.
+                    \end{mdframed}
+                \item 1727 Moves to St. Petersburg
+                    \begin{mdframed}
+                        He was wanted by Peter the Great,
+                        and generally found money and work as
+                        a scholar.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Euler does a ton of work and his work
+                        is still being published today. Currently
+                        over 80 large volumes have been released.
+                    \end{mdframed}
+                \item 1738 Eye Problems
+                    \begin{mdframed}
+                        In St. Petersburg Euler lost vision
+                        in one of this eyes and so most images
+                        of him are from only one side.
+                    \end{mdframed}
+                \item 1741 Leaves Russia for Berlin,
+                    Frederick the Great hires him at Berlin
+                    Academy.
+                    \begin{mdframed}
+                        Very tumuoltuous times, purges and
+                        political issues.
+                    \end{mdframed}
+                \item 1766 Returns to St. Petersburg
+                \item 1783 Dies of Natural Causes
+                    \begin{mdframed}
+                        Final years can't read or see anymore.
+                        Has to hire an assistant to read and
+                        write for him and still manages to
+                        produce many mathematical works.
+                    \end{mdframed}
+            \end{itemize}
+            \pagebreak
+            Other Works by Euler
+            \begin{itemize}
+                \item Basel Problem
+                    \begin{displaymath}
+                        \sum_{n=1}^{\infty} \frac{1}{n^2}
+                    \end{displaymath}
+                    Turns out:
+                    \begin{displaymath}
+                        \sum_{n=1}^{\infty} \frac{1}{n^2}
+                        = \frac{\pi^2}{6}
+                    \end{displaymath}
+                    Also Proved
+                    \begin{displaymath}
+                        \int_0^1 \frac{sin(ln(x))}{ln(x)}
+                        = \frac{\pi}{4}
+                    \end{displaymath}
+                    Using:
+                    \begin{displaymath}
+                        \frac{sin(ln(x))}{ln(x)}
+                        = \frac{ln(x)-\frac{ln(x)^3}{3!} +
+                        \frac{ln(x)^4}{4!}...}{ln(x)}
+                    \end{displaymath}
+                    
+                \item Proved Fermat number is not prime. 
+                    \begin{displaymath}
+                        2^{(2^5)}+1
+                    \end{displaymath}
+                    Which has 10 digits.
+                    
+                \item K\"onigsburg Bridge Problem
+                    \begin{mdframed}
+                        Seven bridges in a city, can you
+                        find a path which watches each bridge
+                        only once. Turns out to be impossible
+                        and Euler came up with a good arguement.
+                    \end{mdframed}
+            \end{itemize}
+            {\large What did other people think of Euler}
+            \begin{itemize}
+                \item Voltaire thought Euler to be simple and
+                    devoutly religious man. Boring outside
+                    of Math.
+            \end{itemize}
+        \end{mdframed}
+    \item E. J. Edmunds
+        \begin{mdframed}
+            \begin{itemize}
+                \item Edmunds was a Free Person of Color
+                    in New Orleans
+                \item Born Before the Civil War
+                \item Unlike Euler who was so well known it
+                    makes it hard to figure out why we know what
+                    we know, Edmunds was recently rediscovered.
+                    \begin{mdframed}
+                        Recently rediscovered by Sian Zelbo in
+                        Colombia University Dissertation.
+                    \end{mdframed}
+                \item Born 1851 in New Orleans
+                \item Free Person of Color\\
+                    Father is a clerk/salesman in dry goods
+                    company.
+                    \begin{mdframed}
+                        Family does well financially, and owns
+                        a home in Trem\'e. Father frequently
+                        travels to Europe for work. Likely
+                        spoke French.
+                    \end{mdframed}
+                \item 1861 Civil War Breaks out (10 years old)
+                \item 1862 Occupied by Union Soldiers
+                    \begin{mdframed}
+                        Both bad and good for Edmunds. Issues
+                        with occupation, but well positioned
+                        as a non-slaveholding wealthy family.
+                    \end{mdframed}
+                \item 1870 Attended Fillmore School ("Whites only
+                    school")
+                    \begin{mdframed}
+                        He is fairly light skinned for a person
+                        of color, but it is unclear whether
+                        that affected his academic career.
+                    \end{mdframed}
+                \item 1871 Goes to Paris and takes the exams
+                    to be admitted for the E\'cole Polytechnique.
+                    \begin{mdframed}
+                        E\'cole started out as an elite military
+                        school, with major math and science
+                        departments. Becomes a leading school
+                        and is a gateway to the top of French
+                        analysis.
+
+                        \vspace{10pt}
+
+                        Other mathematicians from E\'cole
+                        \begin{itemize}
+                            \item Cauchy
+                            \item Poincaire
+                            \item Poisson
+                            \item etc.
+                        \end{itemize}
+
+                        \vspace{10pt}
+
+                        Edmunds is accepted with a 133/144,
+                        and is the bottom of his class.
+                    \end{mdframed}
+                \item 1873 Passes exams, Set to do Artillery
+                    Training
+                \item 1875 Decides to leave school and moves
+                    back to New Orleans
+                    \begin{mdframed}
+                        1874 is undocumented, and he likely
+                        works at a University but it isn't
+                        known.
+                    \end{mdframed}
+                \item Publishes more than 200 short publications
+                    in Mathematics.
+                \item To be Continued XD
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
