@@ -1,0 +1,179 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Young's Modulus and 3 point Flexure
+                \item Photolithography
+                \item DRIE
+                \item How an Accelerometer Works
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Harmonic Motion}
+        \begin{mdframed}
+            Harmonic Osscilators are described by
+            a cosine function.
+
+            \begin{displaymath}
+                x = Acos(\omega t)
+            \end{displaymath}
+
+            We describe $\omega$ in terms of the frequency and
+            period of the osscilator.
+             \begin{displaymath}
+                f = \frac{1}{T}
+            \end{displaymath}
+
+            Where $f$ is the frequency and $T$ is the period of the
+            osscilator.
+
+            \begin{displaymath}
+                T = 2\pi \sqrt{\frac{m}{k}}
+            \end{displaymath}
+
+            Derivation:
+            \begin{mdframed}
+                \begin{gather}
+                   F = -kx\\ 
+                   F = ma\\
+                   a = \frac{dv}{dt} = \frac{d^2x}{dt}\\
+                   \frac{d^2x}{dt} = \frac{-kx}{m}\\
+                   x = A cos(\omega t)\\
+                   \frac{dx}{dt} = -A\omega sin(\omega t)\\
+                   \frac{d^2x}{dt} = -A\omega^2 cos(\omega t)\\
+                   -A\omega^2 cos(\omega t) = \frac{-kAcos(\omega t)}{m}\\
+                   -Am\omega^2 cos(\omega t) = -kAcos(\omega t)\\ 
+                   m\omega^2 = k\\
+                   \omega^2 = \frac{k}{m}\\
+                   \omega = \sqrt{\frac{k}{m}}
+                \end{gather}
+
+                To get the period we have to multiply
+                by $2\pi$. This is because the period
+                of an unmodified cosine function is
+                 $2\pi$ and the constant  $\omega$ multiplies
+                 with this  $2\pi$ period.
+            \end{mdframed}
+        \end{mdframed}
+    \item {\large Young's Modulus}
+        \begin{mdframed}
+            Measures the resistance of a solid to elastic
+            deformation.
+
+            Imagine a beam which is L units long, y units
+            tall and z units across. We elastically deform
+            the object by $\Delta L$.
+
+            \begin{gather}
+                \textrm{Stress} = \frac{F}{A}\\
+                \textrm{Strain} = \frac{\Delta L}{L}\\
+                Y = \frac{F/A}{\Delta L/L}
+            \end{gather}
+
+            All materials have a Young Modulus.
+
+            \begin{itemize}
+                \item Steel $= 20\times 10^{10} N/m^2
+                    = 140 GPa$
+            \end{itemize}
+
+            \begin{displaymath}
+                1 \frac{N}{m^2} = 1Pa
+            \end{displaymath}
+            
+        \end{mdframed}
+    \item {\large 3 Point Flexure}
+        \begin{mdframed}
+            \begin{center}
+                \minibox[frame] {
+                    Two points are fixed\\
+                    One point is flexed
+                }
+            \end{center}
+            
+            Start with a beam of length L.
+            Fix the ends and apply a force F on
+            the middle. The crosssection is $d$ high
+            and  $b$ across.
+
+            Measuring from the bottom surface of the beam
+            it will bend down a distance $\delta$.
+
+            It can be shown: 
+            \begin{displaymath}
+                \delta = \frac{F}{y} \frac{L^3}{4bd^3}
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Photolithography}
+        \begin{mdframed}
+            \begin{itemize}
+                \item A very pure silicon wafer is grown in a
+                    lab.
+                \item We then coat the waver in a photoresist
+                    material.
+                \item We then take a mask which blocks light.
+                \item The light is passed through the mask
+                    and focused down to a microscopic structure.
+                \item The light passing through the mask develops
+                    the photoresist, removing it from the surface.
+                \item In additive lithography we then deposit
+                    material into the gaps in the photoresist.
+                \item In subtractive lithography we etch into
+                    the material through the gaps left in the
+                    photoresist using an ionized gas which
+                    reacts with the silicon but not the
+                    resist.
+                \item At the end we remove the photoresist and are
+                    left with a silicon structure.
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item {\large DRIE}
+        \begin{mdframed}
+            \begin{itemize}
+                \item 
+                    We begin with two silicon wafers with an
+                    insulator between them.
+                \item We etch into the silicon the anchor points
+                \item We take some glass and deposit metal
+                    onto it
+                \item We then flip the silicon over and bond
+                    it to the glass deposits using
+                    Anodic bonding
+                \item We then etch away the back of the
+                    silicon until we remove the full
+                    insulator
+            \end{itemize}
+            Deep Reactive Ion Etch system.
+            \begin{itemize}
+                \item Gas is let into a chamber
+                \item We apply current to ionize the gas
+                \item The gas is pushed onto the wafer
+                \item The back of the wafer is covered with
+                    ionized super cold helium.
+                \item The gases are then pumped out the bottom
+                    of the chamber.
+                \item The etching and masking phases repeat to
+                    create deep features into the material.
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

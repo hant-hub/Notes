@@ -1,0 +1,118 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 7 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Review Quiz 1
+            \item Electric Charge
+            \item Coulomb's Law
+            \item Superposition
+        \end{itemize}
+    \item {\large Quiz 1 Review}
+        \begin{mdframed}
+            Lost points on a silly pedantic thing.
+            When asking if velocity is equal don't assume
+            there is a conversion to magnitude.
+
+            Everything else was fine, just expect the
+            pedantic next time.
+        \end{mdframed}
+    \item {\large Electric Charge}
+        \begin{mdframed}
+            Amber and Cat fur can be used to make amber repel. 
+            Glass and silk also work.
+
+            If you touch them together they repel and
+            remain??
+
+            When brought near after rubbing amber and cat
+            fur. It collapses and repels.
+
+            Conclusions:
+            \begin{enumerate}
+                \item Amber and Cat fur generated a negative
+                    charge
+                \item Glass and silk generate a positive
+                    charge
+                \item Like charges Repel
+                \item Opposite Charges Attract
+                \item Charges flow through conductive
+                    materials
+                \item Charges cannot flow through insulators
+            \end{enumerate}
+
+            The positive and negative assignment was arbitrary.
+
+            Set up an experiment called Coulomb Experiment
+            to test his hypotheses.
+
+            Set up two hanging masses, with opposite charges.
+            To measure the strength of the force he tied
+            both masses to pulleys attached to masses.
+            By measuring the mass required for the masses
+            to hang without touching in equilibrium you
+            can measure the force exerted by the charge.
+
+            He came to some conclusions.
+            \begin{enumerate}
+                \item $F_e \propto \frac{1}{d^2}$
+                \item $F_e \propto \frac{q_1 q_2}{d}$
+            \end{enumerate}
+
+            Introduced a constant of proportionality.
+            \begin{displaymath}
+                F_e = k_e \frac{q_1 q_2}{d^2}
+            \end{displaymath}
+            
+            Which became known as Coulomb's Law.
+
+            The Units for $K_e$ must be  $d^3 m/q^2$.
+            The world eventually decided on Coulomb for
+            measuring charge. So  $K_e$ has units of
+            $\si{Nm^2/C^2}$
+
+            An alternative formulation is known.
+            \begin{displaymath}
+                k_e = \frac{1}{4\pi e_0}
+            \end{displaymath}
+            Where $e_0$ is the permitivity of free space.
+            
+        \end{mdframed}
+        \pagebreak
+    \item {\large Superposition}
+        \begin{mdframed}
+            Net force is still the sum of all forces acting
+            on a body. This applies to Coulomb as well as
+            Newton.
+
+            \begin{displaymath}
+                q_1, q_2, q_3, q_4
+            \end{displaymath}
+            \begin{displaymath}
+                \vec{F} = \vec{F_{21}} + \vec{F_{31}}
+                + \vec{F_{41}}
+            \end{displaymath}
+            
+        \end{mdframed}
+
+\end{description}
+
+
+
+\end{document}

@@ -5,9 +5,13 @@
 \usepackage[]{mdframed}
 \usepackage{minibox}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 \usepackage{pgfplots}
 \pgfplotsset{compat=newest}
 \renewcommand{\familydefault}{\sfdefault}
+
+\definecolor{uuuuuu}{rgb}{0.26666666666666666,0.26666666666666666,0.26666666666666666}
+\definecolor{qqqqff}{rgb}{0,0,1}
 
 \title{\Huge{Math 181}}
 \author{\huge{Elijah Hantman}}
@@ -228,7 +232,355 @@
         \end{mdframed}
     \item {\large Problem 5}
         \begin{mdframed}
-            
+            Given a triangle ABC, we can bisect two of its
+            angles with lines. Prove that if the segments
+            of each line inside the triangle are of equivalent
+            length the entire triangle is isosceles.
+
+            \begin{center}
+                
+                \scalebox{0.5}{ 
+                    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                        \begin{axis}[
+                            x=1cm,y=1cm,
+                            axis lines=middle,
+                            axis line style = {draw=none},
+                            ymajorgrids=false,
+                            xmajorgrids=false,
+                            xmin=-8,
+                            xmax=8,
+                            ymin=0,
+                            ymax=11,
+                            yticklabel = \empty,
+                            xticklabel = \empty,
+                            xtick={},
+                            ytick={},]
+                            \clip(-9.703709200000004,-9.009582400000001) rectangle (20.50945840000001,7.578670599999998);
+                            \draw [line width=0.8pt] (-3,1)-- (0,7);
+                            \draw [line width=0.8pt] (0,7)-- (3,1);
+                            \draw [line width=0.8pt] (3,1)-- (-3,1);
+                            \draw [line width=0.8pt] (3,1)-- (-1.583592135001262,3.8328157299974768);
+                            \draw [line width=0.8pt] (-3,1)-- (1.583592135001262,3.8328157299974768);
+                            \begin{scriptsize}
+                                \draw [fill=qqqqff] (-3,1) circle (2.5pt);
+                                \draw[color=qqqqff] (-2.746306000000001,1.7003090999999986) node {$A$};
+                                \draw [fill=qqqqff] (3,1) circle (2.5pt);
+                                \draw[color=qqqqff] (3.244791200000002,1.7003090999999986) node {$B$};
+                                \draw [fill=qqqqff] (0,7) circle (2.5pt);
+                                \draw[color=qqqqff] (0.24924260000000076,7.176043099999998) node {$C$};
+                                \draw[color=black] (-0.9103245999999998,4.1482842999999985) node {$l$};
+                                \draw[color=black] (1.1511282000000012,4.1482842999999985) node {$m$};
+                                \draw[color=black] (0.12040180000000071,1.8935702999999986) node {$n$};
+                                \draw [fill=uuuuuu] (-1.583592135001262,3.8328157299974768) circle (1.5pt);
+                                \draw[color=uuuuuu] (-1.3290572,4.405965899999998) node {$L$};
+                                \draw [fill=uuuuuu] (1.583592135001262,3.8328157299974768) circle (1.5pt);
+                                \draw[color=uuuuuu] (1.8275424000000016,4.405965899999998) node {$M$};
+                                \draw[color=black] (1.0867078000000012,3.2463986999999985) node {$r$};
+                                \draw[color=black] (-0.33054099999999953,2.3767232999999983) node {$s$};
+                            \end{scriptsize}
+                        \end{axis}
+                    \end{tikzpicture}           
+                }
+            \end{center}
+
+            In the figure above we are asked to prove that if
+            the lines AM and BL are the same length, then the
+            triangle is isosceles.
+            \begin{mdframed}
+                To begin the proof we circumscribe a circle
+                with points A, B, and M defining the circle.
+
+                \begin{center}
+                    
+                    \scalebox{0.5}{
+                        \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                            \begin{axis}[
+                                x=1cm,y=1cm,
+                                axis lines=middle,
+                                axis line style = {draw=none},
+                                ymajorgrids=false,
+                                xmajorgrids=false,
+                                xmin=-8,
+                                xmax=8,
+                                ymin=-6,
+                                ymax=11,
+                                yticklabel = \empty,
+                                xticklabel = \empty,
+                                xtick={-16,-15,...,23},
+                                ytick={-9,-8,...,12},]
+                                \clip(-16.48988932463552,-9.548123376486267) rectangle (23.12340201686295,12.20117837284389);
+                                \draw [line width=0.8pt] (-5,1)-- (0,9);
+                                \draw [line width=0.8pt] (0,9)-- (5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-2.4271869638936536,5.116500857770154);
+                                \draw [line width=0.8pt] (-5,1)-- (2.4271869638936536,5.116500857770154);
+                                \draw [line width=0.8pt] (0,0.7372545026683103) circle (5.006898760347375cm);
+                                \begin{scriptsize}
+                                    \draw [fill=qqqqff] (-5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,1.9177706525295326) node {$A$};
+                                    \draw [fill=qqqqff] (5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,1.9177706525295326) node {$B$};
+                                    \draw [fill=qqqqff] (0,9) circle (2.5pt);
+                                    \draw[color=qqqqff] (0.3183089204779031,9.899553236264289) node {$C$};
+                                    \draw[color=black] (-1.7932737736318236,5.169608001458507) node {$l$};
+                                    \draw[color=black] (2.0920383835300735,5.169608001458507) node {$m$};
+                                    \draw[color=black] (0.14938230494912497,2.1711605758226997) node {$n$};
+                                    \draw [fill=uuuuuu] (-2.4271869638936536,5.116500857770154) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-2.0888953508071855,5.845314463573619) node {$L$};
+                                    \draw [fill=uuuuuu] (2.4271869638936536,5.116500857770154) circle (1.5pt);
+                                    \draw[color=uuuuuu] (2.767744845645186,5.845314463573619) node {$M$};
+                                    \draw[color=black] (1.7541851524725172,4.15604830828584) node {$r$};
+                                    \draw[color=black] (-0.8219457343413492,2.9735619995843945) node {$s$};
+                                    \draw[color=black] (-2.3422852741003526,4.662828154872174) node {$t$};
+                                \end{scriptsize}
+                            \end{axis}
+                        \end{tikzpicture}
+                    }
+                \end{center}
+
+                Lets imagine our circle intersects the line BL
+                at a point between B and L.
+
+                \begin{center}
+                    \scalebox{0.5}{
+                        \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                            \begin{axis}[
+                                x=1cm,y=1cm,
+                                axis lines=middle,
+                                axis line style = {draw=none},
+                                ymajorgrids=false,
+                                xmajorgrids=false,
+                                xmin=-8,
+                                xmax=8,
+                                ymin=-5,
+                                ymax=9,
+                                yticklabel = \empty,
+                                xticklabel = \empty,
+                                xtick={-16,-15,...,23},
+                                ytick={-9,-8,...,12},]
+                                \clip(-16.48988932463552,-9.548123376486268) rectangle (23.12340201686295,12.201178372843888);
+                                \draw [line width=0.8pt] (-5,1)-- (-5,9);
+                                \draw [line width=0.8pt] (-5,9)-- (5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,4.507810593582122);
+                                \draw [line width=0.8pt] (-5,1)-- (-0.5555555555555552,5.444444444444445);
+                                \draw [line width=0.8pt] (0,0.4444444444444448) circle (5.0307695211874535cm);
+                                \begin{scriptsize}
+                                    \draw [fill=qqqqff] (-5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,1.9177706525295326) node {$A$};
+                                    \draw [fill=qqqqff] (5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,1.9177706525295326) node {$B$};
+                                    \draw [fill=qqqqff] (-5,9) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,9.899553236264289) node {$C$};
+                                    \draw[color=black] (-4.158246391034718,5.5074612325160635) node {$l$};
+                                    \draw[color=black] (-0.2729342338728204,4.958449732047535) node {$m$};
+                                    \draw[color=black] (0.14938230494912497,2.1711605758226997) node {$n$};
+                                    \draw [fill=uuuuuu] (-5,4.507810593582122) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-4.665026237621052,5.254071309222897) node {$L$};
+                                    \draw [fill=uuuuuu] (-0.5555555555555552,5.444444444444445) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-0.23070257999062582,6.183167694631175) node {$M$};
+                                    \draw[color=black] (0.3605405743600976,3.902658384992673) node {$r$};
+                                    \draw[color=black] (-2.1311270046893798,3.269183576759756) node {$s$};
+                                    \draw[color=black] (-2.3845169279825473,4.3672065776968125) node {$t$};
+                                    \draw [fill=uuuuuu] (-3.5572912430182484,4.001735687462694) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-3.2291500056264377,4.7472914626365625) node {$O$};
+                                \end{scriptsize}
+                            \end{axis}
+                        \end{tikzpicture}
+
+                    }
+                \end{center}
+                The arc from M to B, must be greater than the arc
+                from O to M. We know this to be true because the
+                angles LAM and MAB are equal, and the angle
+                formed by OAM is contained within the angle
+                LAM. This means MAB is larger than or equal to
+                OAM.
+
+                This line of reasoning works because for inscribed
+                and tangent angles, the conversion between arc length
+                and angle is linear. 
+                The arc O to M is equal to the arc O to A. This is
+                true because the line BL which splits both bisects
+                the angle ABM. This means both are equivalent arc
+                length.
+                Using this fact, we can conclude that the
+                distance B to L is greater than A to M.
+                However this contradicts the fact that
+                B to L and A to M are equal by definition.
+
+                This means the point O cannot be between
+                B and L.
+            \end{mdframed}
+            \begin{mdframed}
+                If the point O is instead further from B than
+                L.
+                \begin{center}
+                    \scalebox{0.5}{
+                        \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                            \begin{axis}[
+                                x=1cm,y=1cm,
+                                axis lines=middle,
+                                axis line style = {draw=none},
+                                ymajorgrids=false,
+                                xmajorgrids=false,
+                                xmin=-8,
+                                xmax=8,
+                                ymin=-6,
+                                ymax=11,
+                                yticklabel = \empty,
+                                xticklabel = \empty,
+                                xtick={-16,-15,...,23},
+                                ytick={-9,-8,...,12},]
+                                \clip(-16.48988932463552,-9.548123376486268) rectangle (23.12340201686295,12.201178372843888);
+                                \draw [line width=0.8pt] (-5,1)-- (5,7);
+                                \draw [line width=0.8pt] (5,7)-- (5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,1);
+                                \draw [line width=0.8pt] (5,1)-- (1.25,4.75);
+                                \draw [line width=0.8pt] (-5,1)-- (5,3.7698396494843345);
+                                \begin{scriptsize}
+                                    \draw [fill=qqqqff] (-5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,1.9177706525295326) node {$A$};
+                                    \draw [fill=qqqqff] (5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,1.9177706525295326) node {$B$};
+                                    \draw [fill=qqqqff] (5,7) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,7.914665503801149) node {$C$};
+                                    \draw[color=black] (0.48723553600668124,3.9448900388748673) node {$l$};
+                                    \draw[color=black] (4.457011000932967,4.493901539343396) node {$m$};
+                                    \draw[color=black] (0.14938230494912497,2.1711605758226997) node {$n$};
+                                    \draw [fill=uuuuuu] (1.25,4.75) circle (1.5pt);
+                                    \draw[color=uuuuuu] (1.585258536943739,5.5074612325160635) node {$L$};
+                                    \draw [fill=uuuuuu] (5,3.7698396494843345) circle (1.5pt);
+                                    \draw[color=uuuuuu] (5.343875732459052,4.493901539343396) node {$M$};
+                                    \draw[color=black] (3.7390728849356605,3.8604267311104787) node {$r$};
+                                    \draw[color=black] (0.3183089204779031,2.2556238835870883) node {$s$};
+                                \end{scriptsize}
+                            \end{axis}
+                        \end{tikzpicture}
+
+                    }
+                \end{center}
+
+                We can instead of using a circle which touches
+                points A, B, and M, can instead use a circle
+                that touchs A, B, and L.
+                \begin{center}
+                    \scalebox{0.5}{
+                        \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                            \begin{axis}[
+                                x=1cm,y=1cm,
+                                axis lines=middle,
+                                axis line style = {draw=none},
+                                ymajorgrids=false,
+                                xmajorgrids=false,
+                                xmin=-8,
+                                xmax=8,
+                                ymin=-6,
+                                ymax=11,
+                                yticklabel = \empty,
+                                xticklabel = \empty,
+                                xtick={-16,-15,...,23},
+                                ytick={-9,-8,...,12},]
+                                \clip(-16.48988932463552,-9.548123376486268) rectangle (23.12340201686295,12.201178372843888);
+                                \draw [line width=0.8pt] (-5,1)-- (5,7);
+                                \draw [line width=0.8pt] (5,7)-- (5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,1);
+                                \draw [line width=0.8pt] (5,1)-- (1.25,4.75);
+                                \draw [line width=0.8pt] (-5,1)-- (5,3.7698396494843345);
+                                \draw [line width=0.8pt] (0,-0.25) circle (5.153882032022076cm);
+                                \begin{scriptsize}
+                                    \draw [fill=qqqqff] (-5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,1.9177706525295326) node {$A$};
+                                    \draw [fill=qqqqff] (5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,1.9177706525295326) node {$B$};
+                                    \draw [fill=qqqqff] (5,7) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,7.914665503801149) node {$C$};
+                                    \draw[color=black] (0.48723553600668124,3.9448900388748673) node {$l$};
+                                    \draw[color=black] (4.457011000932967,4.493901539343396) node {$m$};
+                                    \draw[color=black] (0.14938230494912497,2.1711605758226997) node {$n$};
+                                    \draw [fill=uuuuuu] (1.25,4.75) circle (1.5pt);
+                                    \draw[color=uuuuuu] (1.585258536943739,5.5074612325160635) node {$L$};
+                                    \draw [fill=uuuuuu] (5,3.7698396494843345) circle (1.5pt);
+                                    \draw[color=uuuuuu] (5.343875732459052,4.493901539343396) node {$M$};
+                                    \draw[color=black] (3.7390728849356605,3.8604267311104787) node {$r$};
+                                    \draw[color=black] (0.3183089204779031,2.2556238835870883) node {$s$};
+                                    \draw[color=black] (-2.300053620218158,3.902658384992673) node {$c_1$};
+                                \end{scriptsize}
+                            \end{axis}
+                        \end{tikzpicture}
+
+                    }
+                \end{center}
+
+                Now the arguments from before apply symmetrically.
+
+            \end{mdframed}
+            \begin{mdframed}
+                This means that the circle must pass through
+                A, B, L, and M. This implies that the arcs
+                A to L, and B to M are equal, which implies the
+                angles CAB and CBA are equal, which is the definition
+                of an isoceles triangle.
+                
+                \begin{center}
+                    \scalebox{0.5}{
+                        \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+                            \begin{axis}[
+                                x=1cm,y=1cm,
+                                axis lines=middle,
+                                axis line style = {draw=none},
+                                ymajorgrids=false,
+                                xmajorgrids=false,
+                                xmin=-8,
+                                xmax=8,
+                                ymin=-6,
+                                ymax=11,
+                                yticklabel = \empty,
+                                xticklabel = \empty,
+                                xtick={-16,-15,...,23},
+                                ytick={-9,-8,...,12},]
+                                \clip(-16.48988932463552,-9.548123376486268) rectangle (23.12340201686295,12.201178372843888);
+                                \draw [line width=0.8pt] (-5,1)-- (0,8);
+                                \draw [line width=0.8pt] (0,8)-- (5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-5,1);
+                                \draw [line width=0.8pt] (5,1)-- (-2.3121639750819747,4.762970434885235);
+                                \draw [line width=0.8pt] (-5,1)-- (2.3121639750819747,4.762970434885235);
+                                \draw [line width=0.8pt] (0,0.2699980834847689) circle (5.053009281419926cm);
+                                \begin{scriptsize}
+                                    \draw [fill=qqqqff] (-5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (-4.665026237621052,1.9177706525295326) node {$A$};
+                                    \draw [fill=qqqqff] (5,1) circle (2.5pt);
+                                    \draw[color=qqqqff] (5.343875732459052,1.9177706525295326) node {$B$};
+                                    \draw [fill=qqqqff] (0,8) circle (2.5pt);
+                                    \draw[color=qqqqff] (0.3183089204779031,8.928225196973816) node {$C$};
+                                    \draw[color=black] (-1.7932737736318236,4.620596500989979) node {$l$};
+                                    \draw[color=black] (2.0920383835300735,4.620596500989979) node {$m$};
+                                    \draw[color=black] (0.14938230494912497,2.1711605758226997) node {$n$};
+                                    \draw [fill=uuuuuu] (-2.3121639750819747,4.762970434885235) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-1.9622003891606017,5.5074612325160635) node {$L$};
+                                    \draw [fill=uuuuuu] (2.3121639750819747,4.762970434885235) circle (1.5pt);
+                                    \draw[color=uuuuuu] (2.6410498839986025,5.5074612325160635) node {$M$};
+                                    \draw[color=black] (1.7964168063547117,3.987121692757062) node {$r$};
+                                    \draw[color=black] (-0.9064090421057385,2.8046353840556164) node {$s$};
+                                    \draw [fill=uuuuuu] (-2.312163975081976,4.7629704348852355) circle (1.5pt);
+                                    \draw[color=uuuuuu] (-1.9622003891606017,5.5074612325160635) node {$O$};
+                                    \draw[color=black] (-2.2578219663359635,4.3672065776968125) node {$c_1$};
+                                \end{scriptsize}
+                            \end{axis}
+                        \end{tikzpicture}
+
+                    }\\
+                    {\Large Q.E.D}
+                \end{center}
+            \end{mdframed}
+
+            I've added multiple pictures to this text, in addition
+            I've added justification for some of the angle equivalences
+            that I did not understand at first. I also added justification
+            for the second case of O being outside of the triangle which
+            the original proof glossed over. I believe the proof is correct
+            however I am not particularly practiced when it comes to this
+            style of proof so I likely would have missed any subtle errors.
         \end{mdframed}
 \end{description}
 \end{document}
