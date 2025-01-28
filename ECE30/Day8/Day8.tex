@@ -1,0 +1,174 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+\usepackage{siunitx}
+
+\title{\Huge{ECE 30}\\Day 8 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Electric Fields
+            \item Work and Energy
+            \item Electric Potential Energy
+        \end{itemize}
+    \item {\large Electric Fields}
+        \begin{mdframed}
+            What are Ions?\\
+            ions are atoms which have had electrons stripped
+            from them, this causes them to be electrically
+            charged. The vast majority of atoms are neutral
+            normally but we can delibrately charge them for
+            etching.
+
+            The human blood has extra ions. This means human
+            fingers are electrically charged.
+        \end{mdframed}
+        \begin{mdframed}
+            Charges effect their environment. Many forces like
+            gravity also have seemingly non-local effects. This
+            can be modeled by imagining all of space has a charge
+            value, this is called a field.
+        \end{mdframed}
+        \begin{mdframed}
+            The value of the electric field is the force a charged
+            particle would feel at the given point in space. This
+            defines a function from a position to a force which
+            creates a vector field.
+
+            \begin{displaymath}
+                \vec{\epsilon} \triangleq \frac{\vec{F_e}}{q_0}
+            \end{displaymath}
+
+            Where $\vec{F_e}$ is the Coulomb force exerted on
+            a particle with charge $q_0$.
+            The electro static force is measured in force
+            per unit charge. $\si{N/C}$
+        \end{mdframed}
+        \begin{mdframed}
+            An electric field is represented via electric field
+            lines. The field lines are always drawn as arrows which
+            describe the movement of a positive charge. There are
+            some additional rules.
+
+            \begin{enumerate}
+                \item Field lines are tangent to the electic field
+                    at all points.
+                \item Direction is same as the force on a positive
+                    test charge.
+                \item The number of lines passing through a surface
+                    perpendicular to the lines is proportional to
+                    the magnitude of the electrical field.
+            \end{enumerate}
+
+            Something to note is that the electric field is
+            conservative, which means it is the gradient of
+            some potential function. This is intuitive if
+            you imagine creating a surface where the
+            charges represent the height, and everything
+            is continuous. This would be a potential
+            function, and the gradient would be the vector
+            field.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Work and Energy}
+        \begin{mdframed}
+           Work is defined as: 
+           \begin{displaymath}
+                W = F \times \Delta x
+           \end{displaymath}
+           For a constant foce in the direction of
+           $\Delta x$. Only the component
+           of work in the direction of $\Delta x$
+           contributes to the work.
+           And has units of $\si{Nm}$. Or Joules ($\si{J}$)
+
+           Therefore we can also write work as:
+           \begin{displaymath}
+                W = \vec{F} \cdot \Delta \vec{x}
+           \end{displaymath}
+           
+           Over a curved path you can compute work using a
+           line integral.
+
+           \begin{displaymath}
+               W = \int_S \vec{F} \cdot d\vec{x}
+           \end{displaymath}
+
+           This is the more general form which works for non
+           constant force and a non linear path. This 
+           can be analytically solved via a parameterization.
+
+            \begin{displaymath}
+                W = \int_a^b f(x(t), y(t), z(t)) 
+                \sqrt{(x'(t))^2 + (y'(t))^2 + (z'(t))^2} dt
+            \end{displaymath}
+
+            This comes from the formula for arc length multiplied
+            by the force at each point. This requires being able
+            to parameterize the line which is usually possible
+            but may be difficult in general.
+
+            Work can also be written as:
+            \begin{displaymath}
+                W = \int_a^b m v dv
+            \end{displaymath}
+
+            By integrating the above integral we get:
+
+            \begin{displaymath}
+            W = \frac{1}{2}mv^2 {\bigg |_a^b}
+            \end{displaymath}
+            Which is by definition the difference in kinetic
+            energy of a particle since kinetic energy is written:
+
+            \begin{displaymath}
+                K_e = \frac{1}{2} mv^2
+            \end{displaymath}
+
+            Which means:
+
+            \begin{displaymath}
+                W = \Delta K_e
+            \end{displaymath}
+        \end{mdframed}
+        \begin{mdframed}
+            What if there is no change in speed?
+
+            \vspace{10pt}
+
+            Since $W = F_y \Delta y = mg(y - y_0)
+            = mgh$, we can see that work is the potential
+            energy when the speed doesn't change.
+
+            Work is the change in potential energy. This works
+            because forces like gravity and electro static forces
+            are conservative.
+
+            Energy is defined as the capacity for doing work.
+            Therefore to perform work a body must have energy.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Electrical Energy}
+        \begin{mdframed}
+            Electric Potential:
+            \begin{gather}
+                W = \int_a^b F dx 
+                = -\int_a^b q \epsilon dx
+            \end{gather}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

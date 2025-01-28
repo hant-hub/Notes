@@ -1,0 +1,164 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item What are the Origins of Greek Theoretical Math? 
+        \begin{mdframed}
+            Famous Euclidian quote about the purity
+            of learning mathematics for the purpose of
+            knowledge. Greek mathematics was very unconcerned
+            with application and focused on abstract
+            gains in knowledge.
+
+            \begin{itemize}
+                \item Katz textbook has a confident guess
+                    \begin{itemize}
+                        \item From Thales (624-547 BC)
+                            and Pythagoras (572-497 BC)
+                        \item Brough from Egypt
+                        \item Pythagoras was a mystic/religious
+                            leader who preached "all is numbers"
+                    \end{itemize}
+                \item Pros:
+                    \begin{itemize}
+                        \item primary sources say it
+                            \begin{mdframed}
+                                Also comes with a great
+                                story about the square
+                                root of two and murder.
+                            \end{mdframed}
+                    \end{itemize}
+                \item Cons:
+                    \begin{itemize}
+                        \item  sources are very late, hundreds
+                            of years later and had clear 
+                            agendas.
+                        \item No mathematical sources before
+                            400 BC, nothing from Pythagoras'
+                            followers
+                        \item Inconsistent with Greek culture
+                            at the time.
+                            \begin{mdframed}
+                                One source, The mathematics
+                                of Pythagoras. We don't have any
+                                direct sources of Pythagoras.
+                                The proofs Katz shows in his
+                                textbook comes from:
+
+                                \begin{itemize}
+                                    \item Nichomachus' introduction
+                                        to arithmetic
+                                        \begin{mdframed}
+                                            English translation
+                                            avalible in a 1926
+                                             translation.
+                                        \end{mdframed}
+                                        \begin{mdframed}
+                                            Probably written
+                                            only 100AD, which
+                                            is hundreds of years
+                                            after Pythagoras.
+                                        \end{mdframed}
+                                        \begin{mdframed}
+                                            Nichomachus probably
+                                            lived in Gerasa near
+                                            the Jordanian city of
+                                            Jerash
+                                        \end{mdframed}
+                                    \item 44 sources for Nichomachus'
+                                        writing, earliest dates
+                                        to 1000AD which is hundreds
+                                        of years after he lived.
+                                \end{itemize}
+                            \end{mdframed}
+                    \end{itemize}
+            \end{itemize}
+        \end{mdframed}
+    \item Nichomachus
+        \begin{mdframed}
+            \begin{itemize}
+                \item Even in the introduction of his
+                    book he refers to Pythagoras as the
+                    one of the ancients.
+                \item Ancient Greeks saw mathematics
+                    as encompassing several subjects
+                    \begin{itemize}
+                        \item Arithmetic
+                        \item Geometry (focus on plane)
+                        \item Music
+                        \item Astronomy
+                    \end{itemize}
+                \item He attempts to raise mathematics and
+                    philosophy above the common people,
+                    people like handymen, artisans, etc.
+                \item First Math Text
+                    \begin{mdframed}
+                        Nichomachus says that the cubes
+                        can be made by summing n odd numbers.
+                        In other words:
+
+                        \begin{gather}
+                           1, 8, 27, 125 
+                           = 1, 3 + 5, 7 + 9 + 11, ...
+                        \end{gather}
+
+                        For a closed formula:
+                        \begin{gather}
+                            \sum_{i=0}^{n-1} (2(i + \frac{n(n+1)}{2})+1) = n^3 
+                        \end{gather}
+
+                        Which works for $n > 1$
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Nichomachus doesn't state where this
+                        formula comes from, but he describes
+                        cubes as a geometric object, and he
+                        has many other formulas which he
+                        proved via geometric reasoning,
+                        which hints at what he did to solve.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Looking at the trianglular numbers you
+                        can form them by adding a row to the
+                        previous term. You can do the same
+                        thing with squares, showing that
+                        the nth square is the (n-1)th square plus
+                        an odd number.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Nichomachus goes on to dicuss pentagonal
+                        heptagonal, etc numbers.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Nichomachus says that mathematics is the
+                        work of Pythagoras, but that seems unlikely.
+                        Modern consensus is that Pythagoras had
+                        no relation to these results, but that
+                        leaves the origin unknown.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Current theory is that is comes from
+                        common everyday mathematics, accounting,
+                        carpentry, etc. The same kinds of people
+                        Nichomachus denigrated in the introduction to
+                        his book.
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

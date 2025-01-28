@@ -1,0 +1,150 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda}
+        \begin{itemize}
+            \item Electric Potential Cont.
+            \item Potential Difference - Voltage
+            \item Capacitance
+            \item Charge Storage
+        \end{itemize}
+
+    \item {\large Electric Potential Cont.}
+        \begin{mdframed}
+           If bringing a charge from infinity, the potential
+           energy is equal to $\frac{k_e Q q_0}{r}$ for any
+           $r$.
+        \end{mdframed}
+    \item {\large Voltage}
+        \begin{mdframed}
+            If the initial distance is not infinity, then
+            \begin{displaymath}
+                \frac{\Delta E_p}{q_0} = \Delta V
+            \end{displaymath}
+
+            In other words, voltage is the difference in potential
+            energy.
+        \end{mdframed}
+    \item {\large Capacitance}
+        \begin{mdframed}
+
+            If we create a voltage difference between two
+            metal plates, a uniform electric field forms
+            between them.
+
+            The constant of proportionality was defined as
+            \begin{displaymath}
+                C \triangleq \frac{q}{\Delta V}
+            \end{displaymath}
+
+            Both $q$ and  $\Delta V$ are defined to be positive,
+            which implies $C$ is always positive. 
+
+            $C$ is measured in  $\si{C/V}$ which is also known
+            as a Farad $\si{F}$ which is a very large
+            unit. Most capacitors are measured in
+            $\si{\mu F}$ or  $\si{mF}$
+            
+            \begin{displaymath}
+                \Delta V = \int_A^B \vec{\epsilon} \cdot d\vec{r}
+                = \epsilon d
+            \end{displaymath}
+            
+            We saw by experiment $E \propto \frac{q}{A}$ where
+            $A$ is the area of the plates.
+
+            The factor of proportionality is $\frac{1}{\epsilon_0}$
+            where  $\epsilon_0$ is the permitivity of free space.
+            Therefore we have the equation:
+
+            \begin{displaymath}
+                E = \frac{q}{\epsilon_0 A}
+            \end{displaymath}
+
+            Therefore :
+            \begin{displaymath}
+                \Delta V = \frac{qd}{\epsilon_0 A}
+            \end{displaymath}
+            
+            For a smaller area you require less voltage for the
+            same charge.
+
+            Since:
+            \begin{displaymath}
+                C = \frac{q}{\Delta V}
+            \end{displaymath}
+            Then:
+            \begin{displaymath}
+                C = \frac{\epsilon_0 A}{d}
+            \end{displaymath}
+
+            Capacitance decreases with distance, and increases
+            with area. This is useful for accelerometers and
+            touch screens.
+        \end{mdframed}
+        \begin{mdframed}
+            Capacitors with dialectric.
+
+            \vspace{10pt}
+
+            A dialectric is a material that doesn't conduct,
+            ex: rubber, glass, concrete, etc.
+
+
+            A voltmeter is like an open switch which doesn't allow
+            charge to flow.
+
+            We find that adding a dialectric increases the capacitance.
+            The capacitance increases linearly with permitivity of the
+            dialectric material.
+
+            Some common materials used have permitivity values:
+            \begin{itemize}
+                \item Vacuum $1.0$ 
+                \item Glass $5.60$
+                \item Rubber $6.70$
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Energy Storage}
+        \begin{mdframed}
+            We create a potential difference between the plates
+            of a capcitor, the electric field between the
+            plates can do work. It can be used as a battery.
+
+            We know:
+            \begin{displaymath}
+                W = \Delta E_p = \Delta V_{q_0}
+            \end{displaymath}
+            
+            When we connect a voltage electrons move and
+            deposit on the sides of the capcitors. As
+            the power begins to flow more and more electrons
+            move and the voltage climbs until it eventually matches
+            the circuit.
+
+            Assuming zero resistance the Voltage difference is
+            linear with time.
+
+            
+
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

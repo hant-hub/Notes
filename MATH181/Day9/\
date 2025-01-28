@@ -1,0 +1,54 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item What are the Origins of Greek Theoretical Math? 
+        \begin{mdframed}
+            Famous Euclidian quote about the purity
+            of learning mathematics for the purpose of
+            knowledge. Greek mathematics was very unconcerned
+            with application and focused on abstract
+            gains in knowledge.
+
+            \begin{itemize}
+                \item Katz textbook has a confident guess
+                    \begin{itemize}
+                        \item From Thales (624-547 BC)
+                            and Pythagoras (572-497 BC)
+                        \item Brough from Egypt
+                        \item Pythagoras was a mystic/religious
+                            leader who preached "all is numbers"
+                    \end{itemize}
+                \item Pros:
+                    \begin{itemize}
+                        \item primary sources say it
+                    \end{itemize}
+                \item Cons:
+                    \begin{itemize}
+                        \item  sources are very late, hundreds
+                            of years later and had clear 
+                            agendas.
+                        \item No mathematical sources before
+                            400 BC, nothing from Pythagoras'
+                            followers
+                    \end{itemize}
+            \end{itemize}
+
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
