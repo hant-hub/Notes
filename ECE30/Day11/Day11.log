@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.25)  29 JAN 2025 13:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024/Arch Linux) (preloaded format=pdflatex 2025.1.25)  31 JAN 2025 14:10
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**Day6.tex
-(./Day6.tex
+**Day11.tex
+(./Day11.tex
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
 (/usr/share/texmf-dist/tex/latex/base/report.cls
@@ -517,27 +517,118 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count313
  (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/share/texmf-dist/tex/latex/minibox/minibox.sty
+))) (/usr/share/texmf-dist/tex/latex/siunitx/siunitx.sty
+Package: siunitx 2024-02-15 v3.3.12 A comprehensive (SI) units package
+\l__siunitx_number_uncert_offset_int=\count314
+\l__siunitx_number_exponent_fixed_int=\count315
+\l__siunitx_number_min_decimal_int=\count316
+\l__siunitx_number_min_integer_int=\count317
+\l__siunitx_number_round_precision_int=\count318
+\l__siunitx_number_lower_threshold_int=\count319
+\l__siunitx_number_upper_threshold_int=\count320
+\l__siunitx_number_group_first_int=\count321
+\l__siunitx_number_group_size_int=\count322
+\l__siunitx_number_group_minimum_int=\count323
+\l__siunitx_angle_tmp_dim=\dimen277
+\l__siunitx_angle_marker_box=\box72
+\l__siunitx_angle_unit_box=\box73
+\l__siunitx_compound_count_int=\count324
+ (/usr/share/texmf-dist/tex/latex/translations/translations.sty
+Package: translations 2022/02/05 v1.12 internationalization of LaTeX2e packages (CN)
+)
+\l__siunitx_table_tmp_box=\box74
+\l__siunitx_table_tmp_dim=\dimen278
+\l__siunitx_table_column_width_dim=\dimen279
+\l__siunitx_table_integer_box=\box75
+\l__siunitx_table_decimal_box=\box76
+\l__siunitx_table_uncert_box=\box77
+\l__siunitx_table_before_box=\box78
+\l__siunitx_table_after_box=\box79
+\l__siunitx_table_before_dim=\dimen280
+\l__siunitx_table_carry_dim=\dimen281
+\l__siunitx_unit_tmp_int=\count325
+\l__siunitx_unit_position_int=\count326
+\l__siunitx_unit_total_int=\count327
+ (/usr/share/texmf-dist/tex/latex/tools/array.sty
+Package: array 2023/10/16 v2.5g Tabular extension package (FMi)
+\col@sep=\dimen282
+\ar@mcellbox=\box80
+\extrarowheight=\dimen283
+\NC@list=\toks43
+\extratabsurround=\skip128
+\backup@length=\skip129
+\ar@cellbox=\box81
+)) (/usr/share/texmf-dist/tex/latex/circuitikz/circuitikz.sty
+Package: circuitikz 2024/02/09{} The CircuiTikz circuit drawing package version 1.6.7
+ (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarycalc.code.tex
+File: tikzlibrarycalc.code.tex 2023-01-15 v3.1.10 (3.1.10)
+) (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
+File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgfarrowinset=\dimen284
+\pgfarrowlength=\dimen285
+\pgfarrowwidth=\dimen286
+\pgfarrowlinewidth=\dimen287
+) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarybending.code.tex
+File: tikzlibrarybending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulebending.code.tex
+File: pgfmodulebending.code.tex 2023-01-15 v3.1.10 (3.1.10)
+ (/usr/share/texmf-dist/tex/generic/pgf/modules/pgfmodulenonlineartransformations.code.tex
+File: pgfmodulenonlineartransformations.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgftransformnonlinearflatness=\dimen288
+) (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibrarycurvilinear.code.tex
+File: pgflibrarycurvilinear.code.tex 2023-01-15 v3.1.10 (3.1.10)
+\pgf@curvilinear@time@a=\dimen289
+\pgf@curvilinear@length@a=\dimen290
+\pgf@curvilinear@length@b=\dimen291
+\pgf@curvilinear@length@c=\dimen292
+\pgf@curvilinear@length@d=\dimen293
+)
+\pgf@arrows@the@rigidity=\dimen294
+)) (/usr/share/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibraryfpu.code.tex (/usr/share/texmf-dist/tex/generic/pgf/libraries/pgflibraryfpu.code.tex)) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirc.defines.tex
+\pgf@circ@count@a=\count328
+\pgf@circ@count@b=\count329
+\pgf@circ@count@c=\count330
+\pgf@circ@res@up=\dimen295
+\pgf@circ@res@down=\dimen296
+\pgf@circ@res@zero=\dimen297
+\pgf@circ@res@left=\dimen298
+\pgf@circ@res@right=\dimen299
+\pgf@circ@res@other=\dimen300
+\pgf@circ@res@step=\dimen301
+\pgf@circ@res@temp=\dimen302
+\pgf@circ@Rlen=\dimen303
+\pgf@circ@scaled@Rlen=\dimen304
+\pgfstartlinewidth=\dimen305
+) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircutils.tex
+\ctikz@scratchbox=\box82
+) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircpath.tex)
+(/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircshapes.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircmonopoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircbipoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirctripoles.tex
+\pgf@circ@res@count=\count331
+) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircquadpoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircmultipoles.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirclabel.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircvoltage.tex
+\pgfcirc@labelshift=\dimen306
+) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex) (/usr/share/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)) (/usr/share/texmf-dist/tex/latex/minibox/minibox.sty
 Package: minibox 2013/06/21 v0.2a Another type of box.
-\l_minibox_rule_dim=\dimen277
-\l_minibox_pad_dim=\dimen278
-) (./Day6.aux)
-\openout1 = `Day6.aux'.
+\l_minibox_rule_dim=\dimen307
+\l_minibox_pad_dim=\dimen308
+)
+Package translations Info: No language package found. I am going to use `english' as default language. on input line 16.
+ (./Day11.aux)
+\openout1 = `Day11.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 14.
-LaTeX Font Info:    ... okay on input line 14.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 16.
+LaTeX Font Info:    ... okay on input line 16.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -575,78 +666,78 @@ LaTeX Font Info:    ... okay on input line 14.
 
 (/usr/share/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count314
-\scratchdimen=\dimen279
-\scratchbox=\box72
-\nofMPsegments=\count315
-\nofMParguments=\count316
-\everyMPshowfont=\toks43
-\MPscratchCnt=\count317
-\MPscratchDim=\dimen280
-\MPnumerator=\count318
-\makeMPintoPDFobject=\count319
-\everyMPtoPDFconversion=\toks44
+\scratchcounter=\count332
+\scratchdimen=\dimen309
+\scratchbox=\box83
+\nofMPsegments=\count333
+\nofMParguments=\count334
+\everyMPshowfont=\toks44
+\MPscratchCnt=\count335
+\MPscratchDim=\dimen310
+\MPnumerator=\count336
+\makeMPintoPDFobject=\count337
+\everyMPtoPDFconversion=\toks45
 ) (/usr/share/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
-))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 15.
+)) (/usr/share/texmf-dist/tex/latex/translations/translations-basic-dictionary-english.trsl
+File: translations-basic-dictionary-english.trsl (english translation file `translations-basic-dictionary')
+)
+Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 16.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 17.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 15.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 17.
  (/usr/share/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 21.
-LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 22.
+LaTeX Font Info:    Trying to load font information for TS1+cmss on input line 23.
  (/usr/share/texmf-dist/tex/latex/base/ts1cmss.fd
 File: ts1cmss.fd 2023/04/13 v2.5m Standard LaTeX font definitions
 )
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 30.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 52.
-Package mdframed Info: mdframed inside a box 
- mdframed uses option nobreak mdframed on input line 72.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 76.
+(mdframed)              on input line 29.
  [1{/usr/share/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 103.
-Package mdframed Info: mdframed detected package amsthm 
- changed the theorem header of amsthm
-(mdframed)              on input line 125.
+(mdframed)              on input line 83.
+Package mdframed Info: Not enough space on this page on input line 149.
  [2]
 Package mdframed Info: mdframed detected package amsthm 
  changed the theorem header of amsthm
-(mdframed)              on input line 149.
- [3] (./Day6.aux)
+(mdframed)              on input line 152.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 158.
+Package mdframed Info: mdframed inside a box 
+ mdframed uses option nobreak mdframed on input line 161.
+Package mdframed Info: mdframed detected package amsthm 
+ changed the theorem header of amsthm
+(mdframed)              on input line 166.
+Package mdframed Info: mdframed inside a box 
+ mdframed uses option nobreak mdframed on input line 171.
+ [3] (./Day11.aux)
  ***********
 LaTeX2e <2023-11-01> patch level 1
 L3 programming layer <2024-02-20>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 16431 strings out of 476000
- 321583 string characters out of 5792233
- 1943187 words of memory out of 5000000
- 38226 multiletter control sequences out of 15000+600000
- 567178 words of font info for 71 fonts, out of 8000000 for 9000
+ 38099 strings out of 476000
+ 979501 string characters out of 5792233
+ 1949187 words of memory out of 5000000
+ 59812 multiletter control sequences out of 15000+600000
+ 566578 words of font info for 69 fonts, out of 8000000 for 9000
  59 hyphenation exceptions out of 8191
- 102i,11n,107p,463b,522s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
-Output written on Day6.pdf (4 pages, 98000 bytes).
+ 102i,7n,107p,464b,978s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss12.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmss17.pfb></usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texmf-dist/fonts/type1/public/cm-super/sfss1000.pfb>
+Output written on Day11.pdf (4 pages, 87965 bytes).
 PDF statistics:
  66 PDF objects out of 1000 (max. 8388607)
  41 compressed objects within 1 object stream

@@ -1,0 +1,183 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{circuitikz}
+\usepackage{minibox}
+
+\ctikzset{bipoles/length=.6cm}
+\newcommand\esymbol[1]{\begin{circuitikz}
+\draw (0,0) to [#1] (1,0); \end{circuitikz}}
+
+\title{\Huge{ECE 30}\\Day 10 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Finish Lecture 9
+            \item Electric Current
+            \item Ohm's Law
+            \item Terms and Symbols for Electric Circuits
+        \end{itemize}
+    \item {\large Lecture 9 Cont.}
+        \begin{mdframed}
+           When a capacitor is connected to a potential
+           difference, $\Delta v$, $q$ (charge in the plates)
+           changes.
+
+           Initially $q = 0\si{C}$ and it eventually reaches
+           $Q = cv$.
+           
+           \begin{displaymath}
+                dw = \Delta v dq
+           \end{displaymath}
+
+           The total Work done to charge a capacitor:
+
+           \begin{displaymath}
+                W = \int_0^Q \frac{q}{c} dq
+                = \frac{1}{c} \int_0^Q q dq
+           \end{displaymath}
+           \begin{displaymath}
+                W = \frac{Q^2}{2c} \si{J}
+           \end{displaymath}
+
+           We also know:
+
+           \begin{displaymath}
+                c = \frac{Q}{\Delta v}
+           \end{displaymath}
+
+           Therefore:
+
+           \begin{displaymath}
+                W = \frac{1}{2}c \Delta v^2
+           \end{displaymath}
+           
+           
+           For a given capacitance, energy stored is
+           equivalent to the square of the voltage difference,
+           and directly proportional to the square of the
+           charge.
+        \end{mdframed}
+    \item {\large Electric Current}
+        \begin{mdframed}
+            \begin{displaymath}
+                \vec{E} = \frac{\vec{F}}{q}
+                = \frac{m\vec{a}}{q}
+            \end{displaymath}
+            
+            Let $q = \overline{e}$ (charge of an electron)
+
+            Then $\vec{a} =\frac{-\overline{e} \vec{E}}{m}$ 
+
+            $\vec{E}$ in copper is effectively constant
+
+            We also know that  $\vec{a} = \frac{d\vec{v}}{dt}$
+            We can expand using the chain rule to:
+
+             \begin{displaymath}
+                \vec{a} = \frac{dv}{dx} \cdot \frac{dx}{dt}
+                = \frac{\vec{v}dv}{dx}
+            \end{displaymath}
+
+            Therefore:
+
+            \begin{displaymath}
+                \vec{a}dx = \vec{v}dv
+            \end{displaymath}
+
+            \begin{displaymath}
+                a \int_{x_0}^{x} dx = \int_{v_0}^v v dv
+            \end{displaymath}
+
+            Therefore:
+
+            \begin{displaymath}
+                a(x-x_0) = \frac{v^2}{2} - \frac{v_0^2}{2}
+            \end{displaymath}
+
+            Letting $v_0 = 0$ and $x_0 = 0$ then:
+
+            \begin{displaymath}
+                2ax = v^2
+            \end{displaymath}
+            \begin{displaymath}
+                v = \sqrt{2ax}
+                = \sqrt{\frac{2eEx}{m}}
+            \end{displaymath}
+        \end{mdframed}
+        \begin{mdframed}
+            When electrons flow they collide with atoms,
+            which causes the atoms to vibrate converting
+            some of the electrical energy into thermal
+            energy.
+
+            For a conductor $\overline{e}$ collides with $w$
+            atoms and give off kinetic energy  $K = \frac{1}{2}mv^2$
+            and the conductor will heat up.
+
+            We define:  $i = \frac{dq}{dt}$
+            where  $i$ uses units of  $\si{C/s} \triangleq A$
+            or Amps. Amps are units of Current.
+
+            Amps are large! Usually $\si{mA}$ or  $\si{nA}$,
+            or  $\si{\mu A}$ are used.
+        \end{mdframed}
+        {\large Resistance}
+        \begin{mdframed}
+            $\vec{E}$ in a conductor is uniform, and
+            $\Delta v = \int_{s_1}^{s_2}\vec{E} \cdot d\vec{s}$
+            whre $\vec{s}$ is displacement in the direction
+            of the field.
+
+            Therefore:
+
+             \begin{displaymath}
+                 \Delta v = E(s_2-s_1) = EL
+            \end{displaymath}
+
+            Where $L$ is the length of the conductor. 
+
+            Therefore, as $\Delta v$ increases $E$ increases.
+            Since $\vec{E} = \frac{\vec{F}}{q}$
+            the electrons in a conductor are accelerated more
+            as  $\Delta v$ increases.
+
+            Therefore  $\Delta v \propto i = \frac{dq}{dt}$
+            We therefore have a factor of propotionality, written
+            $R$ for resistance.
+
+        $R \triangleq \frac{V}{i}$ with units called Ohms($\si{\Omega}$) 
+        Which comes from the name Ohms' Law.
+        \end{mdframed}
+    \item {\large Circuit Symbols}
+        \begin{mdframed}
+            Battery: \esymbol{battery} The voltage decreases from
+            the short to the long side. In this case it goes from right to left.
+            measured in Volts (V)\\
+            Capacitor: \esymbol{capacitor} Non directional. Measured in Farads (F)\\
+            Resistor: \esymbol{resistor} A component which
+            has a specific resistance, usually higher than
+            the material the circuit is made out of. Measured in Ohms ($\Omega$)\\
+            Voltmeter: \esymbol{voltmeter}  $R = \infty$\\
+            Ammeter: \esymbol{ammeter} $R = 0$\\
+            Conductor: \esymbol{short} carries current. Arrows sometimes
+            added to indicate the flow of positive charge.\\
+            Switch: \esymbol{switch} 
+        \end{mdframed}
+
+\end{description}
+
+
+\end{document}

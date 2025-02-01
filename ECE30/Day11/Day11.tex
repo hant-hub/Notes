@@ -1,0 +1,178 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\usepackage{circuitikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 11 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Series and Parallel Circuits
+            \item Kirchoff's Rules
+            \item Electric Circuits
+        \end{itemize}
+    \item {\large Series and Parallel Circuits}
+        \begin{mdframed}
+            \begin{circuitikz} \draw
+                (6,2) to[battery] (0,2)
+                (0,0) to[resistor] (2,0)
+                (2,0) to[resistor] (4,0)
+                (4,0) to[resistor] (6,0)
+                (6,0) to[short] (6,2) to[short] (3,2)
+                (3,2) to[short] (0,2) to[short] (0,0);
+            \end{circuitikz} 
+
+            \begin{displaymath}
+                V = iR_1 + iR_2 + iR_3
+                = v_1 + v_2 + v_3
+            \end{displaymath}
+            
+            \begin{displaymath}
+                V = i(R_1 + R_2 + R_3)
+                = i R_{eq}
+            \end{displaymath}
+
+            Resistors in series are equivalent to 
+            a resistor with the sum of their resistances.
+            Resistance adds in series.
+
+            \begin{circuitikz} \draw
+                (0,0) to[capacitor] (3,0)
+                (3,0) to[capacitor] (6,0)
+                (6,0) to[short] (6,2)
+                (6,2) to[battery] (0,2)
+                (0,2) to[short] (0,0);
+            \end{circuitikz}
+            
+            The first capacitor charges to $Q_1$, and its
+            other half charges to $-Q_1$, the next plate ends
+            up charging to $Q_2$ and its other plate charges
+            to $-Q_2$. Since $Q_2$ gets its charge from the
+            first capacitor $Q_1 = Q_2$.
+
+            The charge is the same when capacitors are in series.
+
+            \begin{displaymath}
+                v = v_1 + v_2
+                = \frac{Q}{C_{eq}} = \frac{Q_1}{C_1} + \frac{Q_2}{C_2}
+            \end{displaymath}
+
+            Therefore:
+
+            \begin{displaymath}
+                \frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2}
+            \end{displaymath}
+            
+            Capacitors in series have smaller capacitance.
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+            \begin{circuitikz}\draw
+                (0,0) to[resistor] (3,0)
+                (0,2) to[resistor] (3,2)
+                (0,4) to[resistor] (3,4)
+                (0,6) to[battery] (3,6)
+                (0,0) to[short] (0,6)
+                (3,0) to[short] (3,6);
+            \end{circuitikz}
+
+            \begin{displaymath}
+                v_1 = v_2 = v_3 = v
+            \end{displaymath}
+            \begin{displaymath}
+                i = i_1 + i_2 + i_3
+            \end{displaymath}
+
+            \begin{displaymath}
+                \frac{v_1}{r_1} + \frac{v_2}{r_2} + \frac{v_3}{r_3} 
+                = i = \frac{v}{r_{eq}}
+            \end{displaymath}
+
+            Dividing using the first equation:
+
+            \begin{displaymath}
+                \frac{1}{r_{eq}} = \frac{1}{r_1} + \frac{1}{r_2} + \frac{1}{r_3}
+            \end{displaymath}
+
+            Parallel resistors reduce the overall resistance. Mirror to
+            Capacitors in series.
+            
+            
+            \begin{circuitikz}\draw
+                (0,0) to[capacitor] (3,0)
+                (0,2) to[capacitor] (3,2)
+                (0,4) to[battery] (3,4)
+                (0,0) to[short] (0,4)
+                (3,0) to[short] (3,4);
+            \end{circuitikz}
+             
+            The equivalent charge is the sum of the charges
+            of each capacitor.
+
+            \begin{displaymath}
+                Q_{eq} = Q_1 + Q_2
+            \end{displaymath}
+
+            The voltage differences must be the same.
+
+            \begin{displaymath}
+                v_1 = v_2 = v
+            \end{displaymath}
+
+            The total charge:
+
+            \begin{displaymath}
+                Q = Q_1 + Q_2
+            \end{displaymath}
+            
+            \begin{displaymath}
+                c_{eq} v = c_1v_1 +c_2v_2                 
+            \end{displaymath}
+            \begin{displaymath}
+                c_{eq} = c_1 + c_2
+            \end{displaymath}
+            
+            Capacitors in parallel add. 
+        \end{mdframed}
+    \item {\large Kirchoff's Rules}
+        \begin{mdframed}
+           \begin{enumerate}
+               \item The algebraic sum of currents flowing
+                   into any junction in a circuit
+                   is always zero. (every current flowing
+                   in is balanced by current flowing out).
+                   \begin{mdframed}
+                       Currents are a vector field with
+                       a divergence equal to zero. Similar
+                       to water.
+                   \end{mdframed}
+               \item Algebraic of all potential differences
+                   (voltage) in a closed circuit loop
+                   is always zero.
+                   \begin{mdframed}
+                       The voltage lift across a battery
+                       must equal the voltage drop across
+                       the circuit. A closed circuit cannot
+                        elevate or reduce the total
+                        potential across the entire circuit.
+                   \end{mdframed}
+               \item 
+           \end{enumerate}  
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
