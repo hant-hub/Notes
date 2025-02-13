@@ -1,0 +1,120 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 15 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item Traveling Waves
+                \item Sinusoidal Traveling Waves and the Wave Function
+                \item Magnetism - Intro
+                \item Magnetic Force
+            \end{itemize}
+        \end{mdframed}
+    \item Homework 5 Overview
+        \begin{mdframed}
+            its chill, its just voltage changes so its cool. 
+        \end{mdframed}
+    \item {\large Traveling Waves}
+        \begin{mdframed}
+            It begins as a single pulse in a medium like
+            a rope or a field.
+
+            Over time the pulse will travel down
+            the medium.
+
+            The velocity of propogation or the speed of the
+            traveling wave is $\frac{\lambda}{T}$. Here it
+            is the wavelength in space divided by the wavelength
+            in time. It also implies:
+
+            \begin{displaymath}
+                v = \lambda f
+            \end{displaymath}
+
+            The shape of a traveling wave does not change as it
+            moves.
+
+            A given particle in space will be in the same position
+            every $T$ seconds. Or  $x - vt$ at  $t = 0$.
+            
+            The wave is described as a function of both distance and
+            time.
+
+            \begin{displaymath}
+                y(x,t) = y(x-vt, 0)
+            \end{displaymath}
+            
+            In general:
+
+            \begin{displaymath}
+                y(x,t) = f(x-vt)
+            \end{displaymath}
+
+            Here the sign of the velocity encodes the
+            direction of wave movement.
+
+            \begin{displaymath}
+                y(x,t) \triangleq \textrm{Wave Function}
+            \end{displaymath}
+            
+            One example wave function could be:
+            \begin{displaymath}
+                y(x,t) = \frac{1}{(x-3t)^2 + 1}
+            \end{displaymath}
+
+            Wave functions can be any symmetric-ish function
+            with a phase shift applied.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Sinusoidal Traveling Waves}
+        \begin{mdframed}
+            
+            \begin{displaymath}
+                y(x,0) = Asin(ax)
+            \end{displaymath}
+
+            Here $a$ is a conversion factor from distance to
+            radians. It has units  $\frac{1}{m}$.
+
+            When $\frac{\lambda}{2}$  $A sin(ax) = 0$
+
+            \begin{displaymath}
+                \frac{a\lambda}{2} = \pi
+            \end{displaymath}
+            \begin{displaymath}
+                a = \frac{2\pi}{\lambda}
+            \end{displaymath}
+            
+            therefore:
+
+            \begin{displaymath}
+                y(x,0) = A sin(\frac{2\pi}{\lambda} x)
+            \end{displaymath}
+            
+            We know that $y(x,t) = y(x-vt, t)$, therefore:
+
+             \begin{displaymath}
+                y(x,t) = A sin(\frac{2\pi}{\lambda} (x-vt))
+            \end{displaymath}
+            
+            
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

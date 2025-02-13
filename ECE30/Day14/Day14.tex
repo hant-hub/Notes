@@ -1,0 +1,171 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 14 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item Midterm Overview
+                \item Simple Harmonic Motion Review
+                \item Traveling Waves
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Midterm Review}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Some did really good, some did really really
+                    bad. Hopefully I'm closer to the good side.
+                \item I can't think of any difficult problems. even
+                    the bonus problem seemed pretty chill.
+                \item Uniform Electric field problem
+                    \begin{mdframed}
+                        Make sure to pause and understand the dynamics
+                        before you start.
+
+                        This is a constant acceleration problem,
+                        the orthogonal velocity stays the same.
+                        Remember Coulomb's law, and usetilize the
+                        provided constants to reduce the problem
+                        to a dynamics problem.
+
+                        Answer was $-3.5 \times 10^{13} \si{m/s^2}$, which I think I got correct.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        For the second part its just Newtonian dynamics.
+                        Things to remember is that the initial x veclocity
+                        stays constant.
+                    \end{mdframed}
+                \item Circuit Review
+                    \begin{mdframed}
+                        Open switches should be interpreted as completely
+                        seperate circuits. 
+
+                        The first current was 0.05A. And the voltage
+                        was 15V.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        The charge on capacitors in series combines such
+                        that it acts like one large capacitor. We end
+                        up getting an equivalent capacitance of 3 $\si{\mu F}$.
+                        Which ends up giving a total charge of $45 \si{\mu C}$
+                    \end{mdframed}
+                \item For the first spring problem
+                    \begin{mdframed}
+                        Should have gotten 275 N/m which I think
+                        I got correct.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        When asked to draw the force,
+                        k is the slope, so we should have
+                        A point from the origin to,
+                        $(2, -5.5)$
+                    \end{mdframed}
+                    \begin{mdframed}
+                        For calculating the work, remember the
+                        force is not constant, therefore you have
+                        to integrate. I did integrate and it
+                        comes out to the area of a triangle which
+                        is kinda fun.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        The graph one is easy. Its just the sum
+                        of a bunch of areas so its chill.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Displacement is the integral of velocity,
+                        so you can just numerically integrate using
+                        basic area functions.
+                    \end{mdframed}
+                \item Friction problem
+                    \begin{mdframed}
+                        I ended up saying that the coefficient of
+                        static friction is the tangent of the
+                        critical angle. 
+
+                        Garunteed 100\% so thats epic
+                    \end{mdframed}
+                \item Bonus
+                    \begin{mdframed}
+                        I think I got this right since I noticed
+                        both things he pointed out, ie: using
+                        $(\pi - \theta)$ rather than  $\theta$
+                        directly. As well as there being  $2n$
+                        capacitors instead of $n$ capacitors.
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Harmonic Motion quick Review}
+        \begin{mdframed}
+            We can imagine simple harmonic motion as arising
+            from vectors spinning in circles.
+
+            Each circle has two waves that can be derived,
+            a sine and cosine wave. The radius is the magnitude
+            of the wave, and the frequency is the number of
+            revolutions per unit time.
+
+            For springs we had an equation:
+
+            \begin{displaymath}
+                x = A cos(\omega t)
+            \end{displaymath}
+
+            With the following relationships:
+
+            \begin{displaymath}
+                \omega = \frac{2\pi}{T} = 2\pi f
+            \end{displaymath}
+
+            Where $T$ is the period, and $f$ is the
+            frequency. $\omega$ is scaled by $2\pi$ 
+            because we are using radians and $2\pi$ is
+            one revolution.
+
+            \begin{mdframed}
+                $\omega$ is the angular frequency in
+                $\si{Rad/s}$. Which is arguably
+                just $\si{1/s}$ or Hertz($\si{Hz}$)
+            \end{mdframed}
+
+            \begin{mdframed}
+                $f$ is the frequency, which is the
+                number of times a full cycle happens
+                per second. It uses  $\si{Hz}$ without
+                caveats.
+            \end{mdframed}
+            
+            \begin{mdframed}
+                $\lambda$ is the usual symbol for wavelength,
+                which is measured in meters in the case
+                of space waves and seconds for oscilitory
+                motion.
+            \end{mdframed}
+            
+            Some other equations:
+            \begin{gather}
+               v = -A\omega sin(\omega t)\\ 
+               a = A \omega^2 cos(\omega t)
+            \end{gather}
+            
+            
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

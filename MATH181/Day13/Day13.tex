@@ -1,0 +1,76 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 13 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Euclid Proof cont.} 
+        \begin{mdframed}
+            Geometric formula:
+            \begin{displaymath}
+                a_1 + a_2 + a_3 + ... + a_n = a_1\frac{r^{n+1}-1}{r-1}
+            \end{displaymath}
+            
+            This implied Euclid's identity which is formulated:
+
+            \begin{displaymath}
+                \frac{a_2-a_1}{a_1} = \frac{a_{n+1} - a_1}{a_1 + a_2 + a_3 + ... a_n}
+            \end{displaymath}
+            
+        \end{mdframed}
+    \item {\large How to prove?}
+        \begin{mdframed}
+            \begin{enumerate}
+                \item Use induction
+                    \begin{mdframed}
+                        Not super interesting.
+
+                        \begin{displaymath}
+                            \sum^n a_i = \sum^{n-1} a_i + a_{n-1}r 
+                        \end{displaymath}
+                    \end{mdframed}
+                \item Set the sum equal to a variable, multiply
+                    by $r$ and solve.
+                    \begin{mdframed}
+                        \begin{displaymath}
+                            y = a_1 + a_2 + a_3 + ... a_n
+                        \end{displaymath}
+                        
+                        \begin{gather}
+                            y * r = a_2 + a_3 + a_4 + ... a_{n+1}\\ 
+                            y*r - y = a_{n+1} - a_1\\
+                            y(r-1) = a_{n+1} - a_1\\
+                            y = \frac{a_{n+1} - a_1}{r-1}\\
+                            y = a_1\frac{r^{n+1} - 1}{r-1}
+                        \end{gather}
+                    \end{mdframed}
+            \end{enumerate}
+        \end{mdframed}
+    \item {\large Does Euclid's Proof Work?}
+        \begin{mdframed}
+           Does he use proof by induction? 
+        \end{mdframed}
+        \begin{mdframed}
+            Given: A, BC, D, EF
+
+            They are each part of a geometric series.
+            $BC = A*r$, etc.
+
+            These corrospond to  $a_1, a_2, a_3, a_4$
+
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

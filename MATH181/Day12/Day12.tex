@@ -1,0 +1,216 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 12 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Euclid and The Elements}    
+        \begin{mdframed}
+            \begin{itemize}
+                \item Most printed book after the Bible.
+                \item Large influence on many mathematicians
+                \item Influence on US Presidents
+                    \begin{mdframed}
+                        President Garfield published a proof
+                        of pythagorean theorem. He was a teacher
+                        before and studied in depth.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Abraham Lincoln also studied The Elements.
+                        He largly self studied, but one of the
+                        texts he studied was Euclid's elements.
+                        
+                        Story of how he went and memorized large
+                        portions of Euclid's elements before studying
+                        law. May be a tall tale but he definitely 
+                        tried to train himself in mathematics.
+                    \end{mdframed}
+                \item Foundational plane geometry
+                \item Foundational Number theory
+            \end{itemize}
+                
+            Very famous yet we don't have much of the context
+            and few have actually read the text.
+        \end{mdframed}
+    \item {\large What do we know of Euclid and The Elements?}
+        \begin{mdframed}
+            \begin{itemize}
+                \item We know very little
+                \item Most of our primary fragments come from
+                    Egypt. 
+                \item First fragment is dated to 100AD, we could
+                    at most push back to 100BC. Full copies stop
+                    at around 300AD.
+            \end{itemize}
+
+            What about Euclid himself?
+            \begin{itemize}
+                \item The text begins with defining
+                    lines and points immediately.
+                \item He continues defining terms and then gives
+                    out his famous five postulates.
+                    \begin{mdframed}
+                        \begin{enumerate}
+                            \item To draw a straight line from
+                                any point to any point
+                            \item To produce a finite straight line
+                                continuously in a straight line
+                            \item To describe a circle with any 
+                                center and distance
+                            \item All right angles are equal
+                            \item If two lines are parallel
+                                they do not meet.
+                        \end{enumerate}
+                    \end{mdframed}
+                \item Some more axioms
+                    \begin{enumerate}
+                        \item Equality is transitive
+                        \item Adding to both sides of
+                            an equality maintains the equality
+                        \item If you subtract from both sides
+                            of an equality the equality is
+                            maintained
+                        \item If two lines are the same, they
+                            have the same length
+                        \item The whole is greater than the part.
+                    \end{enumerate}
+                \item He quickly starts proving various propositions
+                    culminating in the Pythagorean theorem in the
+                    first volume.
+                \item It is not known why Euclid wrote his Elements.
+                    It seems unlikely to be a textbook. It seems
+                    likely that it was a compendium or collection
+                    of what the Greeks knew of geometry.
+                \item Euclid came before Archimedes, around
+                    300 BC. He also came before Plato (247 BC),
+                    after Alexander the Great, and Ptolomy.
+                    \begin{mdframed}
+                        One text refers to him as Euclid of
+                        Alexandria. Which was an Egyptian port
+                        city.
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item {\large Familiar Mathematics}
+        \begin{mdframed}
+            The first 6 books of Euclid's Elements
+            are about plane geometry.
+
+            Books 7-9 are about Number Theory.
+            \begin{mdframed}
+                One result from here is an algorithm for
+                finding the greatest common factor
+                between two integers.
+            \end{mdframed}
+
+            Book 10 concerns irrational numbers. Culminates in
+            a proof of the irrationality of $\sqrt{2}$
+
+            Books 11-13 concerns 3D geometry and the last book
+            is about the platonic solids. However the last
+            book may be a later addition.
+        \end{mdframed}
+    \item {\large Euclid's Number Theory}
+        \begin{mdframed}
+            Euclid took a very geometric approach to all math.
+            He used his postulates to build up number theory.
+
+            He also liked to use four terms for his examples of
+            sequences. It was a literary convention at the time.
+        \end{mdframed}
+        {\large Euclid's Proposition 35}
+        \begin{mdframed}
+            If we have a sequence of arbitrary length. 
+
+            \begin{displaymath}
+                a_1, a_2, a_3, a_4, .... a_{n+1}
+            \end{displaymath}
+
+            They are each in "continued proportion".
+            This means they are a geometric series, or
+            have a geometric relationship.
+
+            \begin{displaymath}
+                \frac{a_{i+1}}{a_i} = r
+            \end{displaymath}
+
+            Next Euclid describes subtracting the first term
+            from the last and second term.
+
+            \begin{displaymath}
+                a_{n+1} - a_1
+            \end{displaymath}
+            \begin{displaymath}
+                a_2 - a_1
+            \end{displaymath}
+
+            Then he says:
+
+            \begin{displaymath}
+                \frac{a_2 - a_1}{a_1} = 
+                \frac{a_{n+1} - a_1}{a_1 + a_2 + ... a_n}
+            \end{displaymath}
+
+            Which more formally is:
+
+            \begin{displaymath}
+                \frac{a_2 - a_1}{a_1} = 
+                \frac{a_{n+1} - a_1}{\sum_{i=1}^n a_i}
+            \end{displaymath}
+            
+            We usually write geometric series as:
+            \begin{displaymath}
+                a_n = a_0 r^{n}
+            \end{displaymath}
+
+            This is equivalent to the previous definition.
+
+            \begin{displaymath}
+                y = \frac{r^{n+1}-1}{r-1}
+            \end{displaymath}
+            
+            This is found by setting the series equal to $y$ then
+            multiplying by  $r$ and taking the difference
+            between  $y$ and  $y \cdot r$. 
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+           \begin{enumerate}
+               \item Is the formula correct?
+                   \begin{gather}
+                       \frac{a_2-a_1}{a_1} = \frac{a_{n+1}-a_1}{\sum^n a_i}\\ 
+                       \frac{a_1 * r - a_1}{a_1} = \frac{a_1 r^{n} - a_1}{a_1\frac{r^n-1}{r-1}}\\
+                       \frac{a_1 * r - a_1}{a_1} = \frac{(a_1r^{n} - a_1)(r-1)}{a_1(r^n-1)}\\
+                       r-1 = \frac{a_1(r^{n} - 1)(r-1)}{a_1(r^n-1)}\\
+                       r-1 = r-1
+                   \end{gather}
+                   This shows the formulas are the same, and it is correct.
+                   Both express the relationship between the ratio between
+                   two terms, and the sum of the sequence.
+
+               \item How does it compare to other formulas
+                   for geometric series?
+               \item How to make sense of the proof?
+           \end{enumerate}
+
+           Euclid is not thinking like Nichomachus. Nichomachus
+           thought geometrically but with a leaning towards
+           abacus and calculative methods.
+        \end{mdframed}
+\end{description}
+
+
+
+\end{document}

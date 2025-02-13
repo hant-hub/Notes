@@ -1,0 +1,101 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 16 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item What are some large numbers? 
+        \begin{enumerate}
+            \item The grains of sand needed to fill up
+                the universe.
+            \item Number of electrons/atoms in the Earth
+            \item The number of atoms in a standard
+                quantity of matter. $6.22\times 10^{22}$
+            \item Tree(3) where the Tree function is
+                the maximum number of Trees you can create
+                with a specific coloring.
+            \item The Monster Group.
+            \item Super permutations
+            \item Graham's Number
+        \end{enumerate}
+    \item {\large Archimedes on Grains of Sand}
+    \item Split into sections
+        \begin{enumerate}
+            \item Cover Letter And Introduction to the Problem
+            \item Geometry for Estimating the Size of the Universe
+            \item Numerical Estimates
+            \item Describes System of Numerals From Earlier
+                Work
+        \end{enumerate}
+    \item {\large Numerical Estimates}
+        \begin{mdframed}
+            Archimedes takes the Universe to be a sphere centered
+            on the Earth, which has an outer edge passing through
+            the center of the Sun.
+
+            Archimedes uses four numerical estimates which were
+            famous enough at the time that the King would be
+            somewhat familiar with them.
+
+            \begin{enumerate}
+                \item The perimeter of the Earch is about
+                    3,000,000 Stadia.
+                    \begin{mdframed}
+                        1 Stadia $\approx$ 150 meters
+                    \end{mdframed}
+                \item The Diameter of the Earth is greater
+                    than that of the moon, and the Sun is greater
+                    than the Earth
+                \item The diameter of the sun is around
+                    30 times the diameter of the Moon.
+                \item The diameter of the Sun is greater than the
+                    side of a regular 1000-gon incribed in a
+                    great circle inscribed on the Universe sphere.
+            \end{enumerate}
+
+            What do we need?
+            \begin{enumerate}
+                \item We need the distance from the Earth
+                    to the Sun, to calculate the volume of the
+                    Universe.
+            \end{enumerate}
+
+            Next time the calculation, today the answer is
+            1000 times the diameter of the Earth. Very
+            convenient so that was nice for Archimedes.
+
+            Archimedes refrains from exceeding 1000 so that
+            the King can continue to follow along with Standard
+            Greek Numerals.
+        \end{mdframed}
+        \begin{mdframed}
+            The next estimate is the size of a grain of sand.
+            Archimedes takes the approach of assuming the number
+            of grains of sand in a sphere with a diameter of
+            the $1/40$th the smallest unit the Greeks had, contained 
+            1000 grains of sand.
+
+            A fingerbreadth(daktylos) is around 19.3mm.
+
+            Using the formula for the volume of a sphere,
+            we find 1000 grains of sand per $\frac{4}{3\cdot 80^3}$ cubic
+            Daktylos.
+
+            We then can use the size of a grain of sand to convert the volume
+            of the Universe to sand.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

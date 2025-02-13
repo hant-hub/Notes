@@ -1,0 +1,238 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 15 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Archimedes}\\ 
+        Archimedes The Sand Reckoner
+        \begin{mdframed}
+            Unclear whether Archimedes would have seen
+            this work as anything important.
+        \end{mdframed}
+    \item {\large What do we know about Archimedes?}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Lived in Syracuse (Greek Island)
+                \item His father was known to be an astronomer
+                    \begin{mdframed}
+                        This is very thin evidence wise.
+                        We don't have any census or names
+                        for this time.
+                    \end{mdframed}
+                \item Contemporaneous with a Roman invasion
+                    of Syracuse
+                    \begin{mdframed}
+                        The dramatic tale is that Archimedes
+                        came up with many inventions to protect
+                        the city. And eventually the city fell
+                        and Archimedes was killed by a Roman
+                        soldier.
+
+                        Highly unlikely to be anything close to
+                        accurate. The invasion was real and he
+                        likely was involved, and probably died
+                        around the same time period. It seems
+                        very unlikely that he had many of the
+                        inventions he was credited with.
+                    \end{mdframed}
+                \item Mathematical decoration on his grave
+                \item Archimedian property
+                    \begin{mdframed}
+                        Can always find a rational number between
+                        any real number and zero.
+                        \begin{displaymath}
+                            \forall r \in \mathbb{R}
+                        \end{displaymath}
+                        \begin{displaymath}
+                            \exists q \in \mathbb{Q}
+                        \end{displaymath}
+                        \begin{displaymath}
+                            0 < q < r
+                        \end{displaymath}
+                    \end{mdframed}
+                \item Integral Calculus?
+                    \begin{mdframed}
+                        He discovered formulas for the volume
+                        of a sphere and circle using similar
+                        reasoning to integral calculus.
+                    \end{mdframed}
+                \item Approximation of $\pi$
+                     \begin{mdframed}
+                        He comes up with a range which correctly
+                        bounds $\pi$ to three digits.
+                    \end{mdframed}
+                \item Bouyancy
+                    \begin{mdframed}
+                        He likely did not invent the concept
+                        of Bouyancy but is often attributed
+                        with a story where he invents the
+                        fact that objects displace water
+                        equal to their volume when submerged.
+
+                        This story also coins the term Eureka
+                        as the exclaimation Archimedes shouted
+                        when he came to a realization.
+                    \end{mdframed}
+                \item Unpopular until after his Death?
+                    \begin{mdframed}
+                        It is claimed his work was
+                        so ahead of its time that he
+                        wasn't given proper praise.
+
+                        It is also reasonable to think that
+                        the number of people who could read
+                        and understand Archimedes was small.
+
+                        Certainly by the first sources we have
+                        he was lauded as the pinnacle of
+                        mathematics.
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+        \pagebreak
+    \item The Sand Reckoner
+        \begin{mdframed}
+            \begin{itemize}
+                \item Universe means the sphere centered on the
+                    Earth and extending to the sun.
+                \item Letter to King Gelon. Multiple times
+                    translated.
+                    \begin{mdframed}
+                        King who ruled part of Sicily. We
+                        have good historical records of this
+                        person. Not as celebrated but does
+                        have good evidence and dates.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        Relationship is maybe a little
+                        condescending. Slightly informal,
+                        may be a translation issue.
+                        Also it is notably theatrical, literary
+                        would be the preferred term of
+                        Classicists. Assumes the King is knowledgable
+                        about the current mathematics and the current
+                        working mathematicians/astronomers.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        We should ask who Archimedes grew up around.
+                        Is he just comfortable with Kings and nobility?
+                        Or is he a common person who is showing his
+                        background.
+
+                        He is framing things as if he is the best
+                        and most knowledgable. The sentence about 
+                        Zeuxippus could be translated as he worked
+                        with Zeuxippus or as if he was demonstrating
+                        he was better than Zeuxippus.
+                    \end{mdframed}
+                \item He is stating his goal to calculate
+                    the amount of sand which could fit
+                    in the universe, and that there are
+                    numbers significantly larger than that.
+                \item He mentions that Aristarchus of Samos
+                    proposed a theory of Heliocentrism
+                    in which the Earth orbits the sun and
+                    the universe is many times larger than
+                    what was previously thought.
+                    \begin{mdframed}
+                        Some outside knowledge is that
+                        Aristarchus had a good method to
+                        calculate the size of the Sun. He
+                        was off by several orders of magnitude
+                        due to poor measurment tools, but was
+                        able to realize that the sun is several
+                        dozen times larger than the Earth. And
+                        therefore he proposed a Heliocentric
+                        model.
+                    \end{mdframed}
+            \end{itemize} 
+        \end{mdframed}
+    \item How many Grains of Sand can fit in the Universe?
+        \begin{mdframed}
+            We need at least a few assumptions.
+            \begin{enumerate}
+                \item Size of a grain of sand
+                \item Size of the Universe
+            \end{enumerate}
+
+            Archimedes basically makes up the size of a grain
+            of sand by taking a small unit of volume.
+            To calculate the size of the Universe he is going
+            to use astronomical data and geometry to estimate
+            the size of the universe.
+
+            \vspace{10pt}
+
+            The second problem he is tackling is:
+            \begin{mdframed}
+                How to write down the answer?
+            \end{mdframed}
+
+            Usual greek numerals only reach 999.
+        \end{mdframed}
+    \item Why is Archimedes Answering These Questions?\\
+        What genre of text is this?
+        \begin{mdframed}
+            Not his usual fare. Archimedes was known for one
+            upping mathematicians in well known difficult problems.
+            These questions are not particularly famous.
+
+            \begin{mdframed}
+                Before the internet most math was in the form
+                of textbooks and academic papers. Textbooks
+                were for learning and giving background.
+
+                Euclid's Elements seem to fall into either
+                textbook writing or Encyclopedia.
+
+                Archimedes letters were research letters which
+                assumed large amounts of background.
+            \end{mdframed}
+
+            \begin{itemize}
+                \item Seems like Archimedes is pushing back against
+                    incorrect views.
+                \item Seems like he is playing with the
+                    math, for himself?
+                \item Interested in extreme sizes.
+                    \begin{mdframed}
+                        Calculus things, infintesimals, vs
+                        the universe.
+                    \end{mdframed}
+                    \begin{mdframed}
+                        He mentions he gave more detail about
+                        his number system in a letter we do
+                        not have.
+                    \end{mdframed}
+                \item Math communication?
+                    \begin{mdframed}
+                        Philosophical and practical reasons
+                        to see the usefulness of exceedingly
+                        large numbers.
+
+                        Mathematics for broader audiences
+                        in more literary terms.
+
+                        The goal is to express how cool and awesome
+                        mathematicians are to think about these things.
+                        It also is a crossover between philosophy
+                        and mathematics via formal logic.
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

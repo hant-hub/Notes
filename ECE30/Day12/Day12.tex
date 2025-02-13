@@ -1,0 +1,174 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{circuitikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 12 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Review Quiz 2
+            \item RC circuits
+            \item Touchscreens
+        \end{itemize}
+    \item {\large Quiz 2 Review}
+        \begin{mdframed}
+            Notes on answers I think I got incorrect.
+            \begin{itemize}
+                \item 3 point flexure is about brittle materials
+                    not breaking
+                \item I think I got this right, but capacitors
+                    in parallel are independent.
+                \item Close reading, should have noticed
+                    the path is from B to A, and that
+                    the path goes with the field which
+                    means negative work happens
+                \item Remain repelled but the distance
+                    will decrease (Not sure if I got this
+                    wrong, I was a little confused about
+                    the quiz wording.)
+            \end{itemize}
+            I'm a little
+            annoyed but whatever. Also the professor goes
+            over like a ton of the incorrect answers but
+            not in a helpful way just like he feels
+            he has to rexplain this to us over and over 
+            again.
+        \end{mdframed}
+    \item {\large RC circuits}
+        \begin{mdframed}
+            An RC circuit is a circuit with both resistors and
+            capacitors in it.
+
+            \begin{circuitikz}
+                \draw (0,0) to[capacitor] (3,0)
+                (3,0) to[resistor] (3,3)
+                (3,3) to[switch] (0,3)
+                (0,3) to[battery] (0,0);
+            \end{circuitikz}
+
+            As the capacitor charges the current and voltage accross
+            the resistor drops.
+
+            Based on the loop rule:
+
+            \begin{displaymath}
+                V - iR - v_c(t) = 0
+            \end{displaymath}
+
+            This means that:
+
+            \begin{displaymath}
+                V - v_c(t) = iR
+            \end{displaymath}
+            \begin{displaymath}
+                \frac{V - v_c(t)}{R} = i(t)
+            \end{displaymath}
+            
+            This means, as the charge increases in the
+            capacitor, the current drops, until the capacitor
+            matches the voltage of the battery and the
+            current is zero.
+
+            This also means the voltage across the resistor
+            will settle at zero.
+
+            This also means that initially when the capacitor
+            has zero charge, the circuit will act
+            as if the capacitor didn't exist.
+
+            This leads the rule of thumb that initially,
+            capacitors act like wires and don't
+            affect the current flow. And that when
+            fully charged capacitors do not allow for current
+            to flow and can be removed when thinking about
+            current and voltage without altering
+            the circuit.
+
+            In addition:
+
+            \begin{displaymath}
+                v_c(t) = \frac{q(t)}{C}
+            \end{displaymath}
+
+            \begin{displaymath}
+                V - \frac{dq_c}{dt}R - \frac{q_c}{C} = 0
+            \end{displaymath}
+            
+            \begin{displaymath}
+                \frac{cV - q_c}{RC} = \frac{dq_c}{dt}
+            \end{displaymath}
+
+            \begin{displaymath}
+                \frac{dt}{RC} = \frac{1}{CV - q}dq
+            \end{displaymath}
+
+            \begin{displaymath}
+                \int_0^t \frac{dt}{RC} = \int_0^{q(t)}\frac{1}{CV-q}dq
+            \end{displaymath}
+
+            \begin{displaymath}
+                \frac{t}{RC} = -ln(\frac{cv - q}{cv}) 
+            \end{displaymath}
+            
+            \begin{displaymath}
+                q(t) = CV(1-e^{\frac{-t}{RC}})     
+            \end{displaymath}
+
+            This implies:
+
+            \begin{displaymath}
+                Q_{max} = CV
+            \end{displaymath}
+
+            and:
+
+            \begin{displaymath}
+                i(t) = \frac{dq}{dt}
+                = \frac{CVe^{\frac{-t}{RC}}}{RC}
+            \end{displaymath}
+            \begin{displaymath}
+                i(t) = \frac{V}{R} e^{\frac{-t}{RC}}
+            \end{displaymath}
+
+            This means the maximum current is $\frac{V}{R}$ which
+            looks like Ohm's law. However it exponentially
+            decays to zero as the capacitor charges.
+        \end{mdframed}
+    \item {\large Touchscreen}
+        \begin{mdframed}
+            Grid of conductive line, one set sensing the other
+            driving lines. At each intersection they form a 
+            capacitor.
+
+            The driving lines are energized one by one and
+            each sensing line is checked.
+
+            When you touch the screen the ions in your blood
+            are positively charged. Your finger creates a
+            tiny parallel capacitor which changes the rate
+            the capacitor charges and discharges. This is
+            detectable and allows for calculating the point
+            of contact.
+
+            This increases the capacitance of the screen which
+            is detectable.
+        \end{mdframed}
+\end{description}
+
+
+
+
+\end{document}

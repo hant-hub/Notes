@@ -1,0 +1,144 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Cont.} 
+        \begin{mdframed}
+          Lemma 1:  
+          \begin{mdframed}
+              If $\frac{a}{b} = \frac{c}{d}$ then,
+              $\frac{a+b}{b} = \frac{c+d}{d}$
+          \end{mdframed}
+          Lemma 2:
+          \begin{mdframed}
+              If $\frac{a}{b} = \frac{c}{d}$, then
+              $\frac{a}{b} = \frac{a+c}{b+d}$ 
+          \end{mdframed}
+
+          \begin{mdframed}
+              Something to note is both lemmas are usually
+              considered in modern math to be simple algebraic
+              manipulation, not worth noting.
+          \end{mdframed}
+
+          By hypothesis, the ratio between two consecutive
+          terms of a geometric series is always the same.
+
+          \begin{displaymath}
+              \frac{a_{n+1}}{a_n} = \frac{a_{n}}{a_{n-1}} = ...
+          \end{displaymath}
+
+          By Lemma 1:
+
+          \begin{displaymath}
+              \frac{a_{n+1} - a_n}{a_n} = \frac{a_n - a_{n_1}}{a_{n-1}} = ...
+          \end{displaymath}
+          
+          By Lemma 2:
+          \begin{displaymath}
+              \frac{a_2 - a_1}{a_1} = \frac{(a_{n+1} - a_n) + (a_n - a_{n-1}) + ... (a_2 - a_1)}{a_n + a_{n-1} + ... + a_2 + a_1}
+          \end{displaymath}
+          
+          Then we simplify
+
+          \begin{displaymath}
+              \frac{a_2 - a_1}{a_1} = \frac{a_{n+1} - a_1}{a_n + a_{n-1} + ... + a_2 + a_1}
+          \end{displaymath}
+        \end{mdframed}
+    \item {\large How did Euclid express this proof?}
+        \begin{mdframed}
+            Theorem: 
+            \begin{mdframed}
+               If as many numbers as we please be continued
+               in proportion, and there be subtracted from the
+               second and last numbers equal to the first,
+               then, as the excess of the second is to the
+               first, so will the excess of the last be to
+               all those before it.
+            \end{mdframed}
+            Lemma 1:
+            \begin{mdframed}
+                If, as whole is to whole, is a number subtracted
+                to a number subtracted, the remainder will also
+                be to the remainder as whole is to whole.
+            \end{mdframed}
+            Lemma 2:
+            \begin{mdframed}
+                If there be as many numbers as we please
+                in proportion, then as one of the antecedents
+                is to one of the consequences, so are all 
+                antecedents to all the consequences.
+
+                \begin{mdframed}
+                    If we have a bunch of ratios:
+                    \begin{displaymath}
+                        \frac{a_1}{b_1} = \frac{a_2}{b_2} = ...
+                    \end{displaymath}
+
+                    Then:
+
+                    \begin{displaymath}
+                        \frac{a_1 + a_2 + a_3 + ...}{ b_1 + b_2 + b_3 + ...}
+                        = \frac{a_1}{b_1}
+                    \end{displaymath}
+                    
+                \end{mdframed}
+
+                Lemma 3:
+                \begin{mdframed}
+                    If four numbers be proportionate, they will
+                    also be proportionate alternatively.
+
+                    \begin{mdframed}
+                        If $\frac{a}{b} = \frac{c}{d}$, then
+                        $\frac{a}{c} = \frac{b}{d}$
+                    \end{mdframed}
+                \end{mdframed}
+
+                The core concept of the proof is the same,
+                however he only does $n = 3$, and he is
+                unable to leverage modern algebraic manipulation.
+
+                He must instead perform algebra geometrically.
+            \end{mdframed}
+            \begin{mdframed}
+                The modern approach for understanding Greek
+                mathematics is to combine anthropological approaches
+                and mathematical approaches. The goal is to understand
+                how they thought not just rewriting their results
+                in terms of modern mathematics.
+            \end{mdframed}
+        \item {\large Archimedes}
+            \begin{mdframed}
+                Letter about the sand Reckoner. Most of his
+                work was found in the form of letters with
+                other mathematicians. The Sand Reckoner was
+                written to one of the Kings of Syracuse.
+                The question is framed as how many grains of
+                sand can you fit in the universe, and the
+                book is made to make Achimedes' mathematics
+                more digestible by the non mathematician King.
+
+                It touches astronomy and trigonometry, it also
+                pushes the boundaries of Greek numerical notation.
+                So Archimedes has to develop new notation to describe
+                arbitarily large numbers.
+            \end{mdframed}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
