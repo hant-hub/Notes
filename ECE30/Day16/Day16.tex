@@ -1,0 +1,131 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 16 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+\begin{description}
+    \item {\large Agenda} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item Sinusoidal Traveling Waves - Complete
+                \item Magnitism Introduction
+                \item Magnetic Force
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Sinusoidal Traveling Waves}
+        \begin{mdframed}
+            By definition: 
+            \begin{displaymath}
+                v = \frac{\lambda}{T}
+            \end{displaymath}
+
+            therefore:
+
+            \begin{displaymath}
+                y(x,t) = A sin(2\pi (\frac{x}{\lambda} - \frac{t}{T})
+            \end{displaymath}
+
+            The Wave number $k \triangleq \frac{2\pi}{\lambda}$:
+
+            We know  $\omega = \frac{2\pi}{T}$:
+
+             \begin{displaymath}
+                y(x,t) = A sin(kx - \omega t)
+            \end{displaymath}
+
+            In general: 
+            \begin{displaymath}
+                y(x,t) = A sin(kx - \omega t + \phi)
+            \end{displaymath}
+        \end{mdframed}
+    \item {\large Magnetism}
+        \begin{mdframed}
+            There exists a magnetic field, written
+            with $\vec{B}$ which is measured in
+            Teslas (T).
+
+            The direction of $\vec{B}$ is the direction
+            of a compass needle held at that point.
+
+            Magnetic fields always flow from North
+            poles to South poles. Similar to Electric
+            fields which always flow from Positive
+            to Negative.
+
+            We can define $\vec{B}$ at any point in space
+            by the magnetic force exerted on a charged
+            particle moving ad $\vec{v}$
+
+            Magnetic force is written $\vec{F_B}$
+        \end{mdframed}
+        \pagebreak
+    \item {\large Magnetic Forces}
+        \begin{mdframed}
+           We can empirically determine: 
+           \begin{enumerate}
+               \item $|\vec{F_B}| \propto q_1 |\vec{v}|$
+               \item If $\vec{v}$ is parallel to  $\vec{B}$
+                   then  $\vec{F_B} = 0$
+               \item The direction of $\vec{F_B}$ is
+                   perpendicular to both  $\vec{v}$
+                   and  $\vec{B}$
+               \item $\vec{F_B}$ on a positive charge is opposite
+                   $\vec{F_B}$ on a negative charge.
+               \item $|\vec{F_B}| \propto |\vec{v} \times \vec{B}|$
+           \end{enumerate}
+
+           These properties imply that:
+
+           \begin{displaymath}
+                \vec{F_B} = k(\vec{v} \times \vec{B})
+           \end{displaymath}
+           
+           Magnetic fields use the right hand rule. We curl
+           our right hand from $\vec{v}$ to  $\vec{B}$, and
+           our thumb points in the direction of $\vec{F_B}$.
+           The standard cross product uses this rule. This
+           only applies if $q$ is positive. 
+
+           Therefore:
+
+           \begin{displaymath}
+                \vec{F_B} = q(\vec{v} \times \vec{B})
+           \end{displaymath}
+
+           This is one of the cases which motivated the
+           creation of the cross product.
+
+           We also get the identity:
+
+           \begin{displaymath}
+            |\vec{F_B}| = q |\vec{v}| |\vec{B}| sin(\theta)
+           \end{displaymath}
+
+           This comes from the definition of the cross product.
+           
+           $\vec{B}$ on a current carrying conductor can
+           has the following properties according to
+           experiments
+
+           \begin{enumerate}
+               \item $d\vec{B} \propto \vec{r}, d\vec{s}$
+           \end{enumerate}
+
+           
+        \end{mdframed}
+\end{description}
+
+
+
+\end{document}

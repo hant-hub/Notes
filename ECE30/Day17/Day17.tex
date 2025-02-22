@@ -1,0 +1,223 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 17 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Review Homework 6
+            \item Ampere - Maxwell Law
+            \item Faraday's Law
+        \end{itemize}
+    \item {\large Homework 6 Overview}
+        \begin{mdframed}
+            Circular motion happend when centripedal
+            force is experienced and the speed is constant.
+
+            Given a particle moving in uniform circular motion,
+            \begin{displaymath}
+                |a_c| = \frac{v^2}{r}
+            \end{displaymath}
+            
+            This is a requirement and helpful for solving the questions.
+        \end{mdframed}
+    \item {\large Ampere}
+        \begin{mdframed}
+            Three facts:
+            \begin{enumerate}
+                \item $dB \propto r, ds$
+                \item $|dB| \propto \frac{1}{r^2}$
+                \item $|dB| \propto I, |ds|$
+                \item $|dB| \propto sin(\theta)$
+            \end{enumerate}
+
+            We can combine into:
+
+            \begin{displaymath}
+                d\vec{B} = \frac{\mu_0}{4\pi} \frac{I d\vec{s} \times \vec{r}}{r^2}
+            \end{displaymath}
+
+            Therefore:
+
+            \begin{displaymath}
+                \vec{B} = \frac{\mu_0 I}{4\pi} \int \frac{d\vec{s} \times \vec{r}}{r^2}
+            \end{displaymath}
+
+            This results in:
+
+            \begin{displaymath}
+                \vec{B} = \frac{\mu_0 I}{2\pi a}
+            \end{displaymath}
+
+            Where $a$ is the orthogonal distance to the conductor.
+            
+            This means the magnetic field is only a function of
+            the distance from the conductor.
+        \end{mdframed}
+        \pagebreak
+        {\large Ampere - Maxwell}
+        \begin{mdframed}
+           Since the magnetic field is a function of distance,
+           at each point along a conductor the magnetic
+           field is radially symmetric.
+
+           \begin{displaymath}
+               |\vec{B}| = \frac{\mu_0 I}{2\pi a}
+           \end{displaymath}
+
+           Note that, $\mu_0$ is the permeability of free
+           space, it is different than $\epsilon_0$ which
+           is for electric fields.
+
+           Consider $ds$ as a small length along the magnetic
+           field line. 
+
+           That means $\vec{B}$ and $d\vec{s}$ are parallel.
+
+           Therefore:
+
+           \begin{displaymath}
+                \vec{B} \cdot d\vec{s} = Bds
+           \end{displaymath}
+           
+            Since $B$ is constant for a given loop,
+             \begin{gather}
+                 \oint \vec{B} \cdot d\vec{s} = \oint Bds = \frac{\mu_0 I}{2\pi a} \oint ds\\
+                 = \mu_0 I
+            \end{gather}
+
+            Ampere's Law:
+
+            \begin{displaymath}
+                \oint \vec{B} \cdot d\vec{s} = \mu_0 I
+            \end{displaymath}
+
+            This means that the line integral above
+            applies to all closed loops. The magnetic
+            field in a closed loop is entirely determined by the
+            current flowing through the loop.
+        \end{mdframed}
+        \begin{mdframed}
+            Consider a Capacitor. The surface of the wire
+            leading up to the Capacitor must follow
+            Ampere's Law.
+
+            If we imagine a surface which passes between the plates of the
+            capacitor, we find that:
+
+            \begin{displaymath}
+                \oint \vec{B} \cdot d\vec{s} = 0
+            \end{displaymath}
+
+            Because $I$ is zero between the plates.
+
+            To fix this Maxwell said there was a current
+            flowing between the plates.
+
+            \begin{displaymath}
+                I_d \triangleq \epsilon_0 \frac{d \phi_E}{dt}
+            \end{displaymath}
+
+            He called this "displacement current".
+            $\phi_E$ is called Electric Flux.
+
+            The flux of a field is the field multiplied
+            by the area.
+
+            \begin{displaymath}
+                \phi_E = \int \int \vec{E} \cdot d\vec{A}  
+            \end{displaymath}
+
+            Whre $d\vec{A}$ is an area vector. It is a small
+            area with a direction and size.
+
+             \begin{displaymath}
+                 d\vec{A} = d\vec{x} \times d\vec{y}
+            \end{displaymath}
+
+            Where $dx$ and $dy$ are perpendicular.
+            
+            
+            Example:
+            \begin{mdframed}
+                For a flux through a circle we get:
+
+                \begin{gather}
+                   \int \int E dA\\ 
+                   = E \int \int dA\\
+                   = \pi r^2 E
+                \end{gather}
+            \end{mdframed}
+            
+            The Ampere Maxwell Law:
+
+            \begin{displaymath}
+                \oint \vec{B} \cdot d\vec{s} = 
+                \mu_0(I + \epsilon_0 \frac{d\phi_E}{dt})
+                = \mu_0 (I_c + I_d)
+            \end{displaymath}
+            
+            We can see this means that if an electric field is
+            changing it will cause a magnetic field.
+            This is the fourth Maxwell Equation.
+        \end{mdframed}
+    \item {\large Faraday's Law}
+        \begin{mdframed}
+           If a changing Electric field creates a magnetic field,
+           could a changing magnetic field create an electric field?
+
+           If you hold a magnet still near a loop of wire
+           the voltage will stay at zero.
+
+           If you move the magnet into the loop 
+           the voltage will become negative.
+
+           If you move the magnet out of the loop
+           the voltage becomes positive.
+
+           The electric field will move to counteract
+           the changing magnetic field.
+
+
+           A moving Magnet induces a voltage in the
+           loop.
+
+           Be can derive Faraday's Law:
+
+           \begin{displaymath}
+               \oint E \cdot d\vec{s} = \frac{-d\phi_B}{dt} 
+           \end{displaymath}
+
+           The change in the magnetic flux over time
+           is the inverse of a line integral of the Electric
+           field which encompasses the surface.
+           
+
+           Important:
+           \begin{enumerate}
+               \item A changing magnetic field causes a changing
+                   electric field.
+               \item The Direction of $\vec{E}$ induced by
+                   $\vec{B}$ will always act to reduce $\vec{B}$
+           \end{enumerate}
+
+           The x means the magnetic field is traveling into
+           the page.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
