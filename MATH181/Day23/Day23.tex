@@ -1,0 +1,234 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 23 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item How to study Counting Words in the History
+        of Mathematics?
+        \begin{mdframed}
+           Ancient Greek has a similar structure to 
+           English. 
+
+           English uses opaque words for zero through 10, then
+           for 13-19 the prefix teen is used. 11 and 12 is
+           odd, but 20 and above uses a system of prefixes.
+        \end{mdframed}
+        \begin{mdframed}
+            Santa Barbara Native language had two bases,
+            10 and 4.
+
+            Had subtractive principle, some numbers
+            are spoken as less than some fixed number.
+
+            The closest thing to this in English is time.
+        \end{mdframed}
+    \item Formalizing Counting Words
+        \begin{mdframed}
+            Existing framework known as Generative Grammer.
+        \end{mdframed}
+    \item Hurford
+        \begin{enumerate}
+            \item Formal Grammer for counting
+            \item Linguistic rules for converting numbers
+                into words
+            \item Recognizing well formed words
+        \end{enumerate}
+
+        \begin{mdframed}
+            As an example, 400 as four hundred vs. twenty
+            twenty.
+
+            In english the second is not well formed since
+            it does not follow standard convention.
+        \end{mdframed}
+        What is a formal Grammer?
+        \begin{mdframed}
+            A formal grammer consists of:
+            \begin{enumerate}
+                \item Terminal symbols
+                \item Non Terminal Symbols
+                \item A distinguished non-terminal symbol
+                    called the Start State
+                \item A set of rules of the form
+                    $NT \to$ some symbols in the grammer
+            \end{enumerate}
+        \end{mdframed}
+        \begin{mdframed}
+            Examle:
+
+            \begin{enumerate}
+                \item Terminal symbols: $\{a, b\}$
+                \item Non Terminal Symbols: $\{S\}$ 
+                \item Rules: $\{S \to a|S, S \to b\}$
+            \end{enumerate}
+
+            To produce a valid word in the grammer,
+            we begin at the start state, then select
+            rules to apply until we run
+            out of rules.
+
+            ex:
+
+            \begin{gather}
+               S \quad (S \to aS)\\ 
+               aS \quad (S \to aS)\\
+               aaS \quad (S \to b)\\
+               aab\\
+            \end{gather}
+        \end{mdframed}
+        \begin{mdframed}
+            The Language of a formal grammer is all
+            words in terminal symbols produced from S by
+            repeatedly applying rules. (Somtimes known as
+            production rules)
+
+            We can produce trees from the process of generating
+            words in the following way.
+
+            The root begins with the start symbol, at each
+            level all avalible rules produce branches on this
+            tree. The path from the root to a leaf is the
+            order of which rules are applied to generate
+            a specific word.
+
+            We can also construct a tree with a start symbol
+            at the root, and each level are the symbols
+            produced by applying some rule. For example
+            the word aab in the above language would
+            have a tree S, then a, S, then a, S, then b.
+        \end{mdframed}
+    \item Formal Grammer For Numbers in English
+        \begin{mdframed}
+            \begin{enumerate}
+                \item Terminal Symbols $\{I, X\}$ (one, ten)
+                \item Non Terminal Symbols $\{N, P, M\}$ 
+                    Which stand for Number, Phrase, and Multiply
+                \item Production Rules:
+                    \begin{itemize}
+                        \item $N \to I$
+                        \item $N \to I N$
+                        \item $N \to P$
+                        \item $N \to P N$
+                        \item $P \to N M$
+                        \item $M \to X$
+                        \item $M \to N M$
+                    \end{itemize}
+                \item Notes: $N$ is our start symbol
+            \end{enumerate}
+
+            For example:
+            \begin{gather}
+               N\\ 
+               I N\\
+               \quad I N\\
+               \quad \quad I N\\
+               ...
+            \end{gather}
+
+            \begin{gather}
+               N\\ 
+               P \quad N\\
+               N \quad M\\
+               I \quad N \quad M\\
+               I \quad I \quad X\\
+            \end{gather}
+        \end{mdframed}
+        \pagebreak
+    \item Interpretation
+        \begin{mdframed}
+            Each node in a tree produced by the grammer
+            has a value determined as follows.
+
+            \begin{itemize}
+                \item $I = 1$
+                \item $X = 10$
+                \item $N = x + y$
+                \item $N = x$
+                \item $M = x ^ y$
+                \item $M = x$
+                \item $P = x \cdot y$
+            \end{itemize}
+        \end{mdframed}
+    \item The Plan
+        \begin{enumerate}
+            \item Convert Trees to Words
+            \item Rules for Recognizing Words
+            \item Rules for Generating Words
+        \end{enumerate}
+        \begin{mdframed}
+            We can start categorizing trees with names. 
+            A tree with a $N$ root, and  $I$ and three
+            as children, that is four.
+
+            We can continue like this.
+
+            One Hundred is a tree with a phrase, a
+            left child of one, and a right child
+            of hundred.
+
+            A hundred is a tree with a multiply,
+            with a two on one side and a ten on
+            the other.
+        \end{mdframed}
+        \begin{mdframed}
+            How could we analyze the same trees for Ancient Greek?
+
+            The tree for Ancient Greek is very structurally
+            similar to English. Some languages are not
+            similar.
+        \end{mdframed}
+    \item Example Mixtec, parts of Southern Mexico Used pre contact in Mexico
+        \begin{mdframed}
+            \begin{itemize}
+                \item Terminal Symbols
+                    \begin{itemize}
+                        \item 1
+                        \item 10
+                        \item 15
+                        \item 20
+                    \end{itemize}
+                \item Non Terminal Symbols
+                    \begin{itemize}
+                        \item N (number)
+                        \item P (phrase)
+                        \item M (multiply)
+                    \end{itemize}
+                \item Production Rules
+                    \begin{itemize}
+                        \item $N \to 1$
+                        \item $N \to 1\quad N$
+                        \item $N \to P$
+                        \item $N \to P \quad N$
+                        \item $P \to N \quad M$
+                        \item $M \to 10$
+                        \item $M \to 15$
+                        \item $M \to 20$
+                        \item $M \to N \quad M$
+                    \end{itemize}
+            \end{itemize}            
+        \end{mdframed}
+        \begin{mdframed}
+            It is a fallacy to think cultures without highly developed
+            mathematics have simple or primitive linguistic
+            number systems. 
+
+            Our ability to speak numbers linguistically is fundamental
+            to our linguistic ability and doesn't substantially evolve
+            over time.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

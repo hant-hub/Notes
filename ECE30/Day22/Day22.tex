@@ -1,0 +1,120 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 22 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item Review of Midterm makeup
+                \item Schrodinger Equation Thoughts
+                \item Energy Bands
+                    \begin{itemize}
+                        \item Insulators
+                        \item Conductors
+                        \item Semiconductors
+                    \end{itemize}
+                \item P and N Doped Silicon
+                    \begin{itemize}
+                        \item MOSFET
+                    \end{itemize}
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Midterm Makeup Review}
+        \begin{mdframed}
+           lol didn't need to take it 
+        \end{mdframed}
+    \item {\large Schrodinger Thoughts}
+        \begin{mdframed}
+            \begin{itemize}
+                \item No physical way to measure Bohr energy
+                    shells, due to Uncertainty principal (Heisenberg)
+                \item Schrodinger applied Maxwell's equations to matter
+                    \begin{itemize}
+                        \item Conservation of Energy
+                        \item De Brogli Hypothesis
+                    \end{itemize}
+                \item Resultant $\Psi^2$ is the most detailed
+                    information we can actually measure.
+                \item We say that $\Psi^2$ is physical reality,
+                    and Bohr orbits are an abstraction
+            \end{itemize}
+
+            \begin{displaymath}
+                K + U = E
+            \end{displaymath}
+            \begin{displaymath}
+                K = \frac{-h^2}{2m} \frac{d^2 \Psi(x)}{dx^2}
+            \end{displaymath}
+            \begin{displaymath}
+                U = U(x)\Psi(x)
+            \end{displaymath}
+            \begin{displaymath}
+                E = E \Psi(x)
+            \end{displaymath}
+            
+            Where $\Psi$ is the disturbance in space
+            due to the matter wave, and 
+             $\Psi^2 dx$ is the probability of finding
+             the electron in a given length $dx$. 
+
+             This is the Time independent Single
+             Dimension Schrodinger Equation, since
+             it only considers a single spatial
+             dimension.
+        \end{mdframed}
+    \item {\large Energy Bands}
+        \begin{mdframed}
+            In a regular lattice you get alternating
+            bands of forbidden and allowed states
+            for electrons.
+            
+
+            For example, a Sodium Lattice:
+            \begin{itemize}
+                \item Energy Shells for one atom
+                \item 1S, 2S, 2P, 3S are Bohr energy
+                    levels.
+                    \begin{mdframed}
+                        Note: since energy levels are actually
+                        probability distributions over
+                        the energy levels, the distribution
+                        depends on temperature.
+                    \end{mdframed}
+                \item Each S level accomodates two electrons,
+                    this comes from the spin of electrons,
+                    so electrons get two additional states
+                    $+\frac{1}{2}$ and  $-\frac{1}{2}$.
+                \item The P levels accomodate 6 electrons.
+                    This is because a P shell has multiple
+                    lobes which can allow for up to six
+                    electrons.
+                \item Higher energy levels allow for more possible
+                    shapes and more possible electrons in the same
+                    energy level.
+                \item This combined means a Sodium atom has
+                    11 electrons to match the protons,
+                    That means each level has 2, 2, 6,
+                    1 electrons respectively.
+            \end{itemize}
+
+            Sodium is a conductor because the shells are close enough
+            to be jumped betwen in a lattice, allowing electrons to flow.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

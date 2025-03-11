@@ -1,0 +1,231 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 23 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Energy Bands
+                \begin{itemize}
+                    \item Insulators
+                    \item Conductors
+                    \item Semiconductors
+                \end{itemize}
+            \item P and N Doped Silicon
+                \begin{itemize}
+                    \item The MOSFET
+                \end{itemize}
+        \end{itemize}
+
+    \item Energy Bands
+        \begin{mdframed}
+            Conductors are when the outer electron
+            energy level is not empty.
+            This allows electrons to move between
+            atoms in a lattice when electric field
+            is provided.
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{enumerate}
+                \item For electrons to move in a field,
+                    must have empty avalible states
+                    and allowed avalible states.
+
+                    When a band is full, electrons need
+                    sufficient energy to jump to next
+                    allowed band, otherwise they
+                    cannot move.
+                \item Each band has a limit on the number
+                    of electrons. For a structure with
+                    N atoms, s bands can hold 2N electrons,
+                    and p bands can hold 6N electrons.
+            \end{enumerate}
+
+            Conductor:
+            \begin{mdframed}
+                Avalible states in partially filled bands.
+
+                When a voltage is applied electrons are
+                accelerated resulting in a current.
+
+                For Sodium metal (11 electrons).
+
+                We have a 1S layer with two electrons,
+                a 2S band with two electrons,
+                2P band with six electrons,
+                3S band with a single electron.
+
+                There is space in the outer band and
+                there are electrons in the outer band,
+                the material must be a conductor.
+            \end{mdframed}
+
+            Insulator:
+            \begin{mdframed}
+                No avalible spaces in the upper band,
+                if a voltage is applied no electrons can move.
+
+                If the voltage is high enough the electrons
+                can be stripped off.
+
+                ex: Helium. (2 electrons)
+
+                First band 1S has two electrons which is full,
+                the next band 2S is completely empty.
+
+                The first layer has no free states, and the
+                outer band has no free electrons, therefore
+                Helium is an insulator.
+            \end{mdframed}
+        \end{mdframed}
+
+        \begin{mdframed}
+            Semiconductor:
+            \begin{mdframed}
+                In some ways a midpoint between Conductors
+                and Insulators. All semiconductors are group
+                four elements.
+
+                Known semiconductors are Silicon, Germainium,
+                Carbon, etc.
+
+                If we graph Energy levels against
+                Inter atomic distance we find something
+                interesting. When they are far apart
+                they have normal energy levels. As they
+                form a crystal the 1S level becomes a
+                band, like normal, but the 2S and 2P
+                levels merge before separating around
+                the table crystal lattice. This means
+                that the energy bands are extremely
+                close. We end up with four electrons
+                in a new valence band, and no
+                electrons in the conduction band.
+
+                Since the valence and conduction band
+                are so close we can use a normal voltage to
+                force electrons from the valence to the
+                conduction band without completely
+                ionizing the material.
+
+                The energy gap between the valence
+                and conduction bands is known as $E_g$.
+
+                Here are the values for various
+                semiconductors.
+
+                Silicon 1.1eV
+
+                Carbon 6eV
+
+                Germainium 0.7eV
+            \end{mdframed}
+
+            This fact was used by Brattain, Bardeen,
+            and Shockley to create the first
+            Field Effect Transistors with Germainium.
+
+            Shockley was involved in the creation of Intel
+            and Fairchild semiconductors which shaped
+            computing for decades.
+
+            All three were working on semiconductors
+            at Bell labs which was the R\&D department
+            of AT\&T.
+
+        \end{mdframed}
+    \item Minor Notes:
+        \begin{mdframed}
+            Holes: Normally we show the flow of positive current,
+            however in real life only electrons exist which are
+            negative. However mathematically the states where electrons
+            could be, but aren't move just like electrons and can
+            be treated as "positive" particles.
+
+            These missing electrons are positively charged, and disappear
+            when meeting an electron.
+
+            Electron holes move in the opposite direction as
+            electrons.
+
+            Holes behave exactly the same as electrons but
+            with opposite charge. Which is extremely helpful
+            for calculation.
+        \end{mdframed}
+    \item Doped Silicon
+        \begin{mdframed}
+            All the group three atoms have one less electrons
+            in their outer shell, and all the group five
+            atoms have one additional electron in their
+            outer shell.
+
+            By inserting group three or group four electrons
+            in the semiconductor lattice, we can change the
+            charge of the structure.
+
+            N-type silicon is created with Phosphorus usually
+            and adds a free electron which hovers just below the
+            conduction band meaning it is really easy to conduct.
+
+            Around $10^{-2}$eV below conduction band.
+
+            When electrons move because they are free no holes move.
+            These are called majority carriers. N-type semiconductors
+            are easily excited into conducting electrons.
+
+            When doping with a group three element we get P-type
+            semiconductors which have opposite properties. Usually
+            Boron or Arsenic is used.
+
+            To create these doped semiconductors gaseous group 3 or 4
+            elements are diffused into Silicon at extremely high temperature,
+            using photo lithography to control which portions are
+            doped using which element. Alternate method is ion implantation
+            where you ionize the gas first.
+
+        \end{mdframed}
+        \pagebreak
+    \item MOSFET (Metal Oxide Semiconductor Field Effect Transistor)
+        \begin{mdframed}
+            Using a P type substrate with two  
+            N type portions embedded on the surface. One is the
+            drain and on is the source.
+
+            We then cover the surface with Silicon dioxide which
+            is a dielectric, and on top of the Dielectric layer
+            we put some metal which is usually doped polysilicon,
+            this is called the Gate.
+
+            The Gate is connected to a variable voltage source,
+            which we can control. The substrate is connected
+            to ground.
+
+            The drain is connected to a resistor and then ground.
+            The source is connected to ground.
+
+            If the gate is at zero nothing conducts, if we 
+            apply a voltage to the gate, a negative charge
+            is created between the source and drain creating
+            a channel allowing for the source and drain
+            to conduce electrically.
+
+            If we reverse the n and p silicon we get the opposite
+            behavior.
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

@@ -1,0 +1,184 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 21 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{mdframed}
+            \begin{itemize}
+                \item The Bohr Postulate
+                \item Atomic Energy Levels
+                \item Intro to Solid State Physics
+            \end{itemize}
+        \end{mdframed}
+    \item {\large The Bohr Postulate}
+        \begin{mdframed}
+            An electron can circle a nucleus if its orbit contains
+            an integral number of waves.
+
+            \begin{displaymath}
+                nx = 2 \pi r_n
+            \end{displaymath}
+
+            Where $n \triangleq$ quantum number and
+             $r_n$ is the radius of the orbit from the nucleaus.
+            
+
+             Substituting for $\lambda$ we get:
+
+             \begin{displaymath}
+                 \frac{nh}{e} \sqrt{\frac{4\pi \epsilon_0 r_n}{m}} = 2 \pi r_n
+             \end{displaymath}
+             
+             Therefore:
+
+             \begin{displaymath}
+                 r_n = \frac{n^2 h^2 \epsilon_0}{\pi m_e e^2}
+             \end{displaymath}
+             
+             Also the energy levels in terms of orbit radius.
+
+             \begin{displaymath}
+                 E_n = \frac{-e^2}{8 \pi \epsilon_0 r_n}
+             \end{displaymath}
+
+             Substituting:
+
+             \begin{displaymath}
+                 E_n = \frac{-me^4}{8 \epsilon_0^2 h^2} \frac{1}{n^2}
+             \end{displaymath}
+             
+
+             \begin{displaymath}
+                E_n \triangleq \text{ Energy Level of the Hydrogen Atom}
+             \end{displaymath}
+             
+             Electrons away from an atom can be any energy level.
+
+             As it approaches an atom it is constrained to specific
+             discrete energy levels. Calculating $E_1$ we get
+             -13.6eV.
+
+             \begin{mdframed}
+                 Note: 1eV = $1.588\times 10^{-19}$J    
+             \end{mdframed}
+             
+             Above $n = 2$ The energy becomes less negative, which means
+             the electron is less attracted. In addition the higher
+             the energy levels the closer the energy levels are to each other.
+
+             Because of the large gaps between energy levels for low
+             values of $n$ electrons are very stable and require
+             tens of electron volts per electron to ionize.
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+           Bohr: Discrete proton emitted when an electron moves
+           from one energy level to another, releasing the difference
+           in energy as electromagnetic radiation.
+
+           From Planck: Photon energy $E = hf$
+
+            \begin{displaymath}
+                f = \frac{me^4}{8\epsilon_0^2 h^3} (\frac{1}{n_f^2} - \frac{1}{n_s^2})
+           \end{displaymath}
+
+           And for Photons, $\lambda = \frac{C}{f}$.
+           Therefore:
+
+           \begin{displaymath}
+                \frac{1}{\lambda} = \frac{f}{C}
+                = \frac{me^4}{8\epsilon_0^2 C h^3} (\frac{1}{n_f^2} - \frac{1}{n_s^2})
+           \end{displaymath}
+           
+           So the spectrum of light emissions from H gas
+           fits perfectly with the empirical measurements.
+           
+        \end{mdframed}
+
+    \item {\large Solid State Physics}
+        \begin{mdframed}
+           \begin{displaymath}
+               E_p = -\frac{1}{4 \pi \epsilon_0} \frac{q |e|}{x}
+           \end{displaymath}
+            
+            This is the potential energy of an electron.
+
+            $q \triangleq$ Positively charged ion (nucleus)
+
+            $e \triangleq$ Charge of he electron
+
+            $x \triangleq$ Distance between q and e.
+        \end{mdframed}
+        \begin{mdframed}
+            As an electron is brought near to the nucleus
+            the energy will go deeper negative. However
+            because of the discretization of energy
+            levels it will drop to the lowest energy level it
+            can.
+
+            In a lattice the potential energy of the electrons
+            follows a periodic, wave like distribution, with
+            many holes with slight bumps between ions.
+
+
+            What happens to Bohr Energy Levels under these
+            conditions?
+
+            Schroedinger's equation describes the probability distribution
+            for an electron under some arbitrary situation. Analytically
+            unsolvable.
+
+            We know:
+            \begin{displaymath}
+                p = mv
+            \end{displaymath}
+            And: 
+            \begin{displaymath}
+                K_e = \frac{1}{2}mv^2
+            \end{displaymath}
+
+            We know from De Brogli and Planck:
+
+            \begin{displaymath}
+                p = \frac{h}{\lambda}                
+            \end{displaymath}
+            
+            Combining:
+
+            \begin{displaymath}
+                E = \frac{p^2}{2m}
+            \end{displaymath}
+        
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+            Which implies:
+
+            \begin{displaymath}
+                E = (\frac{hk}{2 \pi})^2 \frac{1}{2m}
+            \end{displaymath}
+
+            Where $k = \frac{2\pi}{\lambda}$ 
+            
+            
+            
+             
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

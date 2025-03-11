@@ -1,0 +1,153 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 19}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Review Quiz 3
+            \item Finish Modulation of Radio Waves
+            \item Structure of The Atom
+        \end{itemize}
+    \item {\large Quiz 3 Review}
+        \begin{mdframed}
+           \begin{enumerate}
+               \item I think I messed up cause I'm silly
+                   Was supposed to divide 0.5 by 2, and get 0.25
+               \item I don't remember what I answered. Odds are I got
+                   this one wrong, cause I know I missed 3.
+               \item This one I think I got correct. It really
+                   should specify better the direction of current.
+               \item I definitely got this one correct. I remember my answers.
+               \item I got this one correct. I understood the
+                   orthogonality part of magnetic fields.
+               \item XD this one I definitely answered correctly
+                   It was such a red herring style question
+               \item I got this one wrong I think. I must have
+                   forgotten to flip the direction for
+                   the current. Idk The professor was getting
+                   messed up, we definitely need diagrams for
+                   this XD.
+               \item I definitely messed this one up cause
+                   I remember the answer I gave. It rotates
+                   in the magnetic field.
+               \item This was directly from lecture super easy
+               \item Both fields. I got this one, it makes
+                   sense since both fields are changing.
+               \item Easy, straight from the definition of
+                   magnetic forces. Definitely got this
+                   one correct.
+           \end{enumerate} 
+        \end{mdframed}
+    \item {\large Modulation}
+        \begin{mdframed}
+            Given some modulating signal $m(t)$. 
+            We multiply it by $v(t)$ which is much higher
+            frequency.
+
+            By multiplying by $v(t)$ we get a signal which
+            is easier to detect.
+
+
+            The Frequency of $RF(v(t))$ signal  $>>$ the frequency
+            of  $m(t)$. We can therefore filter out  $v(t)$ to
+            leave  $m(t)$.
+
+            When recieving, we filter the RF, and get back
+             $m(t)$.
+        \end{mdframed}
+        \begin{mdframed}
+            For a digital signal $m(t)$ will not be
+            sinusoidal. It will instead by some series
+            of high and low voltages in a fixed time.
+
+            The simplest technique is to use Amplitude
+            Shift Keying (ASK). It uses the same
+            multiplicative idea. Essentially
+            we can transform $m(t)$ to be between
+            two non zero amplitudes.
+
+            This has the downside of requiring massively
+            high frequencies in order to have enough resolution
+            to seperate each bit quickly.
+
+            In WIFI, or Satellite Quadrature Amplitude
+            Modulation is used (QAM).
+
+            Two signals are used, each a quarter cycle
+            out of phase. By blending between the two
+            signals you can indicate a one or zero.
+        \end{mdframed}
+    \item {\large Frequency Shift Keying}
+        \begin{mdframed}
+            We instead tie two frequencies to a one
+            and a zero, and modulate between them to indicate
+            digital data.
+
+            This is more reliable since the amplitude can remain
+            high.
+
+            It is used by LTE, and 5G technologies.
+        \end{mdframed}
+        \pagebreak
+    \item {\large Structure of The Atom}
+        \begin{mdframed}
+            Observations by 1890s:
+            \begin{itemize}
+                \item Atoms contain electrons.
+                \item The charge of electrons is negative and has been directly measured.
+                \item Electrons were super light.
+                \item Atoms are neutral (putting aside chemistry)
+            \end{itemize}
+
+            In the Early 20th Century the Thompson Model
+            was created (1898). He modeled atoms as a ball
+            of positive charge, with electrons embedded in
+            its surface.
+
+            When experimenting Rutherford folloed up in 1911
+            by experimenting with firing $\alpha$ particles
+            at ultra thin gold foil. He then measured
+            how many particles made it through the foil.
+            He saw that some did make it through, but some
+            particles actually bounced back.
+
+            Rutherford concluded that the nucleus of the atom
+            must be tiny, and that it must have a powerful
+            electric field. This means Atoms must be mostly
+            empty space.
+
+            Rutherford then developed an orbital model
+            based on these conclusions.
+
+            As a side note:
+            \begin{mdframed}
+                An electron volt is voltage multiplied by
+                the charge of an electron. It is equivalent
+                to a Joule in that they measure the same thing,
+                however an Electron volt is nicer for
+                physics since it uses units of electrons.
+            \end{mdframed}
+            
+            Assumes that electrons are bodies orbiting
+            and that the centripedal force is equal
+            to the electrostatic force.`
+            
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

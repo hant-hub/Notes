@@ -1,0 +1,101 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 181}\\Day 21 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Review 
+        \begin{mdframed}
+            Table of whole number pythagorean triples.
+            The largest has 5 digits which requires
+            insight into how to find Pythagorean triples.
+        \end{mdframed}
+        \begin{mdframed}
+            Changed how we view the history of Mathematics.
+            We can't know anything more about this tablet for sure,
+            however we can make guesses about it.
+        \end{mdframed}
+    \item Theories
+        \begin{mdframed}
+            \begin{enumerate}
+                \item It is a trig table
+                    for $tan^2(\theta)$ or  $\frac{1}{cos^2(\theta)}$ 
+                    depending on how you intepret the first column
+                \item Negebaur\\
+                    Generate as follows:
+                    \begin{mdframed}
+                        if p and q take on whole number
+                        values subject to conditions
+                        \begin{enumerate}
+                            \item $p > q > 0$
+                            \item p and q have no non-trivial common
+                                divisor.
+                            \item p and q are not both odd.
+                        \end{enumerate}
+                        then:
+                        \begin{gather}
+                            x = p^2 - q^2 = s\\
+                            y = 2pq = D\\
+                            z = p^2 + q^2 = l
+                        \end{gather}
+                        
+                        This will produce all Reduced Pythagorean triples
+                        exactly once.
+                    \end{mdframed}
+                \item The table is a table of reciprocal pairs
+                    $x,y$ with  $x*y = 1*60^n$ for some $n$.
+
+                    The $x,y$ would have been listed in the
+                    missing part of the table.
+                    \begin{mdframed}
+                        \begin{gather}
+                            s' = \frac{s}{l} = \frac{x-y}{2}\\ 
+                            l' = \frac{l}{l} = 1\\
+                            d' = \frac{d}{l} = \frac{x+y}{2}
+                        \end{gather}
+                        Alongside some scaling so that
+                        $s$ and $d$ are coprime.
+                    \end{mdframed}
+            \end{enumerate}
+        \end{mdframed}
+    \item Evidence
+        \begin{mdframed}
+            All the theories are consistent with the numbers
+            present in the table and are mathematically sound.
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{itemize}
+                \item The first interpretation seems natural
+                    however when inspecting the angle measurements
+                    it seems strange to pick the range
+
+                    It also seems strange since we have no other
+                    records of Babylonians using trigonometry.
+                \item The p and q values seem to be random
+
+                    This is strange since Babylonians don't
+                    really need to calculate these values,
+                    and we don't have records of them
+                    doing abstract values.
+                \item The third theory seems good.
+
+                    This seems evidenced, since Babylonians
+                    use $x$ and  $\frac{1}{x}$ in math problems
+                    often.
+            \end{itemize}
+        \end{mdframed}
+\end{description}
+
+
+\end{document}

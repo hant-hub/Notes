@@ -1,0 +1,272 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{siunitx}
+\renewcommand{\familydefault}{\sfdefault}
+\usepackage{minibox}
+
+\title{\Huge{ECE 30}\\Day 20 Notes}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item {\large Agenda} 
+        \begin{itemize}
+            \item Review Q.7 of Quiz 3
+            \item Struction of the Atom
+                \begin{itemize}
+                    \item Rutherford Orbital Model
+                    \item The Bohr Model
+                    \item De Broglie Waves
+                \end{itemize}
+        \end{itemize}
+    \item {\large Review}
+        \begin{mdframed}
+            \begin{itemize}
+                \item The current is clockwise. I was correct last time I think.
+                    turns out it depends on the face we are looking at,
+                    could be solved with "parity" but whatever.
+            \end{itemize}
+        \end{mdframed}
+    \item {\large Structure of the Atom}
+        \begin{mdframed}
+            \begin{itemize}
+                \item Rutherford said that the nucleus must be tiny since
+                    some alpha particles were deflected, but most
+                    weren't.
+                \item Since alpha particles are positively charged the nucleus
+                    must have a very strong positive charge.
+                \item Therefore Rutherford postulated that the atom
+                    was electrons orbiting a positively charged nucleus.
+            \end{itemize}
+
+            If the atom is an orbital then the following holds true.
+
+            \begin{displaymath}
+                F_c = F_e
+            \end{displaymath}
+
+            The centripedal force balances out
+
+            \begin{displaymath}
+                F_c = m_e \frac{v^2}{r}
+            \end{displaymath}
+
+            And from Coulombs law
+
+            \begin{displaymath}
+                F_e = k \frac{e^2}{r^2}
+            \end{displaymath}
+
+            Where $e$ is the charge of an electron.
+            
+            From the first equality we know:
+
+            \begin{displaymath}
+                m_e \frac{v^2}{r} = k \frac{e^2}{r^2}
+            \end{displaymath}
+            
+            Therefore
+
+            \begin{displaymath}
+                m_e v^2 = k \frac{e^2}{r}
+            \end{displaymath}
+            
+            We can therefore calculate velocity:
+
+            \begin{displaymath}
+                v = \frac{e}{\sqrt{4 \pi \epsilon_0 m_e r}}
+            \end{displaymath}
+            
+            The total energy is:
+
+            \begin{displaymath}
+                E = \frac{1}{2} mv^2 - \frac{e^2}{4\pi \epsilon_0 r}
+            \end{displaymath}
+            
+            In other words, it is the velocity minus the potential
+            energy of the electron. The negative comes from the fact
+            the electron and proton have opposite charges. The
+            $e$ is the magnitude of the charge not the sign.
+        \end{mdframed}
+        \begin{mdframed}
+            If we substitude for $v$
+
+            \begin{displaymath}
+                E = \frac{e^2}{8 \pi \epsilon_0 r} - \frac{e^2}{4 \pi \epsilon_0 r}
+            \end{displaymath}
+            \begin{displaymath}
+                E = \frac{-e^2}{8 \pi \epsilon_0 r}
+            \end{displaymath}
+            
+            Since the energy is negative it means that orbiting an atom
+            the electron is stable. It requires energy to break
+            an electron away from an atom and it releases energy
+            to bring an atom into orbit around an atom.
+            
+            This also implies:
+
+            \begin{displaymath}
+                r = \frac{-e^2}{8 \pi \epsilon_0 E}
+            \end{displaymath}
+
+            Since we can ionize hydrogen we can measure $E$
+            directly. Since the other constants are also
+            measurable we can calculate the size of a hydrogen
+            atom.
+
+             \begin{displaymath}
+                 r = 5.3 \times 10^{-11} \si{m}
+            \end{displaymath}
+            
+            This derivation matched experimental measurements.
+        \end{mdframed}
+        Problems
+        \begin{mdframed}
+            If electron is moving around an atom it should be
+            generating electro magnetic waves. It should
+            slowly be losing energy until it collapses in
+            on itself.
+
+            Gasses held at low pressure release a spectrum of
+            light when heated.
+        \end{mdframed}
+        \begin{mdframed}
+            French Physicist De Broglie proposed that all
+            matter was made of waves. To test this he
+            shot electrons through two small slits. It was
+            well known that waves will create interferece
+            patterns when passed through a similar setup.
+
+            When firing electrons and protons through these
+            slits they form interference patterns, both
+            when fired one at a time and en masse.
+
+            When we detect which slit the electron passed
+            through the interference patterns disappeared.
+
+            This seemed to imply that particles move as
+            waves until they are measured.
+        \end{mdframed}
+        \begin{mdframed}
+            At a similar time Albert Einstein was working on
+            the Photoelectric effect, in which light dislodges
+            electrons from around atoms. He could only explain
+            this if light came in discrete particles "photons".
+
+            All of this implies that matter is both a wave
+            and a particle at the same time.
+        \end{mdframed}
+        \begin{mdframed}
+           Hydrogen's spectra had a band at 6,536 Angstroms,
+           \begin{mdframed}
+               An Angstrom is defined:
+               \begin{displaymath}
+                   A = 10^{-10} \si{m}
+               \end{displaymath}
+           \end{mdframed}
+
+           There are other bands of increasing density up to
+           3,646 \AA.
+
+           Light appeared to only be emittable in specific
+           bands.
+        \end{mdframed}
+        \pagebreak
+        \begin{mdframed}
+           In 1928 De Broglie proposed that particles have
+           the properties of waves, and that they obey
+           the same wave properties as light:
+           \begin{displaymath}
+                \lambda = \frac{h}{P}
+           \end{displaymath}
+           Where $h$ is planck's constant and  $P$ is momentum.
+           This is the same equation as for electromagnetic
+           waves.
+
+           \begin{displaymath}
+               h \triangleq \text{Planck's Constant } 6.625 \times 10^{-34} \si{Jhz}
+           \end{displaymath}
+           \begin{displaymath}
+               P \triangleq \text{Momentum } m \times v 
+           \end{displaymath}
+
+           Planck Postulated that:
+           \begin{enumerate}
+               \item An oscillating entity at atomic dimensions
+                   can only have energies given by:
+                   \begin{displaymath}
+                        E = nhf
+                   \end{displaymath}
+                   Where $f$ is the oscillating frequency,
+                    $n$ is a positive integer (quantum number),
+                    and $h$ is Planck's Constant. 
+                \item  Oscillators only radiate energy in
+                    discrete quanta if $n$ changes:
+
+                    If  $n$ changes by 1 :
+                    \begin{displaymath}
+                        \Delta E = \Delta nhf
+                    \end{displaymath}
+
+                    for $\Delta n = 1$:
+
+                     \begin{displaymath}
+                        \Delta E = hf
+                    \end{displaymath}
+
+                    This means that $hf$ is the smallest
+                    change in energy possible.
+           \end{enumerate}
+        \end{mdframed}
+        \begin{mdframed}
+            Danish scientist Nils Bohr used these observations
+            by Planck to revise the model of the Atom. His
+            model is called The Bohr Model.
+        \end{mdframed}
+        \begin{mdframed}
+            De Broglie: wavelength is $\lambda_e = \frac{h}{m v_e}$ 
+
+            We know from Rutherford:
+
+            \begin{displaymath}
+                v = \frac{e}{\sqrt{4 \pi \epsilon_0 m r}}
+            \end{displaymath}
+
+            Therefore:
+
+            \begin{displaymath}
+                \lambda_e = \frac{h}{e}\sqrt{\frac{4 \pi \epsilon_0 r}{m}}
+            \end{displaymath}
+            
+            But $r = 5.3 \times 10^{-11} \si{m}$ (from Rutherford). 
+
+            Therefore we know all the constants on the left
+            side of the equation. We then get that:
+
+            \begin{displaymath}
+                \lambda_e = 33 \times 10^{-11} \si{m}
+            \end{displaymath}
+            
+            The circumference of a Hydrogen Atom is
+            $2\pi r \approx 33 \times 10^{-11} \si{m}$
+            
+            So the wavelength of an electron at energy level
+            $n = 1$ is equal to the circumference of it's
+            orbit.
+
+            This implies an electron in an atom is a
+            standing wave.
+            
+        \end{mdframed}
+\end{description}
+
+
+\end{document}
