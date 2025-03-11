@@ -1,0 +1,3 @@
+
+rm *.pdf
+rm *.gz
