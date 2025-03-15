@@ -1,0 +1,205 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{none/global//global/global/global}
+    \entry{kepflake}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=cca7c2c9a05991445bc6db1bf5fc3f24}{%
+           family={Kepler},
+           familyi={K\bibinitperiod},
+           given={Johannes},
+           giveni={J\bibinitperiod}}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=e4b583b60e9b498794075bcf824bf349}{%
+           family={Hardie},
+           familyi={H\bibinitperiod},
+           given={Colin},
+           giveni={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Oxford, Clarendon Press}%
+      }
+      \strng{namehash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{fullhash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{fullhashraw}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{bibnamehash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{authorbibnamehash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{authornamehash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{authorfullhash}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{authorfullhashraw}{cca7c2c9a05991445bc6db1bf5fc3f24}
+      \strng{translatorbibnamehash}{e4b583b60e9b498794075bcf824bf349}
+      \strng{translatornamehash}{e4b583b60e9b498794075bcf824bf349}
+      \strng{translatorfullhash}{e4b583b60e9b498794075bcf824bf349}
+      \strng{translatorfullhashraw}{e4b583b60e9b498794075bcf824bf349}
+      \field{sortinit}{1}
+      \field{sortinithash}{4f6aaa89bab872aa0999fec09ff8e98a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Six-Cornered Snowflake}
+      \field{year}{1966}
+      \field{dateera}{ce}
+    \endentry
+    \entry{retrospect}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=6d5a580961f5a68ba57df1437bac86d9}{%
+           family={Hales},
+           familyi={H\bibinitperiod},
+           given={Thomas},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{fullhash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{fullhashraw}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{bibnamehash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{authorbibnamehash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{authornamehash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{authorfullhash}{6d5a580961f5a68ba57df1437bac86d9}
+      \strng{authorfullhashraw}{6d5a580961f5a68ba57df1437bac86d9}
+      \field{sortinit}{3}
+      \field{sortinithash}{ad6fe7482ffbd7b9f99c9e8b5dccd3d7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{9}
+      \field{title}{The Formal Proof of the Kepler Conjecture: a critical retrospective}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://arxiv.org/html/2402.08032v1
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/html/2402.08032v1
+      \endverb
+    \endentry
+    \entry{snow}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=25df1ac8026b1f92958ab7674448897e}{%
+           family={Gulizia},
+           familyi={G\bibinitperiod},
+           given={Stefano},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {Abingdon}%
+      }
+      \list{publisher}{1}{%
+        {Taylor & Francis}%
+      }
+      \strng{namehash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{fullhash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{fullhashraw}{25df1ac8026b1f92958ab7674448897e}
+      \strng{bibnamehash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{authorbibnamehash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{authornamehash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{authorfullhash}{25df1ac8026b1f92958ab7674448897e}
+      \strng{authorfullhashraw}{25df1ac8026b1f92958ab7674448897e}
+      \field{sortinit}{4}
+      \field{sortinithash}{9381316451d1b9788675a07e972a12a7}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{This paper suggests that layered ontology is important within Kepler's method, and that it developed at least partially in response to a disciplinary and religious crisis. As such, and despite Platonic allegiances, it places him in a longue durée of geometrical constructivism in seventeenth-century Europe. After introducing the pivotal role of Mysterium cosmographicum (1596) and how Kepler's career may be seen in the context of courtly bricolage, the exposition realigns De nive sexangula (1611) with the mathematical communities of its time and argues in Reviel Netz's tradition that its cognitive practices enact a ludic style of demonstration. Kepler's essay on crystallography is an epistemological improvement on previous types of natural jokes.}
+      \field{issn}{2637-5451}
+      \field{journaltitle}{British journal for the history of mathematics}
+      \field{number}{2}
+      \field{title}{Kepler's snow: the epistemic playfulness of geometry in seventeenth-century Europe}
+      \field{volume}{37}
+      \field{year}{2022}
+      \field{pages}{117\bibrangedash 137}
+      \range{pages}{21}
+      \keyw{Crystallography ; Knowledge Theory of}
+    \endentry
+    \entry{sand}{article}{}{}
+      \name{author}{1}{}{%
+        {{hash=d0efefe9e6fde31efa3dfef0df1b9f1b}{%
+           family={Archimedes},
+           familyi={A\bibinitperiod}}}%
+      }
+      \name{translator}{1}{}{%
+        {{hash=88c8aee7d33841ced57833a47679296b}{%
+           family={Heath},
+           familyi={H\bibinitperiod},
+           given={Thomas\bibnamedelima L.},
+           giveni={T\bibinitperiod\bibinitdelim L\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{fullhash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{fullhashraw}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{bibnamehash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{authorbibnamehash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{authornamehash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{authorfullhash}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{authorfullhashraw}{d0efefe9e6fde31efa3dfef0df1b9f1b}
+      \strng{translatorbibnamehash}{88c8aee7d33841ced57833a47679296b}
+      \strng{translatornamehash}{88c8aee7d33841ced57833a47679296b}
+      \strng{translatorfullhash}{88c8aee7d33841ced57833a47679296b}
+      \strng{translatorfullhashraw}{88c8aee7d33841ced57833a47679296b}
+      \field{sortinit}{6}
+      \field{sortinithash}{b33bc299efb3c36abec520a4c896a66d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{The Sand Reckoner}
+      \field{year}{1897}
+      \field{dateera}{ce}
+    \endentry
+    \entry{math17}{book}{}{}
+      \name{author}{1}{}{%
+        {{hash=719ad218522bbaa04d16a205e4107828}{%
+           family={Mancosu},
+           familyi={M\bibinitperiod},
+           given={Paolo.},
+           giveni={P\bibinitperiod}}}%
+      }
+      \list{language}{1}{%
+        {eng}%
+      }
+      \list{location}{1}{%
+        {New York}%
+      }
+      \list{publisher}{1}{%
+        {Oxford University Press}%
+      }
+      \strng{namehash}{719ad218522bbaa04d16a205e4107828}
+      \strng{fullhash}{719ad218522bbaa04d16a205e4107828}
+      \strng{fullhashraw}{719ad218522bbaa04d16a205e4107828}
+      \strng{bibnamehash}{719ad218522bbaa04d16a205e4107828}
+      \strng{authorbibnamehash}{719ad218522bbaa04d16a205e4107828}
+      \strng{authornamehash}{719ad218522bbaa04d16a205e4107828}
+      \strng{authorfullhash}{719ad218522bbaa04d16a205e4107828}
+      \strng{authorfullhashraw}{719ad218522bbaa04d16a205e4107828}
+      \field{sortinit}{8}
+      \field{sortinithash}{a231b008ebf0ecbe0b4d96dcc159445f}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{The seventeenth century saw more dramatic advances in mathematical theory and practice than any other era before or since. With the recovery of many of the classical Greek mathematical texts, new techniques were introduced, and within 100 years, analytic geometry, the geometry of indivisibles, the arithmetic of infinites, and the calculus had been developed. Philosophy of mathematics and mathematical practice in the seventeenth century have often been studied independently of one another. In this groundbreaking work, Paolo Mancosu offers the first comprehensive account of the rich interaction between the two fields. Beginning with the Renaissance debates on the certainty of mathematics, Mancosu leads the reader through the foundational issues raised by the emergence of these new mathematical techniques, including the influence of the Aristotelian conception of science in Cavalieri and Guldin, the foundational relevance of Descartes's Geometrie, the relationship between empiricist epistemology and infinitistic theorems in geometry, and the debates concerning the foundations of the Leibnizian calculus. In the process, Mancosu draws a sophisticated picture of the subtle dependencies between technical development and philosophical reflection in seventeenth-century mathematics. Philosophers of mathematics and historians of philosophy and mathematics will welcome this much needed study.}
+      \field{booktitle}{Philosophy of mathematics and mathematical practice in the seventeenth century}
+      \field{isbn}{0195084632}
+      \field{title}{Philosophy of mathematics and mathematical practice in the seventeenth century}
+      \field{year}{1996}
+      \keyw{Mathematics -- Europe -- Philosophy -- History -- 17th century ; Mathematik ; Philosophie ; Filosofie ; Wiskunde ; Mathematics -- Philosophy -- History ; Mathematics -- History -- 17th century ; Mathématiques -- Philosophie -- 17e siècle ; Mathématiques -- Europe -- Histoire -- 17e siècle ; Europa ; Mathematics Philosophy History ; Europe ; Geschichte 1600-1700}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
