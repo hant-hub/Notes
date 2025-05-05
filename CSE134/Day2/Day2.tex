@@ -1,0 +1,270 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\large{Operating Systems}
+\begin{description}
+    \item Why Operating System? 
+        \begin{mdframed}
+            \begin{itemize}
+                \item Lots of types of hardware
+                \item Different Instruction sets
+                \item Possibly multiple programs on the same computer
+                \item timesharing
+                \item Concurrency
+                \item Input/output devices
+                    \begin{itemize}
+                        \item Mice
+                        \item keyboards
+                        \item speakers
+                        \item monitors
+                        \item Networking
+                        \item Printers
+                        \item Disk
+                    \end{itemize}
+            \end{itemize} 
+            An Operating System's job is to give a
+            common layer for multiple types of programs to
+            run on top of.
+
+            The part of an Operating System which manages hardware
+            access is called the Resource Manager
+        \end{mdframed}
+    \item What does an operating system do? 
+        \begin{mdframed}
+            They ensure the hardware is connected,
+            they translate the raw output of hardware
+            into understandable format.
+        \end{mdframed}
+    \item Where is the Software?
+        \begin{mdframed}
+            \begin{itemize}
+                \item On top we have User Mode. This includes all applications,
+                    games, etc.
+                \item User Mode talks to Kernel mode software to interface with hardware.
+                    Kernel mode is where the operating system lives, and is responsible
+                    for directly handling hardware. This is also where device drivers
+                    live, and any programs which directly edit memory, set permissions,
+                    etc.
+            \end{itemize}
+        \end{mdframed}
+        \begin{center}
+            \begin{mdframed}
+                Fun fact, for desktop systems,
+                generally they have hardware support for
+                kernel mode. ie: They allow editing special memory
+                like what code is run when specific hardware things happen.
+                as well as editing things like the virtual page tables used by the
+                cpu to virtualize memory.
+            \end{mdframed}
+        \end{center}
+    \item Resource Manager
+        \begin{itemize}
+            \item Time(cpu) and space(memory) sharing
+            \item Split CPU time between multiple concurrent tasks
+            \item Split memory between multiple concurrent processes
+            \item Split I/O between multiple processes
+        \end{itemize}
+    \item Operating System is a Hardware Abstraction and Resource Manager
+    \item Computer Hardware Review
+        \begin{itemize}
+            \item Two busses, memory and control
+            \item Bus connects all hardware
+            \item CPU has memory management unit to control the bus and
+                manage the CPU cache and i/o.
+            \item I/O covers all components except memory. CPU only
+                has Memory management unit since the I/O is mapped
+                into memory from the perspective of a program.
+            \item One of the jobs of the MMU is to allow the CPU to
+                interpret I/O as volitile memory
+            \item CPU only interacts with I/O via memory as an intermediary
+        \end{itemize}
+    \item CPU Pipelining
+        \begin{itemize}
+            \item Pipelines allow for temporal parallelism on a hardware
+                level.
+            \item Can multiply the amount of work a CPU can do
+            \item Increases Throughput without changing latency
+            \item Pipelines can be linear or they can be "superscalar"
+                and include spatial parallelism in addition to the
+                temporal parallelism inherent to pipelines.
+                \begin{mdframed}
+                    Intel and AMD have a concept of ports which
+                    can perform different types of instructions.
+                    Instructions are also decomposed into micro instructions
+                    which are then split between ports and executed.
+                \end{mdframed}
+        \end{itemize}
+    \item Memory Hierarchy
+        \begin{itemize}
+            \item We use a hierarchy because memory speed is inversely
+                related to its density. To get advantages of fast memory
+                like SRAM and the large size of DRAM, Magnetic Disk, Magnetic Tape,
+                we use both kinds and move the memory we need into the fast
+                memory and move memory out to disk to save space.
+            \item RAM $\to$ Random Access Memory
+                \begin{mdframed}
+                    Can be read anywhere at all time, can be written to and
+                    read from. Usually volitile.
+                \end{mdframed}
+            \item ROM $\to$ Read Only Memory
+            \item EEPROM $\to$ Eletronically Enabled Programable Read Only Memory
+        \end{itemize}
+    \item Multithreaded and Multicore Chips
+        \begin{itemize}
+            \item Often cores share L2 and L3 cache.
+            \item On GPUs groups of 16-32 cores will share memory, as well
+                as the global memory shared by all cores.
+                \pagebreak
+                \begin{mdframed}
+                    Fun fact, Intel initially used a shared L2 cache design,
+                    and AMD originally used a split L2 design.
+
+                    AMD usually turned out faster. But Intel had the benefit
+                    of using a large L2 cache which reduced the complexity of
+                    synchronizing the caches and ensuring memory was not corrupted.
+
+                    MESI, MSI, etc.
+
+                    AMD is faster for many different programs which do not have
+                    shared memory. Intel is faster for using multiple cores working
+                    on the same memory.
+                \end{mdframed}
+        \end{itemize}
+    \item Disk
+        \begin{itemize}
+            \item Magnetic disks, come in a large stack. Single write head for each
+                surface, ie: 2 per disk.
+            \item Segment on the first surface is where the hardware will look for
+                instructions on start up.
+            \item Supernode controls manages mapping each disk to a number for
+                reads and writes.
+        \end{itemize}
+    \item Device Drive
+        \begin{itemize}
+            \item Software which interfaces with some hardware.
+            \item Complicated usually
+                \begin{mdframed}
+                    Converts read commands to commands the specific hardware understands.
+
+                    For a HDD it converts memory locations into arm movements and disk
+                    number.
+                \end{mdframed}
+            \item Different Modes
+                \begin{itemize}
+                    \item Polling
+                        \begin{mdframed}
+                            Write information into memory and occasionally check.
+                            Works both ways, software might write memory and
+                            hardware occasionally reads.
+
+                            This is often used for Games to read Input, every
+                            frame the game will check for input and then update
+                            it's internal tracking.
+                        \end{mdframed}
+                    \item Interrupt
+                        \begin{mdframed}
+                            Send special signal to the CPU which
+                            forces CPU to execute specific code to handle
+                            input.
+                        \end{mdframed}
+                    \item DMA
+                        \begin{mdframed}
+                            Directly map device information into memory.
+                            Have some kind of mapping between memory addresses
+                            and the device directly.
+
+                            This is for things like GPUs or sometimes memory
+                            mapped I/O which is a Userland abstraction.
+                        \end{mdframed}
+                \end{itemize}
+            \item I/O via Polling 
+                \begin{itemize}
+                    \item Driver issues commands
+                    \item Driver keeps checking on device until it is ready
+                    \item Big Use of CPU
+                    \item Called Programmed I/O, not common anymore
+                \end{itemize}
+            \item Interrupt I/O
+                \begin{itemize}
+                    \item CPU is working and doesn't check
+                    \item Device sends signal to CPU which causes
+                        it to run special Interrupt handler
+                    \item Driver then Sends commands and handles input
+                        before returning to normal execution
+                    \item Requires CPU hardware support, usually
+                        the return address is kept in special register
+                    \item Requires special handling to store register state
+                \end{itemize}
+            \item DMA I/O
+                \begin{itemize}
+                    \item The Device directly writes into memory
+                    \item CPU interaction is kept to minimum
+                \end{itemize}
+        \end{itemize}
+\end{description}
+
+
+\end{document}
+

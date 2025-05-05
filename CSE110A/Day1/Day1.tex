@@ -1,0 +1,179 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 110A - Fundamentals Of Compiler Design}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Prof
+        \begin{mdframed}
+            Professor: Marcelo Siero\\
+            Course Author: Tyler Sorensen 
+        \end{mdframed}
+    \item Syllabus
+    \item High Level On Compilers
+\end{description}
+
+\begin{itemize}
+    \item Resources
+        \begin{itemize}
+            \item Public website for slides, syllabus, and additional resources
+            \item Private Website grades, announcements, SETs, homework, tests, zoom (if needed)
+            \item Docker Image for Homework
+            \item Piazza for questions and discussions
+        \end{itemize}
+    \item Quizzes
+        \begin{mdframed}
+            Happens out of class, reviewed the next quiz
+            Quizzes are more for discussion than getting the
+            exact correct answer every single time.
+        \end{mdframed}
+    \item TA
+        \begin{itemize}
+            \item Rithik Sharma, Yanwen Xu
+            \item Mentors/Graders
+        \end{itemize}
+    \item Homework
+        \begin{itemize}
+            \item Docker Image for standard environment
+            \item Command line Editor, emacs, vim, nvim.
+            \item No VSCode support
+        \end{itemize}
+    \item Syllabus
+        \begin{itemize}
+            \item Autograder given, should always know grade by the deadline
+        \end{itemize}
+\end{itemize}
+
+\large{High Level Discussion On Compilers}
+\begin{itemize}
+    \item What is a compiler?
+        \begin{mdframed}
+            Any program that takes some source code
+            and produces machine code.
+
+            A transpiler is usually the term for converting
+            between two languages which are not machine code,
+            and an interpreter is when we convert code into
+            actions, executing them on the spot.
+        \end{mdframed}
+    \item Interpreters vs Compilers
+        \begin{mdframed}
+            Interpreters compile and then run the code.
+        \end{mdframed}
+\end{itemize}
+Heart Of a Compiler
+\begin{itemize}
+    \item Input $\to$ Frontend $\to$ Optimizer $\to$ Code Gen $\to$ Output
+    \item More Detail
+        \begin{itemize}
+            \item Input
+            \item Lexical Analysis (Lexer) (Tokenizing)
+            \item Syntactic Analyzer (AST)
+            \item Semantic Analyzer (Correctness testing)
+            \item Intermediate Code Gen (IR)
+            \item IR Optimizations
+            \item Target Code Gen
+            \item Target Code Optimizations (SIMD) (Platform/CPU specific)
+        \end{itemize}
+    \item LLVM Modular Infrastructure
+        \begin{itemize}
+            \item Front ends (language specific)
+            \item LLVM IR (Language and Implementation Agnostic)
+            \item LLVM Code Gen (Platform and Hardware Specific)
+        \end{itemize}
+    \item Front End
+        \begin{mdframed}
+            \begin{itemize}
+                \item Lexical Analysis $\to$ Token Stream
+                    \begin{mdframed}
+                        Break the input string into units of 
+                        meaning, names, operators etc.
+                    \end{mdframed}
+                \item Syntactic Analysis $\to$ Syntax Tree
+                    \begin{mdframed}
+                        Combine the tokens into a structure which
+                        represents their meaning. Usually a tree is used
+                        since it is well known that trees can represent operators
+                        on inputs
+                    \end{mdframed}
+                \item Semantic Analysis $\to$ Correct Syntax Tree
+                    \begin{mdframed}
+                        The Semantic Analysis stage ensures that the syntax tree
+                        follows all the rules of the language. Generally if this
+                        stage is passed the Compiler garuntees a full compilation
+                        without errors.
+                    \end{mdframed}
+                \item Intermediate Code Gen $\to$ IR program
+                    \begin{mdframed}
+                        The tree is iterated over, usually in a post traversal, and converted
+                        into some intermediate representation which contains instructions.
+
+                        We then optimize this IR which is usually easier due to certain
+                        promises and structure the IR garuntees
+                    \end{mdframed}
+            \end{itemize}
+        \end{mdframed}
+\end{itemize}
+
+\end{document}
+

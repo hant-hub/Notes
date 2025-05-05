@@ -1,0 +1,503 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{apa/apasortcite//global/global/global}
+    \entry{sit}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1388f425c70ab06160591482f272fdee}{%
+           family={Ballard},
+           familyi={B\bibinitperiod},
+           given={Patrick\bibnamedelima Micheal},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1388f425c70ab06160591482f272fdee}
+      \strng{fullhash}{1388f425c70ab06160591482f272fdee}
+      \strng{fullhashraw}{1388f425c70ab06160591482f272fdee}
+      \strng{bibnamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorbibnamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authornamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorfullhash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorfullhashraw}{1388f425c70ab06160591482f272fdee}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{{Navigating the American Spectacle}}
+      \field{year}{2025}
+    \endentry
+    \entry{paul}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ccd25c273f73b51014e94a36043ae332}{%
+           family={Ens},
+           familyi={E\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{fullhash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{fullhashraw}{ccd25c273f73b51014e94a36043ae332}
+      \strng{bibnamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorbibnamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authornamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorfullhash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorfullhashraw}{ccd25c273f73b51014e94a36043ae332}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Paulogia}
+      \verb{urlraw}
+      \verb https://www.youtube.com/paulogia
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/paulogia
+      \endverb
+    \endentry
+    \entry{medium}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=25deecb5be1453bf5c353dae9b92b394}{%
+           family={Kadavy},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=815de62ec0071f72ab07b6bffc51a626}{%
+           family={McLuhan},
+           familyi={M\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{fullhash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{fullhashraw}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{bibnamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorbibnamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authornamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorfullhash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorfullhashraw}{39895f62118b5416bf11a9cdd3cbfa07}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Media (by Marshall McLuhan) Book Summary – Love Your Work, Episode 248}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://kadavy.net/blog/posts/understanding-media-summary-marshall-mcluhan/
+      \endverb
+      \verb{url}
+      \verb https://kadavy.net/blog/posts/understanding-media-summary-marshall-mcluhan/
+      \endverb
+    \endentry
+    \entry{lack}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=802298a79255ea48cb659dec15db7e7f}{%
+           family={Lack},
+           familyi={L\bibinitperiod},
+           given={Kay},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{fullhash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{fullhashraw}{802298a79255ea48cb659dec15db7e7f}
+      \strng{bibnamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorbibnamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authornamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorfullhash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorfullhashraw}{802298a79255ea48cb659dec15db7e7f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Kay Lack}}
+      \verb{urlraw}
+      \verb https://www.youtube.com/@neoeno4242
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/@neoeno4242
+      \endverb
+    \endentry
+    \entry{rolerules}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bc6b3033773ba0c688bd4e558d00a178}{%
+           family={Malabre},
+           familyi={M\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{fullhash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{fullhashraw}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{bibnamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorbibnamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authornamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorfullhash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorfullhashraw}{bc6b3033773ba0c688bd4e558d00a178}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Rules for the Construction of the Roleplaying Games}
+      \field{year}{2022}
+    \endentry
+    \entry{attic}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f4666384dd773b2eebed5e2d8c12ed98}{%
+           family={{Roughest Drafts}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{fullhash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{fullhashraw}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{bibnamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorbibnamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authornamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorfullhash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorfullhashraw}{f4666384dd773b2eebed5e2d8c12ed98}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Revisiting Shel Silverstein's Poetry as an Adult}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=53rGxPbsffQ
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=53rGxPbsffQ
+      \endverb
+    \endentry
+    \entry{fruitlaw}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c9c0661e1ded9e578a44069d8d85360d}{%
+           family={Seitz},
+           familyi={S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{fullhash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{fullhashraw}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{bibnamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorbibnamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authornamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorfullhash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorfullhashraw}{c9c0661e1ded9e578a44069d8d85360d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fruit of Law}
+    \endentry
+    \entry{bigO}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5fa8b76f74017c010d99783463b15bf}{%
+           family={Silverstein},
+           familyi={S\bibinitperiod},
+           given={Shel},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{fullhash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{fullhashraw}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{bibnamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorbibnamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authornamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorfullhash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorfullhashraw}{f5fa8b76f74017c010d99783463b15bf}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{The Missing Piece Meets The Big O}}
+      \field{year}{1981}
+    \endentry
+  \enddatalist
+  \datalist[entry]{apa/global//global/global/global}
+    \entry{sit}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1388f425c70ab06160591482f272fdee}{%
+           family={Ballard},
+           familyi={B\bibinitperiod},
+           given={Patrick\bibnamedelima Micheal},
+           giveni={P\bibinitperiod\bibinitdelim M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{1388f425c70ab06160591482f272fdee}
+      \strng{fullhash}{1388f425c70ab06160591482f272fdee}
+      \strng{fullhashraw}{1388f425c70ab06160591482f272fdee}
+      \strng{bibnamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorbibnamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authornamehash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorfullhash}{1388f425c70ab06160591482f272fdee}
+      \strng{authorfullhashraw}{1388f425c70ab06160591482f272fdee}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{3}
+      \field{title}{{Navigating the American Spectacle}}
+      \field{year}{2025}
+    \endentry
+    \entry{paul}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=ccd25c273f73b51014e94a36043ae332}{%
+           family={Ens},
+           familyi={E\bibinitperiod},
+           given={Paul},
+           giveni={P\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{fullhash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{fullhashraw}{ccd25c273f73b51014e94a36043ae332}
+      \strng{bibnamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorbibnamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authornamehash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorfullhash}{ccd25c273f73b51014e94a36043ae332}
+      \strng{authorfullhashraw}{ccd25c273f73b51014e94a36043ae332}
+      \field{sortinit}{E}
+      \field{sortinithash}{8da8a182d344d5b9047633dfc0cc9131}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Paulogia}
+      \verb{urlraw}
+      \verb https://www.youtube.com/paulogia
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/paulogia
+      \endverb
+    \endentry
+    \entry{medium}{misc}{}{}
+      \name{author}{2}{}{%
+        {{un=0,uniquepart=base,hash=25deecb5be1453bf5c353dae9b92b394}{%
+           family={Kadavy},
+           familyi={K\bibinitperiod},
+           given={David},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=815de62ec0071f72ab07b6bffc51a626}{%
+           family={McLuhan},
+           familyi={M\bibinitperiod},
+           given={Marshall},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{fullhash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{fullhashraw}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{bibnamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorbibnamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authornamehash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorfullhash}{39895f62118b5416bf11a9cdd3cbfa07}
+      \strng{authorfullhashraw}{39895f62118b5416bf11a9cdd3cbfa07}
+      \field{sortinit}{K}
+      \field{sortinithash}{c02bf6bff1c488450c352b40f5d853ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Media (by Marshall McLuhan) Book Summary – Love Your Work, Episode 248}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://kadavy.net/blog/posts/understanding-media-summary-marshall-mcluhan/
+      \endverb
+      \verb{url}
+      \verb https://kadavy.net/blog/posts/understanding-media-summary-marshall-mcluhan/
+      \endverb
+    \endentry
+    \entry{lack}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=802298a79255ea48cb659dec15db7e7f}{%
+           family={Lack},
+           familyi={L\bibinitperiod},
+           given={Kay},
+           giveni={K\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{fullhash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{fullhashraw}{802298a79255ea48cb659dec15db7e7f}
+      \strng{bibnamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorbibnamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authornamehash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorfullhash}{802298a79255ea48cb659dec15db7e7f}
+      \strng{authorfullhashraw}{802298a79255ea48cb659dec15db7e7f}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{Kay Lack}}
+      \verb{urlraw}
+      \verb https://www.youtube.com/@neoeno4242
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/@neoeno4242
+      \endverb
+    \endentry
+    \entry{rolerules}{article}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=bc6b3033773ba0c688bd4e558d00a178}{%
+           family={Malabre},
+           familyi={M\bibinitperiod},
+           given={Sam},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{fullhash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{fullhashraw}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{bibnamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorbibnamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authornamehash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorfullhash}{bc6b3033773ba0c688bd4e558d00a178}
+      \strng{authorfullhashraw}{bc6b3033773ba0c688bd4e558d00a178}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Rules for the Construction of the Roleplaying Games}
+      \field{year}{2022}
+    \endentry
+    \entry{attic}{online}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f4666384dd773b2eebed5e2d8c12ed98}{%
+           family={{Roughest Drafts}},
+           familyi={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{fullhash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{fullhashraw}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{bibnamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorbibnamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authornamehash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorfullhash}{f4666384dd773b2eebed5e2d8c12ed98}
+      \strng{authorfullhashraw}{f4666384dd773b2eebed5e2d8c12ed98}
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Revisiting Shel Silverstein's Poetry as an Adult}
+      \field{year}{2024}
+      \verb{urlraw}
+      \verb https://www.youtube.com/watch?v=53rGxPbsffQ
+      \endverb
+      \verb{url}
+      \verb https://www.youtube.com/watch?v=53rGxPbsffQ
+      \endverb
+    \endentry
+    \entry{fruitlaw}{misc}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c9c0661e1ded9e578a44069d8d85360d}{%
+           family={Seitz},
+           familyi={S\bibinitperiod},
+           given={Eli},
+           giveni={E\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{fullhash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{fullhashraw}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{bibnamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorbibnamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authornamehash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorfullhash}{c9c0661e1ded9e578a44069d8d85360d}
+      \strng{authorfullhashraw}{c9c0661e1ded9e578a44069d8d85360d}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labeldatesource}{nodate}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fruit of Law}
+    \endentry
+    \entry{bigO}{book}{}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=f5fa8b76f74017c010d99783463b15bf}{%
+           family={Silverstein},
+           familyi={S\bibinitperiod},
+           given={Shel},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{fullhash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{fullhashraw}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{bibnamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorbibnamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authornamehash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorfullhash}{f5fa8b76f74017c010d99783463b15bf}
+      \strng{authorfullhashraw}{f5fa8b76f74017c010d99783463b15bf}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{}
+      \true{uniqueprimaryauthor}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{{The Missing Piece Meets The Big O}}
+      \field{year}{1981}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+

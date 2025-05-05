@@ -1,0 +1,194 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 110A - Fundamentals Of Compiler Design}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Naive Scanner Tokenizer
+        \begin{itemize}
+            \item Simple
+            \item Common for early languages
+            \item Can be Unwieldy for many types of tokens 
+            \item Can be heavily nested
+        \end{itemize}
+    \item Regex
+        \begin{itemize}
+            \item Tokens are restricted to Regular languages 
+            \item Extensible
+            \item Modular
+            \item Easy to add tokens
+            \item Many regex implementations have issues with
+                order dependency
+            \item Not as powerful as context free grammers
+        \end{itemize}
+    \item Side Note on Chompsky Hierarchy\\
+        From least to most powerful
+        \begin{itemize}
+            \item Regular
+            \item Context free
+            \item Context Sensitive
+            \item Recursively Enumerable
+        \end{itemize}
+    \item What is Regex?
+        \begin{itemize}
+            \item Python Regex
+                \begin{itemize}
+                    \item Library re
+                    \item re.fullmatch(pattern, string)\\
+                        Only succeeds if entire string
+                        matches the pattern
+                \end{itemize}
+            \item Recursive definition
+                \begin{mdframed}
+                    All characters are regular expressions.
+
+                    These single character expressions only match
+                    on strings which are equal to themselves.
+
+                    If we write two regular expressions in sequence
+                    they are concatenated. Which means that they
+                    only match a string where some part of the
+                    string matches the first regex, and the rest of
+                    the string matches the second regex.
+
+                    We have modifiers which modify how the regular expression
+                    to the left matches.
+
+                    The modifiers are as follows:
+                    \begin{itemize}
+                        \item *
+                            \begin{mdframed}
+                                The Kleene star, matches zero or more copies
+                                of the expression to the left, equivalent
+                                to zero or more copies of the expression
+                                concatenated together.
+                            \end{mdframed}
+                        \item +
+                            \begin{mdframed}
+                                The plus matches one or more copies of
+                                the expression to the left. Equal to one
+                                or more copies concatenated together.
+                            \end{mdframed}
+                    \end{itemize}
+
+                    There is one basic operator, choice (|).
+
+                    What choice means is that the string matches if it matches the
+                    expressin on the left, or the expression on the right.
+
+
+                    There are rules of operator precedence, modifiers come before
+                    choice, and concatenation comes before modifiers.
+
+                    Concatenation can be specified via parentheses. These form groups.
+                    Each group is a valid regular expression. Parentheses define a single
+                    regular expression as a group which ignores precedence rules.
+                    
+
+                    As an extension, the square brackets mean match against any character inside
+                    the bracket. [ab] is equivalent to a|b.
+
+                    The \^{} carrot operator means the complement, so [\^{}ab] can match any character but
+                    a or b.
+
+                    Optional Modifier, equivalent to choice between regex with character and regex without
+                    character. Same precedence as other modifiers. This is used to make regex non-greedy,
+                    since it will always put the version without the string first.
+
+                    The . character is used to denote matching any character.
+
+                    Many languages also use '()' to indicate a capture group. This is an extension for
+                    regex matchers that says to extract strings in groups and return them to the user.
+
+                    When the \^{} operator is placed outside square brackets, it matches the NULL at
+                    the start of the string. In Multiline mode, regex engines will match the beginning
+                    of the line.
+
+                    The \$ operator matches the NULL at the end of the string. In Multiline mode,
+                    it will match the end of the line.
+
+                \end{mdframed}
+        \end{itemize}
+    \item Token Actions
+        \begin{itemize}
+            \item Replacement
+            \item Keywords
+            \item Error reporting
+            \item Symbol table Creation
+        \end{itemize}
+        \begin{mdframed}
+            Actions are functions which run on and modify
+            the token before it is returned. You can use
+            them for keywords or marking them with additional
+            metadata.
+        \end{mdframed}
+    \item First Class Functions
+        \begin{itemize}
+            \item Python has functional programming
+            \item You can make them, pass them around, do whatever you want
+            \item Idk if function pointers really count, like they are not the same.
+        \end{itemize}
+\end{description}
+
+\end{document}
+

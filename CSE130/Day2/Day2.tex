@@ -1,0 +1,358 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 130}\\\huge{Principles of Computer System Design}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\large{Systems, Complexity and Fundamental Abstractions}
+\begin{description}
+    \item What is a System?
+        \begin{itemize}
+            \item Set of interconnected components
+            \item What is a component depends on the problem and scope
+            \item For hardware designers each individual device could be a component
+            \item For CPU designers individual transistors may be component
+            \item For Servers different stages of processing a request may be a component
+        \end{itemize}
+    \item Complexity
+        \begin{itemize}
+            \item Large systems with many components can make systems
+                hard to understand
+            \item No unified measure of complexity
+            \item Complexity puts limits on what you can build and how
+            \item Important to understand what is complex and how to
+                mitigate or remove complexity
+        \end{itemize}
+    \item Common Issues:
+        \begin{itemize}
+            \item Emergent Properties
+                \begin{itemize}
+                    \item Properties which arise from the confluence of multiple components
+                    \item Example: Millenium Bridge in London which ended up being extordinarily
+                        unstable due to the fact that people walking on the bridge were pressured
+                        to walk in sync which generated harmonic motion.
+                    \item Example: Conway's Game of Life, simple rules give rise to a Turing complete
+                        system which can compute any problem and simulate all kinds of unique and
+                        new patterns
+                \end{itemize}
+            \item Propogation of Effects
+                \begin{itemize}
+                    \item Problems in one component can affect other components
+                    \item Example: Electric companies, by connecting their systems they can
+                        load balance and hopefully reduce failures. However it also means that
+                        if one system is brought down by a failure all the systems go down
+                    \item Example: Networking, if a network connection fails or a component
+                        goes down, it can force changes in other components to deal with
+                        the failure to send or recieve data from that particular host
+                \end{itemize}
+            \item Incommensurate Scaling
+                \begin{itemize}
+                    \item Different components in a system scale in different ways as the system
+                        scales up.
+                    \item Example: As a database grows the time to query data may increase faster
+                        than the size leading to performance issues.
+                    \item Example: As CPUs grew faster, memory grew faster slower, leading to
+                        massive differences in computer speed vs. memory bandwidth.
+                    \item Common in many systems especially among heterogenous components since
+                        different types of work fundamentally have different costs.
+                \end{itemize}
+            \item Trade-Offs
+                \begin{itemize}
+                    \item Goals may conflict
+                    \item Example: Bigger displays on phones look better but may cost more battery
+                    \item Example: Merge Sort scales well, but a recursive implementation imposes a
+                        burden on memory
+                    \item Example: Insertion sort scales poorly, but has very small overhead making
+                        it faster for small amounts of data.
+                    \item Example: Spam filters have to balance rejecting spam emails and
+                        accepting non spam emails, it can be very bad to reject too many
+                        emails but the spam filters are pointless if they don't reject enough
+                        emails
+                \end{itemize}
+        \end{itemize}
+    \item Signs of Complexity
+        \begin{itemize}
+            \item No quantitative measure
+            \item Irregular
+        \end{itemize}
+    \item Large Number of Components
+        \begin{itemize}
+            \item Size affects comprehensibility
+            \item It is an indicator but not a direct
+                measure
+            \item Depends largely on how components are connected
+        \end{itemize}
+    \item Large Number of Interconnections
+        \begin{itemize}
+            \item Each interconnection places a burden on the person
+                trying to understand the system
+        \end{itemize}
+    \item Many irregularities
+        \begin{itemize}
+            \item If there are consistency and patterns in the interconnections
+                and components it can be easy to conceptualize
+            \item The more exceptions the more likely the system is difficult
+                to follow
+            \item Each exception takes up some mental bandwidth
+        \end{itemize}
+    \item Long Descriptions
+        \begin{itemize}
+            \item If the best description requires many properties it may indicate
+                complexity
+            \item Kolmogorov Complexity - length of the shortest specification
+            \item May be a reflection of other signs
+        \end{itemize}
+    \item Large Team of People
+        \begin{itemize}
+            \item The more people the more likely the system will be complex
+            \item The boudaries between people are reflected in the product,
+                leading to more components and more complexity
+        \end{itemize}
+    \item Sources of Complexity
+        \begin{itemize}
+            \item Cascading and interacting list of requirements
+                \begin{itemize}
+                    \item Each requirement may be minimal
+                    \item The Problem is that each requirement may interact with some
+                        number of previous requirements causing exponential growth
+                        in the possible interactions
+                    \item Example: Phones
+                        \begin{itemize}
+                            \item corded phones have a single purpose
+                            \item flip phones have basic apps
+                            \item smart phones are full computers and can do hundreds of tasks
+                        \end{itemize}
+                    \item Must avoid excessive Generality, systems that can do anything are not
+                        particularly useful for anything. The more general the more complicated
+                        and more difficult it is to create a good tool.
+                \end{itemize}
+            \item Maintaining high utilization
+                \begin{itemize}
+                    \item If we desire high utilization we need more complexity
+                    \item Law of Diminishing Returns: the closer we get to some maximum
+                        the more effort it requires
+                    \item Utilization is less percentage and more odds, if we double
+                        the amount of complexity and utlization, it halves the idle
+                        time. This means that by doubling the complexity we get
+                        highly diminishing returns.
+                \end{itemize}
+        \end{itemize}
+    \item How to mitigate Complexity
+        \begin{itemize}
+            \item Modularity
+                \begin{itemize}
+                    \item Divide and conquer
+                    \item design the system as a small number of interacting subsystems,
+                        reduces the amount of the system under consideration at any
+                        one point
+                    \item Reduces the global problem to small set of interactions,
+                        allows ignoring global problem when solving sub problems
+                        (at least to some extent)
+                \end{itemize}
+            \item Abstraction
+                \begin{itemize}
+                    \item abstraction is the separation of interface from internals
+                    \item It is the finding of logical boundaries for modularity
+                    \item Abstraction is the process of modularizing and then
+                        chunking components
+                    \item About the property of modules being able to only
+                        consider the interface of a component rather than
+                        considering the internal implementations
+                    \item Abstraction is a tool to reduce \textit{granularity}
+                \end{itemize}
+            \item Layering
+                \begin{itemize}
+                    \item One way of limiting or controlling how modules interact
+                    \item Layered systems have modules which only communication with
+                        layers directly below or above them
+                    \item Another way of creating lower granularity interfaces
+                    \item Most programs use this to some degree to abstract
+                        APIs or tasks which have high numbers of repeated tasks
+                \end{itemize}
+            \item Hierarchy
+                \begin{itemize}
+                    \item This is another way of organizing modules
+                    \item Modules only interact in their subsystems
+                    \item Subsystems only have a single module as their interface
+                    \item The goal is to reduce the number of modules while allowing
+                        for more complex interconnections within subsystems
+                    \item Limits the visibility of each level of abstraction to limit
+                        complexity (aids chunking)
+                \end{itemize}
+        \end{itemize}
+    \item Names Make Connections
+        \begin{itemize}
+            \item The four techniques decompose systems into smaller systems
+            \item Naming modules allows us to begin recomposing small subsystems back
+                into the larger system
+            \item Naming allows for
+                \begin{itemize}
+                    \item postponing decisions (allowing for better decisions with more information)
+                    \item Easy replacement of modules (pointing modules to different places)
+                    \item Sharing of modules (code reuse, maybe even process reuse)
+                \end{itemize}
+        \end{itemize}
+    \item Unique Problem of Computer Systems
+        \begin{itemize}
+            \item The complexity is not limited by physical constraints
+            \item Rate of technology change is unprecedented
+            \item High hardware limits allow for extremely unprecedented complexity
+                in systems, especially in systems which are made to take advantage
+                of various types of scaling.
+        \end{itemize}
+    \item Coping with Complexity
+        \begin{itemize}
+            \item Deal with complexity via iteration
+            \item Keep it simple
+            \item By rapidly iterating we learn where the logical boundaries
+                are, and how to best deliver constraints
+            \item By keeping things simple we only add the minimum
+                amount of abstraction, modularity, hierarchy, or layering, since
+                each additional abstraction adds a constant amount of complexity.
+            \item By getting feedback we can better define the requirements for systems
+                in a sensible and practical manner, the goal is to build something reliable
+                and useful, not to make something abstractly beautiful.
+        \end{itemize}
+    \item Rest of the Course
+        \begin{itemize}
+            \item How to use complexity management principles
+                \begin{itemize}
+                    \item Modularity
+                    \item Abstractions
+                    \item Client/Server and Virtualization
+                \end{itemize}
+        \end{itemize}
+    \item Fundamental Abstractions
+        \begin{enumerate}
+            \item Memory (objects by name)
+                \begin{itemize}
+                    \item Storage
+                    \item Wide ranging technologies
+                        \begin{itemize}
+                            \item Volitile vs non-Volitile
+                            \item Latency vs cost
+                        \end{itemize}
+                    \item All memory has two fundamental operations
+                        \begin{itemize}
+                            \item Write(name, value)
+                            \item Read(name) $\to$ value
+                        \end{itemize}
+                    \item Memory devices read and write contiguous bits
+                    \item Two Useful properties
+                        \begin{itemize}
+                            \item Read/write coherence, read always returns the most recent write
+                            \item Before or after atomicity, all read or writes behave as if they
+                                occured in a single linear order, ie: reads and writes have a cannonical
+                                order
+                        \end{itemize}
+                    \item Problems
+                        \begin{itemize}
+                            \item Concurrency (non-linear or undefined access order)
+                            \item Remote Storage (amplified delays in Reads/Writes)
+                            \item Replicated Storage (to improve reliability at cost of synchronization)
+                        \end{itemize}
+                \end{itemize}
+            \item Interpreter (manipulate names)
+                \begin{itemize}
+                    \item Active elements of computer, the things that do the computations
+                    \item Wide-ranging and layered
+                        \begin{itemize}
+                            \item Example: Human generates requests to calendar, Java interpreter,
+                                 byte-code interpreter, hardware interpreter
+                        \end{itemize}
+                    \item Simple abstraction
+                        \begin{itemize}
+                            \item Instruction reference, where is the next instruction
+                            \item reprotoire, what actions are avalible
+                            \item Environment, what is the current state?
+                        \end{itemize}
+                    \item Many systems have multiple interpreters
+                        \begin{itemize}
+                            \item usually asynchronous
+                            \item different progression rates
+                            \item assume no control over exact order of execution
+                            \item design alogithms to explicitly control timing and order
+                        \end{itemize}
+                \end{itemize}
+            \item Communication (move data to and from names)
+                \begin{itemize}
+                    \item Allows for data movement between physically separate components
+                    \item Fundamental interface
+                        \begin{itemize}
+                            \item SEND(name, msg)
+                            \item Recieve(name) $\to$ msg
+                        \end{itemize}
+                    \item Properties
+                        \begin{itemize}
+                            \item Unpredictable time to complete SEND and RECIEVE
+                            \item Hostile environment leads to data corruption
+                            \item Data loss
+                            \item Asynchronous timing, no garuntee of order
+                        \end{itemize}
+                \end{itemize}
+        \end{enumerate}
+\end{description}
+
+
+
+\end{document}
+

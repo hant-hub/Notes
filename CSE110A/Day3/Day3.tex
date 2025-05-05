@@ -1,0 +1,148 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 110A - Fundamentals Of Compiler Design}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Review - Warnings, Errors, Functional Equivalence 
+        \begin{itemize}
+            \item Textbook
+                \begin{itemize}
+                    \item Borrows from Formal Language theory
+                    \item Algorithms
+                    \item Artificial intelligence (like in the 60s)
+                    \item systems design
+                    \item Computer Architecture
+                    \item Programming Language specific theory 
+                \end{itemize}
+                \begin{mdframed}
+                    An example of where this is important is instruction ordering,
+                    many CPUs can execute many instructions in parrallel if they
+                    are of a specific type. Modern compilers can reorder specific
+                    instructions to improve CPU efficiency. To know when this is possible,
+                    to recognize when this is faster, and to know when it is not possible
+                    all requires formal language analysis, good algorithms, and
+                    solid systems design to tie it together with the rest of the
+                    compiler.
+                \end{mdframed}
+                \begin{mdframed}
+                    I kinda think the Pareto Principle is not really all that useful.
+                    Overall, if you write slow code universally the principle will be false,
+                    so you have to write \textit{reasonable} code at minimum.
+                \end{mdframed}
+            \item Quiz review
+                \begin{itemize}
+                    \item Are warnings errors
+                        \begin{mdframed}
+                            No, lol
+                        \end{mdframed}
+                    \item Uninitialized Memory Determinism
+                        \begin{mdframed}
+                            Kinda, depends
+                        \end{mdframed}
+                    \item Are Compilers able to modify code as long as it returns the same value
+                        \begin{mdframed}
+                            The answer depends on the observables of the system.
+                            The compiler makes promises on what types of things must stay the same
+                            everything else is undefined allowing the compiler to reorder or optimize
+                            everything else.
+
+                            Some examples of observables, writing to memory, writing to disk,
+                            changing global variables, syscalls, editing volitile variables,
+                            fences, etc.
+                        \end{mdframed}
+                \end{itemize}
+            \item Review
+                \begin{itemize}
+                    \item Lexical Analysis
+                        \begin{mdframed}
+                            Convert to Token stream.
+                        \end{mdframed}
+                \end{itemize}
+        \end{itemize}
+    \item Scanner API
+        \begin{itemize}
+            \item Construct a scanner
+            \item Feed strings into scanner
+            \item Sort into tokens, (type of token, index into string, etc.)
+            \item Get Next Token
+        \end{itemize}
+    \item Simple Programming Language
+        \begin{itemize}
+            \item Example of language: $ x = 5 + 4 * 3 $
+            \item Token types, identifier, int, eq, plus, asterisk
+            \item Pro-tip, you can use the ascii code as the type for single letter tokens
+            \item When parsing, split on space
+            \item Notice what we throw away, there are things in a language we don't care about,
+                and we also need to define which things are ignored.
+            \item Tokens should be as large as possible while still providing enough information.
+                The benefit of tokenization over just string parsing is in creating conceptual
+                blocks which are larger than a character, if we split tokens smaller than necessary
+                it creates additional conceptual overhead.
+        \end{itemize}
+
+\end{description}
+
+
+\end{document}
+

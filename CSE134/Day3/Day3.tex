@@ -1,0 +1,208 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Review 
+        \begin{itemize}
+            \item Resource Manager
+                \begin{itemize}
+                    \item I/O
+                    \item Virtualization
+                    \item Memory (space sharing)
+                    \item CPU (time sharing) (space sharing for multicores)
+                \end{itemize}
+            \item Hardware Abstraction
+                \begin{itemize}
+                    \item Interface
+                    \item Kernel vs User
+                        \begin{itemize}
+                            \item Mediator (many users)
+                            \item Security (untrusted code)
+                        \end{itemize}
+                    \item Hardware Specifics
+                \end{itemize}
+            \item CPU only touches memory
+            \item I/O modes
+                \begin{itemize}
+                    \item Polling
+                        \begin{mdframed}
+                            Professor prefers the conceptualization
+                            of waiting on input rather than flushing a buffer
+                            or occasionally reading in the data. I think this is
+                            a little incorrect when looking at how these things
+                            tend to be implemented, like you don't just hang until
+                            the entire message is brought through, you have to periodically
+                            read data.
+
+                            CPU intensive.
+                        \end{mdframed}
+                    \item Interrupts
+                        \begin{mdframed}
+                            Interrupts is used for low throughput low
+                            latency applications. Things like keyboard or mouse input,
+                            microphone samples, etc.
+
+                            Requires Hardware support.
+                        \end{mdframed}
+                        \begin{mdframed}
+                            Hardware signal causes CPU to execute interrupt handler located at
+                            specific memory address. Kernel mode operation, forces kernel mode
+                            and requires context switch. Many operations are dangerous and invalid
+                            in this mode.
+
+                            Modern interrupt handlers have a table of pointers to various handlers,
+                            the specific hardware interrupt is a number which causes the cpu to read
+                            from a specific entry in the table and jump to the correct interrupt handler.
+
+                            Modern x86 has a register which holds the address of this table allowing
+                            for it to be movable in memory.
+
+                            Interrupts must be acknowledged before another interrupt can happen.
+
+                            (This happens because two interrupts happening at once could wipe the
+                            necessary information to correctly resume execution)
+                        \end{mdframed}
+                    \item DMA
+                        \begin{mdframed}
+                            Super high bandwidth comparitively. Used for things like GPU
+                            interfacing, disk I/O, etc. Usually more performant because
+                            of things like avoiding context switches and syscalls.
+
+                            Requires Hardware support and is usually platform specific.
+                        \end{mdframed}
+                \end{itemize}
+        \end{itemize}
+    \item Concepts cont.
+        \begin{itemize}
+            \item Process
+                \begin{mdframed}
+                    Program in Execution, contains/lives in:
+                    \begin{itemize}
+                        \item Address Space
+                        \item File Descriptor Table
+                        \item CPU state (registers, stack, etc.)
+                        \item Process state (Running, Zombie, Ready, Block, Quit, etc)
+                    \end{itemize}
+                \end{mdframed}
+            \item Process Tree
+                \begin{itemize}
+                    \item Processes create Child Processes which share process space
+                    \item Creates Tree structure
+                \end{itemize}
+            \item File Directory
+                \begin{itemize}
+                    \item Hierarchy of directories with leaves pointing at the files on disk
+                    \item Also known as Inodes these are usually OS independent and are a
+                        type of protocol
+                \end{itemize}
+            \item Special Files
+                \begin{itemize}
+                    \item Special files which work with the OS file API but
+                        have special behavior
+                    \item These are abstract I/O interfaces, things like networks
+                        other programs, device brightness, etc.
+                \end{itemize}
+            \item I/O Protection Shell
+                \begin{itemize}
+                    \item Bits which tell the OS what specific users can do with a file
+                    \item three sets, user, group, root
+                    \item Controls read/write/execute
+                \end{itemize}
+            \item System Calls
+                \begin{itemize}
+                    \item Interface between user programs and Kernel.
+                    \item Issued by user programs
+                    \item Library routine will create an Exception (software interrupt)
+                        and jump to the Syscall handler
+                    \item Handler will do some work based on the system call api defined
+                        by the OS, and will then return back when finished.
+                        \begin{mdframed}
+                            This is kinda true, may be subject to scheduling and time
+                            sharing policies. A syscall is usually the end of a CPU Burst
+                            and will allow the kernel to move the process into the BLOCKED
+                            state.
+                        \end{mdframed}
+                \end{itemize}
+            \item Operating Systems Structure
+                \begin{itemize}
+                    \item Micro Kernels
+                        \begin{itemize}
+                            \item Small number of processes
+                            \item Mechanism in Kernal, policy outside
+                            \item Minimize effects of bugs
+                        \end{itemize}
+                    \item Monolithic Systems
+                        \begin{itemize}
+                            \item Main program invokes requested service procedure
+                            \item Set of procedures carry out system calls
+                            \item Utility procedures help service procedures
+                        \end{itemize}
+                \end{itemize}
+        \end{itemize}
+\end{description}
+
+
+\end{document}
+

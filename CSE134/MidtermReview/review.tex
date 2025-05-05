@@ -1,0 +1,218 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{itemize}
+    \item What is operating system
+        \begin{mdframed}
+            Abstraction and resource manager. Provides clean beatiful
+            APIs for ugly hardware.
+
+            Time sharing + space sharing, (CPU + memory)
+        \end{mdframed}
+    \item Computer Architecture
+        \begin{mdframed}
+            CPU, Memory, I/O.
+
+            I/O includes printers, screens, disk, any thing
+            that isn't memory or CPU which the computer can interact
+            with.
+
+
+            What is an interrupt? What is DMA?
+
+            Interrupts are hardware signals which force the CPU to execute
+            specific instructions. They are used because sometimes we need
+            to notify the CPU of an event.
+
+            Different modes. Polling (I/O request), Interrupts (Interrupt pins),
+            DMA (direct memory access).
+
+            \begin{itemize}
+                \item DMA allows for no CPU usage, high throughput.
+                    Large data, ex: screens, GPUs, etc.
+                \item Polling, requires no hardware support but requires busy-waiting,
+                    and is blocking.
+                \item Interrupts do not require busy waiting but are low throughput,
+                    force a context switch, and requires specific hardware.
+
+                    Software can also use interrupts, these are called system calls,
+                    and force the CPU to begin running kernel code in kernel mode.
+            \end{itemize}
+
+            CPU pipelining, improves throughput but not latency. Allows for temporal
+            parrellelism which allos heterogenous tasks to occur simultaneously.
+
+            Use a buffer?! Idk man she doesn't explain very well.
+        \end{mdframed}
+        \begin{mdframed}
+           Handling interrupts 
+
+           Switches to kernel mode, uses a table to jump to interrupt
+           handler. It then runs the interrupt code, which promises to save
+           the CPU state (registers + memory). Then it runs in kernel mode until
+           eventually it switches back into the process and restores the CPU
+           state. This is also when the CPU scheduler will run for timesharing.
+           I/O syscalls will cause the thread to be blocked and it will wait in a
+           queue until it is ready to run again.
+        \end{mdframed}
+    \item Processes
+        \begin{itemize}
+            \item Process is a program in execution
+                \begin{mdframed}
+                    Data, memory, file descriptors.
+
+                    Binary program, instruction stream.
+                    Status (Running, Ready, Blocked), stack, which is part
+                    of the memory of the program.
+
+                    It also has other resources which in Linux are usually represented by file
+                    descriptors.
+
+                    Memory means an address space, which is a mapping from the addresses
+                    emitted by the running process to physical addresses which can be
+                    interpreted by the physical memory.
+
+                    Address space = location in memory.
+                \end{mdframed}
+            \item What is a thread?
+                \begin{mdframed}
+                    Threads are CPU execution states. Threads have their own stacks but
+                    share an address space with their parent process.
+
+                    Thread context switches are cheaper since it doesn't have to switch
+                    the page table.
+
+                    Running to blocked when I/O (polling or interrupt)
+
+                    Blocked to Ready when I/O finishes (polling or interrupt)
+
+                    Ready to Running when Scheduled
+
+                    Running to Ready when non blocking request?
+
+                    Running to Ready when preemption (round robin)
+                \end{mdframed}
+            \item What is a context switch
+                \begin{mdframed}
+                    When the CPU changes from a running process to another
+                    process. It also includes switches from User space to Kernel mode.
+                \end{mdframed}
+            \item Scheduler Metrics
+                \begin{mdframed}
+                    Utilization
+                    \begin{displaymath}
+                        U = 1 - (\prod u_i)
+                    \end{displaymath}
+                    
+                    Waiting Time: Queue waiting time
+
+                    This is the amount of time spent waiting in the
+                    ready queue.
+
+                    Turnaround time: the time from the start of a process
+                    to its termination. It is the sum of all the waiting times
+                    of each process.
+
+                \end{mdframed}
+            \item Interprocess Communication
+                \begin{mdframed}
+                    Race condition is a condition where two processes
+                    can both access some shared resource and can cause
+                    unwanted behavior.
+
+                    Critical region is the region of code where the process
+                    or thread is accessing the shared resource.
+
+                    Mutex and semaphores are best solution alongside disabling interrupts.
+                    Disabling interrupts is dangerous because it give user space too much power.
+
+                    Mutex is a single integer. Semaphores are an incrementing integer.
+
+                \end{mdframed}
+            \item Deadlock
+                \begin{itemize}
+                    \item Mutual exclusion
+                    \item Hold and wait
+                    \item Non preemption
+                    \item circular wait
+                \end{itemize}
+                \begin{mdframed}
+                    Detect and recover,
+                    Dynamic avoidance, 
+                    prevention.
+
+                    Prevention, invalidate any of the four conditions.
+                    Allow multiple access, allow request everything,
+                    allow preemption, numeric order.
+
+                    Resouce allocation graph is a way to detect circular wait
+                    conditions.
+                \end{mdframed}
+        \end{itemize}
+\end{itemize}
+
+
+\end{document}
+

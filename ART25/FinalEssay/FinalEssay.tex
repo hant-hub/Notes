@@ -1,0 +1,112 @@
+\documentclass[12pt]{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{minibox}
+\usepackage[style=apa]{biblatex}
+\renewcommand{\familydefault}{\sfdefault}
+
+\addbibresource{final.bib}
+
+\title{\Huge{Art 25}\\Final Reflection}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\linespread{2}
+
+\begin{document}
+\maketitle
+\newpage
+
+\center{\huge Theosophist Retrospective}
+
+\begin{description}
+    I was the lead programmer on Theosophist. In this reflection first I will cover the
+    major design choices I personally made and why, then I will discuss regrets and thoughts on the final product.
+
+\item {\large Inspiration}\\
+
+    I was the one in my group who first proposed the topic. I had been watching a series of videos by the youtube 
+    educator Kay Lack \parencite{lack} regarding text processing. I had also been watching videos regarding bible 
+    scholarship from the youtube channel Paulogia \parencite{paul}. I had been thinking about interpretation, and 
+    how we can build automatic systems to understand and react to writing. In my mind I imagined a game where you 
+    would receive vague “prophecies” in the form of requirements, and then it would be your job to interpret them into 
+    a poem or text of some kind, where you would then receive some kind of vague feedback. The entire point would have been 
+    utilizing opaque and unclear systems to replicate the kinds of things people do when interpreting ambiguous or out of 
+    context verses in religious texts.
+
+\item {\large Medium}\\
+
+    I do believe that there are many alternative ways to construct a game about poetry, with the right rules there is an
+    absolutely beautiful game between two people spinning verses in person or over a zine. However, while I agree 
+    with \cite{medium} that the medium is as important as the content when it comes to conveying a message, 
+    I am not starting from a singular message. My goal is not to be a non-specific multi-medium artist, my goal at 
+    university has been to become a knowledgeable and skilled  computer programmer. So I was never going to choose a 
+    different medium, however the medium chosen does have some benefits. Many role playing games can be made from 
+    chance and tables of prompts \parencite{rolerules}, however there are few mechanisms more adept and capable of 
+    processing rules and delivering tables than a computer program. In addition, there is the added benefit of the 
+    program being itself a tool for creating poems directly, if it were on pen and paper the game would simplify to 
+    prompts, by using a computer program as a medium the entire activity can be self containted rather than split
+    between multiple mediums and modes of activity.
+
+\item {\large Engine}\\
+
+    A key technical decision I made was the choice to not use a commercial game engine. I was inspired to build a 
+    game from scratch by the series Handmade Hero on youtube by game programmer Casey Muratori. In addition, 
+    rhetorically, I have a strong aversion to the idea of making a game that is unnecessarily esoteric, or temporary. 
+    Personally I wanted to build a game that is interesting not just for its circumstances but also its construction 
+    and craft as an object of labor. During the talk by Eddo Stern in class he mentioned that he does not release 
+    most of his games outside of the exhibit where he displayed it. I do not blame him, however I cannot agree with 
+    this style of game making. The idea of making a game just for a single exhibition or demo before throwing it away, 
+    or the idea of building a game towards that end is one which repulses me personally. So the decision to take into 
+    my hands the entirety of the technical body of the game was also a decision to make something with the obvious 
+    and explicit effort of its craft made evident. Rather than splitting the effort between programmers working on 
+    engines, myself, programmers working on tools and so on, all the work is in a single project, 3000 lines of code 
+    which simply exist and are free for everyone to see and take in.
+
+\item {\large Retrospective}\\
+
+    Overall I think the game was good. I have many qualms with the writing and what ended up being the levels.
+    The first level was my least favorite. I proposed the original idea based on a History of Mathematics class
+    I was taking, and it would have revolved around the mythical Pythagorus and would poke at the myth that mathematics
+    is fundamentally different from rhetoric or separate from culture. However in my desire not to micromanage the game 
+    and allow others to take charge the vision I had of a glowing divine manifestation of the fetishization of Greek 
+    culture ended up being a weird version of the professor from the movie Whiplash in a strange, inconsistent and 
+    unclear environment, only the art and word choice hinting at the ancient Greek inspiration.
+
+    To be clear I am very particular in my taste in art. I find no personal value in nonsense as the Dadaists did
+    \parencite{sit}, nor do I connect with many of the tactics of the Situationists. I merely find that in giving
+    control over the writing to a group member it has become something which I cannot relate to, something which
+    is immensely frustrating in the way it echoes my vision but does not truly match it.
+
+    I still believe that this idea has enormous potential yet to be tapped. I felt similar when looking over Fruit 
+    of Law \parencite{fruitlaw}, the game itself is interesting however the format has so many more potential 
+    expressions and complexities which could be explored. Near the end of the project I watched a video about Shel 
+    Silverstein \parencite{attic}. As a child I also read Shel Silverstein’s books and one in particular has had
+    a massive impact on me as a person. \textit{The Missing Piece Meets The Big O} \parencite{bigO} has had a profound
+    impact on how I approach relationships, and now that I am investigating poetry it has returned. As I revisited
+    these works a new goal for this concept took shape in my mind, I wanted to share this feeling, the joy of prose
+    that is perfect in the moment, of reading a work that goes on to change your entire life.
+
+    I do not think the project we made is a good piece of rhetoric. Some of my issues with what we made lie in
+    the technical details, lack of polish, pause menus, cross-platform saves, etc. I also take issue with
+    the writing, it isn't focused on anything in particular for either level in the game, it just is, and attempts
+    to recreate a specific scenario. However, despite that I think there is a kernel of potential that the game
+    is just competent enough to show glimpses of.
+
+    I think it does open up a large space of aesthetic and rhetorical works. It could be used to comment on the 
+    stress and desperation of real life communication, the search for the perfect words, or it could be used to
+    show players how the world around them can be transformed into language, not to mention many other possible 
+    rhetorical goals. My favorite level is one where you are asked to apologize for neglecting your partner
+    for a week, and there are no good answers. It reminds me of writing to someone searching for the perfect
+    words to make everything okay, and I think it is valuable to have experiences like that in art, not just
+    in watching characters attempt poetry and fail, but in we ourselves grappling with the stark inadequacy and
+    impotence of language. In this case the medium brings a new dimension which enhances the work \parencite{medium}.
+    
+\end{description}
+
+
+\printbibliography
+\end{document}

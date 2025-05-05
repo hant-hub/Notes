@@ -1,0 +1,110 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\large{Processes and Threads}
+\begin{description}
+    \item Review 
+        \begin{itemize}
+            \item What is a process? 
+                \begin{itemize}
+                    \item Program in execution
+                    \item Address space
+                    \item Input, output, state (registers, pc, etc)
+                \end{itemize}
+        \end{itemize}
+\end{description}
+\begin{itemize}
+    \item MultiProgramming
+        \begin{itemize}
+            \item Illusion of concurrency
+            \item Illusion paralellism
+        \end{itemize}
+    \item Process Creation
+    \item Process Termination
+        \begin{itemize}
+            \item Normal Exit
+            \item Error Exit
+            \item Fatal Error
+            \item Killed by another Process
+        \end{itemize}
+    \item CPU Utilization
+        \begin{mdframed}
+            \begin{displaymath}
+                U = 1 - p^{Y}
+            \end{displaymath}
+
+            Where $p$ is the amount of I/O wait,
+            and  $Y$ is the degree of multiprogramming.
+
+            This shows that the cpu utilization will increase
+            up to some maximum as you increase the multiprogramming,
+            and that multiprogramming benefits more from high amounts
+            of I/O waiting.
+            
+        \end{mdframed}
+\end{itemize}
+
+\end{document}
+

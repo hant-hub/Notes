@@ -1,0 +1,204 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 110A - Fundamentals Of Compiler Design}\\Day2}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Class Format 
+        \begin{itemize}
+            \item 5:20 - 6:55 PM T/TH
+            \item 10 mins of Q\&A after class if needed
+        \end{itemize}
+    \item Class Schedule
+        \begin{enumerate}
+            \item Announcements, homeworks, tests. Announcements sent out by email from
+                Canvas
+            \item Review last quiz.
+            \item Review of latest material
+            \item New Material
+        \end{enumerate}
+    \item Office Hours
+        \begin{itemize}
+            \item Appointment Basis
+            \item Google sheet (10 min slots)
+            \item Link posted on Canvas soon
+            \item Don't waste slots for no reason
+        \end{itemize}
+    \item Class Content
+        \begin{enumerate}
+            \item Regular languages and Expressions
+            \item Context free grammers and Parsing
+                \begin{mdframed}
+                    Bachus Naur Form, way to formally
+                    describe context free grammer.
+                \end{mdframed}
+            \item Intermediate Representations
+                \begin{mdframed}
+                    Parse trees, converting complex expressions to
+                    simple IR.
+                \end{mdframed}
+            \item Optimizations
+                \begin{mdframed}
+                    Simple optimizations, data flow optimizations,
+                    etc.
+                \end{mdframed}
+        \end{enumerate}
+        \begin{mdframed}
+            Schedule on Website
+        \end{mdframed}
+    \item Assignments and Tests
+        \begin{itemize}
+            \item Assignments in Python
+            \item Docker image used, don't rely too heavily on external libraries
+            \item Must run on docker to be graded
+            \item github classroom for automatic feedback
+            \item May use around 3 pages of notes for exams
+        \end{itemize}
+\end{description}
+
+\large{High Level Compiler Discussion Review}
+\begin{description}
+    \item What is a compiler
+        \begin{mdframed}
+            Input in a language\\
+            Output in a different language
+        \end{mdframed}
+\end{description}
+
+\large{Lexical Analysis}
+\begin{itemize}
+    \item Introduction
+        \begin{itemize}
+            \item Working with words we have various types of words
+                \begin{itemize}
+                    \item Nouns
+                    \item Verbs
+                    \item Articles
+                    \item Preposition
+                \end{itemize}
+
+                Before being able to understand language we first
+                need to break it apart into individual pieces which
+                have specific structure and roles
+        \end{itemize}
+    \item Lexing
+        \begin{mdframed}
+            We take the string and break it into tokens.
+            We replace each part of the string with a structure
+            which contains more information about its meaning.
+
+            One way this manifests is in a symbol table, we can
+            keep track of the name, type, etc. of what an identifier
+            means as we lex in order to generate tokens which refer to
+            repeated objects.
+        \end{mdframed}
+    \item How can we define a language?
+        \begin{itemize}
+            \item ARTICLE: The, A, My, Your
+            \item NOUN: Dog, Car, Computer
+            \item VERB: Ran, Crashed, Accelerated
+            \item ADJECTIVE: Purple, Spotted, Old
+        \end{itemize}
+        A sentence may be\\
+        ARTICLE ADJECTIVE? NOUN VERB
+
+        \begin{mdframed}
+            We can generate valid elements of our language by substituting
+            the various non terminal symbols for other symbols until we are left
+            with only terminal symbols.
+        \end{mdframed}
+    \item How do we expand this language?
+        \begin{mdframed}
+           ARTICLE ADJECTIVE* NOUN VERB 
+        \end{mdframed}
+
+        The star is known as the Kleene star, and
+        means repeat zero or more times. It corrosponds to this
+        rule:
+
+        \begin{mdframed}
+            ADJECTIVE = NONE | ADJECTIVE ADJECTIVE
+        \end{mdframed}
+
+        As we can see we can either replace ADJECTIVE with NONE or we
+        can replace it with ADJECTIVE ADJECTIVE, in addition to its other
+        substitution rules.
+
+        Stephen Cole Kleene formalized what a regular language was.
+
+    \item Programs for Lexical Analysis
+        \begin{mdframed}
+            Start with definitions of tokens. What is valid for that token
+            and what is invalid. In C a valid identifier can begin with a
+            letter or an underscore, and it contains any number of letters,
+            underscores, and numbers.
+        \end{mdframed}
+
+        \begin{mdframed}
+            Soem programs can automatically generate Lexers. They are kinda
+            cool but I personally am not particularly interested.
+        \end{mdframed}
+\end{itemize}
+
+\end{document}
+

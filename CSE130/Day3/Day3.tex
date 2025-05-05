@@ -1,0 +1,126 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 130}\\\huge{Principles of Computer System Design}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\large{Intro To Processes}
+\begin{description}
+    \item Modularity, Virtualization, etc.
+    \item What is a Process
+        \begin{mdframed}
+            An instance of a program to be executed.
+            Refers to the program being run, the register and variable
+            state, the I/O it has access to, the address space
+            which it owns, etc.
+        \end{mdframed}
+    \item OS view
+        \begin{itemize}
+            \item Process table, each entry is a process and contains a PCB
+            \item OS scheduler picks processes to be executed at any given time
+            \item When a process is suspended it's state is saved in the PCB
+            \item Its memory is not touched, it is spatially concurrent.
+                \begin{mdframed}
+                    This is possible via virtualization. No process can directly
+                    access physical memory, instead each memory access goes through
+                    a memory mapper which converts the address into a physical address
+                    via a page table.
+
+                    The page table data for each process is stored in the PCB and
+                    is controlled by the OS.
+                \end{mdframed}
+                \begin{mdframed}
+                    Old way of doing this before OS support for memory virtualization
+                    was to use PIE executables which are address agnostic. PIE is still
+                    used for DLLs or code which may be loaded in at runtime, since there
+                    is no way to garuntee where these blocks of code where be loaded in.
+                \end{mdframed}
+        \end{itemize}
+    \item User View
+        \begin{itemize}
+            \item Process Creation
+                \begin{itemize}
+                    \item System initialization
+                    \item User request via shell or in user space program
+                    \item shell scripts
+                \end{itemize}
+            \item Process Termination
+                \begin{itemize}
+                    \item Program exit
+                    \item Error Exit
+                    \item Fatal error ex: segfault, sigkill, etc.
+                    \item Killed by user command: SIGQuit, SigInt, etc.
+                \end{itemize}
+        \end{itemize}
+    \item Programmer View
+        \begin{itemize}
+            \item Processes start as clones
+            \item Processes can load and switch to different program
+            \item Child processes can create their own child processes
+            \item Eventually process terminates, calls exit or abort, or is killed by the OS
+        \end{itemize}
+        
+\end{description}
+
+
+\end{document}
+

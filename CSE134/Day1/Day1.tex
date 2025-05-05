@@ -1,0 +1,121 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Info 
+        \begin{mdframed}
+            Embedded Operating Systems\\
+            Professor: Prof. Liting Hu\\
+            TA 1: Cheng-Wei Ching\\
+            TA 2: ???
+        \end{mdframed}
+        \begin{mdframed}
+            \begin{itemize}
+                \item OS Concepts
+                \item Important Systems Concepts
+                \item Larger Software Systems
+            \end{itemize}
+        \end{mdframed}
+        \begin{mdframed}
+            Objectives
+            \begin{itemize}
+                \item 300 Concepts, issues, approaches
+                \item All Things based around main list
+            \end{itemize}
+        \end{mdframed}
+    \item Grading
+        \begin{mdframed}
+           \begin{itemize}
+               \item Assignments: 20\%
+               \item Projects: 50\%
+               \item Midterm: 10\%
+               \item Final: 20\%
+           \end{itemize} 
+        \end{mdframed}
+    \item Schedule
+        \begin{mdframed}
+            \begin{itemize}
+                \item Week 1 Intro
+                \item Processes and Threads Weeks 2 and 3
+                \item Deadlocks Week 4
+                \item File Systems Weeks 7 and 8
+                \item I/O Week 9
+                \item Virtualization Week 10
+            \end{itemize}
+        \end{mdframed}
+    \item Make Up Exam
+        \begin{mdframed}
+            Don't expect it unless some really
+            fucked up shit goes down.
+        \end{mdframed}
+    \item AI Policy
+        \begin{mdframed}
+            Idk, I don't wanna touch the damn things
+            so who gives a shit.
+        \end{mdframed}
+\end{description}
+
+\end{document}
+

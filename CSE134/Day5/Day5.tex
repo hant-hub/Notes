@@ -1,0 +1,153 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 134 - Embedded OS}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item Review 
+        \begin{itemize}
+            \item Purpose
+                \begin{mdframed}
+                    Hardware Abstraction\\
+                    Resource Manager
+                \end{mdframed}
+            \item What is Time Sharing
+                \begin{enumerate}
+                    \item CPU
+                    \item I/O Resources
+                    \item Memory Bus??
+                \end{enumerate}
+            \item What is Space Sharing
+                \begin{enumerate}
+                    \item RAM (Random Access Memory)
+                    \item ROM (Read Only Memory)
+                    \item EPROM (Electrongic Programmable Read Only Memory)
+                \end{enumerate}
+            \item What is a trap instruction?
+                \begin{mdframed}
+                    Software Interrupt, switch from User to Kernel
+                    Mode.
+                \end{mdframed}
+            \item What is an interrupt?
+                \begin{mdframed}
+                    It is a hardware component which causes
+                    the CPU to change modes and run an interrupt handler
+                \end{mdframed}
+            \item What is the CPU pipeline?
+                \begin{mdframed}
+                    Instruction level temporal parrallelism.
+                    Fetch, Decode Execute.
+
+                    Fetch, Decode, ALU, Memory, Write back
+
+                    FDEMW
+                \end{mdframed}
+            \item What is Virtual Memory?
+                \begin{mdframed}
+                    Virtual memory is a hardware feature which translates
+                    memory reads and writes to a physical memory address.
+
+                    We 'emulate' a memory address space which looks identical
+                    regardless of the underlying physical memory utilization.
+                \end{mdframed}
+            \item What is Process?
+                \begin{mdframed}
+                    Program in Execution, Code and memory and cpu state.
+                    The combination of these elements of computation form a 
+                    process.
+
+                    In modern Operating systems Code refers to an instruction stream,
+                    memory refers to some address space which is mapped to some physical
+                    locations on the physical memory component, state refers to the
+                    registers as well as some information about I/O and data transfer.
+                     
+                    READY, RUNNING, BLOCKED. All are orthogonal execpt that ready cannot
+                    go to blocked.
+
+                    File descriptors.
+
+                    Process permissions, ID, ring level, etc.
+
+                    I guess she wants that Virtual memory is an abstraction over physical
+                    memory. I think that is unclear, she should ask "what does it mean to
+                    virtualize memory?" Which would have been much better.
+                \end{mdframed}
+            \item What is an I-Node?
+                \begin{mdframed}
+                    Data structure which makes up the hierarchy of the filesystem.
+                    Contains all relevant metadata of a file except for its filename. 
+
+                    The filename is stored in the inode of the directory which points
+                    at the file.
+
+                    A directory is a table which contains i-nodes that point at it's contents.
+                    Essentially there is a massive table, of i-nodes, which point at each other,
+                    and at different locations in memory or disk. These locations are called
+                    Block Addresses.
+                \end{mdframed}
+        \end{itemize}
+\end{description}
+
+
+\end{document}
+
