@@ -1,0 +1,499 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 115A - Introduction to Software Engineering}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{mdframed}
+    Note: 
+
+    Today is the day the projects are supposed to start,
+    ideally we would have a sprint plan and TA meetings/stand up
+    times ready to go, but it should be fine as long as we get it done
+    within the week.
+
+    This should be the first sprint, but since we ran a little late, we
+    should assume less time.
+
+    We also need to make presentations.
+\end{mdframed}
+
+{\huge Scrum Best Practices}
+
+\begin{description}
+    \item Review
+
+        Roles
+        \begin{itemize}
+            \item Product Owner, communication between
+                customer and team, generally responsible
+                for prioritizing user stories and deciding
+                what exactly each release will look like.
+            \item Scrum Master, organize and fascilitate
+                Scrum practices among the team. They also
+                serve as an advocate for the team to management.
+            \item The Team, the actual experts and people
+                who are responsible for creating the final
+                product and managing what exactly happens
+                in each sprint.
+        \end{itemize}
+    \item Definitions of Done
+        \begin{itemize}
+            \item Agile emphasis
+                \begin{itemize}
+                    \item deliver actual functionality
+                    \item avoid waste
+                \end{itemize}
+            \item Strict definition of progress
+                \begin{itemize}
+                    \item  user stories
+                    \item tasks
+                \end{itemize}
+            \item Strict definition of completion
+                \begin{itemize}
+                    \item user stories
+                    \item sprint tasks
+                \end{itemize}
+        \end{itemize}
+
+        Each team creates their own definitions
+        which \textbf{must} be applied consistently
+
+        Example
+        \begin{itemize}
+            \item Code checked into repo
+            \item Code reviewed for style and standards
+            \item Code reviewed by team member
+            \item External/public API documentation
+            \item Unit tests
+            \item Non-functional tests (perf, memory, usability, etc.)
+            \item Regression tests
+            \item static code analysis
+            \item test coverage
+        \end{itemize}
+
+    \item Acceptance Criteria
+        \begin{itemize}
+            \item Is the thing what was requested?
+            \item Criteria
+                \begin{itemize}
+                    \item objective criteria for user story
+                        completion
+                    \item Basis for functional testing
+                    \item Basis for testing before release
+                    \item Basis for BDD/ATDD
+                        \begin{itemize}
+                            \item BDD: Behavior Driven Development
+                            \item ATDD: Acceptance Test Driven Development
+                        \end{itemize}
+                \end{itemize}
+            \item User stories in Product Backlog
+                \begin{itemize}
+                    \item User story start of conversation
+                    \item Product backlog contains all possible things anyone thought to ask for
+                \end{itemize}
+            \item User stories in Sprint Backlog
+                \begin{itemize}
+                    \item Commitment to actually create
+                    \item should be known what is required to
+                        complete and fulfill the user story.
+                \end{itemize}
+        \end{itemize}
+
+    \item Team Working Agreements
+        \begin{itemize}
+            \item Logistics
+                \begin{itemize}
+                    \item Dev environments
+                    \item Coding Style/standards
+                \end{itemize}
+            \item Work Patterns/Process
+                \begin{itemize}
+                    \item Definitions of done
+                    \item collaboration
+                \end{itemize}
+            \item Product Design Patterns
+                \begin{itemize}
+                    \item UX/UI look and feel
+                    \item architecture
+                    \item Error handling.
+                \end{itemize}
+        \end{itemize}
+
+    \item Avoiding Waste
+        \begin{itemize}
+            \item Unresolved problems grow
+                \begin{itemize}
+                    \item defect build up
+                    \item Technical Debt: steep interest rate
+                        \begin{mdframed}
+                             As a side note: This is where
+                             a preliminary design would be
+                             helpful. It can allow for us to
+                             discover the 'correct' way to
+                             do something without necessarily
+                             taking as much time as just trying
+                             to build the right thing from the
+                             start.
+                        \end{mdframed}
+                \end{itemize}
+            \item Minimize time between defect insertion and
+                correction
+                \begin{itemize}
+                    \item Goal is to make choices which allow
+                        for things to be tested and finalized
+                        as soon as possible so that fixes are
+                        small and contained to single tasks
+                        or only a couple sprints.
+                \end{itemize}
+        \end{itemize}
+    \item Increment Strategies
+        \begin{itemize}
+            \item Conventional Approach
+                \begin{itemize}
+                    \item Layer by layer
+                    \item Good when there are hard dependencies,
+                        if one layer depends on the layer below existing
+                        in its entirety.
+
+                        Also usable when the system itself cannot
+                        be easily broken apart into functional units,
+                        like some hardware problems.
+                    \item Example
+                        \begin{itemize}
+                            \item Start with Frontend
+                            \item Then Server
+                            \item Then Backend
+                        \end{itemize}
+                \end{itemize}
+                \pagebreak
+            \item Alternative Approach
+                \begin{itemize}
+                    \item Slice by Slice
+                    \item Example
+                        \begin{itemize}
+                            \item Start with Feature 1
+                            \item Then Feature 2
+                            \item Then Feature 3
+                        \end{itemize}
+                    \item Each slice includes the full tech
+                        stack required to make it work. For
+                        a web app the Front end, and Backend
+                        would be developed at the same time.
+                    \item Benefits to slice by slice is that
+                        it creates a testable feature at each
+                        step, and it mirrors the way the customer
+                        and product owner interact with the software
+                \end{itemize}
+            \item Considerations
+
+                Try and minimize the number of stories which
+                are in progress. Only fully completed stories
+                are actually useful to the Product Owners and
+                Customers.
+        \end{itemize}
+    \item Splitting User Stories
+        \begin{itemize}
+            \item User stories need to fit into a sprint
+            \item Guideline
+                \begin{itemize}
+                    \item Size of user story should be <50\%
+                        of a sprint
+                \end{itemize}
+        \end{itemize}
+
+        How can we break apart large stories?
+        \begin{itemize}
+            \item Split by workflow
+                \begin{mdframed}
+                    Example: create an account in Banking App
+                    \begin{itemize}
+                        \item Checking
+                        \item Savings
+                        \item Line of Credit
+                    \end{itemize}
+                \end{mdframed}
+                Ideally split and then prioritize based on
+                usefulness and the frequency of usage.
+            \item Split by Lifecycle
+                \begin{mdframed}
+                    Example: create an account in Banking App
+                    \begin{itemize}
+                        \item Create Account
+                        \item Make Deposit
+                        \item Withdraw Money
+                    \end{itemize}
+                \end{mdframed}
+
+                General Patter: CRUD
+                \begin{itemize}
+                    \item Create
+                    \item Read
+                    \item Update
+                    \item Delete
+                \end{itemize}
+            \item Split by Convenience Level
+                \begin{mdframed}
+                    Example: create an account in Banking App
+                    \begin{itemize}
+                        \item Enter data without autofill
+                        \item Type in Data vs select from menu
+                        \item Basic vs cool UI
+                        \item Manual vs Automatic
+                    \end{itemize}
+
+                \end{mdframed}
+                Start with basic tools and add the convenience
+                and polish on top.
+            \item Split by User Typicality
+                \begin{mdframed}
+                    Example: create an account in Banking App
+                    \begin{itemize}
+                        \item Novice, occasional, expert
+                        \item single account owner vs multiple
+                    \end{itemize}
+                \end{mdframed}
+
+                Add context to the user story to make
+                it more specific.
+                
+        \end{itemize}
+
+        What \textbf{Not} to do
+        \begin{itemize}
+            \item Do not split by architecture
+                
+                Not helpful to the user, leaves features
+                which are not complete for demoing and testing.
+            \item Do not split by function or critical
+                qualities
+                \begin{itemize}
+                    \item cannot split off security
+                    \item Data protection.
+                \end{itemize}
+
+                Leaves features which are broken and or
+                actively harmful to users. Can also make
+                adding the critical feature later more
+                costly and complicated.
+        \end{itemize}
+    \item Misc Tips
+        \begin{itemize}
+            \item Defined Room
+            \item Stand up same time and place every time
+            \item Enforce working agreements
+            \item Post Three Questions, should not need to be
+                reiterated every time
+                \begin{mdframed}
+                    \begin{enumerate}
+                        \item What did you do
+                        \item What are you going to do
+                        \item What is stopping you
+                    \end{enumerate}
+                \end{mdframed}
+            \item Use a physical Scrum board in addition
+                to whatever other tools.
+                \begin{mdframed}
+                    Not entirely sure why for this one? I
+                    mean a scrum visualizer isn't all that
+                    bad, and you shouldn't be updating the
+                    scrum board in the meeting anyways.
+
+                    Maybe put the scrum board in a public place.
+                \end{mdframed}
+
+            \item Use Synchonous Communication
+                \begin{mdframed}
+                    Not for everything, but it forces
+                    an immediacy to the communication which
+                    enhances the speed of communication and
+                    increases accountability.
+                \end{mdframed}
+        \end{itemize}
+
+    \item Agile Myths
+        \begin{itemize}
+            \item Understanding Problems
+                \begin{itemize}
+                    \item What can go wrong
+                    \item How to identify and remove obstacles
+                \end{itemize}
+        \end{itemize}
+
+        \begin{itemize}
+            \item Agile means no plan
+                \begin{mdframed}
+                    Planning is still required,
+                    and happens on multiple levels
+
+                    The main characteristic is that the
+                    plan is flexible and constantly is
+                    updated with the new knowledge
+                \end{mdframed}
+            \item Agile means any process is fine
+                \begin{mdframed}
+                    Agile still requires well defined
+                    processes and discipline
+                \end{mdframed}
+                \pagebreak
+            \item Agile means rushing products out of the door
+                \begin{mdframed}
+                    While agile emphasizes functional intermediate
+                    builds, it does not require poor engineering
+                    or doing the fastest least effort thing
+                    always.
+
+                    Agile relies on good feedback which means
+                    robust and fast processes for communication
+                    and revision.
+                \end{mdframed}
+        \end{itemize}
+    \item Scrum Smells
+        \begin{itemize}
+            \item Zero or more than 1 product owner.
+                \begin{mdframed}
+                    Product owner has the vison and controls
+                    the direction. Zero or multiple either
+                    lack or have conflicting visions and direction.
+                \end{mdframed}
+            \item The Scrum Task Master
+                \begin{mdframed}
+                    A scrum master who micro manages and directly
+                    commands team members
+                \end{mdframed}
+            \item Commitment Phobia
+                \begin{mdframed}
+                    Avoidance on committing to compeleting tasks
+                    or to actually making decisions
+                \end{mdframed}
+            \item Self unmanaged teams
+                \begin{mdframed}
+                    Teams that aren't managed externally
+                    and have little internal control.
+                \end{mdframed}
+            \item Burn up/down charts which stagnate
+                \begin{mdframed}
+                    Stagnation shows that something else
+                    may be wrong. Either everyone is blocked,
+                    or people aren't updating the chart,
+                    or even that something is wrong with the
+                    tasks.
+
+                    Sign to begin investigation into what
+                    is happening exactly on the team.
+                \end{mdframed}
+            \item Urgent things crowd out important things
+                \begin{itemize}
+                    \item Important vs Unimportant
+                        \begin{mdframed}
+                            Whether a task contributes
+                            to the goals of a system
+                        \end{mdframed}
+                    \item Urgen vs Not Urgent
+                        \begin{mdframed}
+                            Requires immediate attention
+                        \end{mdframed}
+                \end{itemize} 
+
+                It is a problem if the unimportant urgent
+                things cause the important non urgent things
+                to not be done. A good Scrum process
+                ensures that all important things are done
+                regardless of urgency.
+
+                It is also a benefit if things can be taken
+                care of or forseen before they become urgent.
+        \end{itemize}
+    \item Scrum-but
+        \begin{itemize}
+            \item Scrum without key features
+                \begin{itemize}
+                    \item no stand ups
+                    \item stand ups don't respect time
+                    \item No permanent Scrum master or product owner
+                    \item Sprint length varies
+                    \item Fix bugs in stabalization sprint
+                    \item No sprint review
+                    \item No sprint retrospective
+                \end{itemize}
+        \end{itemize}
+
+        Ask about alternatives, replacement systems.
+    \item Technical Practicies
+
+        Borrowed from XP (eXtreme Programming)
+        \begin{itemize}
+            \item Done Criteria
+            \item Peer review / Pair Programming (lmao)
+            \item Clean Code (yuck)
+            \item TFD/TDD (mixed)
+            \item Continuous Integration
+            \item Version Control
+            \item Test Coverage criteria
+            \item Static Analysis Tools
+        \end{itemize}
+
+\end{description}
+
+
+\end{document}
+

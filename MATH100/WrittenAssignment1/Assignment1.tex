@@ -1,0 +1,291 @@
+\documentclass[12pt]{article}
+
+% This file is a modified version of a tex file by Professor Ed Scheiermann from the Department of Applied Mathematics and 
+% Statistics at Johns Hopkins University in Baltimore, Maryland. Many thanks for letting us use it.
+
+% This first part of the file is called the PREAMBLE. It includes
+% customizations and command definitions. The preamble is everything
+% between \documentclass and \begin{document}.
+
+\usepackage[margin=1in]{geometry}  % set the margins to 1in on all sides
+\usepackage{graphicx}              % to include figures
+\usepackage{amsmath}               % great math stuff
+\usepackage{amsfonts}              % for blackboard bold, etc
+\usepackage{amsthm}                % better theorem environments
+
+
+% various theorems, numbered by section
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{conj}[thm]{Conjecture}
+\newtheorem{mydef}[thm]{Definition}
+
+\begin{document}
+
+
+\title{ Written Assignment 1\\
+ Sum of Two Squares}
+
+\author{ Elijah Hantman \\ 
+University of California at Santa Cruz\\
+Santa Cruz, CA 95064 USA }
+
+\maketitle
+
+\begin{abstract}
+We discuss when a given positive integer can be expressed as a sum of two squares. For odd primes, this question depends on whether these odd primes are congruent to 1 or 3 modulo 4.
+
+\end{abstract}
+
+
+\section{Introduction}
+
+We say that a positive integer $n$ is a sum of two squares if there exist integers $a$ and $b$ such that $n=a^2+b^2$. 
+Some positive integers can be expressed as a sum of two squares, but not all integers admit such an expression. For example integer $7$ cannot be a sum of two squares as can be easily seen. Some integers admit more than one way to write it as a sum of two squares. For example, 
+$$
+745=27^2+4^2=24^2+13^2.
+$$
+In this short article, we attempt to characterize those integers which can be written as sum of two squares. 
+
+This is a generalization of a theorem by Pierre Fermat which characterizes exactly which odd primes can be
+represented as the sum of two squares.
+
+\section{Basic Properties} 
+    
+First we show that the set of positive integers which are sum of two squares is closed under products. We can use the following formulae.
+\begin{align*}
+(a^2+b^2)(c^2+d^2)&=(ac+bd)^2+(ad - bc)^2 \\
+&=(ac-bd)^2+(ad + bc)^2.
+\end{align*}
+
+\begin{lem} If $m$ and $n$ are each a sum of two squares, then their product $mn$ is also a sum of two squares. 
+\end{lem}
+\begin{proof}
+    \begin{gather}
+        m = a^2 + b^2\\
+        n = c^2 + d^2\\
+        mn = (a^2 + b^2)(c^2 + d^2)\\
+        mn = a^2 c^2 + a^2 d^2 + b^2 c^2 + b^2 d^2\\
+        mn = (ac + bd)^2 + (ad - bc)^2\\
+        mn = (ac - bd)^2 + (ad + bc)^2
+    \end{gather} 
+\end{proof}
+
+Notice that the above two formululae give two ways to write $mn$ as sums of two squares.
+
+Every integer which is a square, say $N^2$, is trivially a sum of two squares since $N^2=N^2+0^2$. More generally, 
+
+\begin{lem} If $m$ is a sum of two squares, then the integer $N^2m$ is also a sum of two squares. 
+\end{lem}
+\begin{proof}
+    \begin{gather}
+        m = a^2 + b^2\\
+        N^2 m = N^2 ( a^2 + b^2 )\\
+        = a^2 N^2 + b^2 N^2\\
+        = (aN)^2 + (bN)^2
+    \end{gather}
+\end{proof}
+
+Every positive integer $n$ can be written uniquely as $n=N^2m$ where $N,m$ are positive integers and $m$ is square free, that is, in the prime decomposition of $m$ every prime factor of $m$ appears exactly once, to the first power. 
+
+In view of previous lemmas, if every prime appearing in $m$ is a sum of two squares, then $n=N^2m$ is also a sum of two squares. Thus, our next question is; which prime is a sum of two squares? The answer, surprisingly, depends on the property of primes $\mod 4$, for odd primes. For the even prime $p=2$, it is of course a sum of two squares: $2=1^2+1^2$. To investigate this question, we first prove one general result.
+
+\begin{thm} If a positive integer $n$ is a sum of two squares, then $n\equiv 0,1,2\mod 4$. 
+\end{thm}
+\begin{proof}
+    If a positive integer n is squared there are 4 cases.
+    
+    Case 1: $n \equiv 0$ modulo 4.
+    \begin{gather}
+        n = 4k\\ 
+        n^2 = 16k^2\\
+        n^2 = 4(4k^2)
+        n^2 \equiv 0
+    \end{gather}
+
+    Case 2: $n \equiv 1$ modulo 4.
+    \begin{gather}
+        n = 4k + 1\\
+        n^2 = 16k^2 + 8k + 1\\
+        n^2 = 4(4k^2 + 2k) + 1\\
+        n^2 \equiv 1
+    \end{gather}
+
+    Case 3: $n \equiv 2$ modulo 4.
+    \begin{gather}
+        n = 4k + 2\\
+        n^2 = 16k^2 + 16k + 4\\
+        n^2 = 4(4k^2 + 4k + 1)\\
+        n^2 \equiv 0
+    \end{gather}
+
+    Case 4: $n \equiv 3$ modulo 4.
+    \begin{gather}
+        n = 4k + 3\\
+        n^2 = 16k^2 + 24k + 9\\
+        n^2 = 16k^2 + 24k + 8 + 1\\
+        n^2 = 4(4k^2 + 6k + 2) + 1\\
+        n^2 \equiv 1
+    \end{gather}
+
+    Now consider the sum of two positive integers.
+
+    \begin{gather}
+        a = 4k + s\\
+        b = 4r + v\\
+        a + b = 4k + 4r + s + v\\
+        a + b = 4(k + r) + s + v
+    \end{gather}
+
+    We can see the sum is congruent to the sum of $s$ and $v$
+    modulo 4.
+
+    As shown above, the square of a positive integer modulo 4 is
+    congruent to either 0 or 1. This gives 3 possibilities without
+    loss of generality.
+
+    Case 1: $a^2 \equiv 0$ and $b^2 \equiv 0$.
+    \begin{gather}
+        a^2 + b^2 \equiv 0 + 0 \equiv 0
+    \end{gather}
+
+    Case 2: $a^2 \equiv 1$ and $b^2 \equiv 0$.
+    \begin{gather}
+        a^2 + b^2 \equiv 1 + 0 \equiv 1\\
+        a^2 + b^2 \equiv 0 + 1 \equiv 1
+    \end{gather}
+
+    Case 3: $a^2 \equiv 1$ and $b^2 \equiv 1$.
+    \begin{gather}
+        a^2 + b^2 \equiv 1 + 1 \equiv 2
+    \end{gather}
+
+    
+    We can therefore see that the sum of two squares must be
+    congruent to 0, 1 or 2 modulo 4.
+\end{proof}
+
+As an immediate consequence, we get the following corollaries. 
+
+\pagebreak
+\begin{cor}  If an odd prime $p$ is a sum of two squares, then we have $p\equiv 1\mod 4$. 
+\end{cor}
+\begin{proof}
+    Assume $p$ is an odd prime and a sum of two squares.
+
+    There are three cases, either $p$ modulo 4 is 0, 1, or 2.
+
+    If p modulo 4 is 0:
+    \begin{gather}
+        p = 4k + 0\\
+        p = 4k\\
+        4 | p
+    \end{gather}
+
+    Therefore p cannot be prime and thus p modulo 4 cannot
+    be 0.
+
+    If p modulo 4 is 2:
+    \begin{gather}
+        p = 4k + 2\\
+        p = 2(k + 1)\\
+        2 | p
+    \end{gather}
+    Therefore p cannot be prime and thus cannot be congruent
+    to 2.
+    By process of elimination any odd prime p which is a sum
+    of 2 squares, it must be congruent to 1 modulo 4.
+\end{proof}
+
+\begin{cor} If an odd prime $p$ is such that $p\equiv 3 \mod 4$, then $p$ is not a sum of two squares.
+\end{cor} 
+\begin{proof}
+    According to theorem 2.3, all positive integers must
+    be congruent to 0, 1, or 2 modulo 4 if they are the sum
+    of two squares.
+
+    All odd primes are positive integers, so if an odd prime is
+    the sum of two squares it must be congruent to 0, 1, or 2
+    modulo 4.
+\end{proof}
+
+The question is which odd prime $p$ such that $p\equiv 1\mod 4$ can be written as a sum of two squares. This is the content of the famous Fermat's Theorem. 
+
+\begin{thm}[{\bf Fermat}] Every odd prime $p$ such that $p\equiv 1\mod 4$ is a sum of two squares. 
+\end{thm}
+
+The proof is not easy, so we do not discuss here. By combining all previous results, we obtain the following characterization on the set of integers which are sum of two squares. 
+
+\begin{thm} Let $n$ be a positive integer and write it as $n=N^2m$ where $m$ is square free. If $m$ contains no prime factor of the form $4k+3$, then $n$ is a sum of two squares. 
+\end{thm}
+\begin{proof}
+    Assume $n$ is a sum of two squares.
+
+    Because $n$ is a positive integer we can write it as
+    $N^2 m$ where $m$ is a square free number. We know by
+    Lemma 2.2 that if $n$ is a sum of two squares then $m$
+    must also be a sum of 2 squares.
+
+    Since $m$ is a square free number we can write it as the
+    product $\prod m_1 m_2 m_3 ...$. However we know from Lemma 2.2
+    that the product of two numbers is a sum of squares if the
+    terms are sums of squares.
+
+    We know that some term $m_n$ is of the form $4k + 3$. This
+    means that $m_n$ is an odd prime of the form $4k + 3$ which
+    means it is congruent to 3 modulo 4. However by Corollary
+    2.5 we know that all odd primes congruent with 3 modulo
+    4 cannot be the sum of squares.
+
+    Therefore $m$ cannot be a sum of squares, and therefore
+    $n$ cannot be a sum of squares.
+\end{proof} 
+
+It is known that the above property completely characterizes the set of positive integers which are sum of two squares. 
+
+For example, we can write the following integers as sums of two squares in two different ways, as follows.
+\begin{itemize}
+\item $3185=5\cdot 7^2\cdot13= (1^2 + 2^2) \cdot 7^2 \cdot (3^2 + 2^2) = 49^2 + 28^2 = 7^2 + 56^2$
+\item $48314=2\cdot7^2\cdot17\cdot29= (1^2 + 1^2) \cdot 7^2 \cdot (5^2 + 2^2) \cdot (4^2 + 1^2) = 217^2 + 35^2 = 175^2 + 133^2$.
+\end{itemize}
+
+
+
+
+
+\section{Closing Remarks}
+
+While not the most important theorem or property in algebra and mathematics, but it is
+a very interesting observation and characterization. The sum of two squares answers the question 
+about what integer pythagorean triples exist, and provides a method to construct new pythgorean triples
+via mutiplication of odd primes.
+
+
+\begin{thebibliography}{ABE} 
+
+\bibitem{ABE} J.~Abhau, C.-F.~B\"odigheimer and R.~Ehrenfried, \emph{Homology of the mapping class group $\Gamma_{2,1}$ for surfaces of genus 2 with a boundary curve}, arXiv:0712.4254. 
+
+\bibitem{At} M.~F.~Atiyah, \emph{Topological quantum field theories}, Inst. Hautes Etudes Sci. Publ. Math. No 68 (1988), 175--186. 
+
+\bibitem{BT} C.-F.~B\"odigheimer and U.~Tillmann, \emph{Stripping and splitting decorated mapping class groups}, Birkh\"auser, Progress in Math. 196(2001), 47--57.
+
+\bibitem{B} K.S.~Brown, \emph{Cohomology of Groups}, Graduate Texs in Mathematics, 87, Springer Verlag, New York (1982). 
+
+\bibitem{CM} D.~Chataur and L.~Menichi, \emph{String topology of classifying spaces}, arXiv:0801.0174. 
+
+
+\bibitem{CS} M.~Chas and D.~Sullivan, \emph{String topology}, CUNY,
+to appear in Ann. of Math. (1999). math.GT/9911159
+ 
+\bibitem{CG} R.~Cohen and V.~Godin, \emph{A polarized view of string
+  topology}, Topology, geometry and quantum field theory, London
+  Math. Soc. Lecture Note Ser. Vol 308, 127--154. Cambridge
+  Univ. Press, Cambridge, 2004
+  
+\end{thebibliography}
+
+
+\end{document}

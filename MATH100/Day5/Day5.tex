@@ -1,0 +1,57 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 100}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+    \item 3.3 Biconditional Statements
+
+        To prove you have to show both implications.        
+
+        \begin{mdframed}
+            \begin{gather}
+                P \iff Q\\
+                (P \implies Q) \land (Q \implies P)
+            \end{gather} 
+        \end{mdframed}
+
+        Example, show $m$ is even if and only if $m^2$ is even.
+        \begin{mdframed}
+            First $m^2$ is even if $m$ is even.
+            \begin{gather}
+                m = 2n\\ 
+                m^2 = (2n)^2\\
+                (2n)^2 = 4n^2 = 2 (2n^2)
+            \end{gather}
+
+            Next, show that if $m$ is odd, $m^2$ cannot be
+            even.
+
+            \begin{align}
+                m = 2n + 1\\
+                m^2 &= (2n + 1)^2\\
+                    &= 4n^2 + 4n + 1\\
+                    &= 2(2n^2 + 2n) + 1
+            \end{align}
+
+            \qed
+        \end{mdframed}
+    \item Proof By Cases
+
+        Exhaustively prove all cases.
+
+\end{description}
+
+
+\end{document}

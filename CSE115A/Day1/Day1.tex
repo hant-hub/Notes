@@ -1,0 +1,188 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 115A - Introduction to Software Engineering}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+What even is Software Engineering?
+\begin{mdframed}
+    \begin{itemize}
+        \item Not Computer Science 
+        \item Not just programming 
+        \item What makes software different than other mediums?
+    \end{itemize}
+
+    It is about Products, process, and creating useful systems.
+    It is about the programming and Computer Science, but it is
+    also about what and why you are building what you are building,
+    as well as how you build it, who you work with, how people contribute,
+    how decisions are made, etc.
+
+    Learning Goals
+    \begin{itemize}
+        \item Design principles
+        \item Processes
+        \item Development methods
+    \end{itemize}
+\end{mdframed}
+
+Hierarchy of Changes, planning and Estimates
+\begin{itemize}
+    \item High level versions
+    \item each version contains multiple sprints
+    \item Each sprint contains multiple stories
+    \item Each story contains multiple tasks to be completed
+\end{itemize}
+
+Planning at the low level includes exact implementation
+details. At the high level planning includes features,
+fixes, api design, etc. At the highest level planning is
+about what each 'finished' version of the software will
+be.
+
+
+Release Plan
+\begin{mdframed}
+    Transfer to customer, and the thing being created.
+
+    Suggestions are collected. The team works to convert
+    suggestions into specific tasks and features. Only a portion
+    of all suggestions and requests can be fulfilled.
+\end{mdframed}
+
+Roles
+\begin{mdframed}
+    \begin{itemize}
+        \item team
+            \begin{itemize}
+                \item Team
+                    No hierarchy here. Developers are supposedly equally
+                    empowered to determine how each sprint works. Should
+                    only change membership between sprints.
+
+                    Ideally its composed of different people with many different
+                    skills.
+
+                \item Product Owner, define features of product, decides
+                    on release date and content, responsible for profit,
+                    prioritize features, accept or reject results.
+                \item SCRUM master
+
+                    represents project management, manages and facilitates SCRUM,
+                    works to keep team productive, interface with external management.
+            \end{itemize}
+    \end{itemize}
+\end{mdframed}
+
+Each Sprint is fixed. Change only happens between sprints
+or when all developers agree.
+
+
+Release
+\begin{mdframed}
+    \begin{itemize}
+        \item Determine User Stories to include
+            \begin{itemize}
+                \item Goal, or thing user wants to do
+                \item Analyze concept
+                \item decompose into set of stories
+                \item prioritize stories
+                \item estimate difficulty and time required for each story
+                
+            \end{itemize}
+
+            Direction of sprint planning process, functional description of
+            what the product should be.
+    \end{itemize}
+    INVEST
+    \begin{itemize}
+        \item Independent
+
+            Free of implementation dpendencies on other stories
+        \item Negotiable
+
+            Must be concrete enough to be debated.
+
+        \item Valuable
+
+            Should be worth the effort
+
+        \item Estimateable
+
+            Possible to estimate order of magnitude or relative
+            amount of work
+
+        \item Sized appropriatedly
+
+            Need to fit in a sprint, or be converted into
+            tasks which can be finished in a sprint
+
+        \item Testable
+
+            Should be verifiable that the story has been implemented or
+            resolved
+    \end{itemize}
+
+\end{mdframed}
+
+\end{document}
+

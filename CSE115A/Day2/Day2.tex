@@ -1,0 +1,393 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 115A - Introduction to Software Engineering}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+{\huge Agile Planning and Estimation Cont.}
+
+\begin{description}
+    \item User Story Format
+
+        \begin{mdframed}
+            As a [user] I want [goal] [for reason]
+        \end{mdframed}
+
+        Idea is to have a more direct summary of what
+        is important. The user story informs an experience
+        that the developers want to create rather than
+        a feature or implementation.
+
+    \item MoSCoW
+        \begin{enumerate}
+            \item Must Have
+            \item Should Have
+            \item Could Have
+            \item Won't Have
+        \end{enumerate}
+
+        User stories should be sorted into these buckets
+        in order to begin the process of determining what
+        the product should be.
+
+        MoSCoW is one scheme, other schemes can be simpler or
+        more complicated depending on the team and the 
+        product.
+
+    \item Estimating Cost
+        \begin{itemize}
+            \item Development Effort required
+                \begin{itemize}
+                    \item Story points
+                    \item Not measured in hours since
+                        many parts of the project are vague
+                        or unknown. The goal is to get a general
+                        feel for the effort rather than exact
+                        or even approximate estimates.
+                \end{itemize}
+            \item Story points are abstract, delibrately
+                vague
+
+                Points are allocated to small, medium, large, etc.
+                depending on the team. Generally using fibbonacci
+                numbers is common, the goal is to capture how
+                more difficult tasks tend to take longer
+                in a non linear fashion.
+        \end{itemize}
+    \item Planning Poker
+
+        Game to determine and align everyone's estimations
+        of effort.
+
+        \begin{itemize}
+            \item Discuss effort
+            \item Each team member makes a secret estimate
+            \item Check if every one matches
+            \item repeat until everyone is 'close enough'
+        \end{itemize}
+
+        The ultimate goal is to spend more time upfront in
+        order to prevent wasted work. Time spent planning
+        to hopefully improve efficiency and give accurate
+        costs for changes.
+
+    \item Assigning Stories
+
+        \begin{itemize}
+            \item How many story points can reasonably
+                be done in a sprint
+            \item Should be revised based on how
+                development progresses
+        \end{itemize}
+        
+        \begin{mdframed}
+            Note:
+
+            Sprint goals are estimates not commitments,
+            if a task is larger than expected it is okay
+            to overrun a sprint.
+        \end{mdframed}
+
+        The end of a sprint should result in a working
+        version of the product, meaning that user stories
+        should be doable in a single sprint, at least in
+        principle.
+
+
+    \item Goal of Planning
+
+        Prioritized list of user stories, estimated in points.
+        What to do and estimates of how much work it will take.
+
+        I mean sprint wise I would just push it into the next sprint
+        but the professor seems to be like oh you already have a plan
+        for each sprint and then it overruns so whatever.
+
+    \item Backlogs
+
+        Multiple backlogs, product backlog is every single story for the product.
+        A portion of the product backlog is selected for the release, then a portion
+        of the release backlog is allocated to each sprint. Each user story is broken
+        down into tasks to be completed.
+
+        Product Owners handle the product and release backlogs, the developers handle
+        the sprints and specific tasks. However they also inform the Product Owners
+        on what is and isn't possible.
+
+
+    \item Sprint Plan
+
+        More of a commitment than a release plan.
+        The sprint plan involves actual time and resources.
+        
+        \begin{mdframed}
+            Dude Idk why he keeps going back to
+            me saying roll it over. I literally assumed
+            we were planning the sprint, not that the
+            release had been planned and we ran out of
+            story points like bro.
+        \end{mdframed}
+
+        For a story to be done in a sprint it means that the
+        entire feature should be present. This means both front
+        and backend, enough to test and use the feature even if
+        unpolished.
+
+    \item Spring Planning Meeting
+
+        \begin{itemize}
+            \item Prioritize
+
+                Analyze and develop goals based on current
+                knowledge. Generally done by the PO with input
+                from the team regarding what is and isn't possible.
+
+            \item Planning
+
+                How to achieve goals. Create tasks for the current
+                sprint and goals, estimate the tasks in hours.
+
+                This is mostly done by the team since it regards the
+                technical details and final design work.
+
+        \end{itemize}
+
+        Estimations
+        \begin{itemize}
+            \item Units are in ideal hours
+
+                \begin{itemize}
+                    \item full knowledge and no surprises
+                    \item Generally underestimation by 2 or more times
+                \end{itemize}
+
+            \item How much can each person do?
+                \begin{itemize}
+                    \item Assume conservative figure, 8-12 hours
+                    \item Over time update with actual work completed.
+                \end{itemize}
+        \end{itemize}
+
+        Possibilities
+        \begin{itemize}
+            \item Not enough time
+                \begin{itemize}
+                    \item reasses stories
+                    \item update priorities
+                    \item put down lower priority stories
+                \end{itemize}
+
+            \item Too much time
+                \begin{itemize}
+                    \item Unlikely
+                    \item Add story midway
+                    \item update priorities
+                \end{itemize}
+        \end{itemize}
+
+    \pagebreak
+    \item Expectations for Planning
+
+        \begin{itemize}
+            \item Task listing with time estimate and prioritized
+            \item Team Roles
+            \item Initial task assignments
+            \item Initial task burn-up / burn-down chart
+            \item Initial Scrum board set up
+            \item Schedule of Scrum meetings
+        \end{itemize}
+
+
+    \item Managing the Sprint
+        \begin{itemize}
+            \item Individuals sign up for tasks
+            \item Work remaining is estimated daily
+            \item Any team can edit the backlog
+            \item Revaluate and edit amount of work as
+                things are discovered.
+        \end{itemize}
+
+    \item Daily Scrum
+        \begin{itemize}
+            \item Daily meeting
+            \item 15 mins
+                \begin{itemize}
+                    \item Strict time
+                    \item Follow up after for bigger issues
+                    \item Stand-up, keep everything fast and short
+                \end{itemize}
+            \item Not for problem solving
+                \begin{itemize}
+                    \item Only team members, scrum master, and
+                        product owner can talk
+                    \item Anyone can attend
+                \end{itemize}
+            \item Goal is to avoid other meetings
+        \end{itemize}
+
+        Topics
+        \begin{enumerate}
+            \item What did you do yesterday?
+            \item What will you do today?
+            \item Is there anything in your way?
+                \begin{mdframed}
+                    Personally the first 2 could be
+                    done async, and the third could be
+                    done just between the people managing
+                    both sides of the issue.
+                \end{mdframed}
+        \end{enumerate}
+
+    \item Pitfalls
+        \begin{itemize}
+            \item Being late or missing the meeting has a penalty
+                \begin{itemize}
+                    \item if not present assumed nothing happened
+                    \item disrespectful
+                    \item can block people
+                \end{itemize}
+            \item Grandstanding
+
+                Own up to whether you didn't get much done
+                be honest and concise
+
+            \item Over time
+                \begin{itemize}
+                    \item Stay in time
+                    \item Big issues should be discussed
+                        by involved team members after Scrum
+                \end{itemize}
+            \item Failure to commit to work
+            \item Failure to update Scrum Board
+        \end{itemize}
+
+    \item Scrum Board
+        
+        Table which represents the current sprint progress.
+        For each story there are tasks which are sorted into
+        To-Do, In-Progress, and Done.
+
+        As tasks are completed they move from the To-Do column
+        to the In-Progress and eventually the Done column.
+
+        As tasks are picked up the name of the person doing
+        the task is noted.
+
+        Only valuable if it is up to date.
+
+    \item Sprint Post Mortem
+
+        Evaluate product and process.
+
+        Reflect on how things went and what went wrong
+        or could have been done better, as well as what
+        went well and what worked.
+
+        If you missed the goal you need to replan the future
+        sprints and reevaluate the time cost of each task.
+
+        Sprints are never extended, they are just checkpoints
+        and not deadlines. Unfinished work is not necessarily
+        a failure to deliver.
+
+    \item Sprint Review
+        \begin{itemize}
+            \item Demo of product at end of sprint
+            \item Informal, less than 2 hour prep no slides
+            \item Who
+                \begin{itemize}
+                    \item Whole team
+                    \item Anyone interested
+                \end{itemize}
+            \item Show what actually exists and what is
+                actually finished.
+        \end{itemize}
+
+    \item Sprint Retrospective
+        \begin{itemize}
+            \item After every sprint
+            \item process improvement
+            \item 15-30 mins
+            \item Whole team
+        \end{itemize}
+
+        One way
+        \begin{itemize}
+            \item Start Doing
+            \item Stop Doing
+            \item Continue Doing
+        \end{itemize}
+
+        Goal is to improve the infrastruture and practicies
+        by reviewing and reflecting on them.
+
+
+    \item Initial Presentations
+        Template is on Canvas.
+
+        Can use any slides as long as all the same
+        info is on the slides.
+\end{description}
+
+
+\end{document}
+

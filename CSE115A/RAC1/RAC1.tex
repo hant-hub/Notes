@@ -1,0 +1,109 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 115A - Introduction to Software Engineering}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+%TODO(ELI): Make sure to change the apollo stuff if it becomes avalible
+
+“Managing the development of large software systems" Winston Royce was published in
+1987 as part of the 1987 international conference on Software Engineering.
+Winston Royce stated that his goal was to share his understanding of the kinds of processes
+which are required when delivering large software systems, based on his near decade
+of experience in the aerospace industry. I tried to read about some of the Apollo systems
+however the link was broken and I ultimately could not read them.
+
+In his paper Royce makes a number of arguements.
+One of the first arguements he makes is that there are two primary stages of delivering
+software, Analysis, and Coding. To Royce Analysis comprises all of the labor required to
+understand what needs to be made, things like researching the problem, selecting algorithms,
+understanding what pieces of data need to be tracked and where they are used, all fall under
+Analysis.
+
+Along with the basic stages of Analysis and Coding, Royce adds a number of additional stages and
+processes which seek to address problems in the basic model. He begins by adding standard steps,
+defining clearly the requirements of the project, testing, and deployment/usage as discrete
+stages with their own experts and processes. One of the stages he proposes which goes beyond the
+standard is the Preliminary Design stage.
+
+The goal of this new stage is to create a seed of the solution, this is going to inevitably
+be incomplete, but the goal is to create a skeleton which makes the work of the analysts and
+the final designers easier by reducing the uncertainty. Analysts can see what tasks need to
+be done in what amount of time as they solve problems, designers and analysts can immediately
+begin discussing the correct allocation of resources to each sub task without having to wait
+for both analysis without an existing design and an official system design before iterating.
+
+Many will credit Royce for creating a robust template for Waterfall development, however
+Royce does not use the term Waterfall anywhere in his writing. He also does not state that
+each stage cannot be happening concurrently and versions of each stage also tend to exist
+in modern CI/CD pipelines, even those which are used by more agile teams.
+
+I would argue that Royce's approach is not inconsistent with agile approaches even if it
+cannot be done in the way he originally envisioned. The steps he describes are essential,
+testing is a massive part of any professional development team, preliminary designs are useful
+both on the micro level of individual features and tasks, as well as on the macro level for
+broad architectual decisions which may influence the direction of the entire release.
+
+
+
+\end{document}
+

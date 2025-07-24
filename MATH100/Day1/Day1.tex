@@ -1,0 +1,389 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 100}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+\begin{description}
+   \item 
+       {\Large Review/Intro }
+
+       \begin{itemize}
+           \item Midterm is take home, start when convenient.
+           \item Practice writing papers
+           \item Using \LaTeX
+           \item One problem per lecture, due Sunday
+           \item 2 Papers, normal math paper.
+       \end{itemize}
+
+       Goal is to practice writing, so the problems are not
+       particularly advanced. Nor is it systematic, it is
+       whatever problem is best to practice the given writing
+       skill.
+    \item
+        {\Large Set Theory Notation}
+
+        \begin{mdframed}
+            Capital letters denote sets.
+
+            Lower case letters denote elements.
+        \end{mdframed}
+
+        Example:
+        \begin{displaymath}
+         a \in A
+        \end{displaymath}
+
+        a is an element in the set A.
+
+        \begin{displaymath}
+        a \notin A 
+        \end{displaymath}
+
+        a is not contained in A.
+
+        {\large How to Describe a Set?}
+        \begin{enumerate}
+            \item List all elements
+
+                \begin{displaymath}
+                 A = \{ -4, -2, 0, 2, 4 \}
+                \end{displaymath}
+
+            \item State properties of elements
+
+                \begin{displaymath}
+                    A = \{ x \in \mathbb{Z} | IsEven(x), |x| \le 4 \}
+                \end{displaymath}
+            
+        \end{enumerate}
+
+        {\large Empty Set}
+
+        Denoted $\emptyset$, which is the greek letter 'phi'.
+        Also denoted $= \{ \}$.
+
+        \begin{mdframed}
+            Note: $\{ \emptyset \}$
+
+            A set whose single element is an empty set.
+            This set has a size of 1. This is distinct from
+            the empty set.
+
+            This also implies $ \emptyset \in A $ is reasonable.
+        \end{mdframed}
+
+    \item {\large Cardinality}
+
+        \begin{gather}
+            |A| = \text{ the cardinality of the set A} 
+        \end{gather}
+
+        \begin{mdframed}
+            There are multiple infinite hierarchies of cardinality,
+            regarding sets whose definitions contain infinite but distinct
+            quanities.
+        \end{mdframed}
+
+        The Cardinality is the number of elements.
+        The empty set has a cardinality of 0, while the
+        set containing the empty set has a cardinality of 1.
+        
+    \pagebreak
+    \item {\large Subset}
+
+        Let B, be a set.
+
+        a set A is a subset of B if every element
+        of A is an element of B.
+
+        \begin{gather}
+            A \subseteq B \iff {\forall a \in A | a \in B} 
+        \end{gather}
+
+        If $A \subseteq B$, then it is possible that $A = B$.
+
+    \item {\large Proper Subset}
+
+        A proper subset excludes the possibility that the
+        subset is equal to the set.
+
+        \begin{gather}
+           A \subset B \implies A \neq B 
+        \end{gather}
+    
+    \item {\large Example}
+
+        \begin{gather}
+            B = \{ \emptyset, \{ \emptyset \}, 1, 2, \{1, 2 \} \} 
+        \end{gather}
+        
+        We can write:
+
+        \begin{gather}
+            \emptyset \in B, \quad \{\emptyset \} \subseteq B 
+        \end{gather}
+
+        Both mean the same thing, however the first directly states
+        that the element is in B, and the second says that the
+        set containing the element is a subset, which is equivalent.
+
+
+        \begin{gather}
+            1, 2 \in B \quad \{ 1, 2 \} \subseteq B \\ 
+            \{ 1, 2 \} \in B
+        \end{gather}
+
+        All the above are true, however the first line
+        refer to the same elements, but the second line refers
+        to specifically the set which is an element of B.
+
+
+    \item {\large Powerset}
+
+        A: a set
+
+        \begin{align}
+            \mathcal{P}(A) &= \text{ The power set} \\ 
+            &= \text{ the set of all subsets of A }
+        \end{align}
+
+        For Example:
+
+        \begin{gather}
+            A = \{1, 2, 3\}\\
+            \mathcal{P}(A) = \{\emptyset, \{ 1 \}, 
+                \{ 2 \}, \{ 3 \}, \{1, 2\}, \{2, 3 \},
+            `\{3, 1\}, \{1, 2, 3\}\}
+        \end{gather}
+       
+        \pagebreak
+        {\large Lemma}
+        \begin{mdframed}
+            A is a set with a finite number of elements.
+
+            Then:
+
+            \begin{gather}
+                | \mathcal{P}(A) | = 2 ^{|A|} 
+            \end{gather}
+
+            This follows since each element of the set can either
+            be included or not included, meaning there are 2 variants
+            per element, meaning for each element we double the number
+            of subsets.
+
+            This also follows from:
+
+            \begin{gather}
+                2^n = \sum_{k=0}^{n} \binom{n}{k} 
+            \end{gather}
+
+            This means we are counting the number of ways
+            to choose k elements from n elements. We sum
+            all of these choices for each size of subset.
+
+            This can be directly shown via algebra since we
+            have a closed form solution for $\binom{n}{k}$
+        \end{mdframed}
+
+    \item {\large Example}
+
+        \begin{gather}
+            A = \{\emptyset, \{ \emptyset \} \} \\
+            \text{Then}\\
+            \mathcal{P}(A) = \{\emptyset, \{ \emptyset \},
+            \{ \{ \emptyset \} \},
+        \{\emptyset, \{\emptyset \}\}\}
+        \end{gather}
+
+    \item {\large Set Operations}
+
+        A, B, C are subsets of $U$
+
+        \begin{enumerate}
+            \item 
+                $A \cup B$ are the elements of U which
+                are in A or B.
+
+                $\{ x \in U | x \in A \lor x \in B\}$
+
+            \item $A \cap B$ are elements in U which
+                are in both A and B.
+
+                $\{x \in U | x \in A \land x \in B \}$
+
+            \item $A - B$ The elements of U which are in
+                A but not in B.
+
+                $\{x \in U | x \in A \land x \notin B \}$
+
+                Like in arithmetic, subtraction is not
+                commutative.
+            \item $A^{c} = \bar{A}$ The complement of A. It means
+                all the elements of U which are not in A.
+
+                $\{ x \in U | x \notin A \}$
+
+                Two common notations, the bar or a small c.
+        \end{enumerate}
+
+        Some identities
+        \begin{itemize}
+            \item $A - B = A \cap \bar{B}$
+            \item $\overline{A \cup B} = \bar{A} \cap \bar{B}$
+            \item $\overline{A \cap B} = \bar{A} \cup \bar{B}$
+                \begin{mdframed}
+                    Note: The previous two identities are
+                    corrollaries of de Morgan's Laws of logic.
+                    They are also called de Morgan's Laws here.
+                \end{mdframed}
+        \end{itemize}
+
+    \item {\large Indexed Sets }
+
+        \begin{gather}
+            \{A_1, A_2, ... , A_n\} = \{ A_i \}_{1}^{n}
+            = \{ A_i \}_{i \in I}\\
+            I = \{1, 2, ..., n \} \\
+            A_1 \cap A_2 \cap ... \cap A_n = \bigcap_{i \in I} A_i\\
+            A_1 \cup A_2 \cup ... \cup A_n = \bigcup_{i \in I} A_i\\
+        \end{gather}
+
+        Convenient for expressing infinite combinations of sets
+        or infinite sets of sets. This is easy to denote if
+        $I$ is an infinite set.
+
+        \begin{gather}
+            \{S_\alpha, S_\beta, S_\gamma, ... \} = \{S_\lambda \}_{\lambda \in I}\\ 
+            I = \{\alpha, \beta, \gamma, ... \}
+        \end{gather}
+
+
+    \item Example
+
+        \begin{gather}
+            I = [1, \infty)\\
+            \text{For each $r \in I$, consider a set}\\
+            S_r = (-\frac{1}{r}, \frac{1}{r})\\
+            \text{What is the intersection and union?}\\
+            \bigcap_{r\in I}S_r,\quad \bigcup_{r\in I}S_r
+        \end{gather}
+
+        \begin{gather}
+            \bigcap_{r \in I} S_r = \{x \in \mathbb{R} | x \in S_r, \forall r \in I \}\\
+            = \{ 0 \}\\
+            \text{For all $x \neq 0$ we can choose $r \ge 1$ such
+            that $|x| > \frac{1}{r}$}
+        \end{gather}
+
+        This means that for all $x \neq 0$ it cannot be in the
+        intersection.
+
+        \begin{gather}
+            \bigcup_{r \in I} S_r = (-1, 1) = S_1 
+        \end{gather}
+
+        In general, infinite union of open intervals is a collection
+        of open intervals. However, infinite intersection of infinite
+        open intervals may not be open.
+
+        \begin{mdframed}
+            One of the core concepts of topology apparently. Leads
+            directly to topological spaces.
+        \end{mdframed}
+    
+    \item Partition of Sets
+
+        A is a set
+
+        \begin{gather}
+            \mathcal{S} = \{X_a \}_{a \in I}  
+        \end{gather}
+
+        A collection of nonempty subsets of A, indexed by I.
+
+        Definition:
+        \begin{mdframed}
+            A collection S of subsets of A is
+            a partition of A if 
+
+            \begin{enumerate}
+                \item $\bigcap_{a \in I} X_a = \emptyset$ All sets have
+                    no elements in common, they are disjoint.
+
+                \item $\bigcup_{a \in I} X_a = A$ The union of all
+                    sets is equal to A.
+            \end{enumerate}
+        \end{mdframed}
+
+        An equivalence relation is related to partitions,
+        each relation implies a partition and each partition
+        implies an equivalence relation.
+    
+    \item Example
+        \begin{gather}
+            A = \mathbb{Z}\\
+            \text{Def: For $n \in \mathbb{Z}^+$, and $a, b \in \mathbb{Z}$}\\
+            a \equiv b \mod n \iff n | a - b
+        \end{gather}
+
+        \begin{gather}
+            n > 0 \text{ For $0 \leq r \leq n - 1$, let}\\ 
+            [r]_n = \{ \text{all integers with remainder r after
+            dividing by n} \}\\
+            = \{k \in \mathbb{Z}^+ | k \equiv r \mod n \}\\
+            = \{..., r - 2n, r - n, r, r + n, r + 2n, ... \}
+        \end{gather}
+
+        \begin{gather}
+            [2]_3 = \{..., -11, -8, -5, -2, 2, 5, 8, 11, ... \}
+        \end{gather}
+        
+        {\large Lemma}
+        \begin{mdframed}
+            \begin{gather}
+                \{[0]_n, [1]_n, [2]_n, ... [n-1]_n \} 
+            \end{gather}
+            Is a partition of $\mathbb{Z}$.
+        \end{mdframed}
+
+        This is called a conguence class.
+
+    \item {\large Example}
+
+        For $n = 3$ then $0 \le r \le 2$
+    
+        That implies three subsets.
+
+        \begin{gather}
+            [0]_n = \{ ..., -6, -3, 0, 3, 6, ...\}\\
+            [1]_n = \{ ..., -5, -2, 1, 4, 7, ...\}\\
+            [2]_n = \{ ..., -4, -1, 2, 5, 8, ...\}
+        \end{gather}
+
+        Together, no element is shared, and they cover all
+        elements in $\mathbb{Z}$.
+
+        We can treat these sets as algebraic objects we can
+        do arithmetic on.
+
+        We can define division on these conguence classes which
+        is contained to the sets. This is a finite field.
+
+\end{description}
+
+
+
+
+\end{document}

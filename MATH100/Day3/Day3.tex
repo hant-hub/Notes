@@ -1,0 +1,256 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\newtheorem{thm}{Theorem}[section]
+
+\title{\Huge{Math 100}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+Definition:
+\begin{mdframed}
+    Given $P \implies Q$, the converse
+    is $Q \implies P$.
+\end{mdframed}
+
+Definition:
+\begin{mdframed}
+    The biconditional of P and Q is the statment
+    \begin{displaymath}
+        (P \implies Q) \land (Q \implies P)
+    \end{displaymath}
+
+    It is also written as
+
+    \begin{displaymath}
+        P \iff Q
+    \end{displaymath}
+
+    And uses the word iff or the phrase
+    if and only if.
+
+    Also in English, necessary and sufficient
+    also means the same thing.
+
+    This works because necessary means $Q \implies P$
+    and sufficient means $P \implies Q$.
+
+    Also means that P and Q are equivalent because
+    the statement $P = Q$ will be tautalogical.
+\end{mdframed}
+
+\begin{center}
+    Implication Truth Table\\
+    \begin{tabular}{|c|c|c|c|c|}
+        \hline
+        P & Q & $P \implies Q$ & $Q \implies P$ & $P \iff Q$\\ 
+        \hline
+        T & T & T & T & T\\
+        \hline
+        T & F & F & T & F\\
+        \hline
+        F & T & T & F & F\\
+        \hline
+        F & F & T & T & T\\
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsection{Tautologies and Contradictions}
+
+Definition:
+\begin{mdframed}
+    A compound statement is a statement consisting
+    of at least one statement involving at least one
+    logical connective (and, or, not, implies, bicond).
+\end{mdframed}
+
+Definition:
+\begin{mdframed}
+    A tautology is a compound statement which is always
+    true regardless of the truth values of component statements.
+\end{mdframed}
+
+Definition:
+\begin{mdframed}
+    A contradiction is a compound statement which is always
+    false regardless of the truth values of component statements.
+\end{mdframed}
+
+
+Example:
+\begin{mdframed}
+    \begin{gather}
+        P \land \neg P = F
+    \end{gather}
+
+    A simple contradiction.
+
+    \begin{gather}
+       P \lor \neg P = T 
+    \end{gather}
+
+    A simple tautology.
+
+
+\end{mdframed}
+
+Other Useful tautologies:
+\begin{itemize}
+    \item
+        \begin{gather}
+            P \land (P \implies Q) \implies Q
+        \end{gather}
+
+        This is a simple tautology from the definitions.
+        If P implies Q and P is true, then Q must be true.
+    \item 
+        \begin{gather}
+            (P \implies Q) \land (Q \implies R) \implies (P \implies R) 
+        \end{gather}
+\end{itemize}
+
+\subsection{Logical Equivalence}
+
+Definition:
+\begin{mdframed}
+    Given statements R, and S. R and S are
+    logically equivlanet if they have the same
+    truth value for all combinations of truth
+    values of each of their component statements.
+
+    Denoted: $R \equiv S$
+    
+
+    \begin{displaymath}
+        R \equiv S
+    \end{displaymath}
+
+    When
+
+    \begin{displaymath}
+        R \iff S
+    \end{displaymath}
+
+    Is a tautology.
+\end{mdframed}
+
+
+\begin{thm}
+   \begin{gather}
+        (P \implies Q) \equiv (\neg P) \lor Q
+   \end{gather}     
+\end{thm}
+
+\subsection{Fundamental Properties of Logical Equivalences}
+
+\begin{enumerate}
+    \item $\neg (\neg P) \equiv P$
+    \item Commutivity:
+        \begin{gather}
+           P \lor Q \equiv Q \lor P\\ 
+           Q \land P \equiv P \land Q
+        \end{gather}
+    \item Associativity:
+        \begin{gather}
+            (P \lor Q) \lor R \equiv P \lor (Q \lor R)\\ 
+            (P \land Q) \land R \equiv P \land (Q \land R)
+        \end{gather}
+    \item Distributive Laws:
+        \begin{gather}
+            (P \lor Q) \land R \equiv (P \land R) \lor (Q \land R)\\
+            (P \land Q) \lor R \equiv (P \lor R) \land (Q \lor R)
+        \end{gather}
+    \item DeMorgan's Law:
+        \begin{gather}
+            \neg (P \land Q) \equiv (\neg P) \lor (\neg Q)\\
+            \neg (P \lor Q) \equiv (\neg P) \land (\neg Q)
+        \end{gather}
+
+        These are the same as the set theory version. It works
+        since sets can also be defined as some logical statement
+        where truth means it is in the set and false means
+        it is excluded. Then the laws are literally the same.
+\end{enumerate}
+
+How do we use Equivalences?
+\begin{enumerate}
+    \item $\neg (P \implies Q) \equiv P \land (\neg Q)$
+        We can show this is the same using De Morgan's law.
+        And the tautology $P \implies Q \equiv \neg P \lor Q$
+
+        \begin{gather}
+            \neg (P \implies Q) \equiv \neg (\neg P \lor Q)\\ 
+            P \land (\neg Q) \equiv P \land (\neg Q)
+        \end{gather}
+\end{enumerate}
+
+Example:
+\begin{mdframed}
+    \begin{gather}
+        ((\neg Q) \implies (P \land \neg P)) \equiv Q
+    \end{gather}
+\end{mdframed}
+
+Example:
+\begin{mdframed}
+    Proof by Contradiction
+
+    Goal:
+    \begin{gather}
+        P \implies Q
+    \end{gather}
+
+    \begin{gather}
+        P \implies Q \equiv P \land (\neg Q) \implies (R \land \neg R)
+    \end{gather}
+
+    We get benefits by getting to assume more things.
+    Rather than just assuming $P$ we assume $P$ and
+    $\neg Q$. If we can reach a contradiction then we
+    have shown $P \implies Q$.
+    
+
+    \begin{gather}
+        P \land (\neg Q) \implies (R \land \neg R) \\
+        \equiv \neg (P \land (\neg Q)) \lor (R \land \neg R)\\
+        \equiv \neg (P \land (\neg Q)) \lor F\\
+        \equiv \neg (P \land (\neg Q))\\
+        \equiv \neg P \lor Q\\
+        \equiv P \implies Q
+    \end{gather}
+\end{mdframed}
+
+\subsection{Quantified Statements}
+
+$P(x)$ is an open sentence.
+
+Consider:
+\begin{gather}
+    \forall x \in S | P(x)\\
+    \exists x \in S | P(x)
+\end{gather}
+
+These mean, for all x and there exists an x
+respectively.
+
+
+{\large Negation}
+\begin{gather}
+    \neg (\forall x \in S, P(x)) \equiv \exists x \in S, \neg P(x)\\
+    \neg (\exists x \in S, P(x)) \equiv \forall x \in S, \neg P(x)
+\end{gather}
+
+
+
+
+\end{document}

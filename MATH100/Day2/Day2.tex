@@ -1,0 +1,297 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\renewcommand{\familydefault}{\sfdefault}
+
+\title{\Huge{Math 100}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+Set Review Cont.
+\begin{itemize}
+    \item Cartesian Product
+
+        \begin{gather}
+            A \times B = \text{Set of all ordered pairs}\\
+            = \{(a,b) | a \in A, b \in B \}
+        \end{gather}
+
+        Lemma:
+        \begin{mdframed}
+            \begin{gather}
+                |A \times B| = |A| \times |B| 
+            \end{gather}
+        \end{mdframed}
+
+    \item Could we make set arithmetic analogous to real arithmetic?
+
+        \begin{gather}
+            A^B \text{ or } \frac{A}{B} 
+        \end{gather}
+
+        The property of expontentials we want to preserve
+        is:
+
+        \begin{gather}
+            A^{B_1 + B_2} = A^{B_1} \times A^{B_2}\\
+            A^{\emptyset} = A
+        \end{gather}
+
+        $A/B$ only makes sense for some versions of A and B.
+
+
+    \item How do we define Set Exponentiation for Arbitrary sets A and B?
+        
+        One possibility:
+
+        \begin{mdframed}
+            \begin{gather}
+                A^B \coloneq \{f: B \to A \} 
+            \end{gather}
+
+            \begin{gather}
+                A = \{1, 2\}\\
+                A^B = \mathcal{P}(B)\\
+                2^B = \mathcal{P}(B)
+            \end{gather}
+
+            This means that the powerset is a special
+            case of set exponentiation.
+        \end{mdframed}
+
+        \begin{gather}
+            A^{B_1 + B_2} = A^{B_1} \times A_{B_2}\\ 
+            A^{B_1 + B_2} = \{f; B_1 + B_2 \to A \}\\
+            = \{f_1: B_1 \to A \} \times \{f_2: B_2 \to A \}\\
+            f \leftrightarrow (f_1, f_2)
+        \end{gather}
+
+
+
+
+\end{itemize}
+\pagebreak
+{\huge Chapter 2 - Logic}
+
+\begin{mdframed}
+    A statement is a declarative sentance which
+    can be objectively determined to be True or False.
+\end{mdframed}
+\begin{description}
+    \item Example
+
+        \begin{enumerate}
+            \item An integer 11 is divisible by 4
+
+                False
+
+            \item An integer 11 is big.
+
+                Subjective, not falsifiable.
+                Not a logical statement.
+
+            \item An integer 11 is odd.
+
+                True
+        \end{enumerate}
+
+    \item Logical Negation
+
+        Given a statement P.
+
+        $\neg P$ is a statement which is true if P is false,
+        and false if P is true.
+
+        \begin{tabular}{|c|c|}
+            \hline
+            P & $\neg P$\\
+            \hline
+            T & F\\
+            \hline
+            F & T\\
+            \hline
+        \end{tabular}
+
+    \item Example
+
+        P: an integer 11 is odd.\\
+        $\neg P$: an integer 11 is not odd.
+
+    \item Disjunction
+
+        P, Q are statements.
+
+        The disjunction of P and Q, $P \lor Q$
+        is a statement which is true if P is true, or
+        if Q is true.
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            P & Q & $P \lor Q$\\ 
+            \hline
+            T & T & T\\
+            \hline
+            T & F & T\\
+            \hline
+            F & T & T\\
+            \hline
+            F & F & F\\
+            \hline
+        \end{tabular}
+    \item Example
+
+        P is a statement.
+
+        \begin{displaymath}
+            P \lor \neg P
+        \end{displaymath}
+
+        That statement is always true, meaning it is
+        a tautology.
+    \item Conjuction
+
+        P, Q are statements.
+
+        The conjunction of P and Q, $P \land Q$
+        is a statement which is true only if both
+        P is true, and Q is true.
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            P & Q & $P \land Q$\\ 
+            \hline
+            T & T & T\\
+            \hline
+            T & F & F\\
+            \hline
+            F & T & F\\
+            \hline
+            F & F & F\\
+            \hline
+        \end{tabular}
+
+    \item Implication
+
+        P, Q statements.
+
+        For P to imply Q, $P \implies Q$ means that
+        if P is true, Q is true. If P is true and Q is false,
+        the statement is false. Otherwise the statement is true.
+    
+    \pagebreak
+    \item Example
+
+        P: It is raining\\
+        Q: I will stay home
+
+        $P \implies Q$: If it is raining, I will stay home.
+
+        If P is false the statement is trivially true.
+
+        \begin{mdframed}
+            Note: $P \implies Q$ is equivalent to
+            $\neg (P \land \neg Q)$ or
+            $\neg P \lor Q$
+        \end{mdframed}
+
+        \begin{tabular}{|c|c|c|}
+            \hline
+            P & Q & $P \implies Q$\\ 
+            \hline
+            T & T & T\\
+            \hline
+            T & F & F\\
+            \hline
+            F & T & T\\
+            \hline
+            F & F & T\\
+            \hline
+        \end{tabular} 
+
+    \item Logical Identities 
+
+        \begin{itemize}
+            \item $P \implies Q$
+                if P then Q
+
+                P implies Q
+
+                Q, if P.
+
+                P only if Q.
+
+                P sufficient for Q
+
+                Q is necessary for P
+        \end{itemize}
+    
+    \item What is the negation of an implication?
+        
+        \begin{gather}
+            \neg (P \implies Q) \\ 
+            = \neg (\neg P \lor Q)\\
+            = P \land \neg Q\\
+        \end{gather}
+
+        \begin{tabular}{|c|c|c|c|}
+            \hline
+            P & Q & $P \implies Q$ & $\neg(P\implies Q)$\\
+            \hline
+            T & T & T & F\\
+            \hline
+            T & F & F & T\\
+            \hline
+            F & T & T & F\\
+            \hline
+            F & F & T & F\\
+            \hline
+        \end{tabular}
+
+    \item Theorem
+
+        \begin{gather}
+           \neg (P \implies Q) \equiv P \land (\neg Q) 
+        \end{gather}
+
+        Following:
+
+        \begin{gather}
+           P \implies Q \equiv \neg P \lor Q 
+        \end{gather}
+
+        \pagebreak
+    \item Definition
+        \begin{mdframed}
+            An open sentence is a declarative sentence
+            which cantains variables.
+
+            Each variable can assume any value in a given
+            set, called the domain of the variables, and
+            an open sentence becomes a statement when variables
+            are replaced with values.
+        \end{mdframed}
+
+    \item Example
+
+        \begin{gather}
+            P(x): |x| = 3, x \in \mathbb{R} 
+        \end{gather}
+
+        The open sentence above only becomes objectively
+        true or false when we assign a value to x.
+
+        $P(x)$ is not a statement but $P(2)$ is a statement
+        which is false, and $P(3)$ is a statement which is true.
+
+
+\end{description}
+
+
+\end{document}

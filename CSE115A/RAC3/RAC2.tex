@@ -1,0 +1,108 @@
+\documentclass{report}
+\usepackage[tmargin=2cm, rmargin=1in, lmargin=1in,margin=0.85in,bmargin=2cm,footskip=.2in]{geometry}
+\usepackage{amsmath,amsfonts,amsthm,amssymb,mathtools}
+\usepackage{enumitem}
+\usepackage[]{mdframed}
+\usepackage{tikz}
+\usepackage{listings}
+
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{c_style}{
+    language=C,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstdefinestyle{asm_style}{
+    language=asm,
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+
+
+
+\title{\Huge{CSE 115A - Introduction to Software Engineering}}
+\author{\huge{Elijah Hantman}}
+\date{}
+
+\begin{document}
+\maketitle
+\newpage
+
+Scrum + Engineering Practices is a paper by Williams,
+Brown, et al. published by IEEE in September 2011 for
+a conference.
+
+The paper looks at several teams and details 'Flacid Scrum'
+which refers to teams which use SCRUM but eschew other essential
+development practices such as automation and testing.
+
+The paper then examines four specific teams at Microsoft
+and the specific development practicies they used.
+
+\begin{enumerate}
+    \item The teams used Planning Poker to come to collective
+        estimates of difficulty and time required. The teams
+        reported that it helped improve their confidence in
+        their estimates being accurate and correct.
+    \item The teams used Continuous integration, which is
+        a practice of automating tests into the build pipeline
+        which allowed for teams to work faster and detect problems
+        sooner.
+    \item Teams also attempted to practice Test Driven Development.
+        Each team did something slightly different, but all attempted
+        to write automatic unit tests either before or soon
+        after writing code, and all teams saw the amount of their
+        code tested rise up to nearly 90\%.
+    \item Teams also used rigorous peer review. Senior developers
+        would check the code and ensure that there weren't any
+        stylistic errors or missed bugs.
+\end{enumerate}
+
+In the end the authors conclude that Scrum has improved the quality
+of the software delivered, measured by the density of defects
+in the resulting software, as well as increasing the total amount
+of code produced.
+
+Overall I think that the paper definitively shows that SCRUM
+can work, although they admit in their limitations that
+the results could be partially or largely due to other
+factors such as familiarity with the code base and
+possibly even just the nature of the projects themselves.
+
+\end{document}
+
